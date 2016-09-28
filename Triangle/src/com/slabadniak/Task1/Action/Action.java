@@ -34,8 +34,8 @@ public class Action {
                 double area = triangle.calculateArea();
                 BaseBuilder.LOGGER.log(Level.DEBUG, triangle.toString()  +" area = " + area);
             }
-        }catch (NotATriangleExeption e) {
+        } catch (NotATriangleExeption e) {
                 BaseBuilder.LOGGER.log(Level.ERROR, "Such tringle can't exist");
-            }
+        }
     }
 }
