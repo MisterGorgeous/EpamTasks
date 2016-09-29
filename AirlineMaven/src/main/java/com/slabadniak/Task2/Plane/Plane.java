@@ -2,6 +2,7 @@ package com.slabadniak.Task2.Plane;
 
 import com.slabadniak.Task2.Engine.Engine;
 import com.slabadniak.Task2.PlaneBehavior.PlaneBehavior;
+import com.slabadniak.Task2.Plane.PlaneAtribute.planeAtribute;
 
 public abstract class Plane implements PlaneBehavior {
     private static long INCR;
@@ -61,6 +62,26 @@ public abstract class Plane implements PlaneBehavior {
     public double getConsumtionOfFuel(){
         return (double) rangeOfFlight / (double) fuel;
     }
+
+
+
+  /*  public <T extends Number> T getAtribute (planeAtribute atribute){
+       if(atribute ==  planeAtribute.CAPACITY) {
+          return (T) new Integer(capacity);
+       } else if(atribute ==  planeAtribute.TONNAGE){
+           return(T) new Float(tonnage);
+       } else if(atribute ==  planeAtribute.LENGTH){
+           return (T) new Float(length);
+       } else if(atribute ==  planeAtribute.WINGSPAN){
+           return (T) new Float(wingspan);
+       } else if(atribute ==  planeAtribute.MAXSPEED){
+           return (T) new Integer(maxSpeed);
+       } else if(atribute ==  planeAtribute.RANGEOFFLIGHT){
+           return (T) new Integer(rangeOfFlight);
+       } else{
+           return (T) new Integer(fuel);
+       }
+    }*/
 
     public long getId() {
         return Id;

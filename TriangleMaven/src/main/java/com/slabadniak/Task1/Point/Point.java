@@ -19,18 +19,26 @@ public class Point {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
+    public boolean equals(Object obj){
+        if (this == obj){
             return true;
         }
-        if (obj == null) {
+        if (obj == null){
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        if (getClass() != obj.getClass()){
             return false;
         }
         Point other = (Point) obj;
         return ((Math.abs(x - other.x) < ACCEPTABLE_DELTA) && (Math.abs(y - other.y) < ACCEPTABLE_DELTA));
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + (int)x;
+        result = 31 * result + (int)y;
+        return result;
     }
 
     @Override

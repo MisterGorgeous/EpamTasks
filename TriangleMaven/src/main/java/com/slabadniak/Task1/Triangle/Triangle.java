@@ -9,16 +9,17 @@ public class Triangle {
     private Point seccondPoint;
     private Point thirdPoint;
 
-    public Triangle(){
+    public Triangle(Point firstPoint, Point seccondPoint, Point thirdPoint){
+        this.firstPoint = firstPoint;
+        this.seccondPoint = seccondPoint;
+        this.thirdPoint = thirdPoint;
     }
 
     public void setPoints(Point firstPoint, Point seccondPoint, Point thirdPoint) throws NotATriangleExeption{
         this.firstPoint = firstPoint;
         this.seccondPoint = seccondPoint;
         this.thirdPoint = thirdPoint;
-        if(firstPoint.equals(seccondPoint) || firstPoint.equals(thirdPoint) || seccondPoint.equals(thirdPoint)) {
-            throw new NotATriangleExeption("Points are equal");
-        }
+        checkTringle();
     }
 
     public Point getPoint(PointNum num){
@@ -31,10 +32,14 @@ public class Triangle {
         }
     }
 
-    public double calculatePerimetr() throws NotATriangleExeption{
-        if(firstPoint.equals(seccondPoint) || firstPoint.equals(thirdPoint) || seccondPoint.equals(thirdPoint)) {
+    public void checkTringle() throws NotATriangleExeption{
+        if(firstPoint.equals(seccondPoint) || firstPoint.equals(thirdPoint) || seccondPoint.equals(thirdPoint)){
             throw new NotATriangleExeption("Points are equal");
         }
+    }
+
+    public double calculatePerimetr() throws NotATriangleExeption{
+        checkTringle();
         double sideA = calculateSide(firstPoint, seccondPoint);
         double sideB = calculateSide(firstPoint, thirdPoint);
         double sideC = calculateSide(seccondPoint, thirdPoint);

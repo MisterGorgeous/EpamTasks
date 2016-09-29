@@ -35,9 +35,9 @@ public class TriangleCheck {
 
     @Test
         public void isPointsFormTriangle(){
-            Triangle triangle = new Triangle();
+        Triangle triangle = new Triangle(first,seccond,third);
         try {
-            triangle.setPoints(first,seccond,third);
+            triangle.checkTringle();
         } catch (NotATriangleExeption notATriangleExeption) {
             notATriangleExeption.printStackTrace();
         }
@@ -49,9 +49,9 @@ public class TriangleCheck {
 
     @Test
         public void isRectangularTriangle(){
-        Triangle triangle = new Triangle();
+        Triangle triangle = new Triangle(first,seccond,third);
         try {
-            triangle.setPoints(first,seccond,third);
+            triangle.checkTringle();
         } catch (NotATriangleExeption notATriangleExeption) {
             notATriangleExeption.printStackTrace();
         }
@@ -61,13 +61,8 @@ public class TriangleCheck {
             double b1 = triangle.getPoint(PointNum.FIRST).getY() - triangle.getPoint(PointNum.SECCOND).getY();
             double b2 = triangle.getPoint(PointNum.SECCOND).getY() - triangle.getPoint(PointNum.THIRD).getY();
             double b3 = triangle.getPoint(PointNum.FIRST).getY() - triangle.getPoint(PointNum.THIRD).getY();
-            Assert.assertFalse("One of the angles equals 90 degrees", checkAngle(a1, a2, b1, b2));
-            Assert.assertFalse("One of the angles equals 90 degrees", checkAngle(a1, a3, b1, b3));
-            Assert.assertFalse("One of the angles equals 90 degrees", checkAngle(a3, a2, b3, b2));
-    }
-
-    private boolean checkAngle(double a1, double a2, double b1, double b2){
-        double cos = (a1 * a2 + b1 * b2) / (( Math.hypot(a1, b1) * Math.hypot(a2, b2)));
-        return cos == 0;
+            Assert.assertFalse("One of the angles equals 90 degrees", ((a1 * a2 + b1 * b2) / (( Math.hypot(a1, b1) * Math.hypot(a2, b2)))) == 0);
+            Assert.assertFalse("One of the angles equals 90 degrees",((a1 * a3 + b1 * b3) / (( Math.hypot(a1, b1) * Math.hypot(a3, b3)))) == 0);
+            Assert.assertFalse("One of the angles equals 90 degrees",((a2 * a3 + b2 * b3) / (( Math.hypot(a2, b2) * Math.hypot(a3, b3)))) == 0);
     }
 }

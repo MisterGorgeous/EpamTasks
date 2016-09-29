@@ -26,10 +26,10 @@ public class FileBuider extends BaseBuilder {
                 String[] values = str.split(" ");
                 if(values.length != 6)
                     throw new InvalidInputData();
-                Triangle triangle = new Triangle();
-                triangle.setPoints(new Point(Double.parseDouble(values[0]), Double.parseDouble(values[1])),
+                Triangle triangle = new Triangle(new Point(Double.parseDouble(values[0]), Double.parseDouble(values[1])),
                         new Point(Double.parseDouble(values[2]), Double.parseDouble(values[3])),
                         new Point(Double.parseDouble(values[4]), Double.parseDouble(values[5])));
+                triangle.checkTringle();
                 triangles.add(triangle);
             }
             setTriangles(triangles);
@@ -37,13 +37,13 @@ public class FileBuider extends BaseBuilder {
             fr.close();
             LOGGER.log(Level.INFO, "DATAFileClosed");
         } catch (InvalidInputData e) {
-            LOGGER.log(Level.ERROR, "Wrong number of arguments");
+            LOGGER.log(Level.ERROR, "Wrong number of arguments", e);
         }catch (NotATriangleExeption e) {
-            LOGGER.log(Level.ERROR, "Such tringle can't exist");
+            LOGGER.log(Level.ERROR, "Such tringle can't exist", e);
         } catch (FileNotFoundException e) {
-            LOGGER.log(Level.ERROR, "FileNotFound");
+            LOGGER.log(Level.ERROR, "FileNotFound", e);
         } catch (IOException e) {
-            LOGGER.log(Level.ERROR, "FileReadError");
+            LOGGER.log(Level.ERROR, "FileReadError", e);
         }
     }
 }

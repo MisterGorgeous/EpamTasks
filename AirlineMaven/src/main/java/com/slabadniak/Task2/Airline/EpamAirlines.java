@@ -4,13 +4,19 @@ import com.slabadniak.Task2.Airport.Airoport;
 import com.slabadniak.Task2.Airport.ClassOfAirport.classOfAirport;
 import com.slabadniak.Task2.Comparator.PlaneRangeOfFlyComparator;
 import com.slabadniak.Task2.Exeption.InvalidArgumentExeption;
+import com.slabadniak.Task2.Exeption.InvalidInputData;
 import com.slabadniak.Task2.Plane.Plane;
+import com.slabadniak.Task2.Plane.PlaneAtribute.planeAtribute;
 import org.jgrapht.GraphPath;
 import org.jgrapht.alg.AStarShortestPath;
 import org.jgrapht.alg.interfaces.AStarAdmissibleHeuristic;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleWeightedGraph;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 public class EpamAirlines {
@@ -48,6 +54,15 @@ public class EpamAirlines {
         return totalTon;
     }
 
+   /* public <T extends Number> T totalValue(planeAtribute atribute){
+        T result;
+        Iterator<Plane> iterator = planes.iterator();
+        while (iterator.hasNext()) {
+            result += iterator.next().getAtribute(atribute);
+        }
+        return result;
+    }*/
+
     public void sortByRangeOfFlying(){
         Collections.sort(planes, new PlaneRangeOfFlyComparator());
     }
@@ -70,39 +85,36 @@ public class EpamAirlines {
         private Set<Airoport> airoports;
 
         Route(){
-            routeSystem =  new SimpleWeightedGraph<Airoport, DefaultWeightedEdge>(DefaultWeightedEdge.class);
-            routeSystem.addVertex(new Airoport("Heathrow Airport", "London.United Kingdom",5, classOfAirport.I));
-            routeSystem.addVertex(new Airoport("Charles de Gaulle Airport", "Paris.France",4, classOfAirport.II));
-            routeSystem.addVertex(new Airoport("Amsterdam Airport Schiphol", "Amsterdam.Netherlands",4, classOfAirport.II));
-            routeSystem.addVertex(new Airoport("Istanbul Atatürk Airport", "Istanbul.Turkey",5, classOfAirport.II));
-            routeSystem.addVertex(new Airoport("Berlin Tegel Airport", "Berlin.Germany",3, classOfAirport.III));
-            routeSystem.addVertex(new Airoport("Sheremetyevo International Airport", "Moscow.Russia",4, classOfAirport.III));
-            routeSystem.addVertex(new Airoport("Helsinki Airport", "Helsinki.Finland",3, classOfAirport.IV));
-            routeSystem.addVertex(new Airoport("Frederic Chopin Airport", "Warsaw.Poland",2, classOfAirport.IV));
-            routeSystem.addVertex(new Airoport("Riga International Airport", "Riga.Latvia",1, classOfAirport.V));
-            routeSystem.addVertex(new Airoport("Boryspil International Airport", "Kyiv.Ukraine",1, classOfAirport.V));
-            routeSystem.addVertex(new Airoport("Minsk National Airport", "Minsk.Belarus",1, classOfAirport.V));
-
-            airoports = routeSystem.vertexSet();
             try {
-                addHallway(1,2,285);
-                addHallway(1,3,330);
-                addHallway(2,5,1054);
-                addHallway(5,3,654);
-                addHallway(5,8,571);
-                addHallway(8,9,663);
-                addHallway(8,11,553);
-                addHallway(8,10,781);
-                addHallway(9,7,395);
-                addHallway(9,11,483);
-                addHallway(6,11,717);
-                addHallway(10,11,556);
-                addHallway(10,6,853);
-                addHallway(10,4,1821);
-               // System.out.println("Ok");
+                routeSystem =  new SimpleWeightedGraph<Airoport, DefaultWeightedEdge>(DefaultWeightedEdge.class);
+                FileReader fr = new FileReader("src\\main\\java\\com\\slabadniak\\Task2\\File\\Airports");
+                BufferedReader br = new BufferedReader(fr);
+                String str;
+                while ((str = br.readLine()) != null) {
+                    String[] values = str.split(" ");
+                    if (values.length != 4)
+                        throw new InvalidInputData();
+                    routeSystem.addVertex(new Airoport(values[0], values[1],Integer.parseInt(values[2]), classOfAirport.getAirport(values[3])));
+                }
 
+                airoports = routeSystem.vertexSet();
+
+                fr = new FileReader("src\\main\\java\\com\\slabadniak\\Task2\\File\\Hallways");
+                br = new BufferedReader(fr);
+                while ((str = br.readLine()) != null) {
+                    String[] values = str.split(",");
+                    if (values.length != 3)
+                        throw new InvalidInputData();
+                    addHallway(Integer.parseInt(values[0]),Integer.parseInt(values[1]),Integer.parseInt(values[2]));
+                }
             } catch (InvalidArgumentExeption invalidArgumentExeption) {
                 invalidArgumentExeption.printStackTrace();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (InvalidInputData invalidInputData) {
+                invalidInputData.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
             //  routeSystem.addEdge()
         }
