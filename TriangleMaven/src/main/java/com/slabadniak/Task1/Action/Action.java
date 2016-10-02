@@ -17,13 +17,13 @@ public class Action {
         ArrayList<Triangle> trianglesHardcore = Director.createTriangles(new HardcodeBuilder());
         try {
             Iterator<Triangle> iterator = trianglesFromFile.iterator();
-            while (iterator.hasNext()){
+            while (iterator.hasNext()) {
                 Triangle triangle = iterator.next();
                 double perimetr = triangle.calculatePerimetr();
                 BaseBuilder.LOGGER.log(Level.DEBUG, triangle.toString() + " perimetr =" + perimetr);
             }
            iterator = trianglesHardcore.iterator();
-            while (iterator.hasNext()){
+            while (iterator.hasNext()) {
                 Triangle triangle = iterator.next();
                 double area = triangle.calculateArea();
                 BaseBuilder.LOGGER.log(Level.DEBUG, triangle.toString()  +" area = " + area);

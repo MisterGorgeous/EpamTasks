@@ -1,7 +1,8 @@
 package com.slabadniak.Task2.PlaneBehavior;
 
 public interface PlaneBehavior {
-    void fly();
+    boolean isPlaneFlying();
+    float fly(int distance);
     void takeOff();
     void landOn();
 }

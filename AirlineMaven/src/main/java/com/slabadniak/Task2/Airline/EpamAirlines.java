@@ -1,12 +1,17 @@
 package com.slabadniak.Task2.Airline;
 
 import com.slabadniak.Task2.Airport.Airoport;
-import com.slabadniak.Task2.Airport.ClassOfAirport.classOfAirport;
+import com.slabadniak.Task2.Airport.AirportsClass.AirportsClass;
+import com.slabadniak.Task2.Airport.LocationOfAirportsCity.AirportLocationCity;
 import com.slabadniak.Task2.Comparator.PlaneRangeOfFlyComparator;
 import com.slabadniak.Task2.Exeption.InvalidArgumentExeption;
 import com.slabadniak.Task2.Exeption.InvalidInputData;
 import com.slabadniak.Task2.Plane.Plane;
-import com.slabadniak.Task2.Plane.PlaneAtribute.planeAtribute;
+import com.slabadniak.Task2.PlaneFactory.AirlinerFactory.Boeing747Factory;
+import com.slabadniak.Task2.PlaneFactory.AirlinerFactory.Ty154Factory;
+import com.slabadniak.Task2.PlaneFactory.SkyTruckFactory.AH124Factory;
+import com.slabadniak.Task2.PlaneFactory.SkyTruckFactory.C130Factory;
+import com.slabadniak.Task2.TicketClass.TicketClass;
 import org.jgrapht.GraphPath;
 import org.jgrapht.alg.AStarShortestPath;
 import org.jgrapht.alg.interfaces.AStarAdmissibleHeuristic;
@@ -20,71 +25,104 @@ import java.io.IOException;
 import java.util.*;
 
 public class EpamAirlines {
-    private ArrayList<Plane> planes;
-    private Route route;
+    private AirportsSystem airoports;
+    private Aviation aviation;
 
     public EpamAirlines(){
-        planes = new ArrayList<Plane>();
-        route = new Route();
+        airoports = new AirportsSystem();
+        aviation = new Aviation();
     }
 
-    public void addPlane(Plane plane){
-        planes.add(plane);
+    public AirportsSystem getAiroports() {
+        return airoports;
     }
 
-    public ArrayList<Plane> getPlanes() {
-        return planes;
+    public Aviation getAviation() {
+        return aviation;
     }
 
-    public int totalCapacity() {
-        int totalCap = 0;
-        Iterator<Plane> iterator = planes.iterator();
-        while (iterator.hasNext()) {
-            totalCap += iterator.next().getCapacity();
+    public class Aviation {
+        private ArrayList<Plane> planes;
+
+        Aviation(){
+            planes = new ArrayList<Plane>();
+            planes.add(new Boeing747Factory().createPlane());
+            planes.add(new Ty154Factory().createPlane());
+            planes.add(new AH124Factory().createPlane());
+            planes.add( new C130Factory().createPlane());
         }
-        return totalCap;
-    }
 
-    public float totalTonnage() {
-        float totalTon = 0;
-        Iterator<Plane> iterator = planes.iterator();
-        while (iterator.hasNext()) {
-            totalTon += iterator.next().getTonnage();
+        public void addPlane(Plane plane){
+            planes.add(plane);
         }
-        return totalTon;
-    }
 
-   /* public <T extends Number> T totalValue(planeAtribute atribute){
+        public ArrayList<Plane> getPlanes() {
+            return planes;
+        }
+
+        public Plane getSparePlane() throws InvalidArgumentExeption{
+            Iterator<Plane> iterator = planes.iterator();
+            while (iterator.hasNext()) {
+                Plane plane = iterator.next();
+                if(!plane.isPlaneFlying())
+                    return plane;
+            }
+            throw new InvalidArgumentExeption("There is no available planes.All planes are flying.");
+        }
+
+        public int totalCapacity() {
+            int totalCap = 0;
+            Iterator<Plane> iterator = planes.iterator();
+            while (iterator.hasNext()) {
+                totalCap += iterator.next().getCapacity();
+            }
+            return totalCap;
+        }
+
+        public float totalTonnage() {
+            float totalTon = 0;
+            Iterator<Plane> iterator = planes.iterator();
+            while (iterator.hasNext()) {
+                totalTon += iterator.next().getTonnage();
+            }
+            return totalTon;
+        }
+
+ /*   public <T extends Number> T totalValue(planeAtribute atribute){
         T result;
         Iterator<Plane> iterator = planes.iterator();
         while (iterator.hasNext()) {
-            result += iterator.next().getAtribute(atribute);
+            result += iterator.next().getAtribute(atribute).;
         }
         return result;
     }*/
 
-    public void sortByRangeOfFlying(){
-        Collections.sort(planes, new PlaneRangeOfFlyComparator());
+        public void sortByRangeOfFlying(){
+            Collections.sort(planes, new PlaneRangeOfFlyComparator());
+        }
+
+        public Plane fuelConsumptionLimit(int lowValue, int highValue){
+            if(lowValue >= highValue){
+                //throw InvalidArgumentExeption("low >= high');
+            }
+            Iterator<Plane> iterator = planes.iterator();
+            while (iterator.hasNext()) {
+                Plane plane = iterator.next();
+                if(plane.getConsumtionOfFuel() > lowValue && plane.getConsumtionOfFuel() < highValue)
+                    return plane;
+            }
+            return null;//TO Do
+        }
     }
 
-    public Plane fuelConsumptionLimit(int lowValue, int highValue){
-        if(lowValue >= highValue){
-            //throw InvalidArgumentExeption("low >= high');
-        }
-        Iterator<Plane> iterator = planes.iterator();
-        while (iterator.hasNext()) {
-            Plane plane = iterator.next();
-            if(plane.getConsumtionOfFuel() > lowValue && plane.getConsumtionOfFuel() < highValue)
-                return plane;
-        }
-        return null;//TO Do
-    }
 
-    class Route  {
+
+    public class AirportsSystem  {
         private SimpleWeightedGraph<Airoport,DefaultWeightedEdge> routeSystem;
         private Set<Airoport> airoports;
+        private final int FUEL_COST = 3;
 
-        Route(){
+        AirportsSystem(){
             try {
                 routeSystem =  new SimpleWeightedGraph<Airoport, DefaultWeightedEdge>(DefaultWeightedEdge.class);
                 FileReader fr = new FileReader("src\\main\\java\\com\\slabadniak\\Task2\\File\\Airports");
@@ -92,9 +130,9 @@ public class EpamAirlines {
                 String str;
                 while ((str = br.readLine()) != null) {
                     String[] values = str.split(" ");
-                    if (values.length != 4)
+                    if (values.length != 5)
                         throw new InvalidInputData();
-                    routeSystem.addVertex(new Airoport(values[0], values[1],Integer.parseInt(values[2]), classOfAirport.getAirport(values[3])));
+                    routeSystem.addVertex(new Airoport(values[0], AirportLocationCity.getLocation(values[1]),values[2],Integer.parseInt(values[3]), AirportsClass.getAirport(values[4])));
                 }
 
                 airoports = routeSystem.vertexSet();
@@ -119,7 +157,33 @@ public class EpamAirlines {
             //  routeSystem.addEdge()
         }
 
-        public Airoport findAirport(int id) throws InvalidArgumentExeption {
+        public String flyFromTo(AirportLocationCity origin, AirportLocationCity destination, TicketClass ticketClass)throws InvalidArgumentExeption{
+            GraphPath<Airoport,DefaultWeightedEdge> route = shortestPathBetweenAiroports(findAirportByName(origin),findAirportByName(destination));
+            Plane plane = aviation.getSparePlane();
+            int flyDistance = (int)route.getWeight();
+            float routeTime =  plane.fly(flyDistance);
+            String flyInfo = "Your have flied from" + findAirportByName(origin) + "\nto " + findAirportByName(destination) + ".\n"+
+                            "On the palne " + plane.getName() + ".The distance was " + flyDistance + ".\n Flying time was " + routeTime
+                            +" hours.\nThe flight cost " + calculateFlyCost(flyDistance, ticketClass);
+            return flyInfo;
+        }
+
+        private float calculateFlyCost(int flyDistance, TicketClass ticketClass){
+            return flyDistance / FUEL_COST * TicketClass.getClassCoefitient(ticketClass);
+        }
+
+        private Airoport findAirportByName(AirportLocationCity locationCity) throws InvalidArgumentExeption {
+            Iterator<Airoport> iterator = airoports.iterator();
+            while(iterator.hasNext()){
+                Airoport airoport = iterator.next();
+                if(airoport.getLocationCity().equals(locationCity)) {
+                    return airoport;
+                }
+            }
+            throw new InvalidArgumentExeption("There is no airoport with such name");
+        }
+
+        private Airoport findAirportById(int id) throws InvalidArgumentExeption {
             Iterator<Airoport> iterator = airoports.iterator();
             while(iterator.hasNext()){
                 Airoport airoport = iterator.next();
@@ -130,17 +194,17 @@ public class EpamAirlines {
             throw new InvalidArgumentExeption("There is no airoport with such id");
         }
 
-        public void addHallway(int firstAirId, int seccondAirId,int edgeWeight) throws InvalidArgumentExeption {
+        private void addHallway(int firstAirId, int seccondAirId,int edgeWeight) throws InvalidArgumentExeption {
             if(edgeWeight < 0){
                 throw new InvalidArgumentExeption("Hallway can't be negative.");
             }
-            DefaultWeightedEdge edge = routeSystem.addEdge(findAirport(firstAirId),findAirport(seccondAirId));
+            DefaultWeightedEdge edge = routeSystem.addEdge(findAirportById(firstAirId), findAirportById(seccondAirId));
             routeSystem.setEdgeWeight(edge, edgeWeight);
         }
 
-        public GraphPath<Airoport,DefaultWeightedEdge> shortestPathBetweenAir(int firstAirId, int seccondAirId) throws InvalidArgumentExeption {
+        private GraphPath<Airoport,DefaultWeightedEdge> shortestPathBetweenAiroports(Airoport firstAirport, Airoport seccondAirport) throws InvalidArgumentExeption {
             AStarShortestPath<Airoport,DefaultWeightedEdge> algoritm = new AStarShortestPath<Airoport, DefaultWeightedEdge>(routeSystem);
-            return algoritm.getShortestPath(findAirport(firstAirId), findAirport(seccondAirId), new AStarAdmissibleHeuristic<Airoport>() {
+            return algoritm.getShortestPath(firstAirport,seccondAirport, new AStarAdmissibleHeuristic<Airoport>() {
                 public double getCostEstimate(Airoport airoport, Airoport v1) {
                     return 0;
                 }

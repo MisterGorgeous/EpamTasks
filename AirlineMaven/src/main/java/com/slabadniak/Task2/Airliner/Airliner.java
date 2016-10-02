@@ -5,8 +5,8 @@ import com.slabadniak.Task2.PlaneBehavior.AirlinerBehavior.AirlinerBehavior;
 
 public class Airliner extends Plane implements AirlinerBehavior {
     private int passagerOnTheBoard;
-    public Airliner(int capacity, float tonnage, float length, float wingspan, int maxSpeed, int rangeOfFlight, int fuel) {
-        setPlane(capacity, tonnage, length, wingspan, maxSpeed, rangeOfFlight, fuel);
+    public Airliner(String name,int capacity, float tonnage, float length, float wingspan, int maxSpeed, int rangeOfFlight, int fuel) {
+        setPlane(name,capacity, tonnage, length, wingspan, maxSpeed, rangeOfFlight, fuel);
     }
 
     public void loadPeople(int numPassagers) {

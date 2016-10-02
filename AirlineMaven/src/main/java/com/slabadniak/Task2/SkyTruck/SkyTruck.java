@@ -7,8 +7,8 @@ import com.slabadniak.Task2.PlaneBehavior.TruckBehavior.TruckBehavior;
 public class SkyTruck extends Plane implements TruckBehavior {
     private float cargoOnTheBoard;
 
-    public SkyTruck(int capacity, float tonnage, float length, float wingspan, int maxSpeed, int rangeOfFlight, int fuel) {
-        setPlane(capacity, tonnage, length, wingspan, maxSpeed, rangeOfFlight, fuel);
+    public SkyTruck(String name, int capacity, float tonnage, float length, float wingspan, int maxSpeed, int rangeOfFlight, int fuel) {
+        setPlane(name, capacity, tonnage, length, wingspan, maxSpeed, rangeOfFlight, fuel);
     }
 
     public void loadCargo(float cargo) {

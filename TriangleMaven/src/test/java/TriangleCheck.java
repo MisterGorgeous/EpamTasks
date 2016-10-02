@@ -28,8 +28,8 @@ public class TriangleCheck {
     public static Collection<Object[]> controlTraingles() {
         return Arrays.asList(new Object[][] {
                 { new Point(12,1), new Point(1,13),new Point(15,16) },
-                { new Point(9,0), new Point(0,0),new Point(0,5)},
-                {new Point(0,0), new Point(1,1),new Point(2,2) }
+                { new Point(9,0), new Point(0,0),new Point(0,5) },
+                { new Point(0,0), new Point(1,1),new Point(2,2) }
         });
     }
 

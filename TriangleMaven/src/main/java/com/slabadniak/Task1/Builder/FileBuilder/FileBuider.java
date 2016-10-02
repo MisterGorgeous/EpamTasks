@@ -19,23 +19,24 @@ public class FileBuider extends BaseBuilder {
             FileReader fr = new FileReader("src\\main\\java\\com\\slabadniak\\Task1\\File\\DATA");
             LOGGER.log(Level.INFO, "DATAFileOpened");
             BufferedReader br = new BufferedReader(fr);
+            ArrayList<Triangle> triangles = new ArrayList<Triangle>();
             String str;
 
-            ArrayList<Triangle> triangles = new ArrayList<Triangle>();
             while ((str = br.readLine()) != null) {
                 String[] values = str.split(" ");
                 if(values.length != 6)
-                    throw new InvalidInputData();
+                    throw new InvalidInputData("It must have 6 arguments");
                 Triangle triangle = new Triangle(new Point(Double.parseDouble(values[0]), Double.parseDouble(values[1])),
                         new Point(Double.parseDouble(values[2]), Double.parseDouble(values[3])),
                         new Point(Double.parseDouble(values[4]), Double.parseDouble(values[5])));
                 triangle.checkTringle();
                 triangles.add(triangle);
             }
-            setTriangles(triangles);
 
+            setTriangles(triangles);
             fr.close();
             LOGGER.log(Level.INFO, "DATAFileClosed");
+
         } catch (InvalidInputData e) {
             LOGGER.log(Level.ERROR, "Wrong number of arguments", e);
         }catch (NotATriangleExeption e) {

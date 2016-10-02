@@ -7,5 +7,6 @@ public enum planeAtribute {
     WINGSPAN,
     MAXSPEED,
     RANGEOFFLIGHT,
-    FUEL
+    CONSUPTION_OF_FUEL
+
 }

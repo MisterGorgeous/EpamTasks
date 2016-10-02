@@ -23,9 +23,9 @@ public class Triangle {
     }
 
     public Point getPoint(PointNum num){
-        if(num == PointNum.FIRST){
+        if(num == PointNum.FIRST) {
             return firstPoint;
-        }else if( num == PointNum.SECCOND){
+        } else if( num == PointNum.SECCOND) {
             return seccondPoint;
         } else {
             return thirdPoint;
@@ -33,7 +33,7 @@ public class Triangle {
     }
 
     public void checkTringle() throws NotATriangleExeption{
-        if(firstPoint.equals(seccondPoint) || firstPoint.equals(thirdPoint) || seccondPoint.equals(thirdPoint)){
+        if(firstPoint.equals(seccondPoint) || firstPoint.equals(thirdPoint) || seccondPoint.equals(thirdPoint)) {
             throw new NotATriangleExeption("Points are equal");
         }
     }
