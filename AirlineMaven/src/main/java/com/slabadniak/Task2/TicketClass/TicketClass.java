@@ -1,4 +1,4 @@
-package com.slabadniak.Task2.TicketClass;
+package com.slabadniak.task2.ticketclass;
 
 public enum TicketClass {
     FIRST,

@@ -1,4 +1,4 @@
-package com.slabadniak.Task2.Airport.AirportsClass;
+package com.slabadniak.task2.airport.airportsclass;
 
 public enum AirportsClass {
     I, //100000—70000 passegers a year

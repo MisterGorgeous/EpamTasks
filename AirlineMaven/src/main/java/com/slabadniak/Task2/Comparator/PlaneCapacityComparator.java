@@ -1,10 +1,9 @@
-package com.slabadniak.Task2.Comparator;
+package com.slabadniak.task2.comparator;
 
-import com.slabadniak.Task2.Plane.Plane;
+import com.slabadniak.task2.plane.Plane;
 import java.util.Comparator;
 
 public class PlaneCapacityComparator implements Comparator<Plane>{
-    @Override
     public int compare(Plane o1, Plane o2) {
         return Integer.compare(o1.getCapacity(),o2.getCapacity());
     }

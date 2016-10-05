@@ -1,6 +1,6 @@
-package com.slabadniak.Task2.Engine;
+package com.slabadniak.task2.engine;
 
-import com.slabadniak.Task2.Engine.EngineType.EngineType;
+import com.slabadniak.task2.engine.enginetype.EngineType;
 
 public class Engine {
     private String name;

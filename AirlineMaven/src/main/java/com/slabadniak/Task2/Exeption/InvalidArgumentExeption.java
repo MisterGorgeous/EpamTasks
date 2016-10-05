@@ -1,4 +1,4 @@
-package com.slabadniak.Task2.Exeption;
+package com.slabadniak.task2.exeption;
 
 
 public class InvalidArgumentExeption extends Exception {

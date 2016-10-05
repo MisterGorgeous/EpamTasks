@@ -1,14 +1,14 @@
-package com.slabadniak.Task2.Plane;
+package com.slabadniak.task2.plane;
 
-import com.slabadniak.Task2.Engine.Engine;
-import com.slabadniak.Task2.Exeption.InvalidArgumentExeption;
-import com.slabadniak.Task2.PlaneBehavior.PlaneBehavior;
-import com.slabadniak.Task2.Plane.PlaneAtribute.planeAtribute;
+import com.slabadniak.task2.engine.Engine;
+import com.slabadniak.task2.identifier.Identifier;
+import com.slabadniak.task2.planebehavior.PlaneBehavior;
+import com.slabadniak.task2.planename.PlaneName;
 
 public abstract class Plane implements PlaneBehavior {
-    private static long INCR;
-    private long Id = ++INCR;
-    private String name;
+    private static Identifier identifier = new Identifier();
+    private long id;
+    private PlaneName name;
     private int capacity;      //people
     private float tonnage;     //kg
     private float length;      //m
@@ -27,7 +27,8 @@ public abstract class Plane implements PlaneBehavior {
         this.rangeOfFlight = rangeOfFlight;
         this.fuel = fuel;
     }*/
-     public void setPlane(String name,int capacity, float tonnage, float length, float wingspan, int maxSpeed, int rangeOfFlight, int fuel) {
+     public void setPlane(PlaneName name, int capacity, float tonnage, float length, float wingspan, int maxSpeed, int rangeOfFlight, int fuel) {
+         this.id = identifier.getNextId();
          this.name = name;
          this.capacity = capacity;
          this.tonnage = tonnage;
@@ -61,7 +62,8 @@ public abstract class Plane implements PlaneBehavior {
     public float getLength() {
         return length;
     }
-      public int getMaxSpeed() {
+
+    public int getMaxSpeed() {
         return maxSpeed;
     }
 
@@ -70,10 +72,10 @@ public abstract class Plane implements PlaneBehavior {
     }
 
     public long getId() {
-        return Id;
+        return id;
     }
 
-    public String getName() {
+    public PlaneName getName() {
         return name;
     }
 
@@ -106,11 +108,11 @@ public abstract class Plane implements PlaneBehavior {
 
     public void takeOff() {
         engine.startEngine();
-        System.out.println("Plane with id:" + Long.toString(Id) + " has took off.");
+        System.out.println("Plane " + name + " has took off.");
     }
 
     public void landOn() {
         engine.stopEngine();
-        System.out.println("Plane with id:" + Long.toString(Id) + " has landed off.");
+        System.out.println("Plane " + name + " has landed on.");
     }
 }

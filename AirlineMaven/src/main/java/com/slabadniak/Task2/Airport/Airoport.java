@@ -1,11 +1,12 @@
-package com.slabadniak.Task2.Airport;
+package com.slabadniak.task2.airport;
 
-import com.slabadniak.Task2.Airport.AirportsClass.AirportsClass;
-import com.slabadniak.Task2.Airport.LocationOfAirportsCity.AirportLocationCity;
+import com.slabadniak.task2.airport.airportsclass.AirportsClass;
+import com.slabadniak.task2.airport.airportlocation.AirportLocationCity;
+import com.slabadniak.task2.identifier.Identifier;
 
 public class Airoport {
-    private static long INCR;
-    private long Id = ++INCR;
+    private static Identifier identifier = new Identifier();
+    private long id;
     private String name;
     private AirportLocationCity locationCity;
     private String locationCountry;
@@ -13,6 +14,7 @@ public class Airoport {
     private AirportsClass classofairport;
 
     public Airoport(String name, AirportLocationCity locationCity, String locationCountry, int numOfTerminals, AirportsClass classofairport) {
+        this.id = identifier.getNextId();
         this.name = name;
         this.numOfTerminals = numOfTerminals;
         this.locationCity = locationCity;
@@ -21,7 +23,11 @@ public class Airoport {
     }
 
     public long getId() {
-        return Id;
+        return id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public AirportLocationCity getLocationCity() {

@@ -1,4 +1,4 @@
-package com.slabadniak.Task2.Plane.PlaneAtribute;
+package com.slabadniak.task2.plane.planeatribute;
 
 public enum planeAtribute {
     CAPACITY,

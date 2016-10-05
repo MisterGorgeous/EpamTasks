@@ -1,14 +1,15 @@
-package com.slabadniak.Task2.Action;
+package com.slabadniak.task2.action;
 
-import com.slabadniak.Task2.Airline.EpamAirlines;
-import com.slabadniak.Task2.Airport.LocationOfAirportsCity.AirportLocationCity;
-import com.slabadniak.Task2.Exeption.InvalidArgumentExeption;
-import com.slabadniak.Task2.Plane.Plane;
-import com.slabadniak.Task2.TicketClass.TicketClass;
+import com.slabadniak.task2.airline.EpamAirlines;
+import com.slabadniak.task2.airport.airportlocation.AirportLocationCity;
+import com.slabadniak.task2.exeption.InvalidArgumentExeption;
+import com.slabadniak.task2.plane.Plane;
+import com.slabadniak.task2.report.Report;
+import com.slabadniak.task2.ticketclass.TicketClass;
 
 public class Action {
     public static void main(String[] args){
-        EpamAirlines airlines = new EpamAirlines();
+        EpamAirlines airlines = EpamAirlines.getAirline();
 
         System.out.println(airlines.getAviation().getPlanes());
         System.out.println("Total Capacity" + airlines.getAviation().totalCapacity());
@@ -21,7 +22,7 @@ public class Action {
             System.out.println(plane.getConsumtionOfFuel());
         }
         try{
-            System.out.println(airlines.getAiroports().flyFromTo(AirportLocationCity.ISTANBUL, AirportLocationCity.MINSK, TicketClass.BUSINESS));
+            Report report = airlines.getAiroports().flyFromTo(AirportLocationCity.ISTANBUL, AirportLocationCity.MINSK, TicketClass.BUSINESS);
     } catch (InvalidArgumentExeption invalidArgumentExeption) {
         invalidArgumentExeption.printStackTrace();
     }

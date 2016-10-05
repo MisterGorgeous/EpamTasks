@@ -1,6 +1,6 @@
-package com.slabadniak.Task2.Airport.LocationOfAirportsCity;
+package com.slabadniak.task2.airport.airportlocation;
 
-import com.slabadniak.Task2.Exeption.InvalidArgumentExeption;
+import com.slabadniak.task2.exeption.InvalidArgumentExeption;
 
 public enum AirportLocationCity {
     LONDON,

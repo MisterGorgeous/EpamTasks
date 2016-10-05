@@ -38,7 +38,7 @@ public class Triangle {
         }
     }
 
-    public double calculatePerimetr() throws NotATriangleExeption{
+    public double calculatePerimetr() throws NotATriangleExeption {
         checkTringle();
         double sideA = calculateSide(firstPoint, seccondPoint);
         double sideB = calculateSide(firstPoint, thirdPoint);
@@ -46,18 +46,18 @@ public class Triangle {
         return sideA + sideB + sideC;
     }
 
-    public double calculateArea() throws NotATriangleExeption{
+    public double calculateArea() throws NotATriangleExeption {
         double p = calculatePerimetr() / 2;
         return Math.sqrt(p * (p - calculateSide(firstPoint, seccondPoint)) * (p - calculateSide(firstPoint, thirdPoint))
                             * (p - calculateSide(seccondPoint, thirdPoint)));
     }
 
-    private double calculateSide(Point first, Point seccond){
+    private double calculateSide(Point first, Point seccond) {
         return Math.hypot(first.getX() - seccond.getX(),first.getY() - seccond.getY());
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "(" + firstPoint.toString() + "), " + "(" + seccondPoint.toString() + "), " + "(" + thirdPoint.toString() + ") ";
     }
 }

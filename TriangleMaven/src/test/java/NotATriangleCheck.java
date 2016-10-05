@@ -8,5 +8,6 @@ public class NotATriangleCheck {
     @Test(expected = NotATriangleExeption.class)
     public void isTriangleValid() throws NotATriangleExeption {
         Triangle triangle = new Triangle(new Point(0,0),new Point(0,0),new Point(0,0));
+        triangle.checkTringle();
     }
 }

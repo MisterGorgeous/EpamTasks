@@ -10,7 +10,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 public abstract class BaseBuilder {
-    public static final Logger LOGGER = LogManager.getLogger(Action.class);
+    public static final Logger LOGGER = LogManager.getLogger(BaseBuilder.class);
     private ArrayList<Triangle> triangles;
 
     static {

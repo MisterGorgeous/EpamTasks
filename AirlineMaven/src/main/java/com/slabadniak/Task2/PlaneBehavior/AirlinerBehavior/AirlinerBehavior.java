@@ -1,4 +1,4 @@
-package com.slabadniak.Task2.PlaneBehavior.AirlinerBehavior;
+package com.slabadniak.task2.planebehavior.airlinerbehavior;
 
 public interface AirlinerBehavior {
     void loadPeople(int numPassagers);
