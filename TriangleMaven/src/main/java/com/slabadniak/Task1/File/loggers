@@ -1,7 +1,7 @@
 16:31:09.726 [main] ERROR com.slabadniak.Task1.Action.Action - Such tringle can't exist
 com.slabadniak.Task1.Exeption.NotATriangleExeption: Points are equal
 	at com.slabadniak.Task1.Triangle.Triangle.checkTringle(Triangle.java:37) ~[classes/:?]
-	at com.slabadniak.Task1.Builder.HardcodeBuilder.HardcodeBuilder.buildTriangles(HardcodeBuilder.java:18) [classes/:?]
+	at com.slabadniak.Task1.Builder.HardcodeBuilder.buildTriangles(HardcodeBuilder.java:18) [classes/:?]
 	at com.slabadniak.Task1.Builder.Director.createTriangles(Director.java:10) [classes/:?]
 	at com.slabadniak.Task1.Action.Action.main(Action.java:17) [classes/:?]
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_31]

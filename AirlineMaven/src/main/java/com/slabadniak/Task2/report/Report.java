@@ -1,17 +1,16 @@
 package com.slabadniak.task2.report;
 
-import com.slabadniak.task2.airport.airportlocation.AirportLocationCity;
-import com.slabadniak.task2.planename.PlaneName;
+import com.slabadniak.task2.airport.AirportLocationCity;
 
 public class Report {
     private AirportLocationCity origin;
     private AirportLocationCity destination;
-    private PlaneName planeName;
+    private String  planeName;
     private int flyDistance;
     private float routeTime;
     private float flyCost;
 
-    public Report(AirportLocationCity origin, AirportLocationCity destination, PlaneName planeName, int flyDistance, float routeTime, float flycost) {
+    public Report(AirportLocationCity origin, AirportLocationCity destination, String  planeName, int flyDistance, float routeTime, float flycost) {
         this.origin = origin;
         this.destination = destination;
         this.planeName = planeName;
@@ -20,8 +19,12 @@ public class Report {
         this.flyCost = flycost;
     }
 
+    public Report() {
+
+    }
+
     public String showInfo(){
-        return  "Your have flied from" + origin + "\nto " + destination + ".\n"+
+        return "Your have flied from" + origin + "\nto " + destination + ".\n"+
                 "On the palne " + planeName + ".The distance was " + flyDistance + ".\n Flying time was " + routeTime
                 +" hours.\nThe flight cost " + flyCost;
     }

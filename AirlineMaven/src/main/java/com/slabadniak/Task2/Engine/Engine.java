@@ -1,7 +1,5 @@
 package com.slabadniak.task2.engine;
 
-import com.slabadniak.task2.engine.enginetype.EngineType;
-
 public class Engine {
     private String name;
     private float thrust;            //kH

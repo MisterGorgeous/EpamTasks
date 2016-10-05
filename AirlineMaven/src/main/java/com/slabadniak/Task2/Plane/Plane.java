@@ -1,14 +1,11 @@
 package com.slabadniak.task2.plane;
 
 import com.slabadniak.task2.engine.Engine;
-import com.slabadniak.task2.identifier.Identifier;
 import com.slabadniak.task2.planebehavior.PlaneBehavior;
-import com.slabadniak.task2.planename.PlaneName;
 
 public abstract class Plane implements PlaneBehavior {
-    private static Identifier identifier = new Identifier();
     private long id;
-    private PlaneName name;
+    private String name;
     private int capacity;      //people
     private float tonnage;     //kg
     private float length;      //m
@@ -18,17 +15,8 @@ public abstract class Plane implements PlaneBehavior {
     private int fuel;          //kg
     private Engine engine;
 
-     /*public Plane(int capacity, float tonnage, float length, float wingspan, int maxSpeed, int rangeOfFlight, int fuel) {
-        this.capacity = capacity;
-        this.tonnage = tonnage;
-        this.length = length;
-        this.wingspan = wingspan;
-        this.maxSpeed = maxSpeed;
-        this.rangeOfFlight = rangeOfFlight;
-        this.fuel = fuel;
-    }*/
-     public void setPlane(PlaneName name, int capacity, float tonnage, float length, float wingspan, int maxSpeed, int rangeOfFlight, int fuel) {
-         this.id = identifier.getNextId();
+     public void setPlane(String name, int capacity, float tonnage, float length, float wingspan, int maxSpeed, int rangeOfFlight, int fuel) {
+         this.id = PlaneIdentifier.getNextId();
          this.name = name;
          this.capacity = capacity;
          this.tonnage = tonnage;
@@ -75,28 +63,9 @@ public abstract class Plane implements PlaneBehavior {
         return id;
     }
 
-    public PlaneName getName() {
+    public String getName() {
         return name;
     }
-
-/* public <T extends Number> T getAtribute (planeAtribute atribute){
-       if(atribute ==  planeAtribute.CAPACITY) {
-          return (T) new Integer(capacity);
-       } else if(atribute ==  planeAtribute.TONNAGE){
-           return(T) new Float(tonnage);
-       } else if(atribute ==  planeAtribute.LENGTH){
-           return (T) new Float(length);
-       } else if(atribute ==  planeAtribute.WINGSPAN){
-           return (T) new Float(wingspan);
-       } else if(atribute ==  planeAtribute.MAXSPEED){
-           return (T) new Integer(maxSpeed);
-       } else if(atribute ==  planeAtribute.RANGEOFFLIGHT){
-           return (T) new Integer(rangeOfFlight);
-       } else{
-           return (T) new Double((double) rangeOfFlight / (double) fuel);
-       }
-    }
-*/
 
     public boolean isPlaneFlying() {
         return engine.isEngineWorking();

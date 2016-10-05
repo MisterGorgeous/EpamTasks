@@ -1,5 +1,5 @@
 import com.slabadniak.task2.airline.EpamAirlines;
-import com.slabadniak.task2.exeption.InvalidArgumentExeption;
+import com.slabadniak.task2.exeption.UncorrectDataExeption;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -30,8 +30,8 @@ public class AviationCheck {
         });
     }
 
-    @Test(expected = InvalidArgumentExeption.class)
-    public void fuelConsumptionCheck() throws InvalidArgumentExeption {
+    @Test(expected = UncorrectDataExeption.class)
+    public void fuelConsumptionCheck() throws UncorrectDataExeption {
         airline.getAviation().fuelConsumptionLimit(lowValue,highValue);
 
     }
