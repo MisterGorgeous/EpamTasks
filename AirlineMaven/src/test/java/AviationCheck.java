@@ -1,5 +1,5 @@
-import com.slabadniak.task2.airline.EpamAirlines;
-import com.slabadniak.task2.exeption.UncorrectDataExeption;
+import com.slabadniak.task2.airline.EpamAirline;
+import com.slabadniak.task2.exeption.IncorrectDataExeption;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -9,12 +9,12 @@ import java.util.Collection;
 
 @RunWith(Parameterized.class)
 public class AviationCheck {
-    private EpamAirlines airline;
+    private EpamAirline airline;
     private int lowValue;
     private int highValue;
 
     public AviationCheck(int lowValue, int highValue){
-        airline = EpamAirlines.getAirline();
+        airline = EpamAirline.getAirline();
         this.lowValue = lowValue;
         this.highValue = highValue;
     }
@@ -30,9 +30,9 @@ public class AviationCheck {
         });
     }
 
-    @Test(expected = UncorrectDataExeption.class)
-    public void fuelConsumptionCheck() throws UncorrectDataExeption {
-        airline.getAviation().fuelConsumptionLimit(lowValue,highValue);
+    @Test(expected = IncorrectDataExeption.class)
+    public void fuelConsumptionCheck() throws IncorrectDataExeption {
+        airline.fuelConsumptionLimit(lowValue,highValue);
 
     }
 

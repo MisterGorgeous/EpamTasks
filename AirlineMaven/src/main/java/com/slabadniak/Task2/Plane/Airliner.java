@@ -1,6 +1,6 @@
 package com.slabadniak.task2.plane;
 
-import com.slabadniak.task2.exeption.UncorrectDataExeption;
+import com.slabadniak.task2.exeption.IncorrectDataExeption;
 
 public class Airliner extends Plane {
     private int passagerOnTheBoard;
@@ -8,11 +8,12 @@ public class Airliner extends Plane {
         setPlane(name, capacity, tonnage, length, wingspan, maxSpeed, rangeOfFlight, fuel);
     }
 
-    public void loadPeople(int numPassagers) throws UncorrectDataExeption {
+    public void loadPeople(int numPassagers) throws IncorrectDataExeption {
         if(numPassagers <= getCapacity() && numPassagers > 0) {
             passagerOnTheBoard = numPassagers;
+            return;
         }
-        throw new UncorrectDataExeption("Invalid cargo");
+        throw new IncorrectDataExeption("Invalid cargo");
     }
 
     public void unloadPeople() {

@@ -4,22 +4,21 @@ import com.slabadniak.task2.plane.Airliner;
 import com.slabadniak.task2.engine.Engine;
 import com.slabadniak.task2.engine.EngineType;
 import com.slabadniak.task2.plane.Plane;
-import com.slabadniak.task2.plane.PlaneAtribute;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-import static com.slabadniak.task2.plane.PlaneAtribute.*;
+import static com.slabadniak.task2.planefactory.PlaneAtribute.*;
 
-public class AirlinerFactory extends PlaneFactory {
+public class AirlinerFactory extends PlaneFactory <Airliner>{
     @Override
-    public Plane createPlane() {
-        while(!readPlane()){
-            //TO DO
-        }
-       Plane plane;
-       List<String> atributes = getAtributes();
+    public Airliner createPlane( String model) {
+        List<String> atributes = getAtributes(model);
 
-        plane = new Airliner(atributes.get(NAME.ordinal()), Integer.parseInt(atributes.get(CAPACITY.ordinal())),
+        Airliner plane = new Airliner(atributes.get(NAME.ordinal()), Integer.parseInt(atributes.get(CAPACITY.ordinal())),
                                 Float.parseFloat(atributes.get(TONNAGE.ordinal())),Float.parseFloat(atributes.get(LENGTH.ordinal())),
                                 Float.parseFloat(atributes.get(WINGSPAN.ordinal())), Integer.parseInt(atributes.get(MAXSPEED.ordinal())),
                                 Integer.parseInt(atributes.get(RANGE_OF_FLIGHT.ordinal())),Integer.parseInt(atributes.get(CONSUPTION_OF_FUEL.ordinal())));

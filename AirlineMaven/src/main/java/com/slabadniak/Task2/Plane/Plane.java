@@ -1,6 +1,7 @@
 package com.slabadniak.task2.plane;
 
 import com.slabadniak.task2.engine.Engine;
+import com.slabadniak.task2.exeption.IncorrectDataExeption;
 import com.slabadniak.task2.planebehavior.PlaneBehavior;
 
 public abstract class Plane implements PlaneBehavior {
@@ -10,7 +11,7 @@ public abstract class Plane implements PlaneBehavior {
     private float tonnage;     //kg
     private float length;      //m
     private float wingspan;    //m
-    private int maxSpeed;      //km/h
+    private int maxSpeed;      //km per h
     private int rangeOfFlight; //km
     private int fuel;          //kg
     private Engine engine;
@@ -71,17 +72,18 @@ public abstract class Plane implements PlaneBehavior {
         return engine.isEngineWorking();
     }
 
-    public float fly(int distance) {
+    public float fly(int distance) throws IncorrectDataExeption{
+        if(distance < 0){
+            throw new IncorrectDataExeption("Distance < 0");
+        }
         return (float)distance / (float) maxSpeed;
     }
 
     public void takeOff() {
         engine.startEngine();
-        System.out.println("Plane " + name + " has took off.");
     }
 
     public void landOn() {
         engine.stopEngine();
-        System.out.println("Plane " + name + " has landed on.");
     }
 }
