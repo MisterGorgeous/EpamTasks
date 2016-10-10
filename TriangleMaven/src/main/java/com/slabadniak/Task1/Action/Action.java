@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Action {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ArrayList<Triangle> trianglesFromFile = Director.createTriangles(new FileBuider());
         ArrayList<Triangle> trianglesHardcore = Director.createTriangles(new HardcodeBuilder());
         try {
@@ -22,14 +22,14 @@ public class Action {
                 double perimetr = triangle.calculatePerimetr();
                 BaseBuilder.LOGGER.log(Level.DEBUG, triangle.toString() + " perimetr =" + perimetr);
             }
-           iterator = trianglesHardcore.iterator();
+            iterator = trianglesHardcore.iterator();
             while (iterator.hasNext()) {
                 Triangle triangle = iterator.next();
                 double area = triangle.calculateArea();
-                BaseBuilder.LOGGER.log(Level.DEBUG, triangle.toString()  +" area = " + area);
+                BaseBuilder.LOGGER.log(Level.DEBUG, triangle.toString() + " area = " + area);
             }
         } catch (NotATriangleExeption e) {
-                BaseBuilder.LOGGER.log(Level.ERROR, "Such tringle can't exist", e);
+            BaseBuilder.LOGGER.log(Level.ERROR, "Such tringle can't exist", e);
         }
     }
 }

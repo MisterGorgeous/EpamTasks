@@ -5,7 +5,7 @@ public class Point {
     private final double x;
     private final double y;
 
-    public Point(double x, double y){
+    public Point(double x, double y) {
         this.x = x;
         this.y = y;
     }
@@ -19,7 +19,7 @@ public class Point {
     }
 
     @Override
-    public boolean equals(Object obj){
+    public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
@@ -36,13 +36,13 @@ public class Point {
     @Override
     public int hashCode() {
         int result = 17;
-        result = 31 * result + (int)x;
-        result = 31 * result + (int)y;
+        result = 31 * result + (int) x;
+        result = 31 * result + (int) y;
         return result;
     }
 
     @Override
     public String toString() {
-        return  "x =" + String.valueOf(x) + "; y =" + String.valueOf(y);
+        return "x =" + String.valueOf(x) + "; y =" + String.valueOf(y);
     }
 }

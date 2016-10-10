@@ -9,31 +9,31 @@ public class Triangle {
     private Point seccondPoint;
     private Point thirdPoint;
 
-    public Triangle(Point firstPoint, Point seccondPoint, Point thirdPoint){
+    public Triangle(Point firstPoint, Point seccondPoint, Point thirdPoint) {
         this.firstPoint = firstPoint;
         this.seccondPoint = seccondPoint;
         this.thirdPoint = thirdPoint;
     }
 
-    public void setPoints(Point firstPoint, Point seccondPoint, Point thirdPoint) throws NotATriangleExeption{
+    public void setPoints(Point firstPoint, Point seccondPoint, Point thirdPoint) throws NotATriangleExeption {
         this.firstPoint = firstPoint;
         this.seccondPoint = seccondPoint;
         this.thirdPoint = thirdPoint;
         checkTringle();
     }
 
-    public Point getPoint(PointNum num){
-        if(num == PointNum.FIRST) {
+    public Point getPoint(PointNum num) {
+        if (num == PointNum.FIRST) {
             return firstPoint;
-        } else if( num == PointNum.SECCOND) {
+        } else if (num == PointNum.SECCOND) {
             return seccondPoint;
         } else {
             return thirdPoint;
         }
     }
 
-    public void checkTringle() throws NotATriangleExeption{
-        if(firstPoint.equals(seccondPoint) || firstPoint.equals(thirdPoint) || seccondPoint.equals(thirdPoint)) {
+    public void checkTringle() throws NotATriangleExeption {
+        if (firstPoint.equals(seccondPoint) || firstPoint.equals(thirdPoint) || seccondPoint.equals(thirdPoint)) {
             throw new NotATriangleExeption("Points are equal");
         }
     }
@@ -49,11 +49,11 @@ public class Triangle {
     public double calculateArea() throws NotATriangleExeption {
         double p = calculatePerimetr() / 2;
         return Math.sqrt(p * (p - calculateSide(firstPoint, seccondPoint)) * (p - calculateSide(firstPoint, thirdPoint))
-                            * (p - calculateSide(seccondPoint, thirdPoint)));
+                * (p - calculateSide(seccondPoint, thirdPoint)));
     }
 
     private double calculateSide(Point first, Point seccond) {
-        return Math.hypot(first.getX() - seccond.getX(),first.getY() - seccond.getY());
+        return Math.hypot(first.getX() - seccond.getX(), first.getY() - seccond.getY());
     }
 
     @Override

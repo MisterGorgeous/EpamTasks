@@ -16,17 +16,17 @@ public abstract class Plane implements PlaneBehavior {
     private int fuel;          //kg
     private Engine engine;
 
-     public void setPlane(String name, int capacity, float tonnage, float length, float wingspan, int maxSpeed, int rangeOfFlight, int fuel) {
-         this.id = PlaneIdentifier.getNextId();
-         this.name = name;
-         this.capacity = capacity;
-         this.tonnage = tonnage;
-         this.length = length;
-         this.wingspan = wingspan;
-         this.maxSpeed = maxSpeed;
-         this.rangeOfFlight = rangeOfFlight;
-         this.fuel = fuel;
-     }
+    public Plane(String name, int capacity, float tonnage, float length, float wingspan, int maxSpeed, int rangeOfFlight, int fuel) {
+        this.id = PlaneIdentifier.getNextId();
+        this.name = name;
+        this.capacity = capacity;
+        this.tonnage = tonnage;
+        this.length = length;
+        this.wingspan = wingspan;
+        this.maxSpeed = maxSpeed;
+        this.rangeOfFlight = rangeOfFlight;
+        this.fuel = fuel;
+    }
 
     public void setEngine(Engine engine) {
         this.engine = engine;
@@ -56,7 +56,7 @@ public abstract class Plane implements PlaneBehavior {
         return maxSpeed;
     }
 
-    public double getConsumtionOfFuel(){
+    public double getConsumtionOfFuel() {
         return (double) rangeOfFlight / (double) fuel;
     }
 
@@ -72,11 +72,11 @@ public abstract class Plane implements PlaneBehavior {
         return engine.isEngineWorking();
     }
 
-    public float fly(int distance) throws IncorrectDataExeption{
-        if(distance < 0){
+    public float fly(int distance) throws IncorrectDataExeption {
+        if (distance < 0) {
             throw new IncorrectDataExeption("Distance < 0");
         }
-        return (float)distance / (float) maxSpeed;
+        return (float) distance / (float) maxSpeed;
     }
 
     public void takeOff() {
@@ -85,5 +85,10 @@ public abstract class Plane implements PlaneBehavior {
 
     public void landOn() {
         engine.stopEngine();
+    }
+
+    @Override
+    public String toString() {
+        return "(" + name + " ,id = " + String.valueOf(id) + ")";
     }
 }

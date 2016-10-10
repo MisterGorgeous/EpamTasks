@@ -24,8 +24,8 @@ public class HardcodeBuilder extends BaseBuilder {
             triangle.checkTringle();
             triangles.add(triangle);
             setTriangles(triangles);
-        }catch (NotATriangleExeption e) {
-                LOGGER.log(Level.ERROR, "Such tringle can't exist",e);
+        } catch (NotATriangleExeption e) {
+            LOGGER.log(Level.ERROR, "Such tringle can't exist", e);
         }
     }
 }

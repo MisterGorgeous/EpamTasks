@@ -19,11 +19,11 @@ public abstract class BaseBuilder {
         context.setConfigLocation(file.toURI());
     }
 
-    public  ArrayList<Triangle> getTriangles(){
+    public ArrayList<Triangle> getTriangles() {
         return triangles;
     }
 
-    public void setTriangles(ArrayList<Triangle> triangles){
+    public void setTriangles(ArrayList<Triangle> triangles) {
         this.triangles = triangles;
     }
 

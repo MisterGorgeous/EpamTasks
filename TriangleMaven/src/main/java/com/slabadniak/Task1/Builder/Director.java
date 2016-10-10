@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.TreeMap;
 
 public class Director {
-    public static ArrayList<Triangle> createTriangles(BaseBuilder builder){
+    public static ArrayList<Triangle> createTriangles(BaseBuilder builder) {
         builder.buildTriangles();
         return builder.getTriangles();
     }

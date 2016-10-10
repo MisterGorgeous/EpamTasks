@@ -6,7 +6,7 @@ public class SkyTruck extends Plane {
     private float cargoOnTheBoard;
 
     public SkyTruck(String name, int capacity, float tonnage, float length, float wingspan, int maxSpeed, int rangeOfFlight, int fuel) {
-        setPlane(name, capacity, tonnage, length, wingspan, maxSpeed, rangeOfFlight, fuel);
+        super(name, capacity, tonnage, length, wingspan, maxSpeed, rangeOfFlight, fuel);
     }
 
     public void loadCargo(float cargo) throws IncorrectDataExeption {

@@ -13,7 +13,7 @@ public class AviationCheck {
     private int lowValue;
     private int highValue;
 
-    public AviationCheck(int lowValue, int highValue){
+    public AviationCheck(int lowValue, int highValue) {
         airline = EpamAirline.getAirline();
         this.lowValue = lowValue;
         this.highValue = highValue;
@@ -21,19 +21,17 @@ public class AviationCheck {
 
     @Parameterized.Parameters
     public static Collection<Object[]> controlTraingles() {
-        return Arrays.asList(new Object[][] {
-                { -100,111 },
-                {111, -233 },
-                { 2000, 1999 },
-                { 1, 2 },
-                { 1000, 20000 },
+        return Arrays.asList(new Object[][]{
+                {-100, 111},
+                {111, -233},
+                {2000, 1999},
+                {1, 2},
+                {1000, 20000},
         });
     }
 
     @Test(expected = IncorrectDataExeption.class)
     public void fuelConsumptionCheck() throws IncorrectDataExeption {
-        airline.fuelConsumptionLimit(lowValue,highValue);
-
+        airline.fuelConsumptionLimit(lowValue, highValue);
     }
-
 }
