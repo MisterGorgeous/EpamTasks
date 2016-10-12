@@ -1,0 +1,5 @@
+05:17:22.847 [main] FATAL com.slabadniak.task2.planefactory.PlaneFactory - java.nio.file.NoSuchFileException: src\resoursec\planes.txt
+05:17:47.675 [main] FATAL com.slabadniak.task2.planefactory.PlaneFactory - java.nio.file.NoSuchFileException: src\resources\planes.txt
+05:21:07.079 [main] FATAL com.slabadniak.task2.planefactory.PlaneFactory - java.nio.file.NoSuchFileException: main\resources\planes.txt
+05:24:00.248 [main] FATAL com.slabadniak.task2.planefactory.PlaneFactory - java.nio.file.NoSuchFileException: main\resources\planes.txt
+05:24:13.500 [main] FATAL com.slabadniak.task2.planefactory.PlaneFactory - java.nio.file.NoSuchFileException: ..\main\resources\planes.txt

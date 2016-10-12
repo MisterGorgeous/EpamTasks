@@ -22,7 +22,7 @@ public abstract class PlaneFactory<T extends Plane> {
 
     static {
         LoggerContext context = (LoggerContext) LogManager.getContext(true);
-        context.setConfigLocation(new File(Constant.getLogPath()).toURI());
+        context.setConfigLocation(new File(Constant.LOG_PATH).toURI());
     }
 
     public abstract T createPlane(String model);
@@ -34,7 +34,7 @@ public abstract class PlaneFactory<T extends Plane> {
     private String readPlanes(String model) {
         Stream<String> stream;
         try {
-            stream = Files.lines(Paths.get(Constant.getAirportPath()));
+            stream = Files.lines(Paths.get(Constant.AIRPORT_PATH));
         } catch (IOException e) {
             LOGGER.log(Level.FATAL, e);
             throw new RuntimeException();
@@ -43,7 +43,7 @@ public abstract class PlaneFactory<T extends Plane> {
         String textPlane = stream
                 .filter(p -> DataChecker.checkPlane(p))
                 .filter(p -> p.startsWith(model.toUpperCase()))
-                .findFirst().orElse(Constant.getDefaultPlane());
+                .findFirst().orElse(Constant.DEFAULT_PLANE);
         return textPlane;
     }
 

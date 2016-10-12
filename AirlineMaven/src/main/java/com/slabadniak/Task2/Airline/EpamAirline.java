@@ -69,11 +69,12 @@ public class EpamAirline {
         if (lowValue > highValue || lowValue < 0 || highValue < 0) {
             throw new IncorrectDataExeption("Incorrect range.");
         }
-        for (Plane plane : planes) {
-            if (plane.getConsumtionOfFuel() >= lowValue && plane.getConsumtionOfFuel() < highValue) {
-                return plane;
-            }
+        Plane plane = planes.stream()
+                .filter(p -> (p.getConsumtionOfFuel() >= lowValue) && (p.getConsumtionOfFuel() < highValue))
+                .findFirst().orElse(null);
+        if (plane == null) {
+            throw new IncorrectDataExeption("There is no plane with such parameters.");
         }
-        throw new IncorrectDataExeption("There is no plane with such parameters.");
+        return plane;
     }
 }
