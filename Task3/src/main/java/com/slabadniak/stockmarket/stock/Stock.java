@@ -3,6 +3,7 @@ package com.slabadniak.stockmarket.stock;
 import com.slabadniak.stockmarket.exeption.IncorrectDataExeption;
 
 import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 // end_sum / start_sum - 1
 
@@ -10,7 +11,7 @@ public class Stock {
     private long id;
     private float price;
     private int quantity;
-    private Lock lock;
+    private Lock lock = new ReentrantLock();
     //   private int quilibriumConstant;
 
     public Stock(long id, float price, int quantity) {

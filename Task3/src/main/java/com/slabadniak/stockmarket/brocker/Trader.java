@@ -3,19 +3,18 @@ package com.slabadniak.stockmarket.brocker;
 import com.slabadniak.stockmarket.epamstockmarket.Market;
 import com.slabadniak.stockmarket.stock.Stock;
 
-public abstract class Brocker implements Runnable {
+public abstract class Trader implements TraderBehavior {
     private int id;
     private float money;
     private float startCapital;
-    private Market market;
     private Stock boughtStock;
     private boolean state;
 
-    public Brocker(int id, float money, Market market) {
+    public Trader(int id, float money, Market market) {
         this.id = id;
         this.money = money;
         this.startCapital = money;
-        this.market = market;
+        //this.market = market;
         this.state = true;
     }
 
@@ -36,7 +35,11 @@ public abstract class Brocker implements Runnable {
         return (int) (money / stockPrice);
     }
 
-    protected void getMoney(float curentPrice) {
+    public float getMoney() {
+        return money;
+    }
+
+    protected void takeMoney(float curentPrice) {
         money += boughtStock.getQuantity() * curentPrice;
     }
 
@@ -48,13 +51,10 @@ public abstract class Brocker implements Runnable {
         return state;
     }
 
-    protected Market getMarket() {
-        return market;
-    }
 
     @Override
     public String toString() {
-        return "Brocker{" +
+        return "Trader{" +
                 "id=" + id +
                 ", money=" + money +
                 ", startCapital=" + startCapital +
