@@ -66,12 +66,12 @@ public abstract class Trader implements Runnable, TraderBehavior {
 
     @Override
     public String toString() {
-        return "Trader{" +
+        return "Trader " +
                 "id=" + id +
                 ", money=" + money +
                 ", startCapital=" + startCapital +
                 ", boughtStock=" + boughtStock +
                 ", state=" + state +
-                '}';
+                ' ';
     }
 }

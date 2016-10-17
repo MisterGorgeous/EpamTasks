@@ -10,10 +10,6 @@ public class Action {
     public static void main(String... args) {
         Market market = Market.getInstance();
         ExecutorService executor = Executors.newFixedThreadPool(6);
-        //  List<Future<Float>> list = new ArrayList<Future<Float>>();
-        //Future<Float> submit =
-        //list.add(submit);
-
         executor.submit(market);
         executor.submit(new DayTrader(1, 13000, market));
         executor.submit(new DayTrader(2, 12000, market));
@@ -22,5 +18,6 @@ public class Action {
         executor.submit(new DayTrader(5, 3000, market));
         executor.submit(new DayTrader(6, 7000, market));
         executor.shutdown();
+        market.clean();
     }
 }

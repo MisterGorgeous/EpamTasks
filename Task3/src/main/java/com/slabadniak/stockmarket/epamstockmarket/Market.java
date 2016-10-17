@@ -25,6 +25,7 @@ public class Market implements Runnable {
     private static Market instance = null;
     private static Lock lock = new ReentrantLock();
     private static ArrayList<ProxyStock> stocks;
+
     static {
         LoggerContext context = (LoggerContext) LogManager.getContext(true);
         context.setConfigLocation(new File(Constant.LOG_PATH).toURI());
@@ -83,6 +84,10 @@ public class Market implements Runnable {
                 .max(Comparator.comparing(ProxyStock::getPrice))
                 .get();
         return stock;
+    }
+
+    public void clean(){
+        stocks.forEach(proxystock -> proxystock.stopQueueManager() );
     }
 
     public void run() {

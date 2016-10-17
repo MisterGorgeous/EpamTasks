@@ -8,11 +8,10 @@ import java.util.concurrent.locks.ReentrantLock;
 
 // end_sum / start_sum - 1
 
-public class Stock implements IStock{
+public class Stock implements IStock {
     private long id;
     private float price;
     private int quantity;
-    private Lock lock = new ReentrantLock();
     //   private int quilibriumConstant;
 
     public Stock(long id, float price, int quantity) {
@@ -23,31 +22,22 @@ public class Stock implements IStock{
 
     public Stock buyStock(int quantity, Trader trader) throws IncorrectDataExeption {
         Stock stock;
-        try {
-            lock.lock();
-            if (quantity > this.quantity ) {
-                quantity = this.quantity / 2;
-            }
-            stock = new Stock(id, price, quantity);
-            price = (float) (price * Math.pow(((float) this.quantity / ((float) this.quantity - (float) quantity)), 2));
-          //  price = Math.round(price * 100) /100;
-            if (quantity < this.quantity / 2) {
-                this.quantity -= quantity;
-            }
-        } finally {
-            lock.unlock();
+        if (quantity > this.quantity) {
+            quantity = this.quantity / 2;
+        }
+        stock = new Stock(id, price, quantity);
+        price = (float) (price * Math.pow(((float) this.quantity / ((float) this.quantity - (float) quantity)), 2));
+        price = Math.round(price * 100) / 100;
+        if (quantity < this.quantity / 2) {
+            this.quantity -= quantity;
         }
         return stock;
     }
 
     public void sellStock(int quantity, Trader trader) {
-        try {
-            lock.lock();
-            price = (float) (price * Math.pow(((float) this.quantity / ((float) this.quantity + (float) quantity)), 2));
-            this.quantity += quantity;
-        } finally {
-            lock.unlock();
-        }
+        price = (float) (price * Math.pow(((float) this.quantity / ((float) this.quantity + (float) quantity)), 2));
+        price = Math.round(price * 100) / 100;
+        this.quantity += quantity;
     }
 
     public float getPrice() {
@@ -66,14 +56,16 @@ public class Stock implements IStock{
         this.price = price;
     }
 
-    public Stock copyStock() { return new Stock(id,price,quantity); }
+    public Stock copyStock() {
+        return new Stock(id, price, quantity);
+    }
 
     @Override
     public String toString() {
-        return "Stock{" +
+        return "Stock " +
                 "id=" + id +
                 ", price=" + price +
                 ", quantity=" + quantity +
-                '}';
+                ' ';
     }
 }

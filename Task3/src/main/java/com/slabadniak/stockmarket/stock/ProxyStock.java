@@ -1,20 +1,29 @@
 package com.slabadniak.stockmarket.stock;
 
 import com.slabadniak.stockmarket.brocker.Trader;
+import com.slabadniak.stockmarket.constant.Constant;
 import com.slabadniak.stockmarket.exeption.IncorrectDataExeption;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.LoggerContext;
 
+import java.io.File;
 import java.util.LinkedList;
-import java.util.Queue;
+import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class ProxyStock implements IStock{
+public class ProxyStock implements IStock {
     private Stock stock;
-    private LinkedList<Trader> traderQueue;
-   // private Lock lock = new ReentrantLock();
-   // private Lock lock1 = new ReentrantLock();
+    private LinkedList<Condition> traderQueue;
+    private Lock lock = new ReentrantLock();
+    private Condition managerwork = lock.newCondition();
     private QueueManager queueManager;
 
+    static {
+        LoggerContext context = (LoggerContext) LogManager.getContext(true);
+        context.setConfigLocation(new File(Constant.LOG_PATH).toURI());
+    }
     public ProxyStock(Stock stock) {
         this.stock = stock;
         traderQueue = new LinkedList<>();
@@ -23,46 +32,41 @@ public class ProxyStock implements IStock{
     }
 
     @Override
-    public Stock buyStock(int quantity,Trader trader) throws IncorrectDataExeption {
-        //lock.lock();
-        synchronized (traderQueue) {
-            traderQueue.addLast(trader);
-            /*System.out.println(trader.toString() + "added to Queue to buy.");
-            System.out.println(traderQueue);*/
-            traderQueue.notify();
+    public Stock buyStock(int quantity, Trader trader) throws IncorrectDataExeption {
+        lock.lock();
+        try {
+            Condition traderwork = lock.newCondition();
+            traderQueue.addLast(traderwork);
+          //  System.out.println(trader.toString() + "added to Queue to buy.");
+          //  System.out.println(traderQueue);
+            managerwork.signal();
+            traderwork.await();
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
         }
-        synchronized (trader){
-            try {
-                trader.wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } finally {
-                //lock.unlock();
-            }
-        }
-        System.out.println(trader.toString() + "buying stock");
+       // System.out.println(trader.toString() + "buying stock");
         return stock.buyStock(quantity, trader);
     }
 
     @Override
     public void sellStock(int quantity, Trader trader) {
-       // lock.lock();
-        synchronized (traderQueue) {
-            traderQueue.addLast(trader);
-       //     System.out.println(trader.toString() + "added to Queue to sell.");
-            traderQueue.notify();
+        lock.lock();
+        try {
+            Condition traderwork = lock.newCondition();
+            traderQueue.addLast(traderwork);
+           // System.out.println(trader.toString() + "added to Queue to sell.");
+            managerwork.signal();
+            traderwork.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
         }
-        synchronized (trader){
-            try {
-                trader.wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } finally {
-                //lock.unlock();
-            }
-        }
-        System.out.println(trader.toString() + "selling stock");
-        stock.sellStock(quantity,trader);
+        //System.out.println(trader.toString() + "selling stock");
+        stock.sellStock(quantity, trader);
     }
 
     @Override
@@ -91,26 +95,29 @@ public class ProxyStock implements IStock{
         return stock.copyStock();
     }
 
-    private class QueueManager extends Thread{
+    public void stopQueueManager(){
+        queueManager.interrupt();
+    }
+
+    private class QueueManager extends Thread {
         @Override
         public void run() {
             while (true) {
-                Trader trader;
-                System.out.println("Wait" );
-               synchronized (traderQueue){
-                while (traderQueue.isEmpty()) {
-                    try {
-                        traderQueue.wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+               // System.out.println("Wait");
+                lock.lock();
+                try {
+                    while (traderQueue.isEmpty()) {
+                        managerwork.await();
                     }
-                }
-                }
-                trader =  traderQueue.removeFirst();
-                System.out.println("Get trader" );
-                synchronized (trader) {
-                    trader.notifyAll();
-                    System.out.println("Notify trader");
+                    Condition traderwork = traderQueue.removeFirst();
+                       // System.out.println("Get trader");
+                        traderwork.signal();
+                      //  System.out.println("Notify trader");
+
+                } catch (InterruptedException e) {
+                    LOGGER.log(Level.INFO, "Cleaned." + e);
+                } finally {
+                    lock.unlock();
                 }
             }
         }
