@@ -1,14 +1,26 @@
 package com.slabadniak.stockmarket.brocker;
 
+import com.slabadniak.stockmarket.constant.Constant;
 import com.slabadniak.stockmarket.epamstockmarket.Market;
 import com.slabadniak.stockmarket.stock.Stock;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.LoggerContext;
 
-public abstract class Trader implements TraderBehavior {
+import java.io.File;
+
+public abstract class Trader implements Runnable, TraderBehavior {
+    public static final Logger LOGGER = LogManager.getLogger(Trader.class);
     private int id;
     private float money;
     private float startCapital;
     private Stock boughtStock;
     private boolean state;
+
+    static {
+        LoggerContext context = (LoggerContext) LogManager.getContext(true);
+        context.setConfigLocation(new File(Constant.LOG_PATH).toURI());
+    }
 
     public Trader(int id, float money, Market market) {
         this.id = id;
