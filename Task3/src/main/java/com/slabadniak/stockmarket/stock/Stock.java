@@ -20,7 +20,8 @@ public class Stock implements IStock {
         this.quantity = quantity;
     }
 
-    public Stock buyStock(int quantity, Trader trader) throws IncorrectDataExeption {
+    @Override
+    public Stock buyStock(int quantity) {
         Stock stock;
         if (quantity > this.quantity) {
             quantity = this.quantity / 2;
@@ -34,30 +35,31 @@ public class Stock implements IStock {
         return stock;
     }
 
-    public void sellStock(int quantity, Trader trader) {
+    @Override
+    public void sellStock(int quantity) {
         price = (float) (price * Math.pow(((float) this.quantity / ((float) this.quantity + (float) quantity)), 2));
         price = Math.round(price * 100) / 100;
         this.quantity += quantity;
     }
 
+    @Override
     public float getPrice() {
         return price;
     }
 
+    @Override
     public long getId() {
         return id;
     }
 
+    @Override
     public int getQuantity() {
         return quantity;
     }
 
+    @Override
     public void setPrice(float price) {
         this.price = price;
-    }
-
-    public Stock copyStock() {
-        return new Stock(id, price, quantity);
     }
 
     @Override

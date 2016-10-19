@@ -24,6 +24,7 @@ public class Market implements Runnable {
     private static AtomicBoolean isCreated = new AtomicBoolean(false);
     private static Market instance = null;
     private static Lock lock = new ReentrantLock();
+    //private static Lock lock1 = new ReentrantLock();
     private static ArrayList<ProxyStock> stocks;
 
     static {
@@ -34,7 +35,7 @@ public class Market implements Runnable {
     private Market() {
         stocks = new ArrayList<ProxyStock>() {
             {
-                add(new ProxyStock(new Stock(0, 78.49f, 10000)));
+                add(new ProxyStock(new Stock(0, 78.49f, 20000)));
               /*  add(new Stock(1, 117.64f, 100000));
                 add(new Stock(2, 127.87f, 100000));
                 add(new Stock(3, 196.71f, 100000));
@@ -48,25 +49,25 @@ public class Market implements Runnable {
 
     }
 
-    public static Market getInstance(){
-        if(!isCreated.get()){
+    public static Market getInstance() {
+        if (!isCreated.get()) {
             lock.lock();
             try {
                 if (!isCreated.get()) {
                     instance = new Market();
                     isCreated.set(true);
                 }
-            }finally {
+            } finally {
                 lock.unlock();
             }
         }
         return instance;
     }
 
-    public ProxyStock getCertainStock(long id /*Ticker ticker*/) throws IncorrectDataExeption{
+    public ProxyStock getCertainStock(long id /*Ticker ticker*/) throws IncorrectDataExeption {
         for (ProxyStock stock : stocks) {
             if (stock.getId() == id) {
-              return stock;
+                return stock;
             }
         }
         throw new IncorrectDataExeption("This ticker isn't available.");
@@ -76,7 +77,7 @@ public class Market implements Runnable {
         ProxyStock stock = stocks.stream()
                 .min(Comparator.comparing(ProxyStock::getPrice))
                 .get();
-                return stock;
+        return stock;
     }
 
     public ProxyStock getMaxPriceStock() {
@@ -86,8 +87,9 @@ public class Market implements Runnable {
         return stock;
     }
 
-    public void clean(){
-        stocks.forEach(proxystock -> proxystock.stopQueueManager() );
+
+    public void clean() {
+        stocks.forEach(proxystock -> proxystock.stopQueueManager());
     }
 
     public void run() {
@@ -97,14 +99,14 @@ public class Market implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            int index = RandomEvent.getVolatility(stocks.size());
-         //   LOGGER.log(Level.INFO,stocks.get(index) + " -- was");
-           // System.out.println(stocks.get(index)+ " -- was");
-            float price = stocks.get(index).getPrice();
-            price = price * RandomEvent.getQuotation();
-           // stocks.get(index).setPrice(price);
-            //LOGGER.log(Level.DEBUG,stocks.get(index) + " -- now");
-          //  System.out.println(stocks.get(index)+ " -- now");
+
+                int index = RandomEvent.getVolatility(stocks.size());
+                LOGGER.log(Level.ERROR, stocks.get(index) + " -- was");
+                float price = stocks.get(index).getPrice();
+                price = price * RandomEvent.getQuotation();
+                stocks.get(index).setPrice(price);
+                LOGGER.log(Level.ERROR, stocks.get(index) + " -- now");
+
         }
     }
 }

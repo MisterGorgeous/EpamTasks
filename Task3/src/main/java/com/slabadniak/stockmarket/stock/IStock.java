@@ -10,11 +10,11 @@ import org.apache.logging.log4j.core.LoggerContext;
 import java.io.File;
 
 public interface IStock {
-    public static final Logger LOGGER = LogManager.getLogger(IStock.class);
 
-    Stock buyStock(int quantity, Trader trader) throws IncorrectDataExeption;
 
-    void sellStock(int quantity, Trader trader);
+    Stock buyStock(int quantity);
+
+    void sellStock(int quantity);
 
     float getPrice();
 
@@ -24,5 +24,4 @@ public interface IStock {
 
     void setPrice(float price);
 
-    Stock copyStock();
 }

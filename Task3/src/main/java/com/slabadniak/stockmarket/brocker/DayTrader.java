@@ -6,52 +6,48 @@ import com.slabadniak.stockmarket.stock.ProxyStock;
 import com.slabadniak.stockmarket.stock.Stock;
 import org.apache.logging.log4j.Level;
 
-public class DayTrader extends Trader {
+public class DayTrader extends Trader implements Runnable {
+
     public DayTrader(int id, float money, Market market) {
         super(id, money, market);
     }
 
     public void run() {
-       for (int i = 0; i < 10; ++i) {
+        for (int i = 0; i < 10; ++i) {
+      //  while(true){
             if (isState()) {
-              buyStocks();
+                buyStocks();
             } else {
-               sellStocks();
+                sellStocks();
             }
             changeState();
         }
     }
 
-    public void buyStocks() {
-        if(getMoney() == 0){
-           // LOGGER.log(Level.INFO, this.toString());
+     void buyStocks() {
+        if (getMoney() == 0) {
+            // LOGGER.log(Level.INFO, this.toString());
             return;
         }
         ProxyStock stock = Market.getInstance().getMinPriceStock();
-        try {
-            int stockValue = calculateStockValue(stock.getPrice());
-            setBoughtStock(stock.buyStock(stockValue,this));
-            setMoney(0);
-        } catch (IncorrectDataExeption incorrectDataExeption) {
-            incorrectDataExeption.printStackTrace();
-        }
-       // LOGGER.log(Level.INFO, this.toString());
-        System.out.println( this.toString());
+        int stockValue = calculateStockValue(stock.getPrice());
+        setBoughtStock(stock.buyStock(stockValue));
+        setMoney(0);
+         LOGGER.log(Level.ERROR, this.toString());
     }
 
-    public void sellStocks() {
+     void sellStocks() {
         float currentPrice = 0;
         try {
             ProxyStock stock = Market.getInstance().getCertainStock(getBoughtStock().getId());
             currentPrice = stock.getPrice();
             takeMoney(currentPrice);
-            stock.sellStock(getBoughtStock().getQuantity(),this);
+            stock.sellStock(getBoughtStock().getQuantity());
             setBoughtStock(null);
         } catch (IncorrectDataExeption e) {
             takeMoney(0);
             setBoughtStock(null);
         }
-        //LOGGER.log(Level.INFO, this.toString());
-        System.out.println( this.toString() + " " +  currentPrice);
+        LOGGER.log(Level.ERROR, this.toString() + " " + currentPrice);
     }
 }

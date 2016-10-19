@@ -9,7 +9,7 @@ import org.apache.logging.log4j.core.LoggerContext;
 
 import java.io.File;
 
-public abstract class Trader implements Runnable, TraderBehavior {
+public abstract class Trader {
     public static final Logger LOGGER = LogManager.getLogger(Trader.class);
     private int id;
     private float money;
@@ -30,12 +30,15 @@ public abstract class Trader implements Runnable, TraderBehavior {
         this.state = true;
     }
 
+    abstract void buyStocks();
+
+    abstract void sellStocks();
+
     protected void setBoughtStock(Stock boughtStock) {
         this.boughtStock = boughtStock;
     }
 
     protected Stock getBoughtStock() {
-
         return boughtStock;
     }
 
@@ -53,6 +56,7 @@ public abstract class Trader implements Runnable, TraderBehavior {
 
     protected void takeMoney(float curentPrice) {
         money += boughtStock.getQuantity() * curentPrice;
+        money = Math.round(money * 100) / 100;
     }
 
     protected void changeState(){
@@ -62,7 +66,6 @@ public abstract class Trader implements Runnable, TraderBehavior {
     protected boolean isState() {
         return state;
     }
-
 
     @Override
     public String toString() {
