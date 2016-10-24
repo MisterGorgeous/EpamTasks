@@ -81,6 +81,16 @@ public class ProxyStock implements IStock {
     }
 
     @Override
+    public int hashCode() {
+        return stock.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return stock.equals(obj);
+    }
+
+    @Override
     public String toString() {
         return stock.toString();
     }
