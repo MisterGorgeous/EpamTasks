@@ -4,25 +4,29 @@ import com.slabadniak.task3.exeption.IncorrectDataExeption;
 import com.slabadniak.task3.randomevent.RandomEvent;
 import com.slabadniak.task3.stock.ProxyStock;
 import com.slabadniak.task3.stock.Stock;
-import com.slabadniak.task3.stock.StockIdentifier;
+import com.slabadniak.task3.stock.StockIdGenerator;
 import com.slabadniak.task3.stock.Ticker;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-
 public class Market implements Runnable {
+    public static final Logger LOGGER = LogManager.getLogger(Market.class);
     private static AtomicBoolean isCreated = new AtomicBoolean(false);
     private static Market instance = null;
     private static Lock lock = new ReentrantLock();
-    private static ArrayList<ProxyStock> stocks = new ArrayList<>();
+    private static List<ProxyStock> stocks = new ArrayList<>();
 
     private Market() {
         for (Ticker ticker : Ticker.values()) {
-            stocks.add(new ProxyStock(new Stock(StockIdentifier.getNextId(), ticker.getfullName(),
+            stocks.add(new ProxyStock(new Stock(StockIdGenerator.getNextId(), ticker.getfullName(),
                     ticker.getPrice(), ticker.getQuantity())));
         }
     }
@@ -65,13 +69,14 @@ public class Market implements Runnable {
         return stock;
     }
 
-
     public void run() {
-        while (true) {
+        for (int i = 0; i < 10; ++i) {
             int index = RandomEvent.getVolatility(stocks.size());
+            LOGGER.log(Level.INFO, stocks.get(index) + " -- old price.");
             float price = stocks.get(index).getPrice();
             price = price * RandomEvent.getQuotation();
             stocks.get(index).setPrice(price);
+            LOGGER.log(Level.INFO, stocks.get(index) + " -- new price.");
         }
     }
 }

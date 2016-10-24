@@ -1,12 +1,8 @@
 package com.slabadniak.task3.brocker;
 
-import com.slabadniak.task3.constant.Constant;
 import com.slabadniak.task3.stock.Stock;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.LoggerContext;
-
-import java.io.File;
 
 public abstract class Trader implements Runnable {
     public static final Logger LOGGER = LogManager.getLogger(Trader.class);
@@ -15,11 +11,6 @@ public abstract class Trader implements Runnable {
     private float startCapital;
     private Stock boughtStock;
     private boolean state;
-
-    static {
-        LoggerContext context = (LoggerContext) LogManager.getContext(true);
-        context.setConfigLocation(new File(Constant.LOGGER).toURI());
-    }
 
     public Trader(String name, float money) {
         this.name = name;

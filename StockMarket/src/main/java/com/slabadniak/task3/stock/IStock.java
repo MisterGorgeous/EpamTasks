@@ -14,4 +14,5 @@ public interface IStock {
 
     void setPrice(float price);
 
+    String getTicker();
 }

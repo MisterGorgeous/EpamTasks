@@ -1,0 +1,479 @@
+03:46:54.777 [Thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.897 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.896 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.963 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.962 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.962 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+03:46:54.963 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.964 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.964 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.964 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.964 [Thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.964 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.964 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+03:46:54.964 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.964 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.964 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.964 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.965 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.965 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 4
+03:46:54.965 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.965 [Thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.965 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 3
+03:46:54.965 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.965 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+03:46:54.965 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+03:46:54.965 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.965 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.965 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.965 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.965 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.965 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.966 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.966 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.966 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.966 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.966 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.966 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.966 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.966 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.966 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.966 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.966 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.966 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.966 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.966 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.967 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.967 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.967 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.967 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.967 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 5
+03:46:54.967 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.967 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 4
+03:46:54.967 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.968 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 3
+03:46:54.968 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.968 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.968 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+03:46:54.968 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.968 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.968 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.968 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.968 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.968 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+03:46:54.968 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.969 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.969 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.968 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.969 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.969 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.969 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.969 [Thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.969 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.969 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.969 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+03:46:54.969 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.969 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.971 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.971 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.971 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.970 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.971 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.971 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.972 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 4
+03:46:54.972 [Thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.972 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 3
+03:46:54.972 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.972 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+03:46:54.972 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.972 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.972 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+03:46:54.972 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.972 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.973 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.973 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.973 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.973 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.973 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.973 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.973 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.973 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.973 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.973 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.974 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.974 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.974 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.974 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.974 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.974 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 4
+03:46:54.974 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.974 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 3
+03:46:54.975 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.975 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+03:46:54.975 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.975 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.975 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.975 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.975 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.975 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.975 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.975 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.975 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.975 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.976 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.976 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.975 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+03:46:54.976 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.976 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.976 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.976 [Thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.977 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.976 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.977 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+03:46:54.977 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.977 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.977 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.977 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.977 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.977 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.977 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.977 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.977 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.978 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 3
+03:46:54.978 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+03:46:54.978 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.978 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.978 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.978 [Thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.978 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.978 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.978 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.978 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+03:46:54.978 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.978 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.978 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.979 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.978 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.979 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.979 [Thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.979 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.979 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+03:46:54.979 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.979 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+03:46:54.979 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.979 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.979 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.980 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.980 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.980 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.980 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.980 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.980 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+03:46:54.980 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.980 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.980 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.981 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.981 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.981 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.981 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.981 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.981 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+03:46:54.981 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.981 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.981 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.981 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.982 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.982 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.982 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.982 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.983 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.983 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 3
+03:46:54.983 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+03:46:54.983 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.983 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.983 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.983 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.983 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.984 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.984 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.984 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.984 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.984 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.984 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 3
+03:46:54.984 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+03:46:54.984 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.985 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.985 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.985 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.985 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.985 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.985 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.985 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.985 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.985 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.986 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.986 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.986 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.986 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.986 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.987 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.987 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 3
+03:46:54.987 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+03:46:54.987 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.987 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.987 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.987 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.987 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.988 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.988 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.990 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.990 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+03:46:54.992 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.993 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.993 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+03:46:54.993 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.993 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.993 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+03:46:54.993 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+03:46:54.993 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+03:46:54.994 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:51.945 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:51.947 [Thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:51.949 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+11:47:51.949 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:51.952 [Thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:51.957 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+11:47:51.958 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:51.971 [Thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:51.974 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+11:47:51.975 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:51.975 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:51.976 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+11:47:51.976 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:51.976 [Thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:51.976 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+11:47:51.977 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:51.979 [Thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:51.980 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+11:47:51.981 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:51.982 [Thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:51.982 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+11:47:51.983 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:51.983 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:51.983 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+11:47:51.984 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:51.984 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:51.984 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+11:47:51.984 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:51.987 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:51.988 [pool-2-thread-1] ERROR com.slabadniak.task3.stock.ProxyStock - -------------setting price
+11:47:52.002 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.002 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.002 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.003 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.003 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.004 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.004 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.004 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.004 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.005 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.005 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.005 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.005 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.006 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.006 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.006 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.042 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.043 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.043 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 4
+11:47:52.047 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 3
+11:47:52.047 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+11:47:52.047 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.047 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.048 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.048 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.048 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.047 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.048 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.048 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.048 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.050 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.050 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.051 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.051 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.051 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.051 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.051 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.051 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.052 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.052 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.052 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.053 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.054 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.055 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.055 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.055 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.055 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.056 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.056 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.056 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 4
+11:47:52.056 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 3
+11:47:52.056 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+11:47:52.056 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.056 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.056 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.056 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.058 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.059 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.059 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.059 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.059 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.059 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.059 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.063 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.063 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.063 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.063 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+11:47:52.063 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.063 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.064 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.064 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.064 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.064 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.064 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.064 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.064 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.066 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.067 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.067 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.067 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.068 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.068 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.068 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.068 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.068 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 3
+11:47:52.069 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+11:47:52.069 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.069 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.070 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.070 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.070 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.070 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.070 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.070 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.070 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.071 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.071 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.071 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.071 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.071 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.071 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.071 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.071 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.071 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+11:47:52.071 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.072 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.072 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.072 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.072 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.072 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.072 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.072 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.072 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.072 [pool-2-thread-6] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.072 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.072 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.072 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.073 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+11:47:52.073 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.073 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.074 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.075 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.075 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.076 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.075 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.076 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.076 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.076 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.076 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.076 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.076 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+11:47:52.076 [Thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.076 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.076 [pool-2-thread-4] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.077 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.077 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.080 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.080 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.080 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.080 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.080 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.081 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.081 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.081 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.081 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.081 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.082 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.082 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 3
+11:47:52.082 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+11:47:52.083 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.083 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.083 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.083 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.083 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.083 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.091 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.094 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.094 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.082 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.095 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+11:47:52.095 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.095 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.095 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.095 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.095 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.095 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.097 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.097 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.097 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.097 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 3
+11:47:52.097 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+11:47:52.097 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.098 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.098 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.099 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.099 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.099 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.099 [pool-2-thread-2] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.099 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.099 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.099 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.099 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 3
+11:47:52.100 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+11:47:52.100 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.100 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.100 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.100 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.100 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.100 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.101 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.103 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.103 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 2
+11:47:52.103 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.103 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.100 [pool-2-thread-5] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.104 [pool-2-thread-3] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.105 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.106 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.107 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.107 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.107 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 1
+11:47:52.107 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.107 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.107 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.107 [pool-2-thread-7] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock
+11:47:52.108 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.108 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------buying stock
+11:47:52.108 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - --------added to Queue.
+11:47:52.108 [Thread-9] ERROR com.slabadniak.task3.stock.ProxyStock - ----------Notify trader 0
+11:47:52.108 [pool-2-thread-8] ERROR com.slabadniak.task3.stock.ProxyStock - -------------selling stock

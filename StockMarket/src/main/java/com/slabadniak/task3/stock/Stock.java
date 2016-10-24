@@ -48,8 +48,36 @@ public class Stock implements IStock {
     }
 
     @Override
+    public String getTicker() {
+        return ticker;
+    }
+
+    @Override
     public String toString() {
         return ticker + ", price=" + Math.round(price * 100) / 100 + ", quantity=" + quantity + ' ';
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Stock other = (Stock) obj;
+        return (other.getId() == this.getId()) && (other.getTicker().equals(this.getTicker()));
+    }
+
+    @Override
+    public int hashCode() {
+        int prime = 11;
+        int result = 1;
+        result = prime * result + (int) (id ^ (id >>> 32));
+        result = prime * result + ((ticker == null) ? 0 : ticker.hashCode());
+        return result;
+    }
 }
