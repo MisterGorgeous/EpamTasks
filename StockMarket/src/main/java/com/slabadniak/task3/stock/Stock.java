@@ -1,5 +1,7 @@
 package com.slabadniak.task3.stock;
 
+import com.slabadniak.task3.internalization.Data;
+
 public class Stock implements IStock {
     private long id;
     private String ticker;
@@ -54,7 +56,7 @@ public class Stock implements IStock {
 
     @Override
     public String toString() {
-        return ticker + ", price=" + Math.round(price * 100) / 100 + ", quantity=" + quantity + ' ';
+        return Data.get("ticker." + ticker.substring(0,1))+ ", " + Data.get("P") +  Data.convert(Math.round(price * 100) / 100) +", " +  Data.get("Q") + quantity + ' ';
     }
 
     @Override

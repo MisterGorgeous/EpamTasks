@@ -27,21 +27,18 @@ public class ProxyStock implements IStock {
     @Override
     public Stock buyStock(int quantity) {
         accessControll();
-        LOGGER.log(Level.ERROR, "-------------buying stock");
         return stock.buyStock(quantity);
     }
 
     @Override
     public void sellStock(int quantity) {
         accessControll();
-        LOGGER.log(Level.ERROR, "-------------selling stock");
         stock.sellStock(quantity);
     }
 
     @Override
     public void setPrice(float price) {
         accessControll();
-        LOGGER.log(Level.ERROR, "-------------setting price");
         stock.setPrice(price);
     }
 
@@ -50,7 +47,6 @@ public class ProxyStock implements IStock {
         try {
             Condition traderwork = lock.newCondition();
             traderQueue.add(traderwork);
-            LOGGER.log(Level.ERROR, "--------added to Queue.");
             manager.signal();
             traderwork.await();
         } catch (InterruptedException e) {
@@ -106,7 +102,6 @@ public class ProxyStock implements IStock {
                     }
                     Condition traderwork = traderQueue.removeFirst();
                     traderwork.signal();
-                    LOGGER.log(Level.ERROR, "----------Notify trader " + traderQueue.size());
                 } catch (InterruptedException e) {
                     LOGGER.log(Level.ERROR, e);
                 } finally {

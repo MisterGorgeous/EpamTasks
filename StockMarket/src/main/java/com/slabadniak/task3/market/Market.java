@@ -35,9 +35,9 @@ public class Market implements Runnable {
         if (!isCreated.get()) {
             lock.lock();
             try {
-                if (!isCreated.get()) {
+                if (instance == null) {
                     instance = new Market();
-                    isCreated.set(true);
+                    isCreated.getAndSet(true);
                 }
             } finally {
                 lock.unlock();
@@ -72,12 +72,9 @@ public class Market implements Runnable {
     public void run() {
         for (int i = 0; i < 10; ++i) {
             int index = RandomEvent.getVolatility(stocks.size());
-            LOGGER.log(Level.INFO, stocks.get(index) + " -- old price.");
             float price = stocks.get(index).getPrice();
             price = price * RandomEvent.getQuotation();
             stocks.get(index).setPrice(price);
-            LOGGER.log(Level.INFO, stocks.get(index) + " -- new price.");
         }
     }
 }
-

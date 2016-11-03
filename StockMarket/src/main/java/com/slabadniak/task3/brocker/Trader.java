@@ -1,6 +1,7 @@
 package com.slabadniak.task3.brocker;
 
 import com.slabadniak.task3.stock.Stock;
+import com.slabadniak.task3.internalization.Data;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,7 +22,7 @@ public abstract class Trader implements Runnable {
 
     @Override
     public void run() {
-        while (true) {
+        for(int i=0; i<10; ++i){
             if (isState()) {
                 buyStocks();
             } else {
@@ -69,7 +70,7 @@ public abstract class Trader implements Runnable {
 
     @Override
     public String toString() {
-        return "Trader " + name + ", money=" + Math.round(money * 100) / 100 + ", startCapital=" + startCapital + ", Stocks=" +
-                boughtStock + ' ';
+        return Data.get("T") + name +", " +  Data.get("M") + Data.convert(Math.round(money * 100) / 100) + ", "+ Data.get("SC") +
+                Data.convert(startCapital) + ", " + Data.get("ST") + ((boughtStock == null) ? "none" : boughtStock.toString()) + ' ';
     }
 }
