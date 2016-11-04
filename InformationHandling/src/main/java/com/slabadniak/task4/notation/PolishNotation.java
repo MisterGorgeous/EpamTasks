@@ -7,32 +7,77 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 public class PolishNotation {
-    public static Deque<Character> notation = new LinkedList<>();
-    private static Deque<Character> operationStack = new LinkedList<>();
+    private Deque<String> notation;
+    private Deque<String> operationStack;
+    private Deque<Integer> resultStack;
 
-    public static void make(String expression) {
+    public PolishNotation() {
+        notation = new LinkedList<>();
+        operationStack = new LinkedList<>();
+        resultStack = new LinkedList<>();
+    }
 
+    public Deque<String> getNotation() {
+        return notation;
+    }
+
+    public Deque<String> getOperationStack() {
+        return operationStack;
+    }
+
+    public Deque<Integer> getResultStack() {
+        return resultStack;
+    }
+
+    public String getCalculationResult(){
+        return resultStack.poll().toString();
+    }
+
+    public void make(String expression) {
         char[] symbols = expression.toCharArray();
 
-        for (char nextSymbol : symbols) {
-            if (Character.isDigit(nextSymbol)) {
-                notation.add(nextSymbol);
-            } else {//(Operations.isOperation(nextSymbol)) {
-                if(nextSymbol == '('){
-                    operationStack.addFirst(nextSymbol);
-                } else if (nextSymbol == ')') {
-                    while (operationStack.getFirst() != '(') {
-                        notation.add(operationStack.poll());
-                    }
-                    operationStack.poll();
-                } else {
-                    while (!operationStack.isEmpty() && Operations.comparePriorities(operationStack.getFirst(), nextSymbol) >= 0
-                            && operationStack.getFirst() != '(') {
-                        notation.add(operationStack.poll());
-                    }
-                    operationStack.addFirst(nextSymbol);
-                }
+        for (int i=0; i < symbols.length; ++i) {
+            String number = "";
+
+            while(i < symbols.length && Character.isDigit(symbols[i])) {
+                number = number + symbols[i];
+                ++i;
             }
+
+            if(number != ""){
+                notation.add(number);
+            }
+            if(i == symbols.length){
+                break;
+            }
+
+            if(symbols[i] == '('){
+                operationStack.addFirst(String.valueOf(symbols[i]));
+            } else if (symbols[i] == ')') {
+                while (!operationStack.getFirst().equals("(")) {
+                    notation.add(operationStack.poll());
+                }
+                operationStack.poll();
+            } else {
+                String nextOperation;
+                if(symbols[i] == symbols[i+1]){
+                    if(i + 2 != symbols.length && Character.isDigit(symbols[i+2])){
+                        nextOperation = String.valueOf(symbols[i]) + String.valueOf(symbols[i+1]) + "i";
+                    }else {
+                        nextOperation = String.valueOf(symbols[i]) + String.valueOf(symbols[i+1]) + "p";
+                    }
+                    ++i;
+                } else{
+                    nextOperation = String.valueOf(symbols[i]);
+                }
+
+                while (!operationStack.isEmpty() && Operation.comparePriorities(operationStack.getFirst(), nextOperation) > 0
+                        && !operationStack.getFirst().equals("(")) {
+                    notation.add(operationStack.poll());
+                }
+                operationStack.addFirst(nextOperation);
+            }
+
         }
 
         while (!operationStack.isEmpty()) {
@@ -41,47 +86,3 @@ public class PolishNotation {
     }
 }
 
-class Operations {
-   // public static final char[] operations = {'+', '-' , '*', '/'};
-    public static final ArrayList<Character> operations = new ArrayList<Character>() {
-        {
-            add(new Character('('));
-            add(new Character(')'));
-            add(new Character('+'));
-            add(new Character('-'));
-            add(new Character('*'));
-            add(new Character('/'));
-        }
-    };
-
-    /*static int comparePriorities(char f, char s){
-        Comparator<Character> .comparing()
-    }*/
-
-
-
-    static boolean isOperation(char symbol){
-        return operations.contains(symbol);
-      /*  for(char operation : operations) {
-            if (symbol == operation) {
-                return true;
-            }
-        }
-        return false;*/
-    }
-
-   /* static int getPriority(char symbol){
-
-        /*for(char operation : operations) {
-            if (symbol == operation) {
-                return true;
-            }
-        }
-        return false;*/
-
-
-    static int comparePriorities(char f, char s){
-        return Integer.compare(operations.indexOf(f)/2,operations.indexOf(s)/2);
-    }
-
-}

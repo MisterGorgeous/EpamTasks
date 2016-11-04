@@ -2,6 +2,7 @@ package com.slabadniak.task4.chain;
 
 import com.slabadniak.task4.composite.ComponentPattern;
 import com.slabadniak.task4.composite.Root;
+import com.slabadniak.task4.regular.Regular;
 import org.apache.logging.log4j.Level;
 
 import java.util.Arrays;
@@ -15,12 +16,12 @@ public class SentenceHandler extends Handler {
     }
 
     void parse(String text,ComponentPattern component) {
-        List<String> paragraphs = Stream
+       /*List<String> paragraphs = Stream
                 .of(text)
                 .map(p -> p.split(" "))
                 .flatMap(Arrays::stream)
-                .collect(Collectors.toList());
-
+                .collect(Collectors.toList());*/
+        List<String> paragraphs = Regular.get(text, Regular.LEXEME);
         paragraphs.forEach(s -> {
             Root paragraph = new Root();
             s = s + ' ';

@@ -1,8 +1,7 @@
 package com.slabadniak.task4.interpreter;
 
-/**
- * Created by Siarhei on 03.11.2016.
- */
+import com.slabadniak.task4.notation.PolishNotation;
+
 public interface Expression {
-    public boolean interpret(String context);
+    void interpreting(PolishNotation context);
 }
