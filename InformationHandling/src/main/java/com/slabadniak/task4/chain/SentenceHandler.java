@@ -1,32 +1,25 @@
 package com.slabadniak.task4.chain;
 
-import com.slabadniak.task4.composite.ComponentPattern;
-import com.slabadniak.task4.composite.Root;
+import com.slabadniak.task4.composite.Component;
+import com.slabadniak.task4.composite.Composite;
+import com.slabadniak.task4.composite.CompositeName;
 import com.slabadniak.task4.regular.Regular;
-import org.apache.logging.log4j.Level;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class SentenceHandler extends Handler {
     public SentenceHandler() {
         setNextHandler(new LexemeHandler());
     }
 
-    void parse(String text,ComponentPattern component) {
-       /*List<String> paragraphs = Stream
-                .of(text)
-                .map(p -> p.split(" "))
-                .flatMap(Arrays::stream)
-                .collect(Collectors.toList());*/
-        List<String> paragraphs = Regular.get(text, Regular.LEXEME);
-        paragraphs.forEach(s -> {
-            Root paragraph = new Root();
+    void parse(String text, Component component) {
+        List<String> lemes = Regular.getMatches(text, Regular.LEXEME);
+
+        lemes.forEach(s -> {
+            Composite lexeme = new Composite(CompositeName.LEXEME);
             s = s + ' ';
-            component.add(paragraph);
-            getNextHandler().parse(s,paragraph);
+            component.add(lexeme);
+            getNextHandler().parse(s, lexeme);
         });
     }
 }

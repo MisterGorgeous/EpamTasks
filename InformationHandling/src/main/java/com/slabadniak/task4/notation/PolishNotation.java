@@ -29,29 +29,31 @@ public class PolishNotation {
         return resultStack;
     }
 
-    public String getCalculationResult(){
+    public String getResult() {
         return resultStack.poll().toString();
     }
 
     public void make(String expression) {
         char[] symbols = expression.toCharArray();
 
-        for (int i=0; i < symbols.length; ++i) {
+        for (int i = 0; i < symbols.length; ++i) {
             String number = "";
 
-            while(i < symbols.length && Character.isDigit(symbols[i])) {
+            //make number from digits
+            while (i < symbols.length && Character.isDigit(symbols[i])) {
                 number = number + symbols[i];
                 ++i;
             }
 
-            if(number != ""){
+            if (number != "") {
                 notation.add(number);
             }
-            if(i == symbols.length){
+            //if number is last in notation
+            if (i == symbols.length) {
                 break;
             }
 
-            if(symbols[i] == '('){
+            if (symbols[i] == '(') {
                 operationStack.addFirst(String.valueOf(symbols[i]));
             } else if (symbols[i] == ')') {
                 while (!operationStack.getFirst().equals("(")) {
@@ -60,14 +62,16 @@ public class PolishNotation {
                 operationStack.poll();
             } else {
                 String nextOperation;
-                if(symbols[i] == symbols[i+1]){
-                    if(i + 2 != symbols.length && Character.isDigit(symbols[i+2])){
-                        nextOperation = String.valueOf(symbols[i]) + String.valueOf(symbols[i+1]) + "i";
-                    }else {
-                        nextOperation = String.valueOf(symbols[i]) + String.valueOf(symbols[i+1]) + "p";
+
+                //check for unary
+                if (symbols[i] == symbols[i + 1]) {
+                    if (i + 2 != symbols.length && Character.isDigit(symbols[i + 2])) {
+                        nextOperation = String.valueOf(symbols[i]) + String.valueOf(symbols[i + 1]) + "i";
+                    } else {
+                        nextOperation = String.valueOf(symbols[i]) + String.valueOf(symbols[i + 1]) + "p";
                     }
                     ++i;
-                } else{
+                } else {
                     nextOperation = String.valueOf(symbols[i]);
                 }
 
@@ -85,4 +89,3 @@ public class PolishNotation {
         }
     }
 }
-

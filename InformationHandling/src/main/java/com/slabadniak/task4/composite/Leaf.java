@@ -1,19 +1,39 @@
 package com.slabadniak.task4.composite;
 
 
-public class Leaf implements ComponentPattern {
+import java.util.List;
+
+public class Leaf implements Component {
+    private CompositeName level;
     private String word;
 
-    public void add(ComponentPattern component) {
+    public Leaf(CompositeName level) {
+        this.level = level;
+    }
+
+    @Override
+    public void add(Component component) {
         //
     }
 
-    public ComponentPattern getDescendant() {
+    @Override
+    public List<Component> getDescendant() {
         return null;
     }
 
-    public void setWord(String word) {
+    @Override
+    public void setData(String word) {
         this.word = word;
+    }
+
+    @Override
+    public String getData() {
+        return word;
+    }
+
+    @Override
+    public CompositeName getRootName() {
+        return level;
     }
 
     @Override

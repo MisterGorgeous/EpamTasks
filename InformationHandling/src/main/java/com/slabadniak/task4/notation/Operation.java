@@ -26,7 +26,7 @@ public class Operation {
         return operations.contains(symbol);
     }
 
-    public static boolean isIN(String symbol){
+    public static boolean isUnary(String symbol){
         return operations.contains(symbol) && operations.indexOf(symbol) < 4;
     }
 }

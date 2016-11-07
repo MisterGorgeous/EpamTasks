@@ -2,10 +2,10 @@ package com.slabadniak.task4.interpreter;
 
 import com.slabadniak.task4.notation.PolishNotation;
 
-public class NonTerminalExpression implements Expression {
+public class BinaryExpression implements Expression {
 
     @Override
-   public void interpreting(PolishNotation context) {
+    public void interpreting(PolishNotation context) {
         int arg1 = context.getResultStack().poll();
         int arg2 = context.getResultStack().poll();
 

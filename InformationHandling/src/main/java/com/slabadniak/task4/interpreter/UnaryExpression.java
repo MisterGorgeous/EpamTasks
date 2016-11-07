@@ -3,7 +3,7 @@ package com.slabadniak.task4.interpreter;
 
 import com.slabadniak.task4.notation.PolishNotation;
 
-public class NONT implements Expression {
+public class UnaryExpression implements Expression {
 
 
     @Override
