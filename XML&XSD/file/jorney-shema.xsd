@@ -68,7 +68,7 @@
                 <attribute name="food" type="string"/>
                 <attribute name="room" type="string"/>
                 <attribute name="tv" type="boolean" default="false"/>
-                <attribute name="air-condition" type="boolean" default="fasle"/>
+                <attribute name="air-condition" type="boolean" default="false"/>
             </extension>
         </complexContent>
     </complexType>
