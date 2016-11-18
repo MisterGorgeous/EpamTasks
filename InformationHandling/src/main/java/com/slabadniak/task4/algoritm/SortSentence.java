@@ -5,7 +5,7 @@ import com.slabadniak.task4.composite.CompositeName;
 
 import java.util.*;
 
-public class Seccond {
+public class SortSentence {
     private static ArrayList<Component> sentences = new ArrayList<>();
     private static CompositeComparator comparator = new CompositeComparator();
 

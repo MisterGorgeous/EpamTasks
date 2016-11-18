@@ -9,6 +9,7 @@ public abstract class Handler {
         return nextHandler;
     }
 
+    //using for initialing next handler
     protected void setNextHandler(Handler nextHandler) {
         this.nextHandler = nextHandler;
     }

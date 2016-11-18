@@ -14,7 +14,7 @@ public class TextReader {
     private static final Logger LOGGER = LogManager.getLogger(TextReader.class);
     private static final String FILE_PATH = "file/text.txt";
 
-    public static String getText(){
+    public static String getText() {
         Stream<String> stream;
         try {
             stream = Files.lines(Paths.get(FILE_PATH));

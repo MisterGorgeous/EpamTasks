@@ -3,14 +3,12 @@ package com.slabadniak.task4.chain;
 import com.slabadniak.task4.composite.Component;
 import com.slabadniak.task4.composite.Leaf;
 import com.slabadniak.task4.composite.CompositeName;
-import com.slabadniak.task4.exeption.IncorrectDataExeption;
 import com.slabadniak.task4.interpreter.TerminalExpression;
 import com.slabadniak.task4.notation.PolishNotation;
-import com.slabadniak.task4.regular.Regular;
+import com.slabadniak.task4.Regular;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class LexemeHandler extends Handler {
     public LexemeHandler() {

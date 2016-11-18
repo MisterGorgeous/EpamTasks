@@ -1,4 +1,4 @@
-import com.slabadniak.task4.regular.Regular;
+import com.slabadniak.task4.Regular;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

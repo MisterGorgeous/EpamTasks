@@ -1,0 +1,54 @@
+<tourist-vouchers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.example.com/jorney_schema"
+         xsi:schemaLocation="http://www.example.com/jorney_schema ">
+
+    <rest transport="car">
+        <id>r1</id>
+        <days>31</days>
+        <cost>500.0</cost>
+        <country>Belarus</country>
+        <hotel>
+            <name>Europe</name>
+            <star>IV</star>
+        </hotel>
+    </rest>
+    <excurtion transport="ship">
+        <id>e1</id>
+        <days>41</days>
+        <cost>3100</cost>
+        <countries>France</countries>
+        <countries>Germany</countries>
+        <countries>Greate Britan</countries>
+        <countries>Spain</countries>
+    </excurtion>
+    <rest transport="ship">
+        <id>r2</id>
+        <days>15</days>
+        <cost>1200.0</cost>
+        <country>Turkey</country>
+        <hotel>
+            <name>Saphir</name>
+            <star>V</star>
+        </hotel>
+    </rest>
+    <excurtion transport="ship">
+        <id>e2</id>
+        <days>14</days>
+        <cost>1200</cost>
+        <countries>Belarus</countries>
+        <countries>Ukrain</countries>
+        <countries>Latvia</countries>
+        <countries>Poland</countries>
+    </excurtion>
+    <rest transport="plane">
+        <id>r3</id>
+        <days>19</days>
+        <cost>2100.0</cost>
+        <country>USA</country>
+        <hotel>
+            <name>Linkoln Plaza</name>
+            <star>V</star>
+        </hotel>
+    </rest>
+
+    </tourist-vouchers>

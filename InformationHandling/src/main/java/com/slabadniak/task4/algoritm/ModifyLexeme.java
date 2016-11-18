@@ -1,11 +1,11 @@
 package com.slabadniak.task4.algoritm;
 
 import com.slabadniak.task4.composite.Component;
-import com.slabadniak.task4.regular.Regular;
+import com.slabadniak.task4.Regular;
 
 import java.util.List;
 
-public class Eighth {
+public class ModifyLexeme {
 
     public static void perform(Component composite) {
         List<Component> descedents = composite.getDescendant();

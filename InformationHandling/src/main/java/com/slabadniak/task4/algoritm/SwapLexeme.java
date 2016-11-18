@@ -6,7 +6,7 @@ import com.slabadniak.task4.composite.CompositeName;
 import java.util.Collections;
 import java.util.List;
 
-public class Third {
+public class SwapLexeme {
     public static void perform(Component composite) {
         List<Component> descedents = composite.getDescendant();
         if (composite.getRootName() != CompositeName.SENTENCE) {

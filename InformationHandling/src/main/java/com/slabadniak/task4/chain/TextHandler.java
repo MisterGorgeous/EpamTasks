@@ -3,7 +3,7 @@ package com.slabadniak.task4.chain;
 import com.slabadniak.task4.composite.Component;
 import com.slabadniak.task4.composite.Composite;
 import com.slabadniak.task4.composite.CompositeName;
-import com.slabadniak.task4.regular.Regular;
+import com.slabadniak.task4.Regular;
 
 import java.util.List;
 

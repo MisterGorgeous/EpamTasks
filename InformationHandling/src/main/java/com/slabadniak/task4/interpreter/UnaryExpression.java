@@ -1,10 +1,8 @@
 package com.slabadniak.task4.interpreter;
 
-
 import com.slabadniak.task4.notation.PolishNotation;
 
 public class UnaryExpression implements Expression {
-
 
     @Override
     public void interpreting(PolishNotation context) {

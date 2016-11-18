@@ -39,9 +39,25 @@ public class Composite implements Component {
     @Override
     public String toString() {
         String resString = "";
-        for(Component component : descendants){
+        for (Component component : descendants) {
             resString = resString + component.toString();
         }
         return resString;
+    }
+
+    @Override
+    public Composite clone() {
+        Composite copy = null;
+        try {
+            copy = (Composite) super.clone();
+            copy.rootName = this.rootName;
+            copy.descendants = new ArrayList<>(descendants.size());
+            for (Component component : descendants) {
+                copy.descendants.add(component.clone());
+            }
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return copy;
     }
 }

@@ -1,6 +1,5 @@
 package com.slabadniak.task4.notation;
 
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Deque;
