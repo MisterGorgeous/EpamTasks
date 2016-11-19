@@ -2,12 +2,12 @@ package com.slabadniak.task5.jorney;
 
 
 public abstract class Jorney {
-    private int id;
+    private String id;
     private int days;
     private float cost;
     private Transport transport;
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -23,7 +23,7 @@ public abstract class Jorney {
         this.transport = transport;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -37,5 +37,15 @@ public abstract class Jorney {
 
     public Transport getTransport() {
         return transport;
+    }
+
+    @Override
+    public String toString() {
+        return "Jorney{"  +
+                "id='" + id + '\'' +
+                ", days=" + days +
+                ", cost=" + cost +
+                ", transport=" + transport +
+                '}';
     }
 }

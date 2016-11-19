@@ -1,8 +1,5 @@
 package com.slabadniak.task5.jorney;
 
-/**
- * Created by Siarhei on 19.11.2016.
- */
 public class Rest extends Jorney{
     private String country;
     private Hotel hotel;
@@ -10,6 +7,11 @@ public class Rest extends Jorney{
     private String room;
     private boolean tv;
     private boolean airCondition;
+
+    public Rest(){
+        super();
+        hotel = new Hotel();
+    }
 
     public String getCountry() {
         return country;
@@ -57,5 +59,17 @@ public class Rest extends Jorney{
 
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
+    }
+
+    @Override
+    public String toString() {
+        return "Rest{" + super.toString() +
+                "country='" + country + '\'' +
+                ", hotel=" + hotel +
+                ", food='" + food + '\'' +
+                ", room='" + room + '\'' +
+                ", tv=" + tv +
+                ", airCondition=" + airCondition +
+                '}';
     }
 }

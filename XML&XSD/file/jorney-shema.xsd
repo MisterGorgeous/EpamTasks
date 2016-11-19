@@ -65,8 +65,8 @@
                     </element>
                     <element name="hotel" type="tns:Hotel"/>
                 </sequence>
-                <attribute name="food" type="string"/>
-                <attribute name="room" type="string"/>
+                <attribute name="food" type="string"  default="none"/>
+                <attribute name="room" type="string" default="none"/>
                 <attribute name="tv" type="boolean" default="false"/>
                 <attribute name="air-condition" type="boolean" default="false"/>
             </extension>
