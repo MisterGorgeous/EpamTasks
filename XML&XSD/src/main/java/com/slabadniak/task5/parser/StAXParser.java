@@ -1,6 +1,6 @@
 package com.slabadniak.task5.parser;
 
-import com.slabadniak.task5.jorney.*;
+import com.slabadniak.task5.entityes.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -67,8 +67,8 @@ public class StAXParser {
     }
 
     private Rest buildRest(XMLStreamReader reader) throws XMLStreamException {
-      //  Rest rest = (Rest) buildJorney(reader, new Rest());
-        Rest rest = new Rest();
+        Rest rest = (Rest) buildJorney(reader, new Rest());
+        //Rest rest = new Rest();
         String temp;
         while (reader.hasNext()) {
             int type = reader.next();
@@ -76,22 +76,6 @@ public class StAXParser {
                 case XMLStreamConstants.START_ELEMENT:
                     temp = reader.getLocalName();
                     switch (JorneyEnum.valueOf(temp.toUpperCase())) {
-                        case ID:
-                            temp = getXMLText(reader);
-                            rest.setId(temp);
-                            break;
-                        case DAYS:
-                            temp = getXMLText(reader);
-                            rest.setDays(Integer.parseInt(temp));
-                            break;
-                        case COST:
-                            temp = getXMLText(reader);
-                            rest.setCost(Float.parseFloat(temp));
-                            break;
-                        case TRANSPORT:
-                            temp = getXMLText(reader);
-                            rest.setTransport(Transport.valueOf(temp.toUpperCase()));
-                            break;
                         case COUNTRY:
                             //if(current.getClass().toString().equals(Rest.class.toString())){
                             temp = getXMLText(reader);
@@ -115,8 +99,8 @@ public class StAXParser {
     }
 
     private Excurtion buildEcurtion(XMLStreamReader reader) throws XMLStreamException {
-       // Excurtion excurtion = (Excurtion) buildJorney(reader, new Excurtion());
-        Excurtion excurtion = new Excurtion();
+        Excurtion excurtion = (Excurtion) buildJorney(reader, new Excurtion());
+        //Excurtion excurtion = new Excurtion();
         String temp;
         while (reader.hasNext()) {
             int type = reader.next();
@@ -124,22 +108,6 @@ public class StAXParser {
                 case XMLStreamConstants.START_ELEMENT:
                     temp = reader.getLocalName();
                     switch (JorneyEnum.valueOf(temp.toUpperCase())) {
-                        case ID:
-                            temp = getXMLText(reader);
-                            excurtion.setId(temp);
-                            break;
-                        case DAYS:
-                            temp = getXMLText(reader);
-                            excurtion.setDays(Integer.parseInt(temp));
-                            break;
-                        case COST:
-                            temp = getXMLText(reader);
-                            excurtion.setCost(Float.parseFloat(temp));
-                            break;
-                        case TRANSPORT:
-                            temp = getXMLText(reader);
-                            excurtion.setTransport(Transport.valueOf(temp.toUpperCase()));
-                            break;
                         case COUNTRIES:
                             temp = getXMLText(reader);
                             excurtion.setContries(temp);
@@ -161,7 +129,7 @@ public class StAXParser {
 
     private Jorney buildJorney(XMLStreamReader reader, Jorney jorney) throws XMLStreamException {
         String temp;
-        int index = 0;
+        int index = 0; //iteration contoll
         while (reader.hasNext()) {
             int type = reader.next();
             switch (type) {
@@ -189,7 +157,7 @@ public class StAXParser {
                 case XMLStreamConstants.END_ELEMENT:
                     ++index;
                     temp = reader.getLocalName();
-                    if ("excurtion".equals(temp) || "rest".equals(temp) || index == 3) {
+                    if ("excurtion".equals(temp) || "rest".equals(temp) || index == 3) { //magic symbol. that necessary
                         return jorney;
                     }
                     break;

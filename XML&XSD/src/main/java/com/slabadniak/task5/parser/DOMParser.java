@@ -7,7 +7,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 
-import com.slabadniak.task5.jorney.*;
+import com.slabadniak.task5.entityes.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
@@ -17,7 +17,6 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class DOMParser {
-
     private DocumentBuilder docBuilder;
     private static final Logger LOGGER = LogManager.getLogger(DOMParser.class);
     private ArrayList<Jorney> jorneys;

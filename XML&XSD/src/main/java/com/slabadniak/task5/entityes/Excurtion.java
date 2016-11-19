@@ -1,4 +1,4 @@
-package com.slabadniak.task5.jorney;
+package com.slabadniak.task5.entityes;
 
 import java.util.ArrayList;
 

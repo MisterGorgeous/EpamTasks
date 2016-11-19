@@ -1,6 +1,6 @@
 package com.slabadniak.task5.parser;
 
-import com.slabadniak.task5.jorney.*;
+import com.slabadniak.task5.entityes.*;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 

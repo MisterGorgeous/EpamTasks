@@ -1,6 +1,6 @@
 package com.slabadniak.task5.parser;
 
-import com.slabadniak.task5.jorney.Jorney;
+import com.slabadniak.task5.entityes.Jorney;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.xml.sax.SAXException;
@@ -12,7 +12,6 @@ import java.util.ArrayList;
 
 
 public class SAXParser {
-
     private final static Logger LOGGER = LogManager.getLogger(SAXParser.class);
     private SAXHandler handler;
     private XMLReader reader;
