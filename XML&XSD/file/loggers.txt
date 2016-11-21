@@ -1,0 +1,1 @@
+09:45:11.315 [main] FATAL com.slabadniak.task5.builder.Builder - org.xml.sax.SAXParseException; systemId: file:/S:/git_rep/Epam/XML&XSD/file/jorney-shema.xsd; lineNumber: 57; columnNumber: 42; src-resolve: Cannot resolve the name 'tns:Jorney' to a(n) 'type definition' component.

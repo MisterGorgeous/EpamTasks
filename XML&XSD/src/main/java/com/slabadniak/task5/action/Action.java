@@ -1,12 +1,10 @@
 package com.slabadniak.task5.action;
 
-
 import com.slabadniak.task5.builder.Builder;
-import com.slabadniak.task5.builder.DOMBuilder;
-import com.slabadniak.task5.builder.SAXBuilder;
-import com.slabadniak.task5.builder.StAXBuilder;
-import com.slabadniak.task5.entityes.Jorney;
+import com.slabadniak.task5.entities.Journey;
 import com.slabadniak.task5.parser.DOMParser;
+import com.slabadniak.task5.parser.SAXParser;
+import com.slabadniak.task5.parser.StAXParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,18 +14,14 @@ public class Action {
     private static final Logger LOGGER = LogManager.getLogger(DOMParser.class);
 
     public static void main(String[] args) {
-        ArrayList<Jorney> result;
+        ArrayList<Journey> result;
 
-        Builder builder = new DOMBuilder();
-        result = builder.create();
+        Builder builder = new Builder();
+        result = builder.create(new DOMParser());
         LOGGER.info(result.toString());
-        builder = new SAXBuilder();
-        result = builder.create();
+        result = builder.create(new SAXParser());
         LOGGER.info(result.toString());
-        builder = new StAXBuilder();
-        result = builder.create();
+        result = builder.create(new StAXParser());
         LOGGER.info(result.toString());
     }
-
-
 }

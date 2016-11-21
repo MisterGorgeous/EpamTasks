@@ -1,6 +1,6 @@
-package com.slabadniak.task5.entityes;
+package com.slabadniak.task5.entities;
 
-public enum JorneyEnum {
+public enum JourneyEnum {
     ID,
     DAYS,
     COST,

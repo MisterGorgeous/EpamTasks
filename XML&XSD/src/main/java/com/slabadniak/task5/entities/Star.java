@@ -1,4 +1,4 @@
-package com.slabadniak.task5.entityes;
+package com.slabadniak.task5.entities;
 
 public enum Star {
     I,

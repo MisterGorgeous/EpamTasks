@@ -1,4 +1,4 @@
-package com.slabadniak.task5.entityes;
+package com.slabadniak.task5.entities;
 
 public class Hotel {
     private String name;
@@ -22,9 +22,6 @@ public class Hotel {
 
     @Override
     public String toString() {
-        return "Hotel{" +
-                "name='" + name + '\'' +
-                ", stars=" + stars +
-                '}';
+        return "Hotel{" + "name='" + name + '\'' + ", stars=" + stars + '}';
     }
 }

@@ -1,6 +1,7 @@
 package com.slabadniak.task5.parser;
 
-import com.slabadniak.task5.entityes.*;
+import com.slabadniak.task5.entities.*;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,24 +15,18 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
-public class StAXParser {
-    private static final Logger LOGGER = LogManager.getLogger(StAXParser.class);
+public class StAXParser extends AbstractParser {
     private XMLInputFactory inputFactory;
-    private ArrayList<Jorney> jorneys;
 
     public StAXParser() {
         inputFactory = XMLInputFactory.newInstance();
-        jorneys = new ArrayList<Jorney>();
     }
 
-    public ArrayList<Jorney> getJorneys() {
-        return jorneys;
-    }
-
-    public void buildJorneys(String fileName) {
+    @Override
+    public void buildJourneys(String fileName) {
         FileInputStream inputStream = null;
         XMLStreamReader reader = null;
-        String temp;
+        String string;
         try {
             inputStream = new FileInputStream(new File(fileName));
             reader = inputFactory.createXMLStreamReader(inputStream);
@@ -39,47 +34,43 @@ public class StAXParser {
             while (reader.hasNext()) {
                 int type = reader.next();
                 if (type == XMLStreamConstants.START_ELEMENT) {
-                    temp = reader.getLocalName();
+                    string = reader.getLocalName();
 
-                    if ("rest".equals(temp)) {
+                    if ("rest".equals(string)) {
                         Rest rest = buildRest(reader);
-                        jorneys.add(rest);
+                        getJorneys().add(rest);
                     }
-                    if ("excurtion".equals(temp)) {
+                    if ("excurtion".equals(string)) {
                         Excurtion excurtion = buildEcurtion(reader);
-                        jorneys.add(excurtion);
+                        getJorneys().add(excurtion);
                     }
                 }
             }
-        } catch (XMLStreamException ex) {
-            LOGGER.error("StAX parsing error! " + ex.getMessage());
-        } catch (FileNotFoundException ex) {
-            LOGGER.error("File " + fileName + " not found! " + ex);
+        } catch (XMLStreamException|FileNotFoundException e) {
+            LOGGER.log(Level.ERROR, e);
         } finally {
             try {
                 if (inputStream == null) {
                     inputStream.close();
                 }
             } catch (IOException e) {
-                LOGGER.error("Impossible close file " + fileName + " : " + e);
+                LOGGER.log(Level.ERROR, e);
             }
         }
     }
 
     private Rest buildRest(XMLStreamReader reader) throws XMLStreamException {
         Rest rest = (Rest) buildJorney(reader, new Rest());
-        //Rest rest = new Rest();
-        String temp;
+        String string;
         while (reader.hasNext()) {
             int type = reader.next();
             switch (type) {
                 case XMLStreamConstants.START_ELEMENT:
-                    temp = reader.getLocalName();
-                    switch (JorneyEnum.valueOf(temp.toUpperCase())) {
+                    string = reader.getLocalName();
+                    switch (JourneyEnum.valueOf(string.toUpperCase())) {
                         case COUNTRY:
-                            //if(current.getClass().toString().equals(Rest.class.toString())){
-                            temp = getXMLText(reader);
-                            rest.setCountry(temp);
+                            string = getXMLText(reader);
+                            rest.setCountry(string);
                             break;
                         case HOTEL:
                             Hotel hotel = rest.getHotel();
@@ -88,8 +79,8 @@ public class StAXParser {
                     }
                     break;
                 case XMLStreamConstants.END_ELEMENT:
-                    temp = reader.getLocalName();
-                    if ("rest".equals(temp)) {
+                    string = reader.getLocalName();
+                    if ("rest".equals(string)) {
                         return rest;
                     }
                     break;
@@ -100,26 +91,23 @@ public class StAXParser {
 
     private Excurtion buildEcurtion(XMLStreamReader reader) throws XMLStreamException {
         Excurtion excurtion = (Excurtion) buildJorney(reader, new Excurtion());
-        //Excurtion excurtion = new Excurtion();
-        String temp;
+        String string;
         while (reader.hasNext()) {
             int type = reader.next();
             switch (type) {
                 case XMLStreamConstants.START_ELEMENT:
-                    temp = reader.getLocalName();
-                    switch (JorneyEnum.valueOf(temp.toUpperCase())) {
+                    string = reader.getLocalName();
+                    switch (JourneyEnum.valueOf(string.toUpperCase())) {
                         case COUNTRIES:
-                            temp = getXMLText(reader);
-                            excurtion.setContries(temp);
+                            string = getXMLText(reader);
+                            excurtion.setContries(string);
                             break;
                     }
                     break;
                 case XMLStreamConstants.END_ELEMENT:
-
-                    temp = reader.getLocalName();
-                    if ("excurtion".equals(temp)) {
+                    string = reader.getLocalName();
+                    if ("excurtion".equals(string)) {
                         return excurtion;
-
                     }
                     break;
             }
@@ -127,37 +115,37 @@ public class StAXParser {
         throw new XMLStreamException("Unknown element.");
     }
 
-    private Jorney buildJorney(XMLStreamReader reader, Jorney jorney) throws XMLStreamException {
-        String temp;
+    private Journey buildJorney(XMLStreamReader reader, Journey jorney) throws XMLStreamException {
+        String string;
         int index = 0; //iteration contoll
         while (reader.hasNext()) {
             int type = reader.next();
             switch (type) {
                 case XMLStreamConstants.START_ELEMENT:
-                    temp = reader.getLocalName();
-                    switch (JorneyEnum.valueOf(temp.toUpperCase())) {
+                    string = reader.getLocalName();
+                    switch (JourneyEnum.valueOf(string.toUpperCase())) {
                         case ID:
-                            temp = getXMLText(reader);
-                            jorney.setId(temp);
+                            string = getXMLText(reader);
+                            jorney.setId(string);
                             break;
                         case DAYS:
-                            temp = getXMLText(reader);
-                            jorney.setDays(Integer.parseInt(temp));
+                            string = getXMLText(reader);
+                            jorney.setDays(Integer.parseInt(string));
                             break;
                         case COST:
-                            temp = getXMLText(reader);
-                            jorney.setCost(Float.parseFloat(temp));
+                            string = getXMLText(reader);
+                            jorney.setCost(Float.parseFloat(string));
                             break;
                         case TRANSPORT:
-                            temp = getXMLText(reader);
-                            jorney.setTransport(Transport.valueOf(temp.toUpperCase()));
+                            string = getXMLText(reader);
+                            jorney.setTransport(Transport.valueOf(string.toUpperCase()));
                             break;
                     }
                     break;
                 case XMLStreamConstants.END_ELEMENT:
                     ++index;
-                    temp = reader.getLocalName();
-                    if ("excurtion".equals(temp) || "rest".equals(temp) || index == 3) { //magic symbol. that necessary
+                    string = reader.getLocalName();
+                    if ("excurtion".equals(string) || "rest".equals(string) || index == 3) { //magic symbol. that necessary
                         return jorney;
                     }
                     break;
@@ -168,29 +156,29 @@ public class StAXParser {
 
     private void buildHotel(XMLStreamReader reader, Hotel hotel) throws XMLStreamException {
         int type;
-        String temp;
+        String string;
         while (reader.hasNext()) {
             type = reader.next();
             switch (type) {
                 case XMLStreamConstants.START_ELEMENT:
-                    temp = reader.getLocalName();
-                    switch (JorneyEnum.valueOf(temp.toUpperCase())) {
+                    string = reader.getLocalName();
+                    switch (JourneyEnum.valueOf(string.toUpperCase())) {
                         case HOTEL:
                             //
                             break;
                         case NAME:
-                            temp = getXMLText(reader);
-                            hotel.setName(temp);
+                            string = getXMLText(reader);
+                            hotel.setName(string);
                             break;
                         case STAR:
-                            temp = getXMLText(reader);
-                            hotel.setStars(Star.valueOf(temp.toUpperCase()));
+                            string = getXMLText(reader);
+                            hotel.setStars(Star.valueOf(string.toUpperCase()));
                             break;
                     }
                     break;
                 case XMLStreamConstants.END_ELEMENT:
-                    temp = reader.getLocalName();
-                    if ("hotel".equals(temp)) {
+                    string = reader.getLocalName();
+                    if ("hotel".equals(string)) {
                         return;
                     }
                     break;

@@ -1,7 +1,7 @@
-package com.slabadniak.task5.entityes;
+package com.slabadniak.task5.entities;
 
 
-public abstract class Jorney {
+public abstract class Journey {
     private String id;
     private int days;
     private float cost;
@@ -41,11 +41,6 @@ public abstract class Jorney {
 
     @Override
     public String toString() {
-        return "Jorney{"  +
-                "id='" + id + '\'' +
-                ", days=" + days +
-                ", cost=" + cost +
-                ", transport=" + transport +
-                '}';
+        return "Journey{"  + "id='" + id + '\'' + ", days=" + days + ", cost=" + cost + ", transport=" + transport + '}';
     }
 }

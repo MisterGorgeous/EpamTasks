@@ -1,8 +1,8 @@
-package com.slabadniak.task5.entityes;
+package com.slabadniak.task5.entities;
 
 import java.util.ArrayList;
 
-public class Excurtion extends Jorney {
+public class Excurtion extends Journey {
     private ArrayList<String> contries;
 
     public Excurtion(){
@@ -19,8 +19,6 @@ public class Excurtion extends Jorney {
 
     @Override
     public String toString() {
-        return "Excurtion{" + super.toString() +
-                "contries=" + contries +
-                '}';
+        return "Excurtion{" + super.toString() + "contries=" + contries + '}';
     }
 }

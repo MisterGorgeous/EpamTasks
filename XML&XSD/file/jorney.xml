@@ -42,6 +42,25 @@
     </excurtion>
     <rest transport="plane">
         <id>r3</id>
+        <days>37</days>
+        <cost>2100.0</cost>
+        <country>Brasil</country>
+        <hotel>
+            <name>Linkoln Plaza</name>
+            <star>V</star>
+        </hotel>
+    </rest>
+    <excurtion transport="car">
+        <id>e3</id>
+        <days>144</days>
+        <cost>13000</cost>
+        <countries>Belarus</countries>
+        <countries>Spain</countries>
+        <countries>Latvia</countries>
+        <countries>Poland</countries>
+    </excurtion>
+    <rest transport="ship">
+        <id>r4</id>
         <days>19</days>
         <cost>2100.0</cost>
         <country>USA</country>
@@ -50,5 +69,91 @@
             <star>V</star>
         </hotel>
     </rest>
+    <excurtion transport="train">
+        <id>e4</id>
+        <days>14</days>
+        <cost>1200</cost>
+        <countries>Belarus</countries>
+        <countries>Ukrain</countries>
+        <countries>Latvia</countries>
+        <countries>Poland</countries>
+    </excurtion>
+    <rest transport="plane">
+        <id>r5</id>
+        <days>19</days>
+        <cost>2100.0</cost>
+        <country>USA</country>
+        <hotel>
+            <name>Linkoln Plaza</name>
+            <star>V</star>
+        </hotel>
+    </rest>
+    <excurtion transport="ship">
+        <id>e5</id>
+        <days>14</days>
+        <cost>1300</cost>
+        <countries>Bali</countries>
+        <countries>Ukrain</countries>
+        <countries>Latvia</countries>
+        <countries>Poland</countries>
+    </excurtion>
+    <rest transport="plane">
+        <id>r6</id>
+        <days>7</days>
+        <cost>100.0</cost>
+        <country>China</country>
+        <hotel>
+            <name>Linkoln Plaza</name>
+            <star>V</star>
+        </hotel>
+    </rest>
+    <excurtion transport="ship">
+        <id>e6</id>
+        <days>32</days>
+        <cost>1400</cost>
+        <countries>Maroco</countries>
+        <countries>Ukrain</countries>
+        <countries>Latvia</countries>
+        <countries>Poland</countries>
+    </excurtion>
+    <rest transport="plane">
+        <id>r7</id>
+        <days>12</days>
+        <cost>300.0</cost>
+        <country>Vatican</country>
+        <hotel>
+            <name>Linkoln Plaza</name>
+            <star>V</star>
+        </hotel>
+    </rest>
+    <excurtion transport="ship">
+        <id>e7</id>
+        <days>17</days>
+        <cost>1540</cost>
+        <countries>Belarus</countries>
+        <countries>Malta</countries>
+        <countries>Latvia</countries>
+        <countries>Poland</countries>
+    </excurtion>
+    <rest transport="plane">
+        <id>r8</id>
+        <days>12</days>
+        <cost>1160.0</cost>
+        <country>Mexico</country>
+        <hotel>
+            <name>Linkoln Plaza</name>
+            <star>V</star>
+        </hotel>
+    </rest>
+    <excurtion transport="ship">
+        <id>e8</id>
+        <days>18</days>
+        <cost>1370</cost>
+        <countries>Russia</countries>
+        <countries>Ukrain</countries>
+        <countries>Latvia</countries>
+        <countries>Poland</countries>
+    </excurtion>
+
 
     </tourist-vouchers>

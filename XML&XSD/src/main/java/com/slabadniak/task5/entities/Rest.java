@@ -1,6 +1,6 @@
-package com.slabadniak.task5.entityes;
+package com.slabadniak.task5.entities;
 
-public class Rest extends Jorney{
+public class Rest extends Journey {
     private String country;
     private Hotel hotel;
     private String food;
@@ -63,13 +63,6 @@ public class Rest extends Jorney{
 
     @Override
     public String toString() {
-        return "Rest{" + super.toString() +
-                "country='" + country + '\'' +
-                ", hotel=" + hotel +
-                ", food='" + food + '\'' +
-                ", room='" + room + '\'' +
-                ", tv=" + tv +
-                ", airCondition=" + airCondition +
-                '}';
+        return "Rest{" + super.toString() + "country='" + country + '\'' + ", hotel=" + hotel + ", food='" + food + '\'' + ", room='" + room + '\'' + ", tv=" + tv + ", airCondition=" + airCondition + '}';
     }
 }

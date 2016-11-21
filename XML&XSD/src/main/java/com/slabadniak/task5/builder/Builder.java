@@ -1,6 +1,10 @@
 package com.slabadniak.task5.builder;
 
-import com.slabadniak.task5.entityes.Jorney;
+import com.slabadniak.task5.entities.Journey;
+import com.slabadniak.task5.parser.AbstractParser;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
@@ -13,37 +17,36 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public abstract class Builder {
+//It is not completely a Pattern Builder, but with parametrization it's look better
+
+public class Builder {
+    private static final Logger LOGGER = LogManager.getLogger(Builder.class);
     private static final String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
     private static final String schemaName = "file/jorney-shema.xsd";
-    protected static final String filename = "file/jorney.xml";  //to use in subclasses
+    protected static final String filename = "file/jorney.xml";     //to use in subclasses
 
     private void validate(){
         SchemaFactory factory = SchemaFactory.newInstance(language);
         File schemaLocation = new File(schemaName);
         try {
-            // create shema
-            Schema schema = factory.newSchema(schemaLocation);
-            // create validator
-            Validator validator = schema.newValidator();
-            // check xml
-            Source source = new StreamSource(filename);
+            Schema schema = factory.newSchema(schemaLocation);   // create shema
+            Validator validator = schema.newValidator();        // create validator
+            Source source = new StreamSource(filename);         // check xml
             validator.validate(source);
-            System.out.println(filename + " is valid.");
-        } catch (SAXException e) {
-            System.err.print("validation " + filename + " is not valid because "
-                    + e.getMessage());
-        } catch (IOException e) {
-            System.err.print(filename + " is not valid because "
-                    + e.getMessage());
+        } catch (SAXException|IOException e) {
+            LOGGER.log(Level.FATAL, e);
+            throw new RuntimeException();
         }
     }
 
-    public ArrayList<Jorney> create(){
+    public <P extends AbstractParser> ArrayList<Journey> create(P parser){
         validate();
-        return parse();
+        return parse(parser);
     }
 
-    abstract ArrayList<Jorney> parse();
+    public <P extends AbstractParser> ArrayList<Journey> parse(P parser) {
+        parser.buildJourneys(filename);
+        return parser.getJorneys();
+    }
 
 }
