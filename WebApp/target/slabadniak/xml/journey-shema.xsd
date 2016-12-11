@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/jorney_schema"
+        xmlns:tns="http://www.example.com/jorney_schema"
+        elementFormDefault="qualified">
+
+    <complexType name="Journey">
+        <sequence>
+            <element name="id" type="ID"/>
+            <element name="days">
+                <simpleType>
+                    <restriction base="integer">
+                        <minInclusive value="1"/>
+                        <maxExclusive value="365"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="cost" type="float"/>
+        </sequence>
+        <attribute name="transport" use="required">
+            <simpleType>
+                <restriction base="string">
+                    <enumeration value="plane"/>
+                    <enumeration value="car"/>
+                    <enumeration value="train"/>
+                    <enumeration value="ship"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+
+    <complexType name="Hotel">
+        <sequence>
+            <element name="name">
+                <simpleType>
+                    <restriction base="string">
+                        <pattern value="[A-z -.]{1,20}"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="star">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="I"/>
+                        <enumeration value="II"/>
+                        <enumeration value="III"/>
+                        <enumeration value="IV"/>
+                        <enumeration value="V"/>
+                    </restriction>
+                </simpleType>
+            </element>
+        </sequence>
+    </complexType>
+
+    <complexType name="Rest">
+        <complexContent>
+            <extension base="tns:Journey">
+                <sequence>
+                    <element name="country">
+                        <simpleType>
+                            <restriction base="string">
+                                <pattern value="[A-z ]{1,20}"/>
+                            </restriction>
+                        </simpleType>
+                    </element>
+                    <element name="hotel" type="tns:Hotel"/>
+                </sequence>
+                <attribute name="food" type="string"  default="none"/>
+                <attribute name="room" type="string" default="none"/>
+                <attribute name="tv" type="boolean" default="false"/>
+                <attribute name="air-condition" type="boolean" default="false"/>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="Excurtion">
+        <complexContent>
+            <extension base="tns:Journey">
+                <sequence>
+                    <element name="countries" type="string" minOccurs="1" maxOccurs="250"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="tourist-vouchers">
+        <complexType>
+            <sequence>
+                <element ref="tns:jorney" minOccurs="2" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    
+    <element name="jorney" type="tns:Journey" abstract="true"></element>
+    <element name="rest" type="tns:Rest" substitutionGroup="tns:jorney"></element>
+    <element name="excurtion" type="tns:Excurtion" substitutionGroup="tns:jorney"></element>
+</schema>
