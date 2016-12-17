@@ -1,4 +1,4 @@
-<%@ page isELIgnored="false" contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="myshortname" uri="mycompany" %>
 <html>
 <head>
@@ -10,5 +10,7 @@
 </myshortname:table-revenue >
 <br/>
 <myshortname:table-revenue>5 rub BulbaComp</myshortname:table-revenue >
+
+Кодировка запроса: ${ pageContext.request.characterEncoding }
 </body>
 </html>

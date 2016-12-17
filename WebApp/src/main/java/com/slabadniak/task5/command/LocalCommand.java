@@ -9,6 +9,6 @@ public class LocalCommand implements ICommand {
         HttpSession session = request.getSession(true);
         String locale = request.getParameter("button");
 
-        session.setAttribute("local", locale);
+        session.setAttribute("locale", locale);
     }
 }

@@ -11,9 +11,9 @@ public class CommandFactory {
 
 
     public static ICommand create(String type) {
-        String str = type.toUpperCase();
+        //String str = type.toUpperCase();
         ICommand command = null;
-        switch (str) {
+        switch (type) {
             case "DOM":
             case "SAX":
             case "StAX":

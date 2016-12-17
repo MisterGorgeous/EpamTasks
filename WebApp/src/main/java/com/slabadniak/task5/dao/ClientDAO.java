@@ -3,6 +3,7 @@ package com.slabadniak.task5.dao;
 import com.slabadniak.task5.pool.Wrapper;
 import com.slabadniak.task5.sessioncontent.SessionRequestContent;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
