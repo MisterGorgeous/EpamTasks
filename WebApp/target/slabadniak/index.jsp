@@ -4,6 +4,7 @@
     <title>Index</title>
 </head>
 <body>
-<jsp:forward page="/jsp/start.jsp"/>
+<%--<jsp:forward page="/jsp/main.jsp"/>--%>
+<jsp:include page="Controller" />
 </body>
 </html>

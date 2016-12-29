@@ -7,13 +7,18 @@
 <body>
 Request from ${pageContext.errorData.requestURI} is failed
 <br/>
-Servlet name or type: ${pageContext.errorData.servletName}
+Servlet title or type: ${pageContext.errorData.servletName}
 <br/>
 Status code: ${pageContext.errorData.statusCode}
+
+<br/>
+Exception: ${pageContext.exception}
+<br/>
+Message from exception: ${pageContext.exception.message}
 <br/>
  <c:forEach var="trace" items="${pageContext.exception.stackTrace}">
     <p>${trace}</p>
 </c:forEach>
-<a href="/jsp/start.jsp">BACK</a>
+<a href="/jsp/main.jsp">BACK</a>
 </body>
 </html>

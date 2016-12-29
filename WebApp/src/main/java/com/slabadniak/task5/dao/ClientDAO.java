@@ -1,9 +1,8 @@
 package com.slabadniak.task5.dao;
 
 import com.slabadniak.task5.pool.Wrapper;
-import com.slabadniak.task5.sessioncontent.SessionRequestContent;
+import com.slabadniak.task5.sessioncontent.GenreContent;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -15,8 +14,7 @@ public class ClientDAO extends AbstractDAO {
         super(wrapper);
     }
 
-    @Override
-    public SessionRequestContent findAll() {
+    public GenreContent findAll() {
         ResultSet genres = null;
         try {
             genres = getStatement().executeQuery(GENRES);
@@ -25,7 +23,7 @@ public class ClientDAO extends AbstractDAO {
             e.printStackTrace();
         }
 
-        SessionRequestContent content = new SessionRequestContent();
+        GenreContent content = new GenreContent();
         content.insert(genres);
         closeConnection();
         return content;

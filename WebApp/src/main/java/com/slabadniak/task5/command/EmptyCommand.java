@@ -10,6 +10,9 @@ public class EmptyCommand implements ICommand {
     @Override
     public void execute(HttpServletRequest request) {
         HttpSession session = request.getSession(true);
-        session.setAttribute("currentJSP", ConfigurationManager.getProperty("path.page.start"));
+        session.setAttribute("currentJSP", ConfigurationManager.getProperty("path.page.main"));
+
+        CommandFactory.create("setmaincontent").execute(request);
+       // CommandFactory.create("cross").execute(request);
     }
 }

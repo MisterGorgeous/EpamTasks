@@ -26,12 +26,7 @@ public class ConnectionPool {
     private static ReentrantLock lock = new ReentrantLock();
     private static int maxPool;
     private static int poolSize;
-    //   private static AtomicBoolean connectionsToOffer = new AtomicBoolean(true);
 
-
-//connctions.take()
-    //for take and close
-    //Wrapper 2 methods close 1 close connction seccond real
 
     private ConnectionPool() {
         property = new Properties();
@@ -88,14 +83,16 @@ public class ConnectionPool {
 
 
     public void closeConnection(Wrapper connection) throws InterruptedException {
-        connections.put(connection);//
+        connections.put(connection);
         LOGGER.log(Level.DEBUG, "Connection returned");
     }
 
     public void closePool() {
         for (int i = 0; i < maxPool; i++) {
             try {
-                connections.take().closeConnectionandStatement();
+                Wrapper wrapper = connections.take();
+                wrapper.closeStatement();
+                wrapper.closeConnection();
             } catch (InterruptedException e) {
                 LOGGER.log(Level.DEBUG, "Interrupted exc");
             }
@@ -103,11 +100,3 @@ public class ConnectionPool {
     }
 
 }
-
-
-
-
-
-
-
-
