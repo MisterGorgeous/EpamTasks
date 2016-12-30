@@ -1,0 +1,12 @@
+out/
+.idea/
+target/
+WebApp.iml
+pom.xml
+
+#=== Images
+.png
+.jpg
+
+#=== Bootstrap files
+.map
