@@ -5,8 +5,8 @@ WebApp.iml
 pom.xml
 
 #=== Images
-.png
-.jpg
+*.png
+*.jpg
 
 #=== Bootstrap files
 .map

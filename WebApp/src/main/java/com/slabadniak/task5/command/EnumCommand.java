@@ -46,6 +46,11 @@ public enum EnumCommand {
             this.command = new ActorCommand();
         }
     },
+    SHOWCOMMENTS{
+        {
+            this.command = new ShowCommentsCommand();
+        }
+    },
     SETMAINCONTENT{
         {
             this.command = new SetMainContentCommand();

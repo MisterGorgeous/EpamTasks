@@ -17,8 +17,8 @@ public class UsersAssessment {
         isComment = false;
     }
 
-    public UsersAssessment(String text, float rating, String movie, String user) {
-        this.comment = text;
+    public UsersAssessment(String comment, float rating, String movie, String user) {
+        this.comment = comment;
         this.rating = rating;
         this.movie = movie;
         this.user = user;

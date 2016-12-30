@@ -17,6 +17,7 @@ public class MovieCimmand implements ICommand {
 
         CommandFactory.create("genre").execute(request);
         CommandFactory.create("actor").execute(request);
+        CommandFactory.create("showcomments").execute(request);
 
         CommandFactory.create("cross").execute(request);
     }

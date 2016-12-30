@@ -15,9 +15,31 @@ public class DefaultDAO extends AbstractDAO {
     private static final String LOGIN = "SELECT * FROM user where login = ? && password = ?;";
     private static final String GENRES = "SELECT genre_kind.name FROM movie JOIN genre USING(movie_id) JOIN genre_kind USING(genre_id) WHERE movie.title = ?;";
     private static final String ACTORS = "SELECT f_name,s_name,birstday FROM movie JOIN role USING(movie_id) JOIN actor USING(actor_id) WHERE movie.title = ?;";
+    private static final String COMMENTS = "SELECT comment,mark,user.login,update_time FROM assessment JOIN user on assessment.user_id = user.user_id where movie_id = (SELECT movie_id from movie WHERE title = ?) && comment IS NOT NULL && comment != ''  ORDER BY update_time DESC;";
 
     public DefaultDAO(Wrapper wrapper) {
         super(wrapper);
+    }
+
+    public ResultSet comments(String movie){
+        PreparedStatement ps = null;
+        ResultSet res = null;
+
+        try {
+            ps = getConnection().prepareStatement(COMMENTS);
+            ps.setString(1,movie);
+            res = ps.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+           /* if(ps != null) {
+                ps.close();
+            }*/
+            closeStatement();
+            closeConnection();
+        }
+        return res;
     }
 
     public ResultSet actors(String movie){
@@ -38,7 +60,6 @@ public class DefaultDAO extends AbstractDAO {
             closeStatement();
             closeConnection();
         }
-
         return res;
     }
 

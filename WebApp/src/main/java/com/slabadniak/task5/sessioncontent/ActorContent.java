@@ -17,7 +17,7 @@ public class ActorContent implements DataContext {
     private static final int BIRSTDAY = 3;
 
     public ActorContent(){
-        actors = new ArrayList<Actor>();
+        actors = new ArrayList<>();
     }
 
     @Override

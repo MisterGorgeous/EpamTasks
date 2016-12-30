@@ -140,15 +140,21 @@
 
             <div class="actionBox">
                 <ul class="commentList">
+
+
+<c:forEach var="assess" items="${assessments}">
                     <li>
                        <%-- <div class="commenterImage">
                             <img src="" alt="" />
                         </div>--%>
                         <div class="commentText">
-                            <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
-
+                            <p>${assess.user}</p>
+                            <p class="">${assess.comment}</p> <span class="date sub-text">${assess.date}</span>
+                            <span>${assess.rating}</span>
                         </div>
                     </li>
+</c:forEach>
+
                 </ul>
             </div>
         </div>
