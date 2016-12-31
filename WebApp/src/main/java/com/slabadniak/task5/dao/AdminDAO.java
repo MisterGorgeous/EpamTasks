@@ -11,9 +11,30 @@ import java.sql.SQLException;
 public class AdminDAO extends AbstractDAO {
     public  static final String USERS = "select login,email,status_id,banned from user WHERE admin = FALSE;";
     public  static final String BANING = "UPDATE user set banned = ? WHERE login = ?;";
+    public  static final String CHANGESTATUS = "UPDATE user set status_id = ? WHERE login = ?;";
 
     public AdminDAO(Wrapper wrapper) {
         super(wrapper);
+    }
+
+    public void changeStatus(User user){
+        PreparedStatement ps = null;
+        try {
+            ps = getConnection().prepareStatement(CHANGESTATUS);
+            ps.setString(1,user.getStatus());
+            ps.setString(2,user.getLogin());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+           /* if(ps != null) {
+                ps.close();
+            }*/
+            closeStatement();
+            closeConnection();
+        }
+
     }
 
 

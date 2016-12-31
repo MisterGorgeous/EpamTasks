@@ -18,12 +18,6 @@
 
 
 <body>
-<script type="text/css">
-    #ex1Slider .slider-selection {
-        background: #BABABA;
-    }
-
-</script>
 
 <%@ include file="/jsp/header.jsp" %>
 

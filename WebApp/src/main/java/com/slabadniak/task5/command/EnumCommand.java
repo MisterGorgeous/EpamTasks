@@ -66,6 +66,11 @@ public enum EnumCommand {
             this.command = new UserBannnedCommand();
         }
     },
+    CHANGESTATUS{
+        {
+            this.command = new ChangeStatusCommand();
+        }
+    },
     SETMAINCONTENT{
         {
             this.command = new SetMainContentCommand();

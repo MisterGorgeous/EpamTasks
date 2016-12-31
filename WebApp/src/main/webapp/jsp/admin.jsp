@@ -11,6 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta title="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-slider.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
@@ -42,17 +43,35 @@
             <tr>
                 <td>${user.login}</td>
                 <td>${user.email}</td>
-                <td>${user.status}</td>
+                <td>
+                    <form  class="navbar-form navbar-left" name="changestatus" action="Controller" method="post">
+
+                        <input type="hidden" name="command" value="changestatus">
+                        <input type="hidden" name="userId" value="${index}">
+                        <input type="hidden" name="page" value="path.page.admin">
+                        <input onchange="$(this).closest('form').submit();"  id="ex19" type="text" name="status"  data-provide="slider" data-slider-ticks="[1, 2, 3]" data-slider-ticks-labels='["beginer", "fan", "expert"]' data-slider-min="1" data-slider-max="3" data-slider-step="1"
+                               data-slider-value="<c:choose>
+                                                        <c:when test="${user.status == 'beginer'}">
+                                                           1
+                                                        </c:when>
+                                                        <c:when test="${user.status == 'fan'}">
+                                                            2
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            3
+                                                        </c:otherwise>
+                                                    </c:choose>" data-slider-tooltip="hide"/>
+                        <input class="btn btn-default invisible" type="submit" name="button" value="user"/>
+                    </form>
+                </td>
+
                 <td>
                     <form  action="Controller" method="post">
                         <input type="hidden" name="command" value="userbanned">
                         <input type="hidden" name="userId" value="${index}">
                         <input type="hidden" name="page" value="path.page.admin">
                         <input class="btn btn-default invisible" type="submit" name="button" value="user"/>
-                        <label class="btn btn-warning active">
-                            <input onchange="$(this).closest('form').submit();" type="radio" name="radio" id="option2" autocomplete="off">
-                            <span class="glyphicon glyphicon-ok"></span>
-                        </label>
+                        <button onclick="$(this).closest('form').submit();" type="button" class="${user.banned ?'btn btn-danger': 'btn btn-success'}">Banned</button>
                     </form>
                 </td>
             </tr>
@@ -67,8 +86,10 @@
 </c:if>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script src="/js/jquery-3.1.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
+<script src="/js/bootstrap-slider.js"></script>
 </body>
 </html>
