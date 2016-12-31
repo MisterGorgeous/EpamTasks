@@ -45,7 +45,7 @@
             </form>
         </c:if>
 
-        <c:if test="${userStatus == 'USER'}">
+
            <%-- <div class="btn-group" role="group" aria-label="...">
                 <button type="button" class="btn btn-default">1</button>
                 <button type="button" class="btn btn-default">2</button>
@@ -62,7 +62,7 @@
 
 
 
-
+        <c:if test="${userStatus != 'GUEST' }">
 
             <form id="comment" class="navbar-form navbar-left" title="login" action="Controller" method="post">
 
@@ -144,13 +144,11 @@
 
 <c:forEach var="assess" items="${assessments}">
                     <li>
-                       <%-- <div class="commenterImage">
-                            <img src="" alt="" />
-                        </div>--%>
                         <div class="commentText">
-                            <p>${assess.user}</p>
-                            <p class="">${assess.comment}</p> <span class="date sub-text">${assess.date}</span>
-                            <span>${assess.rating}</span>
+                            <p class="text-success">${assess.user}</p>
+                            <p class="text-info">${assess.comment}</p>
+                            <span class="date sub-text" >${assess.date}</span> <%--class="date sub-text"--%>
+                            <span class="text-danger">${assess.rating}</span>
                         </div>
                     </li>
 </c:forEach>

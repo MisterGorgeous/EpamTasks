@@ -51,6 +51,21 @@ public enum EnumCommand {
             this.command = new ShowCommentsCommand();
         }
     },
+    UPLOAD{
+        {
+            this.command = new UploadCommand();
+        }
+    },
+    USERS{
+        {
+            this.command = new UsersCommand();
+        }
+    },
+    USERBANNED{
+        {
+            this.command = new UserBannnedCommand();
+        }
+    },
     SETMAINCONTENT{
         {
             this.command = new SetMainContentCommand();

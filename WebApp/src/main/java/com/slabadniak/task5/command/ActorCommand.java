@@ -18,8 +18,8 @@ public class ActorCommand implements ICommand {
 
     @Override
     public void execute(HttpServletRequest request) {
-        //exeption
 
+        //exeption
         HttpSession session = request.getSession();
         Movie movie = (Movie) session.getAttribute("chosenMovie");
 

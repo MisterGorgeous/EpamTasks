@@ -28,7 +28,7 @@ public class Controller extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       processRequest(request, response);
+        processRequest(request, response);
     }
 
     public void destroy() {
@@ -43,8 +43,8 @@ public class Controller extends HttpServlet {
             session.setAttribute("userStatus", ClientType.GUEST);
         }
 
-        session.setAttribute("userStatus", ClientType.USER);
-        session.setAttribute("userName","jessicahall");
+        session.setAttribute("userStatus", ClientType.ADMINISTRATOR);
+        session.setAttribute("userName","slabadniaksergei");
 
         String command = request.getParameter("command");
 
@@ -63,5 +63,3 @@ public class Controller extends HttpServlet {
         request.getRequestDispatcher((String)session.getAttribute("currentJSP")).forward(request, response);
     }
 }
-
-

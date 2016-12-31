@@ -1,4 +1,3 @@
-<header>
 
     <nav class="navbar navbar-default">
         <div class="container-fluid navbar-inverse">
@@ -42,20 +41,18 @@
 
                 </ul>
 
-
                 <ul class="nav navbar-nav navbar-right">
 
                     <c:if test="${userStatus == 'USER'}">
-                        <div>
+
                             <form class="navbar-form navbar-right" title="logoof" action="Controller" method="post">
                                 <input type="hidden" name="command" value="logoff">
                                 <input type="hidden" name="page" value="path.page.main">
                                 <input class="btn btn-default" type="submit" title="button"
                                        value="<fmt:message key="header.logoff" bundle="${resourceBundle}"/>"/> />
                             </form>
-                        </div>
 
-                        <form class="navbar-form navbar-right" title="signin" action="Controller" method="post">
+                      <%--  <form class="navbar-form navbar-right" title="signin" action="Controller" method="post">
                             <input type="hidden" name="command" value="cross">
                             <input type="hidden" name="page" value="path.page.signin">
                             <!--<input class="btn btn-default" type="submit"  title="button" value="user" /> />-->
@@ -63,13 +60,43 @@
                                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                     ${userName}
                             </button>
-                        </form>
+                        </form>--%>
                     </c:if>
 
+
                     <c:if test="${userStatus == 'ADMINISTRATOR'}">
-                        <form class="navbar-form navbar-right" title="signin" action="Controller" method="post">
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li> <form action="Controller" method="post">
+                                    <input type="hidden" name="command" value="users">
+                                    <input type="hidden" name="page" value="path.page.admin">
+                                    <input class="btn btn-default" type="submit" title="button"
+                                           value="<fmt:message key="header.users" bundle="${resourceBundle}"/>"/> />
+                                </form>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li> <form action="Controller" method="post">
+                                    <input type="hidden" name="command" value="addfilm">
+                                    <input type="hidden" name="page" value="path.page.admin">
+                                    <input class="btn btn-default" type="submit" title="button"
+                                           value="<fmt:message key="header.addfilm" bundle="${resourceBundle}"/>"/> />
+                                </form>
+                                </li>
+                            </ul>
+                        </li>
+
+                            <form class="navbar-form navbar-right" title="logoof" action="Controller" method="post">
+                                <input type="hidden" name="command" value="logoff">
+                                <input type="hidden" name="page" value="path.page.main">
+                                <input class="btn btn-default" type="submit" title="button"
+                                       value="<fmt:message key="header.logoff" bundle="${resourceBundle}"/>"/> />
+                            </form>
+
+                        <form class="navbar-form navbar-right"  action="Controller" method="post">
                             <input type="hidden" name="command" value="cross">
-                            <input type="hidden" name="page" value="path.page.signin">
+                            <input type="hidden" name="page" value="path.page.admin">
                             <!--<input class="btn btn-default" type="submit"  title="button" value="user" /> />-->
                             <button type="submit" class="btn btn-default">
                                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
@@ -78,8 +105,10 @@
                         </form>
                     </c:if>
                 </ul>
+
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
+
 
 </header>

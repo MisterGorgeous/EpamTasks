@@ -26,6 +26,7 @@ public class DefaultDAO extends AbstractDAO {
         ResultSet res = null;
 
         try {
+            System.out.println(movie);
             ps = getConnection().prepareStatement(COMMENTS);
             ps.setString(1,movie);
             res = ps.executeQuery();

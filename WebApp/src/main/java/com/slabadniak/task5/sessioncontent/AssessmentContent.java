@@ -29,14 +29,19 @@ public class AssessmentContent implements DataContext {
     @Override
     public void insert(ResultSet resultSet) {
         UsersAssessment assessment;
+
+
         try {
-            while (resultSet.next()) {
-                assessment = new UsersAssessment(resultSet.getString(COMMENT),
-                        resultSet.getFloat(RATING),
-                        "",
-                        resultSet.getString(LOGIN),
-                        resultSet.getString(UPDATETIME));
-                assessments.add(assessment);
+
+            if (resultSet.isBeforeFirst() ) {
+                while (resultSet.next()) {
+                    assessment = new UsersAssessment(resultSet.getString(COMMENT),
+                            resultSet.getFloat(RATING),
+                            "",
+                            resultSet.getString(LOGIN),
+                            resultSet.getTimestamp(UPDATETIME));
+                    assessments.add(assessment);
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -1,8 +1,6 @@
 package com.slabadniak.task5.entity;
 
-/**
- * Created by Siarhei on 30.12.2016.
- */
+
 public class Actor {
     private String firstName;
     private String seccondName;

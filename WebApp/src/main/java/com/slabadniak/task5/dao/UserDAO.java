@@ -2,10 +2,8 @@ package com.slabadniak.task5.dao;
 
 import com.slabadniak.task5.entity.UsersAssessment;
 import com.slabadniak.task5.pool.Wrapper;
-import com.slabadniak.task5.sessioncontent.GenreContent;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDAO extends AbstractDAO {
@@ -19,7 +17,7 @@ public class UserDAO extends AbstractDAO {
     public boolean assess(UsersAssessment assessment){
         PreparedStatement ps = null;
         try {
-            if(assessment.isComment()) {
+            if(assessment.isMarkandText()) {
                 ps = getConnection().prepareStatement(ASSESSANDCOMMENT);
                 ps.setString(4, assessment.getComment()  );
             }else {

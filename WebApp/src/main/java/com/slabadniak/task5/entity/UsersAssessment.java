@@ -1,20 +1,22 @@
 package com.slabadniak.task5.entity;
 
+import java.sql.Timestamp;
+
 public class UsersAssessment {
     private String comment;
     private float rating;
     private String movie;
     private String user;
-    private String date;
-    private boolean isComment;
+    private Timestamp date;
+    private boolean isMarkandText;
 
-    public UsersAssessment(String comment, float rating, String movie, String user, String date) {
+    public UsersAssessment(String comment, float rating, String movie, String user, Timestamp date) {
         this.comment = comment;
         this.rating = rating;
         this.movie = movie;
         this.user = user;
         this.date = date;
-        isComment = false;
+        isMarkandText = false;
     }
 
     public UsersAssessment(String comment, float rating, String movie, String user) {
@@ -22,14 +24,14 @@ public class UsersAssessment {
         this.rating = rating;
         this.movie = movie;
         this.user = user;
-        isComment = true;
+        isMarkandText = true;
     }
 
     public UsersAssessment(float rating, String movie, String user) {
         this.rating = rating;
         this.movie = movie;
         this.user = user;
-        isComment = false;
+        isMarkandText = false;
     }
 
     public String getComment() {
@@ -48,12 +50,16 @@ public class UsersAssessment {
         return user;
     }
     
-    public boolean isComment(){
-        return isComment;
+    public boolean isMarkandText(){
+        return isMarkandText;
+    }
+
+    public Timestamp getDate() {
+        return date;
     }
 
     public void setCommentStatus(boolean comment) {
-        isComment = comment;
+        isMarkandText = comment;
     }
 
 
