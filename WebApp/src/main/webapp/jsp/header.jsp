@@ -78,10 +78,10 @@
                                 </li>
                                 <li role="separator" class="divider"></li>
                                 <li> <form action="Controller" method="post">
-                                    <input type="hidden" name="command" value="addfilm">
+                                    <input type="hidden" name="command" value="cross">
                                     <input type="hidden" name="page" value="path.page.admin">
                                     <input class="btn btn-default" type="submit" title="button"
-                                           value="<fmt:message key="header.addfilm" bundle="${resourceBundle}"/>"/> />
+                                           value="<fmt:message key="header.addmovie" bundle="${resourceBundle}"/>"/> />
                                 </form>
                                 </li>
                             </ul>

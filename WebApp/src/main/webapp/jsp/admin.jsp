@@ -44,7 +44,7 @@
                 <td>${user.login}</td>
                 <td>${user.email}</td>
                 <td>
-                    <form  class="navbar-form navbar-left" name="changestatus" action="Controller" method="post">
+                    <form  name="changestatus" action="Controller" method="post">
 
                         <input type="hidden" name="command" value="changestatus">
                         <input type="hidden" name="userId" value="${index}">
@@ -83,6 +83,54 @@
 
     </div>
 </div>
+</c:if>
+
+<c:if test="${param.command == 'cross'}">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">Movie:</div>
+        <div class="panel-body">
+
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Title:</th>
+                    <th>Description:</th>
+                    <th>Country:</th>
+                    <th>Year:</th>
+                    <th>Icon:</th>
+                    <th>Rating:</th>
+                </tr>
+                </thead>
+                <form  name="addmovie" action="Controller" method="post">
+                    <input type="hidden" name="command" value="addmovie">
+                    <input type="hidden" name="page" value="path.page.admin">
+                    <input class="btn btn-default" type="submit" name="button" value="Add"/>
+
+                <tbody>
+                    <tr>
+                        <td><textarea class="form-control" rows="1"  name="title" ></textarea></td>
+                        <td><textarea class="form-control" rows="10" name="description" ></textarea></td>
+                        <td><textarea  class="form-control"rows="1"  name="country" ></textarea></td>
+                        <td><textarea  class="form-control"rows="1" name="year" ></textarea></td>
+                        <td><textarea class="form-control" rows="1"  name="icon" ></textarea></td>
+                        <td><textarea  class="form-control" rows="1"  name="rating" ></textarea></td>
+                    </tr>
+                <tr>
+                    <td>
+
+                    </td>
+                </tr>
+                </tbody>
+
+
+                </form>
+            </table>
+
+
+        </div>
+    </div>
 </c:if>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
