@@ -2,15 +2,17 @@ package com.slabadniak.task5.sessioncontent;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class GenreContent implements DataContext {
-    private Set<String> genre = null;
+    private List<String> genre = null;
     private static final int COLUMN = 1;
 
     public GenreContent() {
-        genre =  new HashSet<>();
+        genre =  new ArrayList<>();
     }
 
     public void insert(ResultSet resultSet) {
@@ -24,7 +26,7 @@ public class GenreContent implements DataContext {
 
     }
 
-    public Set<String> get() {
+    public List<String> get() {
         return genre;
     }
 }

@@ -76,9 +76,9 @@
                                            value="<fmt:message key="header.users" bundle="${resourceBundle}"/>"/> />
                                 </form>
                                 </li>
-                                <li role="separator" class="divider"></li>
-                                <li> <form action="Controller" method="post">
-                                    <input type="hidden" name="command" value="cross">
+                                <li  role="separator" class="divider"></li>
+                                <li> <form  action="Controller" method="post">
+                                    <input type="hidden" name="command" value="allgenres">
                                     <input type="hidden" name="page" value="path.page.admin">
                                     <input class="btn btn-default" type="submit" title="button"
                                            value="<fmt:message key="header.addmovie" bundle="${resourceBundle}"/>"/> />

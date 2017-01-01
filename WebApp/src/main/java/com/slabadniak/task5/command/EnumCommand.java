@@ -71,6 +71,16 @@ public enum EnumCommand {
             this.command = new ChangeStatusCommand();
         }
     },
+    ALLGENRES{
+        {
+            this.command = new AllGenresCommand();
+        }
+    },
+    ADDMOVIE{
+        {
+            this.command = new AddMovieCommand();
+        }
+    },
     SETMAINCONTENT{
         {
             this.command = new SetMainContentCommand();

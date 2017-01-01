@@ -12,6 +12,7 @@ import com.slabadniak.task5.sessioncontent.MovieContent;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.ResultSet;
+import java.util.List;
 import java.util.Set;
 
 public class GenreCommand implements ICommand {
@@ -43,6 +44,6 @@ public class GenreCommand implements ICommand {
     }
 
     private void setAtributes(DataContext content, HttpServletRequest request){
-         request.setAttribute("genres", (Set<String>) content.get());
+         request.setAttribute("genres", (List<String>) content.get());
     }
 }

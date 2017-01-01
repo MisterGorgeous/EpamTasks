@@ -14,6 +14,7 @@ public class DefaultDAO extends AbstractDAO {
     private static final String SIGNIN = "INSERT INTO user (login,email,password) VALUE (?,?,?);";
     private static final String LOGIN = "SELECT * FROM user where login = ? && password = ?;";
     private static final String GENRES = "SELECT genre_kind.name FROM movie JOIN genre USING(movie_id) JOIN genre_kind USING(genre_id) WHERE movie.title = ?;";
+    private static final String ALLGENRES = "SELECT name FROM genre_kind;";
     private static final String ACTORS = "SELECT f_name,s_name,birstday FROM movie JOIN role USING(movie_id) JOIN actor USING(actor_id) WHERE movie.title = ?;";
     private static final String COMMENTS = "SELECT comment,mark,user.login,update_time FROM assessment JOIN user on assessment.user_id = user.user_id where movie_id = (SELECT movie_id from movie WHERE title = ?) && comment IS NOT NULL && comment != ''  ORDER BY update_time DESC;";
 
@@ -144,4 +145,27 @@ public class DefaultDAO extends AbstractDAO {
         return res;
 
     }
+
+
+    public ResultSet allGenres(){
+        PreparedStatement ps = null;
+        ResultSet res = null;
+        try {
+            ps = getConnection().prepareStatement(ALLGENRES);
+            res = ps.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+           /* if(ps != null) {
+                ps.close();
+            }*/
+            closeStatement();
+            closeConnection();
+        }
+
+        return res;
+    }
+
+
 }
