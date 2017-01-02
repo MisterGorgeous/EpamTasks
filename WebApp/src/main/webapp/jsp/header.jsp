@@ -1,114 +1,152 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid ">
 
-    <nav class="navbar navbar-default">
-        <div class="container-fluid navbar-inverse">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Logo <span class="sr-only">(current)</span></a></li>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Logo <span class="sr-only">(current)</span></a></li>
+                <form class="navbar-form navbar-left" name="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg">Search</button>
+                </form>
 
-                    <form class="navbar-form navbar-left">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
+
+                <form class="navbar-form navbar-left" name="signin" action="Controller" method="post">
+                    <input type="hidden" name="command" value="cross">
+                    <input type="hidden" name="page" value="path.page.signin">
+                    <input type="submit" name="button" class="btn btn-primary btn-lg"
+                           value="<fmt:message key="main.sigin" bundle="${resourceBundle}"/>"/>
+                </form>
+
+<li>
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                    <fmt:message key="main.login" bundle="${resourceBundle}"/>
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="account-wall">
+                                                <img class="profile-img"
+                                                     src="/img/photo.png"
+                                                     alt="">
+                                                <form class="form-signin" title="login" action="Controller"
+                                                      method="post">
+                                                    <input class="form-control" type="hidden" name="command" value="login">
+                                                    <input class="form-control" type="hidden" name="page" value="path.page.main">
+                                                    <input name="login" type="text" class="form-control col-md-8"
+                                                           placeholder="Login" pattern="[A-Za-z]\w{4,}" required
+                                                           autofocus>
+                                                    <input type="password" class="form-control" placeholder="Password"
+                                                           name="pass"
+                                                           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$"
+                                                           required>
+                                                    <button id="submit" class="btn btn-lg btn-primary btn-block"
+                                                            type="submit">Log on
+                                                    </button>
+                                                </form>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
+                        </div>
+                        </div>
+</li>
+
+                        <form class="navbar-form navbar-left" name="locale" action="Controller" method="post">
+                            <input type="hidden" name="command" value="locale">
+                            <input type="hidden" name="page" value="path.page.main">
+                            <input type="submit" name="button" class="btn btn-primary btn-lg"
+                                   value="<fmt:message key="main.en" bundle="${resourceBundle}"/>"/>
+                            <input type="submit" name="button" class="btn btn-primary btn-lg"
+                                   value="<fmt:message key="main.ru" bundle="${resourceBundle}"/>"/>
+                        </form>
+
+            </ul>
 
 
-                    <form class="navbar-form navbar-left" name="locale" action="Controller" method="post">
-                        <input type="hidden" name="command" value="cross">
-                        <input type="hidden" name="page" value="path.page.signin">
-                        <input type="submit" name="button" class="btn btn-default"
-                               value="<fmt:message key="main.sigin" bundle="${resourceBundle}"/>"/> />
-                    </form>
 
+            <ul class="nav navbar-nav navbar-right">
 
-                    <form class="navbar-form navbar-left" name="locale" action="Controller" method="post">
-                        <input type="hidden" name="command" value="cross">
-                        <input type="hidden" name="page" value="path.page.login">
-                        <input type="submit" name="button" class="btn btn-default"
-                               value="<fmt:message key="main.login" bundle="${resourceBundle}"/>"/> />
-                    </form>
-
-                    <form class="navbar-form navbar-left" name="locale" action="Controller" method="post">
-                        <input type="hidden" name="command" value="locale">
-                        <input type="hidden" name="page" value="path.page.main">
-                        <input type="submit" name="button" class="btn btn-default"
-                               value="<fmt:message key="main.en" bundle="${resourceBundle}"/>"/>
-                        <input type="submit" name="button" class="btn btn-default"
-                               value="<fmt:message key="main.ru" bundle="${resourceBundle}"/>"/>
-                    </form>
-
-                </ul>
-
-                <ul class="nav navbar-nav navbar-right">
-
-                    <c:if test="${userStatus == 'USER'}">
-
-                            <form class="navbar-form navbar-right" title="logoof" action="Controller" method="post">
-                                <input type="hidden" name="command" value="logoff">
-                                <input type="hidden" name="page" value="path.page.main">
-                                <input class="btn btn-default" type="submit" title="button"
-                                       value="<fmt:message key="header.logoff" bundle="${resourceBundle}"/>"/> />
-                            </form>
-
-                      <%--  <form class="navbar-form navbar-right" title="signin" action="Controller" method="post">
-                            <input type="hidden" name="command" value="cross">
-                            <input type="hidden" name="page" value="path.page.signin">
-                            <!--<input class="btn btn-default" type="submit"  title="button" value="user" /> />-->
-                            <button type="submit" class="btn btn-default">
-                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                    ${userName}
-                            </button>
-                        </form>--%>
-                    </c:if>
-
+                <c:if test="${userStatus != 'GUEST'}">
 
                     <c:if test="${userStatus == 'ADMINISTRATOR'}">
-
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li> <form action="Controller" method="post">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Actions <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <form action="Controller" method="post">
                                     <input type="hidden" name="command" value="users">
                                     <input type="hidden" name="page" value="path.page.admin">
-                                    <input class="btn btn-default" type="submit" title="button"
-                                           value="<fmt:message key="header.users" bundle="${resourceBundle}"/>"/> />
+                                    <input class="btn btn-primary btn-lg" type="submit" title="button"
+                                           value="<fmt:message key="header.users" bundle="${resourceBundle}"/>"/>
                                 </form>
-                                </li>
-                                <li  role="separator" class="divider"></li>
-                                <li> <form  action="Controller" method="post">
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <form action="Controller" method="post">
                                     <input type="hidden" name="command" value="allgenres">
                                     <input type="hidden" name="page" value="path.page.admin">
-                                    <input class="btn btn-default" type="submit" title="button"
-                                           value="<fmt:message key="header.addmovie" bundle="${resourceBundle}"/>"/> />
+                                    <input class="btn btn-primary btn-lg" type="submit" title="button"
+                                           value="<fmt:message key="header.addmovie" bundle="${resourceBundle}"/>"/>
                                 </form>
-                                </li>
-                            </ul>
-                        </li>
-
-                            <form class="navbar-form navbar-right" title="logoof" action="Controller" method="post">
-                                <input type="hidden" name="command" value="logoff">
-                                <input type="hidden" name="page" value="path.page.main">
-                                <input class="btn btn-default" type="submit" title="button"
-                                       value="<fmt:message key="header.logoff" bundle="${resourceBundle}"/>"/> />
-                            </form>
-
-                        <form class="navbar-form navbar-right"  action="Controller" method="post">
-                            <input type="hidden" name="command" value="cross">
-                            <input type="hidden" name="page" value="path.page.admin">
-                            <!--<input class="btn btn-default" type="submit"  title="button" value="user" /> />-->
-                            <button type="submit" class="btn btn-default">
-                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                Admin
-                            </button>
-                        </form>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <form action="Controller" method="post">
+                                    <input type="hidden" name="command" value="cross">
+                                    <input type="hidden" name="page" value="path.page.admin">
+                                    <input class="btn btn-primary btn-lg" type="submit" title="button"
+                                           value="<fmt:message key="header.addactor" bundle="${resourceBundle}"/>"/>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
                     </c:if>
-                </ul>
 
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
+                    <form class="navbar-form navbar-right" title="logoof" action="Controller" method="post">
+                        <input type="hidden" name="command" value="logoff">
+                        <input type="hidden" name="page" value="path.page.main">
+                        <input class="btn btn-primary btn-lg" type="submit" title="button"
+                               value="<fmt:message key="header.logoff" bundle="${resourceBundle}"/>"/>
+                    </form>
 
+                    <form class="navbar-form navbar-right" title="user" action="Controller" method="post">
+                        <input type="hidden" name="command" value="cross">
+                        <input type="hidden" name="page" value="path.page.user">
+                        <!--<input class="btn btn-default" type="submit"  title="button" value="user" /> />-->
+                        <button type="submit" class="btn btn-default">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                ${userName}
+                        </button>
+                    </form>
+                </c:if>
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
 
 </header>
+

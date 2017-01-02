@@ -3,6 +3,7 @@ package com.slabadniak.task5;
 import com.slabadniak.task5.command.CommandFactory;
 import com.slabadniak.task5.entity.ClientType;
 
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -13,8 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
-import java.util.Iterator;
-import java.util.List;
+
 
 @WebServlet("/Controller")
 @MultipartConfig
@@ -46,7 +46,7 @@ public class Controller extends HttpServlet {
         session.setAttribute("userStatus", ClientType.ADMINISTRATOR);
         session.setAttribute("userName","slabadniaksergei");
 
-        String command = request.getParameter("command");
+       String command = request.getParameter("command");
 
         CommandFactory.create(command).execute(request);
 

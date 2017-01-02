@@ -29,10 +29,13 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
+                    <th>Icon:</th>
                     <th>Login:</th>
                     <th>email:</th>
-                    <th>status:</th>
-                    <th>banned:</th>
+                    <th>Genre:</th>
+                    <th>Status:</th>
+                    <th>Banned:</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -119,7 +122,13 @@
                         <td><textarea class="form-control" rows="10" name="description"></textarea></td>
                         <td><textarea class="form-control" rows="1" name="country"></textarea></td>
                         <td><textarea class="form-control" rows="1" name="year"></textarea></td>
-                        <td><textarea class="form-control" rows="1" name="icon"></textarea></td>
+                        <td>
+                            <form method="post" action="Controller" enctype="multipart/form-data">
+                                <input type="hidden" name="command" value="upload">
+                                <input type="file" name="file"/>
+                                <input type="submit">load</input>
+
+                            </form></td>
                         <td><textarea class="form-control" rows="1" name="rating">5.0</textarea></td>
                     </tr>
                     <div class="container">
@@ -154,11 +163,11 @@
     </div>
 </c:if>
 
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
 <script src="/js/jquery-3.1.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="https://code.jquery.com/jquery.min.js"></script>
 <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
       type="text/css"/>
 <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
