@@ -21,6 +21,7 @@ public class AddMovieCommand implements ICommand {
         String description = request.getParameter("description");
         String counrty = request.getParameter("counrty");
         String year = request.getParameter("year");
+        //SO FAR
         String icon = request.getParameter("icon");
         float rating = Float.parseFloat(request.getParameter("rating"));
 

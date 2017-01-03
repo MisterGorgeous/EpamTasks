@@ -21,42 +21,59 @@
 
 <c:if test="${param.command == 'users'}">
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">Users:</div>
-        <div class="panel-body">
+
+    <div class="container">
+        <div class="container">
+            <h1 class="page-header">User:</h1>
+            <div class="row">
 
 
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Icon:</th>
-                    <th>Login:</th>
-                    <th>email:</th>
-                    <th>Genre:</th>
-                    <th>Status:</th>
-                    <th>Banned:</th>
-
-                </tr>
-                </thead>
-                <tbody>
-
-                <c:set var="index" value="0" scope="page"/>
-
-                <c:forEach var="user" items="${users}">
+                <table class="table table-striped">
+                    <thead>
                     <tr>
-                        <td>${user.login}</td>
-                        <td>${user.email}</td>
-                        <td>
-                            <form name="changestatus" action="Controller" method="post">
+                        <th>Icon:</th>
+                        <th>Login:</th>
+                        <th>Email:</th>
+                        <th>Genre:</th>
+                        <th>Status:</th>
+                        <th>Banned:</th>
 
-                                <input type="hidden" name="command" value="changestatus">
-                                <input type="hidden" name="userId" value="${index}">
-                                <input type="hidden" name="page" value="path.page.admin">
-                                <input onchange="$(this).closest('form').submit();" id="ex19" type="text" name="status"
-                                       data-provide="slider" data-slider-ticks="[1, 2, 3]"
-                                       data-slider-ticks-labels='["beginer", "fan", "expert"]' data-slider-min="1"
-                                       data-slider-max="3" data-slider-step="1"
-                                       data-slider-value="<c:choose>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <c:set var="index" value="0" scope="page"/>
+
+                    <c:forEach var="user" items="${users}">
+                        <tr>
+                            <td>${user.icon}</td>
+                            <td>${user.login}</td>
+                            <td>${user.email}</td>
+                            <td>
+                                <label class="label label-info <c:choose>
+                                                        <c:when test="${user.gender == 'male'}">
+                                                           fa fa-mars
+                                                        </c:when>
+                                                        <c:when test="${user.status == 'female'}">
+                                                            fa fa-venus
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            fa fa-transgender-alt
+                                                        </c:otherwise>
+                                                    </c:choose>"></label>
+                            </td>
+                            <td>
+                                <form name="changestatus" action="Controller" method="post">
+
+                                    <input type="hidden" name="command" value="changestatus">
+                                    <input type="hidden" name="userId" value="${index}">
+                                    <input type="hidden" name="page" value="path.page.admin">
+                                    <input onchange="$(this).closest('form').submit();" id="ex19" type="text"
+                                           name="status"
+                                           data-provide="slider" data-slider-ticks="[1, 2, 3]"
+                                           data-slider-ticks-labels='["beginer", "fan", "expert"]' data-slider-min="1"
+                                           data-slider-max="3" data-slider-step="1"
+                                           data-slider-value="<c:choose>
                                                         <c:when test="${user.status == 'beginer'}">
                                                            1
                                                         </c:when>
@@ -67,101 +84,174 @@
                                                             3
                                                         </c:otherwise>
                                                     </c:choose>" data-slider-tooltip="hide"/>
-                                <input class="btn btn-default invisible" type="submit" name="button" value="user"/>
-                            </form>
-                        </td>
+                                    <input class="btn btn-default invisible" type="submit" name="button" value="user"/>
+                                </form>
+                            </td>
 
-                        <td>
-                            <form action="Controller" method="post">
-                                <input type="hidden" name="command" value="userbanned">
-                                <input type="hidden" name="userId" value="${index}">
-                                <input type="hidden" name="page" value="path.page.admin">
-                                <input class="btn btn-default invisible" type="submit" name="button" value="user"/>
-                                <button onclick="$(this).closest('form').submit();" type="button"
-                                        class="${user.banned ?'btn btn-danger': 'btn btn-success'}">Banned
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                    <c:set var="index" value="${index + 1}" scope="page"/>
-                </c:forEach>
-                </tbody>
-            </table>
+                            <td>
+                                <form action="Controller" method="post">
+                                    <input type="hidden" name="command" value="userbanned">
+                                    <input type="hidden" name="userId" value="${index}">
+                                    <input type="hidden" name="page" value="path.page.admin">
+                                    <input class="btn btn-default invisible" type="submit" name="button" value="user"/>
+                                    <button onclick="$(this).closest('form').submit();" type="button"
+                                            class="${user.banned ?'btn btn-danger': 'btn btn-success'}">Banned
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <c:set var="index" value="${index + 1}" scope="page"/>
+                    </c:forEach>
+                    </tbody>
+                </table>
 
 
+            </div>
         </div>
     </div>
 </c:if>
 
+
 <c:if test="${param.command == 'allgenres'}">
+    <div class="container">
+        <div class="container">
+            <h1 class="page-header">Edit Movie</h1>
+            <div class="row">
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">Movie:</div>
-        <div class="panel-body">
 
-
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Title:</th>
-                    <th>Description:</th>
-                    <th>Country:</th>
-                    <th>Year:</th>
-                    <th>Icon:</th>
-                    <th>Rating:</th>
-                </tr>
-                </thead>
-                <form  id="addmovie" class="navbar-form navbar-left" title="addmovie"  action="Controller" method="post">
+                <form id="addmovie" title="addmovie" action="Controller" method="post">
                     <input type="hidden" name="command" value="addmovie">
                     <input type="hidden" name="page" value="path.page.admin">
-                    <input class="btn btn-default" type="submit" name="button" value="Add"/>
 
-                    <tbody>
-                    <tr>
-                        <td><textarea class="form-control" rows="1" name="title"></textarea></td>
-                        <td><textarea class="form-control" rows="10" name="description"></textarea></td>
-                        <td><textarea class="form-control" rows="1" name="country"></textarea></td>
-                        <td><textarea class="form-control" rows="1" name="year"></textarea></td>
-                        <td>
-                            <form method="post" action="Controller" enctype="multipart/form-data">
-                                <input type="hidden" name="command" value="upload">
-                                <input type="file" name="file"/>
-                                <input type="submit">load</input>
+                    <div class="col-lg-6 col-xs-12 col-md-4">
 
-                            </form></td>
-                        <td><textarea class="form-control" rows="1" name="rating">5.0</textarea></td>
-                    </tr>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
-                                <div class="panel panel-default">
-                                    <tr>
-                                        <td>
-                                            <ul class="list-group">
-                                                <c:forEach var="genre" items="${sessionScope.genrelist}">
-                                                    <li class="list-group-item">
-                                                            ${genre}
-                                                        <div class="material-switch pull-right">
-                                                            <input form="addmovie" id="${genre}" name="${genre}" type="checkbox"/>
-                                                            <label for="${genre}" class="label-info"></label>
-                                                        </div>
-                                                    </li>
-                                                </c:forEach>
-                                            </ul>
-                                        </td>
-                                    </tr>
+                        <div class="control-group">
+                            <label class="control-label" for="title">Title:</label>
+                            <div class="controls">
+                                <input type="text" id="title" name="title" placeholder="" class="input-xlarge">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="description">Description:</label>
+                            <div class="controls">
+                                <textarea type="text" id="description" name="description" placeholder=""
+                                          class="input-xlarge" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="country">country:</label>
+                            <div class="controls">
+                                <input type="text" id="country" name="country" placeholder="" class="input-xlarge">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" for="year">Year:</label>
+                            <div class="controls">
+                                <select id="year" class="span2" name="year">
+                                    <c:forEach var="i" begin="1970" end="2017">
+                                        <option>${i}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="panel panel-primary control-label">
+                                <div class="panel-heading">Icon:</div>
+                                <div class="panel-body">
+                                    <form method="post" action="Controller" enctype="multipart/form-data">
+                                        <input type="hidden" name="command" value="upload">
+                                        <input type="file" name="file" accept="image/jpeg,image/png,image/gif">
+                                        <input type="submit" name="Load"/>
+
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    </tbody>
-                </form>
-            </table>
+                        <div class="control-group">
+                            <label class="control-label">rating:</label>
+                            <div class="controls">
+                                <input id="ex6" type="text" data-slider-min="0" data-slider-max="9.9"
+                                       data-slider-step="0.1" data-slider-value="5" form="addmovie" name="rating"/>
+                                <span id="ex6CurrentSliderValLabel">Rating: <span id="ex6SliderVal">5</span></span>
+                            </div>
+                        </div>
 
+
+                        <input class="btn btn-danger btn-lg" type="submit" name="button" value="Add"/>
+
+                    </div>
+
+
+                    <div class="col-lg-6 col-xs-12 col-sm-4 col-md-4 ">
+                        <div class="panel panel-default">
+                            <ul class="list-group">
+                                <c:forEach var="genre" items="${sessionScope.genrelist}">
+                                    <li class="list-group-item">
+                                            ${genre}
+                                        <div class="material-switch pull-right">
+                                            <input form="addmovie" id="${genre}" name="${genre}" type="checkbox"/>
+                                            <label for="${genre}" class="label-info"></label>
+                                        </div>
+                                    </li>
+                                </c:forEach>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </form>
+
+            </div>
 
         </div>
     </div>
 </c:if>
+
+
+<c:if test="${param.command != 'allgenres' && param.command != 'users' }">
+
+    <div class="container">
+        <h1 class="page-header">Add Actor:</h1>
+
+        <form title="addactor" action="Controller" method="post">
+            <input type="hidden" name="command" value="addactor">
+            <input type="hidden" name="page" value="path.page.admin">
+
+            <label class="control-label">Movie:</label>
+            <input type="text" name="movie" placeholder="" class="input">
+
+                <label class="control-label" for="year">Year:</label>
+                    <select class="span2" name="movieyear">
+                        <c:forEach var="i" begin="1970" end="2017">
+                            <option>${i}</option>
+                        </c:forEach>
+                    </select>
+
+            <input class="btn btn-danger btn-lg" type="submit" name="button" value="Add"/>
+            <div class="col-lg-10 col-xs-12 col-sm-12 col-md-10 pagination-centered">
+                <div class="panel panel-primary">
+                    <div class="panel-heading text-center">
+                        <button id="addactor" type="button" class="btn btn-primary">
+                            Add
+                        </button>
+                        <button id="deleteactor" type="button" class="btn btn-primary">
+                            Delete
+                        </button>
+                    </div>
+                    <div id="actorlist" class="col-lg-12 col-xs-12 col-sm-12 col-md-12 panel-body row">
+                        <div class="row">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</c:if>
+
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -172,7 +262,31 @@
       type="text/css"/>
 <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
-<script src="js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 <script src="/js/bootstrap-slider.js"></script>
+<script type="text/javascript">
+    $("#ex6").slider();
+    $("#ex6").on("slide", function (slideEvt) {
+        $("#ex6SliderVal").text(slideEvt.value);
+    });
+</script>
+<script type="text/javascript">
+    var addB = document.getElementById('addactor');
+    addB.addEventListener("click", addtag);
+    var delB = document.getElementById('deleteactor');
+    delB.addEventListener("click", deltag);
+    var list = document.getElementById('actorlist');
+
+
+    function addtag() {
+      //  var tag = '<div class="actor col-md-4 col-lg-4 well" name="actor"> <label class="control-label">First name:</label> <input type="text" name="fname" placeholder="" class="input"> <label class="control-label">Seccond name:</label> <input type="text" name="sname" placeholder="" class="input"> <label class="control-label">Role:</label> <input type="text" name="role" placeholder="" class="input"> </div>';
+        var tag = '<div class="actor col-md-4 col-lg-4 well" name="actor"> <label class="control-label">First name:</label> <input type="text" name="fname" placeholder="" class="input"> <label class="control-label">Seccond name:</label> <input type="text" name="sname" placeholder="" class="input"> <label class="control-label">Role:</label> <input type="text" name="role" placeholder="" class="input"> <label class="control-label">Birthday:</label><input type="date" name="birthday" value="2017-01-01" max="2017-01-01" min="2045-01-01"> <label class="control-label">Birth Place:</label> <input type="text" name="birthplace" placeholder="" class="input"></div>';
+        $(list).append(tag);
+    }
+    function deltag() {
+        $(list).empty();
+    }
+</script>
+
 </body>
 </html>

@@ -22,22 +22,21 @@
 
 
 <div class="row">
-    <div class="col-xs-8 col-md-4">
-
-        <c:set var="index" value="0" scope="page"/>
-
-        <c:forEach var="film" items="${sessionScope.films}">
-            <form class="thumbnail" action="Controller" method="post">
+    <c:set var="index" value="0" scope="page"/>
+    <c:forEach var="film" items="${sessionScope.films}">
+        <div class="col-xs-8 col-md-4 col-lg-4 ">
+            <form action="Controller" method="post">
                 <input type="hidden" name="command" value="movie">
                 <input type="hidden" name="index" value="${index}">
                 <input type="hidden" name="page" value="path.page.movie">
                 <input class="btn btn-default invisible" type="submit" name="button" value="user"/>
                     <%--<img src="${films.get(0).getIcon()}" alt="..." >--%>
-                <img src="${film.icon}" alt="..." onclick="$(this).closest('form').submit();">
+                <img width="400" height="600" class="thumbnail " src="${film.icon}" alt="..." onclick="$(this).closest('form').submit();">
                 <c:set var="index" value="${index + 1}" scope="page"/>
             </form>
-        </c:forEach>
-    </div>
+        </div>
+
+</c:forEach>
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -45,7 +44,7 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 </body>

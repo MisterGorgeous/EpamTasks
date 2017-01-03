@@ -18,15 +18,16 @@
 
 <body>
 <%@ include file="/jsp/header.jsp" %>
+
 <div class="container" >
-    <div class="container" style="padding-top: 60px;">
+    <div class="container">
         <h1 class="page-header">Edit Profile</h1>
         <div class="row">
             <!-- left column -->
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="text-center">
                     <img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar">
-                    <h6>Upload a different photo...</h6>
+                    <h6>Upload photo</h6>
                     <input type="file" class="text-center center-block well well-sm">
                 </div>
             </div>
@@ -88,6 +89,10 @@
 
     </div>
 
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
+          type="text/css"/>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/js/jquery-3.1.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

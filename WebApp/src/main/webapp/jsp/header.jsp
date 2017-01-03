@@ -10,27 +10,40 @@
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg">Search</button>
+                    <button type="submit" class="btn btn-primary">Search</button>
                 </form>
+
+                <form class="navbar-form navbar-left" name="locale" action="Controller" method="post">
+                    <input type="hidden" name="command" value="locale">
+                    <input type="hidden" name="page" value="path.page.main">
+                    <input type="submit" name="button" class="btn btn-primary"
+                           value="<fmt:message key="main.en" bundle="${resourceBundle}"/>"/>
+                    <input type="submit" name="button" class="btn btn-primary"
+                           value="<fmt:message key="main.ru" bundle="${resourceBundle}"/>"/>
+                </form>
+
 
 
                 <form class="navbar-form navbar-left" name="signin" action="Controller" method="post">
                     <input type="hidden" name="command" value="cross">
                     <input type="hidden" name="page" value="path.page.signin">
-                    <input type="submit" name="button" class="btn btn-primary btn-lg"
+                    <input type="submit" name="button" class="btn btn-primary"
                            value="<fmt:message key="main.sigin" bundle="${resourceBundle}"/>"/>
                 </form>
 
-<li>
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                    <fmt:message key="main.login" bundle="${resourceBundle}"/>
-                </button>
+
+
+                <form class="navbar-form navbar-left">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        <fmt:message key="main.login" bundle="${resourceBundle}"/>
+                    </button>
+                </form>
 
                 <!-- Modal -->
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                <div class="modal fade  pagination-centered text-center" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                      aria-hidden="true">
                     <div class="modal-dialog" role="document">
-                        <div class="modal-content">
+                        <div class="modal-content ">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -40,7 +53,7 @@
                             <div class="modal-body">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-sm-6 col-md-4">
+                                        <div class="col-sm-6 col-md-4 col-lg-4">
                                             <div class="account-wall">
                                                 <img class="profile-img"
                                                      src="/img/photo.png"
@@ -71,16 +84,8 @@
                         </div>
                         </div>
                         </div>
-</li>
 
-                        <form class="navbar-form navbar-left" name="locale" action="Controller" method="post">
-                            <input type="hidden" name="command" value="locale">
-                            <input type="hidden" name="page" value="path.page.main">
-                            <input type="submit" name="button" class="btn btn-primary btn-lg"
-                                   value="<fmt:message key="main.en" bundle="${resourceBundle}"/>"/>
-                            <input type="submit" name="button" class="btn btn-primary btn-lg"
-                                   value="<fmt:message key="main.ru" bundle="${resourceBundle}"/>"/>
-                        </form>
+
 
             </ul>
 
@@ -99,7 +104,7 @@
                                 <form action="Controller" method="post">
                                     <input type="hidden" name="command" value="users">
                                     <input type="hidden" name="page" value="path.page.admin">
-                                    <input class="btn btn-primary btn-lg" type="submit" title="button"
+                                    <input class="btn btn-primary" type="submit" title="button"
                                            value="<fmt:message key="header.users" bundle="${resourceBundle}"/>"/>
                                 </form>
                             </li>
@@ -108,7 +113,7 @@
                                 <form action="Controller" method="post">
                                     <input type="hidden" name="command" value="allgenres">
                                     <input type="hidden" name="page" value="path.page.admin">
-                                    <input class="btn btn-primary btn-lg" type="submit" title="button"
+                                    <input class="btn btn-primary" type="submit" title="button"
                                            value="<fmt:message key="header.addmovie" bundle="${resourceBundle}"/>"/>
                                 </form>
                             </li>
@@ -117,7 +122,7 @@
                                 <form action="Controller" method="post">
                                     <input type="hidden" name="command" value="cross">
                                     <input type="hidden" name="page" value="path.page.admin">
-                                    <input class="btn btn-primary btn-lg" type="submit" title="button"
+                                    <input class="btn btn-primary" type="submit" title="button"
                                            value="<fmt:message key="header.addactor" bundle="${resourceBundle}"/>"/>
                                 </form>
                             </li>
@@ -128,7 +133,7 @@
                     <form class="navbar-form navbar-right" title="logoof" action="Controller" method="post">
                         <input type="hidden" name="command" value="logoff">
                         <input type="hidden" name="page" value="path.page.main">
-                        <input class="btn btn-primary btn-lg" type="submit" title="button"
+                        <input class="btn btn-primary" type="submit" title="button"
                                value="<fmt:message key="header.logoff" bundle="${resourceBundle}"/>"/>
                     </form>
 

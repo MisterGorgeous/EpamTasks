@@ -81,6 +81,11 @@ public enum EnumCommand {
             this.command = new AddMovieCommand();
         }
     },
+    ADDACTOR{
+        {
+            this.command = new AddActorCommand();
+        }
+    },
     SETMAINCONTENT{
         {
             this.command = new SetMainContentCommand();

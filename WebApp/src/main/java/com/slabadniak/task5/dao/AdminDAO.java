@@ -1,5 +1,6 @@
 package com.slabadniak.task5.dao;
 
+import com.slabadniak.task5.entity.Actor;
 import com.slabadniak.task5.entity.Movie;
 import com.slabadniak.task5.entity.User;
 import com.slabadniak.task5.pool.Wrapper;
@@ -17,23 +18,85 @@ public class AdminDAO extends AbstractDAO {
     public  static final String ADDMOVIE = "REPLACE INTO movie (title, rating, icon, year, country, description ) VALUE (?,?,?,?,?,?);";
     public  static final String CLEANGENRES = "delete FROM genre WHERE movie_id = (SELECT movie_id FROM movie WHERE title = ? LIMIT 1);";
     public  static final String ADDGENRES = "REPLACE INTO genre(movie_id, genre_id) VALUE ((SELECT movie_id FROM movie WHERE title = ? LIMIT 1),(SELECT genre_id FROM genre_kind WHERE name = ?));";
+    public  static final String MOVIEID = "SELECT movie_id FROM movie WHERE title = ? && year = ?;";
+    public  static final String ACTORID = "SELECT actor_id FROM actor WHERE f_name = ? && s_name = ? && birthday = ? && birth_place = ?;";
+    public  static final String ADDACTOR = "INSERT INTO actor(f_name, s_name,birthday,birth_place) VALUE (?,?,?,?);";
+    public  static final String ADDROLE = "INSERT INTO role(movie_id,actor_id,person,profession) VALUE (?,?,?,'actor');";
 
     public AdminDAO(Wrapper wrapper) {
         super(wrapper);
     }
 
+    private int actorId(Actor actor) throws SQLException {
+        PreparedStatement ps = getConnection().prepareStatement(ACTORID);
+        ps.setString(1, actor.getFirstName());
+        ps.setString(2, actor.getSeccondName());
+        ps.setString(3, actor.getBirthday());
+        ps.setString(4, actor.getBirthplace());
+        ResultSet res = ps.executeQuery();
+        return res.getInt(1);
+    }
+
+
+    public void addActors(String movie,String year, List<Actor> actors) {
+        PreparedStatement ps = null;
+        ResultSet res = null;
+        int actorId,movieId;
+        try {
+            ps = getConnection().prepareStatement(MOVIEID);
+            ps.setString(1,movie);
+            ps.setString(2,year);
+            res = ps.executeQuery();
+            movieId = res.getInt(1);
+
+            if(movieId > 0) {
+                for(Actor actor: actors) {
+                 actorId =  actorId(actor);
+                    if(actorId == 0) {
+                        ps = getConnection().prepareStatement(ADDACTOR);
+                        ps.setString(1, actor.getFirstName());
+                        ps.setString(2, actor.getSeccondName());
+                        ps.setString(3, actor.getBirthday());
+                        ps.setString(4, actor.getBirthplace());
+                        ps.executeUpdate();
+                        actorId = actorId(actor);
+                    }
+
+                    ps = getConnection().prepareStatement(ADDROLE);
+                        ps.setInt(1, movieId);
+                        ps.setInt(2, actorId);
+                        ps.setString(3, actor.getRole());
+                        ps.executeUpdate();
+                }
+
+            }
+            else{
+                // Not such movie
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+           /* if(ps != null) {
+                ps.close();
+            }*/
+            closeStatement();
+            closeConnection();
+        }
+    }
 
     public void addMovie(Movie movie, List<String> movieGenres) {
         PreparedStatement ps = null;
         try {
-           /* ps = getConnection().prepareStatement(ADDMOVIE);
+            ps = getConnection().prepareStatement(ADDMOVIE);
             ps.setString(1,movie.getTitle());
             ps.setFloat(2,movie.getRating());
             ps.setString(3,movie.getIcon());
             ps.setString(4,movie.getYear());
             ps.setString(5,movie.getCountry());
             ps.setString(6,movie.getDescription());
-            ps.executeUpdate();*/
+            ps.executeUpdate();
             ps = getConnection().prepareStatement(CLEANGENRES);
             ps.setString(1,movie.getTitle());
             ps.executeUpdate();
