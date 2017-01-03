@@ -5,6 +5,6 @@
 </head>
 <body>
 <%--<jsp:forward page="/jsp/main.jsp"/>--%>
-<jsp:include page="Controller" />
+<jsp:include page="/Controller" />
 </body>
 </html>

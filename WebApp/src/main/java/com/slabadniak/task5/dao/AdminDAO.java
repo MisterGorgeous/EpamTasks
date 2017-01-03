@@ -27,14 +27,19 @@ public class AdminDAO extends AbstractDAO {
         super(wrapper);
     }
 
-    private int actorId(Actor actor) throws SQLException {
+    private int getActorId(Actor actor) throws SQLException {
         PreparedStatement ps = getConnection().prepareStatement(ACTORID);
         ps.setString(1, actor.getFirstName());
         ps.setString(2, actor.getSeccondName());
         ps.setString(3, actor.getBirthday());
         ps.setString(4, actor.getBirthplace());
         ResultSet res = ps.executeQuery();
-        return res.getInt(1);
+        if(res.next()) {
+            return res.getInt(1);
+        }
+        else{
+            return 0;
+        }
     }
 
 
@@ -42,16 +47,17 @@ public class AdminDAO extends AbstractDAO {
         PreparedStatement ps = null;
         ResultSet res = null;
         int actorId,movieId;
+
         try {
             ps = getConnection().prepareStatement(MOVIEID);
             ps.setString(1,movie);
             ps.setString(2,year);
             res = ps.executeQuery();
-            movieId = res.getInt(1);
+            if(res.next()) {
+                movieId = res.getInt(1);
 
-            if(movieId > 0) {
                 for(Actor actor: actors) {
-                 actorId =  actorId(actor);
+                 actorId =  getActorId(actor);
                     if(actorId == 0) {
                         ps = getConnection().prepareStatement(ADDACTOR);
                         ps.setString(1, actor.getFirstName());
@@ -59,7 +65,7 @@ public class AdminDAO extends AbstractDAO {
                         ps.setString(3, actor.getBirthday());
                         ps.setString(4, actor.getBirthplace());
                         ps.executeUpdate();
-                        actorId = actorId(actor);
+                        actorId = getActorId(actor);
                     }
 
                     ps = getConnection().prepareStatement(ADDROLE);
@@ -69,9 +75,9 @@ public class AdminDAO extends AbstractDAO {
                         ps.executeUpdate();
                 }
 
-            }
-            else{
-                // Not such movie
+
+            }else{
+                //no such movie
             }
 
         } catch (SQLException e) {

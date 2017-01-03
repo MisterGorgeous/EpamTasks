@@ -36,10 +36,10 @@ public class Controller extends HttpServlet {
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession();
 
         //add atribute for user status
-        if(session == null){
+        if(session.isNew()){
             session.setAttribute("userStatus", ClientType.GUEST);
         }
 
