@@ -86,6 +86,11 @@ public enum EnumCommand {
             this.command = new AddActorCommand();
         }
     },
+    EDITPROFILE{
+        {
+            this.command = new EditProfileCommand();
+        }
+    },
     SETMAINCONTENT{
         {
             this.command = new SetMainContentCommand();

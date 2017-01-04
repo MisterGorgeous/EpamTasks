@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 public class SignInCommand implements ICommand {
     @Override
     public void execute(HttpServletRequest request) {
-        LOGGER.log(Level.DEBUG, "SIGNIN");
         ConnectionPool pool = ConnectionPool.getInstance();
         DefaultDAO defaultDAO = null;
+
         try {
             Wrapper connection = pool.getConnection();
             defaultDAO = new DefaultDAO(connection);
             User user = new User(request.getParameter("login"),request.getParameter("email"),
-                    request.getParameter("pass"));
+                    request.getParameter("password"),request.getParameter("gender"));
             defaultDAO.signIn(user);
             pool.closeConnection(connection);
         } catch (InterruptedException e) {

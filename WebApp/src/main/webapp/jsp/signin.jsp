@@ -26,33 +26,33 @@
         <div class="form-group">
             <label class="col-md-3 control-label">Login:</label>
             <div class="col-md-8">
-                <input class="form-control" value="janeuser" type="text">
+                <input class="form-control" name="login" type="text"  pattern="[A-Za-z]\w{4,}">
             </div>
         </div>
         <div class="form-group">
             <label class="col-lg-3 control-label">email:</label>
             <div class="col-lg-8">
-                <input class="form-control" value="janesemail@gmail.com" type="text">
+                <input class="form-control"  type="text" name="email">
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-3 control-label">Password:</label>
             <div class="col-md-8">
-                <input class="form-control" value="11111122333" type="password">
+                <input class="form-control" name="password" type="password">
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-3 control-label">Confirm password:</label>
             <div class="col-md-8">
-                <input class="form-control" value="11111122333" type="password">
+                <input class="form-control" name="password2" type="password">
             </div>
         </div>
         <div class="form-group">
             <label class=" col-md-3 control-label">Gender</label>
             <div class="col-md-8">
-                <select name="selectbasic" class="form-control input-xlarge">
+                <select name="gender" class="form-control input-xlarge">
                     <option>Select</option>
                     <option>Male</option>
                     <option>Female</option>

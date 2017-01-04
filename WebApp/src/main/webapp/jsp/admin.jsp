@@ -46,7 +46,7 @@
 
                     <c:forEach var="user" items="${users}">
                         <tr>
-                            <td>${user.icon}</td>
+                            <td><img src="${user.icon}" class="img-circle" alt="avatar"></td>
                             <td>${user.login}</td>
                             <td>${user.email}</td>
                             <td>

@@ -5,12 +5,16 @@ public class User {
     private String email;
     private String password;
     private String status;
+    private String gender;
     private boolean banned;
+    private String icon;
 
-    public User(String login, String email, String password) {
+
+    public User(String login, String email, String password,String gender) {
         this.login = login;
         this.email = email;
         this.password = password;
+        this.gender = gender;
     }
 
     public User(String login, String password) {
@@ -18,11 +22,13 @@ public class User {
         this.password = password;
     }
 
-    public User(String login, String email,String status, boolean banned) {
+    public User(String login, String email,String status, boolean banned,String gender,String icon) {
         this.login = login;
         this.email = email;
         this.status = status;
         this.banned = banned;
+        this.gender = gender;
+        this.icon = icon;
     }
 
     public String getLogin() {
@@ -39,6 +45,18 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 
     public boolean isBanned() {
