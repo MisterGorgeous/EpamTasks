@@ -146,9 +146,9 @@
                         </div>
 
                         <div class="control-group">
-                            <label class="control-label" for="year">Year:</label>
+                            <label class="control-label" for="movieYear">Year:</label>
                             <div class="controls">
-                                <select id="year" class="span2" name="year">
+                                <select id="movieYear" class="span2" name="movieYear">
                                     <c:forEach var="i" begin="1970" end="2017">
                                         <option>${i}</option>
                                     </c:forEach>
@@ -160,12 +160,12 @@
                             <div class="panel panel-primary control-label">
                                 <div class="panel-heading">Icon:</div>
                                 <div class="panel-body">
-                                    <form method="post" action="Controller" enctype="multipart/form-data">
-                                        <input type="hidden" name="command" value="upload">
-                                        <input type="file" name="file" accept="image/jpeg,image/png,image/gif">
-                                        <input type="submit" name="Load"/>
 
-                                    </form>
+
+                                        <form id="loadIcon" action="/UploadServlet" method="post" enctype="multipart/form-data">
+                                            <input type="file" name="file"  />
+                                            <input type="submit" hidden />
+                                        </form>
                                 </div>
                             </div>
                         </div>
@@ -289,6 +289,12 @@
     var delB = document.getElementById('deleteactor');
     delB.addEventListener("click", deltag);
     var list = document.getElementById('actorlist');
+    var loadIcon = document.getElementById('loadIcon');
+    loadIcon.addEventListener("click", load);
+
+    function load() {
+       $(loadIcon).submit();
+    }
 
 
     function addtag() {

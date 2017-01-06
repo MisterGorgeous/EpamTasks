@@ -16,13 +16,14 @@ public class AddMovieCommand implements ICommand {
     @Override
     public void execute(HttpServletRequest request) {
 
+        HttpSession session = request.getSession(true);
         //validate
         String title = request.getParameter("title");
         String description = request.getParameter("description");
         String counrty = request.getParameter("counrty");
-        String year = request.getParameter("year");
+        String year = request.getParameter("movieYear");
         //SO FAR
-        String icon = request.getParameter("icon");
+        String icon = (String) session.getAttribute("icon");
         float rating = Float.parseFloat(request.getParameter("rating"));
 
         Movie movie = new Movie(title,rating,icon,year,counrty,description);
@@ -57,8 +58,6 @@ public class AddMovieCommand implements ICommand {
                 movieGenres.add(genre);
             }
         }
-
         return movieGenres;
-
     }
 }

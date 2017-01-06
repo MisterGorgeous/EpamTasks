@@ -2,7 +2,6 @@ out/
 .idea/
 target/
 WebApp.iml
-pom.xml
 
 #=== Images
 *.png

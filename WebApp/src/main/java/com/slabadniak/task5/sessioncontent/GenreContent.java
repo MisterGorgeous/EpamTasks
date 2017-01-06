@@ -1,5 +1,7 @@
 package com.slabadniak.task5.sessioncontent;
 
+import com.slabadniak.task5.Controller;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -23,6 +25,7 @@ public class GenreContent implements DataContext {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
 
     }
 

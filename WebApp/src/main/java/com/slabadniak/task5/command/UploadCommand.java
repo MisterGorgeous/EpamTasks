@@ -1,53 +1,32 @@
 package com.slabadniak.task5.command;
 
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import com.slabadniak.task5.dao.AdminDAO;
 
-import javax.servlet.ServletException;
+import com.slabadniak.task5.pool.ConnectionPool;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.Part;
-import java.awt.event.ItemEvent;
-import java.io.*;
-import java.nio.file.Paths;
-import java.util.List;
-import java.util.logging.Level;
+
 
 public class UploadCommand implements ICommand {
+    public  static final String PREFIX = "/img/";
+    public  static final String ICON = "icon";
+
     @Override
     public void execute(HttpServletRequest request) {
 
-     /*   String description = request.getParameter("description"); // Retrieves <input type="text" name="description">
-        Part filePart = null; // Retrieves <input type="file" name="file">
-        try {
-            filePart = request.getPart("file");
-            String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
-            InputStream fileContent = filePart.getInputStream();
+        String fileName = null;
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ServletException e) {
-            e.printStackTrace();
-        }*/
+        fileName = (String) request.getAttribute("filename");
 
-    /* ServletFileUpload sf = new ServletFileUpload(new DiskFileItemFactory());
-        try {
-            List<FileItem> files =  sf.parseRequest(request);
-            for(FileItem file :files) {
-                file.write(new File("S:/git_rep/Epam/WebApp/src/main/webapp/img/" + file.getName()));
-            }
-        } catch (FileUploadException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        //set path + file NAME
+        fileName = PREFIX + fileName;
 
+        HttpSession session = request.getSession(true);
 
-        */
+        session.setAttribute(ICON, fileName);
+
 
     }
-}
 
+}
 

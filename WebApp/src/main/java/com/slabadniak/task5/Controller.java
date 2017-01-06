@@ -39,20 +39,6 @@ public class Controller extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-        ServletFileUpload sf;
-        sf = new ServletFileUpload(new DiskFileItemFactory());
-        try {
-            List<FileItem> files =  sf.parseRequest(request);
-            for(FileItem file :files) {
-                file.write(new File("S:/git_rep/Epam/WebApp/src/main/webapp/img/" + file.getName()));
-            }
-        } catch (FileUploadException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         HttpSession session = request.getSession();
         //add atribute for user status
        /* if(session.isNew()){
@@ -62,7 +48,7 @@ public class Controller extends HttpServlet {
       /*  session.setAttribute("userStatus", UserType.ADMINISTRATOR);
         session.setAttribute("userName","slabadniaksergei");*/
 
-       String command = request.getParameter("command");
+        String command = request.getParameter("command");
 
         ICommand com = CommandFactory.create(command);
         com.execute(request);
