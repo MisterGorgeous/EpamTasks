@@ -243,6 +243,19 @@
                     <div id="actorlist" class="col-lg-12 col-xs-12 col-sm-12 col-md-12 panel-body row">
                         <div class="row">
 
+                            <div class="actor col-md-4 col-lg-4 well" name="actor">
+                                <label class="control-label">First name:</label>
+                                <input type="text" name="fname" placeholder="" class="input">
+                                <label class="control-label">Seccond name:</label>
+                                <input type="text" name="sname" placeholder="" class="input">
+                                <label class="control-label">Role:</label>
+                                <input type="text" name="role" placeholder="" class="input">
+                                <label class="control-label">Birthday:</label>
+                                <input type="date" name="birthday" value="2017-01-01" max="2017-01-01" min="1945-01-01">
+                                <label class="control-label">Birth Place:</label>
+                                <input type="text" name="birthplace" placeholder="" class="input"></div>';
+
+
                         </div>
                     </div>
                 </div>

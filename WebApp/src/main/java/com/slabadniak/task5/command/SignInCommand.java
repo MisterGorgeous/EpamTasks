@@ -27,7 +27,7 @@ public class SignInCommand implements ICommand {
 
        // HttpSession session = request.getSession(true);
 
-        CommandFactory.create("cross").execute(request);
+        setForwardPage(request);
 
     }
 }

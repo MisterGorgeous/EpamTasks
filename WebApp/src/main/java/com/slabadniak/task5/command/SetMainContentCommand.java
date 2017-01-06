@@ -24,6 +24,7 @@ public class SetMainContentCommand implements ICommand {
 
         //HttpSession session = request.getSession(true);
        // session.setAttribute("currentJSP", ConfigurationManager.getProperty("path.page.main"));
+        setForwardPage(request);
     }
 
     private void setAtributes(MovieContent content, HttpServletRequest request){

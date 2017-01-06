@@ -33,7 +33,7 @@ public class AllGenresCommand implements ICommand {
             e.printStackTrace();
         }
 
-        CommandFactory.create("cross").execute(request);
+        setForwardPage(request);
 
     }
 

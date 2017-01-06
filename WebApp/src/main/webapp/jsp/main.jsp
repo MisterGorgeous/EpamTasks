@@ -38,6 +38,15 @@
 
 </c:forEach>
 </div>
+<div>
+    <form action="Controller" method="post" enctype="multipart/form-data">
+        <input type="text" name="description" />
+        <input type="file" name="file" />
+        <input type="hidden" name="command" value="upload">
+        <input type="hidden" name="page" value="path.page.main">
+        <input type="submit" />
+    </form>
+</div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/js/jquery-3.1.1.min.js"></script>

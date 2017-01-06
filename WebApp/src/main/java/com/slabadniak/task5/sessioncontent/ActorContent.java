@@ -15,6 +15,9 @@ public class ActorContent implements DataContext {
     private static final int FIRNAME = 1;
     private static final int SECNAME = 2;
     private static final int BIRSTDAY = 3;
+    private static final int BIRTHPLACE = 4;
+    private static final int PERSON = 5;
+    private static final int PROFESSION = 6;
 
     public ActorContent(){
         actors = new ArrayList<>();
@@ -32,7 +35,10 @@ public class ActorContent implements DataContext {
             while (resultSet.next()) {
                 actor = new Actor(resultSet.getString(FIRNAME),
                         resultSet.getString(SECNAME),
-                        resultSet.getString(BIRSTDAY));
+                        resultSet.getString(BIRSTDAY),
+                        resultSet.getString(BIRTHPLACE),
+                        resultSet.getString(PERSON),
+                        resultSet.getString(PROFESSION));
                 actors.add(actor);
             }
         } catch (SQLException e) {

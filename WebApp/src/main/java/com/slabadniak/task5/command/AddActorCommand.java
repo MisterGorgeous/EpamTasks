@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AddActorCommand implements ICommand {
+
     @Override
     public void execute(HttpServletRequest request) {
 
@@ -21,20 +22,21 @@ public class AddActorCommand implements ICommand {
         String movie = request.getParameter("movie");
         String year = request.getParameter("movieyear");
 
-        if(movie == null || movie.equals("")){
-            //Movie isn't specified
-        }
+
+        //validate
+       /* if(movie == null || movie.equals("")){
+            request.setAttribute(FEEDBACK,"Movie doesn't specified.");
+        }*/
 
         List<Actor> actors = retrieveActors(request);
 
         if(actors == null || actors.isEmpty()){
-            //Movie isn't specified
+            request.setAttribute(FEEDBACK,"Actors doesn't specified.");
         }
 
 
         ConnectionPool pool = ConnectionPool.getInstance();
         AdminDAO adminDAO = null;
-        UsersAssessment assessment = null;
 
         try {
             Wrapper connection = pool.getConnection();
@@ -48,7 +50,7 @@ public class AddActorCommand implements ICommand {
 
         // HttpSession session = request.getSession(true);
 
-        CommandFactory.create("cross").execute(request);
+        setForwardPage(request);
     }
 
     private List<Actor> retrieveActors(HttpServletRequest request){

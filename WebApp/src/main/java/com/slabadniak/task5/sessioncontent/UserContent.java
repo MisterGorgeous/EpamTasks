@@ -18,6 +18,7 @@ public class UserContent implements DataContext {
     private static final int BANNED = 4;
     private static final int GENDER = 5;
     private static final int ICON = 6;
+    private static final int ADMIN = 7;
 
     public UserContent(){
         users = new ArrayList<>();
@@ -39,7 +40,8 @@ public class UserContent implements DataContext {
                         resultSet.getString(STATUS),
                         resultSet.getBoolean(BANNED),
                         resultSet.getString(GENDER),
-                        resultSet.getString(ICON));
+                        resultSet.getString(ICON),
+                        resultSet.getBoolean(ADMIN));
                 users.add(user);
             }
         } catch (SQLException e) {

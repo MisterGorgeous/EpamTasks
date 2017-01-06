@@ -11,11 +11,11 @@ import java.sql.SQLException;
 public class DefaultDAO extends AbstractDAO {
     private static final String FILMS = "SELECT title,rating,icon,year,country,description FROM movie LIMIT 4;";
     private static final String SIGNIN = "INSERT INTO user (login,email,password,gender,icon) VALUE (?,?,?,?,'/img/photo.png');";
-    private static final String LOGIN = "SELECT * FROM user where login = ? && password = ?;";
+    private static final String LOGIN = "SELECT login,email,status_id,banned,gender,icon,admin FROM user where login = ? && password = ?;";
     private static final String GENRES = "SELECT genre_kind.name FROM movie JOIN genre USING(movie_id) JOIN genre_kind USING(genre_id) WHERE movie.title = ?;";
     private static final String ALLGENRES = "SELECT name FROM genre_kind;";
     private static final String CHECKUSEREXIST = "SELECT user_id FROM user WHERE login = ? && email = ?;";
-    private static final String ACTORS = "SELECT f_name,s_name,birstday FROM movie JOIN role USING(movie_id) JOIN actor USING(actor_id) WHERE movie.title = ?;";
+    private static final String ACTORS = "SELECT f_name,s_name,birthday,birth_place,person,profession FROM movie JOIN role USING(movie_id) JOIN actor USING(actor_id) WHERE movie.title = ?;";
     private static final String COMMENTS = "SELECT comment,mark,user.login,update_time FROM assessment JOIN user on assessment.user_id = user.user_id where movie_id = (SELECT movie_id from movie WHERE title = ?) && comment IS NOT NULL && comment != ''  ORDER BY update_time DESC;";
 
 

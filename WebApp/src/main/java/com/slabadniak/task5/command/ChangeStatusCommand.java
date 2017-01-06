@@ -36,11 +36,11 @@ public class ChangeStatusCommand implements ICommand {
             e.printStackTrace();
         }
 
-        // HttpSession session = request.getSession(true);
 
-        CommandFactory.create("users").execute(request);
 
-        // CommandFactory.create("cross").execute(request);
+        //Sellect all users from DB
+      //  CommandFactory.create("users").execute(request);
+
 
     }
 

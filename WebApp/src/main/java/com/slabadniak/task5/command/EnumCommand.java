@@ -21,14 +21,9 @@ public enum EnumCommand {
             this.command = new SignInCommand();
         }
     },
-    CROSS{
-        {
-            this.command = new CrossCommand();
-        }
-    },
     MOVIE{
         {
-            this.command = new MovieCimmand();
+            this.command = new MovieCommand();
         }
     },
     GENRE{

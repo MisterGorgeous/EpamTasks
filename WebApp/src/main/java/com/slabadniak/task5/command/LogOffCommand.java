@@ -1,22 +1,22 @@
 package com.slabadniak.task5.command;
 
-import com.slabadniak.task5.entity.ClientType;
+import com.slabadniak.task5.entity.UserType;
 import org.apache.logging.log4j.Level;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.sql.SQLException;
 
 public class LogOffCommand implements ICommand {
     @Override
     public void execute(HttpServletRequest request) {
         HttpSession session = request.getSession();
 
-        session.setAttribute("userStatus", ClientType.GUEST);
-        session.removeAttribute("userName");
+        session.setAttribute("userStatus", UserType.GUEST);
+        session.removeAttribute("user");
 
-        LOGGER.log(Level.DEBUG, "Logged off");
+        LOGGER.log(Level.INFO, "Logged off");
+        System.out.println("Logged off");
 
-        CommandFactory.create("cross").execute(request);
+        setForwardPage(request);
     }
 }

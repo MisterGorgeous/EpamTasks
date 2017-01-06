@@ -16,7 +16,7 @@ public class AddMovieCommand implements ICommand {
     @Override
     public void execute(HttpServletRequest request) {
 
-        //exeption
+        //validate
         String title = request.getParameter("title");
         String description = request.getParameter("description");
         String counrty = request.getParameter("counrty");
@@ -31,7 +31,6 @@ public class AddMovieCommand implements ICommand {
 
         ConnectionPool pool = ConnectionPool.getInstance();
         AdminDAO adminDAO = null;
-        UsersAssessment assessment = null;
 
         try {
             Wrapper connection = pool.getConnection();
@@ -45,7 +44,7 @@ public class AddMovieCommand implements ICommand {
 
         // HttpSession session = request.getSession(true);
 
-        CommandFactory.create("cross").execute(request);
+       setForwardPage(request);
     }
 
     private List<String> genreIds(HttpServletRequest request){

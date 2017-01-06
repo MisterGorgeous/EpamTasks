@@ -1,12 +1,14 @@
 package com.slabadniak.task5;
 
 import com.slabadniak.task5.command.CommandFactory;
-import com.slabadniak.task5.entity.ClientType;
+import com.slabadniak.task5.command.ICommand;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
-
+import java.util.List;
 
 @WebServlet("/Controller")
 @MultipartConfig
@@ -36,20 +38,34 @@ public class Controller extends HttpServlet {
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
 
-        //add atribute for user status
-        if(session.isNew()){
-            session.setAttribute("userStatus", ClientType.GUEST);
+
+        ServletFileUpload sf;
+        sf = new ServletFileUpload(new DiskFileItemFactory());
+        try {
+            List<FileItem> files =  sf.parseRequest(request);
+            for(FileItem file :files) {
+                file.write(new File("S:/git_rep/Epam/WebApp/src/main/webapp/img/" + file.getName()));
+            }
+        } catch (FileUploadException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-        session.setAttribute("userStatus", ClientType.ADMINISTRATOR);
-        session.setAttribute("userName","slabadniaksergei");
+        HttpSession session = request.getSession();
+        //add atribute for user status
+       /* if(session.isNew()){
+            session.setAttribute("userStatus", UserType.GUEST);
+        }*/
+
+      /*  session.setAttribute("userStatus", UserType.ADMINISTRATOR);
+        session.setAttribute("userName","slabadniaksergei");*/
 
        String command = request.getParameter("command");
 
-        CommandFactory.create(command).execute(request);
-
+        ICommand com = CommandFactory.create(command);
+        com.execute(request);
 
 
         /*RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);

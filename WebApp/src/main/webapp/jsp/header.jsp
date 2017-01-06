@@ -143,7 +143,7 @@
                         <!--<input class="btn btn-default" type="submit"  title="button" value="user" /> />-->
                         <button type="submit" class="btn btn-default">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                ${userName}
+                                ${user.login}
                         </button>
                     </form>
                 </c:if>

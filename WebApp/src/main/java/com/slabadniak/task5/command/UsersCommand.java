@@ -34,7 +34,7 @@ public class UsersCommand implements ICommand {
 
         // HttpSession session = request.getSession(true);
 
-        CommandFactory.create("cross").execute(request);
+        setForwardPage(request);
     }
 
     private void setAtributes(DataContext content, HttpServletRequest request){

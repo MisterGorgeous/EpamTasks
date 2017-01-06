@@ -8,6 +8,7 @@ public class User {
     private String gender;
     private boolean banned;
     private String icon;
+    private boolean admin;
 
 
     public User(String login, String email, String password,String gender) {
@@ -22,13 +23,14 @@ public class User {
         this.password = password;
     }
 
-    public User(String login, String email,String status, boolean banned,String gender,String icon) {
+    public User(String login, String email,String status, boolean banned,String gender,String icon,boolean admin) {
         this.login = login;
         this.email = email;
         this.status = status;
         this.banned = banned;
         this.gender = gender;
         this.icon = icon;
+        this.admin = admin;
     }
 
     public String getLogin() {
@@ -69,5 +71,9 @@ public class User {
 
     public void setBanned(boolean banned) {
         this.banned = banned;
+    }
+
+    public boolean isAdmin() {
+        return admin;
     }
 }

@@ -7,24 +7,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 public class LocalCommand implements ICommand {
-
+    private static final String LOCAL = "local";
     private final static String RUSSIAN = "ru_RU";
     private final static String ENGLISH = "en_US";
+    private final static String RUNBUTTON = "RU";
+
 
     @Override
     public void execute(HttpServletRequest request) {
 
         HttpSession session = request.getSession(true);
-        String locale = request.getParameter("button");
+        String pressedButton = request.getParameter("button");
 
-        if(locale.equals("RU")) {
-            session.setAttribute("local", RUSSIAN);
-            LOGGER.log(Level.DEBUG, "RUSSIAN");
+        if(pressedButton.equals(RUNBUTTON)) {
+            session.setAttribute(LOCAL, RUSSIAN);
         } else {
-            session.setAttribute("local", ENGLISH);
-            LOGGER.log(Level.DEBUG, "ENGLISH");
+            session.setAttribute(LOCAL, ENGLISH);
         }
 
-        CommandFactory.create("cross").execute(request);
+        setForwardPage(request);
     }
 }

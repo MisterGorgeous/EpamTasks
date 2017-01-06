@@ -23,23 +23,25 @@ public class ActorCommand implements ICommand {
         HttpSession session = request.getSession();
         Movie movie = (Movie) session.getAttribute("chosenMovie");
 
-        ConnectionPool pool = ConnectionPool.getInstance();
-        DefaultDAO defaultDAO = null;
-        ActorContent content = new ActorContent();
+        if (movie != null) {
+            ConnectionPool pool = ConnectionPool.getInstance();
+            DefaultDAO defaultDAO = null;
+            ActorContent content = new ActorContent();
 
 
-        try {
-            Wrapper connection = pool.getConnection();
-            defaultDAO = new DefaultDAO(connection);
-            content.insert(defaultDAO.actors(movie.getTitle()));
-            //add genres to request atr
-            setAtributes(content,request);
+            try {
+                Wrapper connection = pool.getConnection();
+                defaultDAO = new DefaultDAO(connection);
+                content.insert(defaultDAO.actors(movie.getTitle()));
+                //add genres to request atr
+                setAtributes(content, request);
 
-            pool.closeConnection(connection);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+                pool.closeConnection(connection);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
         }
-
     }
 
     private void setAtributes(DataContext content, HttpServletRequest request){

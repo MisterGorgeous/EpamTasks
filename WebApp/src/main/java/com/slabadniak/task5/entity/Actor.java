@@ -4,9 +4,19 @@ package com.slabadniak.task5.entity;
 public class Actor {
     private String firstName;
     private String seccondName;
-    private String role;
     private String birthday;
     private String birthplace;
+    private String role;
+    private String profession;
+
+    public Actor(String firstName, String seccondName,String birthday, String birthplace, String role,  String profession) {
+        this.firstName = firstName;
+        this.seccondName = seccondName;
+        this.birthday = birthday;
+        this.birthplace = birthplace;
+        this.role = role;
+        this.profession = profession;
+    }
 
     public Actor(String firstName, String seccondName, String role, String birthday, String birthplace) {
         this.firstName = firstName;
@@ -16,11 +26,6 @@ public class Actor {
         this.birthplace = birthplace;
     }
 
-    public Actor(String firstName, String seccondName, String birstday) {
-        this.firstName = firstName;
-        this.seccondName = seccondName;
-        this.role = birstday;
-    }
 
     public String getFirstName() {
         return firstName;

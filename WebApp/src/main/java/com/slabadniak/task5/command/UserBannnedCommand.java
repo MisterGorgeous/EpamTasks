@@ -37,9 +37,8 @@ public class UserBannnedCommand implements ICommand {
             e.printStackTrace();
         }
 
-        // HttpSession session = request.getSession(true);
 
-        CommandFactory.create("users").execute(request);
+       // CommandFactory.create("users").execute(request);
 
        // CommandFactory.create("cross").execute(request);
 
