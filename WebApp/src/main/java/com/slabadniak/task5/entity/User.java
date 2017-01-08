@@ -76,4 +76,25 @@ public class User {
     public boolean isAdmin() {
         return admin;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj){
+            return true;
+        }
+
+        if(obj == null){
+            return false;
+        }
+
+        if(this.getClass() != obj.getClass()){return false;}
+
+        User user = (User) obj;
+        if(this.login.equals(user.getLogin()) && this.email.equals(user.getEmail()) && this.password.equals(user.getPassword())
+                && this.status.equals(user.getStatus()) && this.gender.equals(user.getGender())){
+            return true;
+        }
+        return false;
+    }
+
 }

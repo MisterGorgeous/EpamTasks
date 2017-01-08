@@ -138,7 +138,7 @@
                     </form>
 
                     <form class="navbar-form navbar-right" title="user" action="Controller" method="post">
-                        <input type="hidden" name="command" value="cross">
+                        <input type="hidden" name="command" value="">
                         <input type="hidden" name="page" value="path.page.user">
                         <!--<input class="btn btn-default" type="submit"  title="button" value="user" /> />-->
                         <button type="submit" class="btn btn-default">

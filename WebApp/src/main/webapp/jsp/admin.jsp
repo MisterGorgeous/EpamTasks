@@ -142,6 +142,18 @@
             <h1 class="page-header">Edit Movie</h1>
             <div class="row">
 
+                <form id="loadmovieicon" action="/UploadServlet" method="post" enctype="multipart/form-data">
+                    <div class="control-group">
+                        <div class="panel panel-primary control-label">
+                            <div class="panel-heading">Icon:</div>
+                            <div class="panel-body">
+                                <input  type="file" name="file"  />
+                                <input  type="submit"  hidden/>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
 
                 <form id="addmovie" title="addmovie" action="Controller" method="post">
                     <input type="hidden" name="command" value="addmovie">
@@ -172,7 +184,7 @@
                         <div class="control-group">
                             <label class="control-label" for="movieYear">Year:</label>
                             <div class="controls">
-                                <select id="movieYear" class="span2" name="movieYear">
+                                <select id="movieYear"  name="movieYear">
                                     <c:forEach var="i" begin="1970" end="2017">
                                         <option>${i}</option>
                                     </c:forEach>
@@ -180,19 +192,6 @@
                             </div>
                         </div>
 
-                        <div class="control-group">
-                            <div class="panel panel-primary control-label">
-                                <div class="panel-heading">Icon:</div>
-                                <div class="panel-body">
-
-
-                                        <form id="loadIcon" action="/UploadServlet" method="post" enctype="multipart/form-data">
-                                            <input type="file" name="file"  />
-                                            <input type="submit" hidden />
-                                        </form>
-                                </div>
-                            </div>
-                        </div>
                         <div class="control-group">
                             <label class="control-label">rating:</label>
                             <div class="controls">
@@ -203,7 +202,7 @@
                         </div>
 
 
-                        <input class="btn btn-danger btn-lg" type="submit" name="button" value="Add"/>
+                        <input id="subMovie" class="btn btn-danger btn-lg" type="submit" name="button" value="Add"/>
 
                     </div>
 
@@ -223,8 +222,6 @@
                             </ul>
                         </div>
                     </div>
-
-
                 </form>
 
             </div>
@@ -246,14 +243,14 @@
             <label class="control-label">Movie:</label>
             <input type="text" name="movie" placeholder="" class="input">
 
-                <label class="control-label" for="year">Year:</label>
-                    <select class="span2" name="movieyear">
+                <label class="control-label" for="addactor">Year:</label>
+                    <select class="span2" name="year">
                         <c:forEach var="i" begin="1970" end="2017">
                             <option>${i}</option>
                         </c:forEach>
                     </select>
 
-            <input class="btn btn-danger btn-lg" type="submit" name="button" value="Add"/>
+            <input  class="btn btn-danger btn-lg" type="submit" name="button" value="Add"/>
             <div class="col-lg-10 col-xs-12 col-sm-12 col-md-10 pagination-centered">
                 <div class="panel panel-primary">
                     <div class="panel-heading text-center">
@@ -313,11 +310,17 @@
     var delB = document.getElementById('deleteactor');
     delB.addEventListener("click", deltag);
     var list = document.getElementById('actorlist');
-    var loadIcon = document.getElementById('loadIcon');
-    loadIcon.addEventListener("click", load);
+    var subMovie = document.getElementById('subMovie');
+    subMovie.addEventListener("click",submitForms );
+    var loadMovieIcon = document.getElementById('loadmovieicon');
 
     function load() {
-       $(loadIcon).submit();
+       $(loadMovieIcon).submit();
+    }
+
+    submitForms = function(){
+        document.getElementById("loadmovieicon").submit();
+        document.getElementById("addmovie").submit();
     }
 
 

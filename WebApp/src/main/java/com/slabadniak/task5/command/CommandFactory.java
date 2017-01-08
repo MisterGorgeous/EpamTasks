@@ -13,6 +13,7 @@ public class CommandFactory {
             return current;
         }
 
+        //no such command exeption
         EnumCommand currentEnum = EnumCommand.valueOf(type.toUpperCase());
         current = currentEnum.getCurrentCommand();
 

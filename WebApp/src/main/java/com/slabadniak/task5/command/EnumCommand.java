@@ -91,6 +91,11 @@ public enum EnumCommand {
             this.command = new PaginationCommand();
         }
     },
+    CHANGEPROFILE{
+        {
+            this.command = new ChangeProfileCommand();
+        }
+    },
     SETMAINCONTENT{
         {
             this.command = new SetMainContentCommand();
