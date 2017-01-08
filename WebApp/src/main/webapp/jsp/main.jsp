@@ -22,23 +22,58 @@
 
 
 <div class="row">
-    <c:set var="index" value="0" scope="page"/>
-    <c:forEach var="film" items="${sessionScope.films}">
+
+    <%-- <c:forEach var="movie" items="${sessionScope.movies}">--%>
+    <c:forEach var="i" begin="${sessionScope.currentMoviePage * 6}" end="${sessionScope.currentMoviePage * 6 + 5}">
         <div class="col-xs-8 col-md-4 col-lg-4 ">
             <form action="Controller" method="post">
                 <input type="hidden" name="command" value="movie">
-                <input type="hidden" name="index" value="${index}">
+                <input type="hidden" name="index" value="${i}">
                 <input type="hidden" name="page" value="path.page.movie">
                 <input class="btn btn-default invisible" type="submit" name="button" value="user"/>
-                    <%--<img src="${films.get(0).getIcon()}" alt="..." >--%>
-                <img width="400" height="600" class="thumbnail " src="${film.icon}" alt="..." onclick="$(this).closest('form').submit();">
-                <c:set var="index" value="${index + 1}" scope="page"/>
+                    <%--<img src="${movies.get(0).getIcon()}" alt="..." >--%>
+                <img width="400" height="600" class="thumbnail " src="${sessionScope.movies.get(i).icon}" alt="..."
+                     onclick="$(this).closest('form').submit();">
             </form>
+            ${i}
         </div>
-
-</c:forEach>
+    </c:forEach>
 </div>
 
+
+<div class="row center-block">
+    <div class="col-xs-6 col-md-6 col-lg-6">
+    <c:if test="${sessionScope.currentMoviePage < sessionScope.movieSize}">
+        <form title="next" action="Controller" method="post">
+            <input type="hidden" name="command" value="pagination">
+            <input type="hidden" name="page" value="path.page.main">
+            <input type="hidden" name="attribute" value="currentMoviePage">
+            <input type="hidden" name="action" value="next">
+            <input class="btn btn-primary" type="submit" name="button" value="Next"/>
+        </form>
+    </c:if>
+</div>
+<div class="col-xs-6 col-md-6 col-lg-6">
+    <c:if test="${sessionScope.currentMoviePage > 0}">
+        <form title="previous" action="Controller" method="post">
+            <input type="hidden" name="command" value="pagination">
+            <input type="hidden" name="page" value="path.page.main">
+            <input type="hidden" name="attribute" value="currentMoviePage">
+            <input type="hidden" name="action" value="previous">
+            <input class="btn btn-primary" type="submit" name="button2" value="Previous"/>
+        </form>
+    </c:if>
+</div>
+    <%-- <form title="back" action="/jsp/main.jsp" method="post">
+         <input type="hidden" name="command" value="cross">
+         <input type="hidden" name="page" value="path.page.main">
+         <input type="button"   name="button" value="<fmt:message key="back" bundle="${resourceBundle}"/>"  />
+     </form>
+     ${sessionScope.currentMoviePage = sessionScope.currentMoviePage - 1}   --%>
+
+
+
+</div>
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

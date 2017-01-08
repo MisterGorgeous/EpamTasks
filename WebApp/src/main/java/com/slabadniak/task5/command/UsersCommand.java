@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class UsersCommand implements ICommand {
+    public  static final String USERS = "select login,email,status_id,banned,gender,icon from user WHERE admin = FALSE;";
     @Override
     public void execute(HttpServletRequest request) {
         ConnectionPool pool = ConnectionPool.getInstance();
@@ -40,6 +41,13 @@ public class UsersCommand implements ICommand {
     private void setAtributes(DataContext content, HttpServletRequest request){
         //request.setAttribute("users", (List<User>) content.get());
         HttpSession session = request.getSession();
-        session.setAttribute("users",(List<User>) content.get());
+
+        List<User> users = (List<User>) content.get();
+        session.setAttribute("users",users);
+        //number of pages
+        int numPages = (int) Math.ceil(users.size()/20);
+        session.setAttribute("usersSize",numPages);
+        //not const.Will be iterated
+        session.setAttribute("currentUserPage",0);
     }
 }

@@ -86,6 +86,11 @@ public enum EnumCommand {
             this.command = new EditProfileCommand();
         }
     },
+    PAGINATION{
+        {
+            this.command = new PaginationCommand();
+        }
+    },
     SETMAINCONTENT{
         {
             this.command = new SetMainContentCommand();

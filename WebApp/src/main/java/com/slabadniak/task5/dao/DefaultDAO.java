@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DefaultDAO extends AbstractDAO {
-    private static final String FILMS = "SELECT title,rating,icon,year,country,description FROM movie LIMIT 4;";
+    private static final String FILMS = "SELECT title,rating,icon,year,country,description FROM movie;";
     private static final String SIGNIN = "INSERT INTO user (login,email,password,gender,icon) VALUE (?,?,?,?,'/img/photo.png');";
     private static final String LOGIN = "SELECT login,email,status_id,banned,gender,icon,admin FROM user where login = ? && password = ?;";
     private static final String GENRES = "SELECT genre_kind.name FROM movie JOIN genre USING(movie_id) JOIN genre_kind USING(genre_id) WHERE movie.title = ?;";

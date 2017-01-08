@@ -44,17 +44,18 @@
 
                     <c:set var="index" value="0" scope="page"/>
 
-                    <c:forEach var="user" items="${users}">
+                   <%-- <c:forEach var="user" items="${users}"> --%>
+                    <c:forEach var="i" begin="${sessionScope.currentUserPage * 20}" end="${sessionScope.currnetUserPage * 20 + 19}">
                         <tr>
-                            <td><img src="${user.icon}" class="img-circle" alt="avatar"></td>
-                            <td>${user.login}</td>
-                            <td>${user.email}</td>
+                            <td><img src="${users.get(i).icon}" class="img-circle" alt="avatar"></td>
+                            <td>${users.get(i).login}</td>
+                            <td>${users.get(i).email}</td>
                             <td>
                                 <label class="label label-info <c:choose>
-                                                        <c:when test="${user.gender == 'male'}">
+                                                        <c:when test="${users.get(i).gender == 'male'}">
                                                            fa fa-mars
                                                         </c:when>
-                                                        <c:when test="${user.status == 'female'}">
+                                                        <c:when test="${users.get(i).status == 'female'}">
                                                             fa fa-venus
                                                         </c:when>
                                                         <c:otherwise>
@@ -74,10 +75,10 @@
                                            data-slider-ticks-labels='["beginer", "fan", "expert"]' data-slider-min="1"
                                            data-slider-max="3" data-slider-step="1"
                                            data-slider-value="<c:choose>
-                                                        <c:when test="${user.status == 'beginer'}">
+                                                        <c:when test="${users.get(i).status == 'beginer'}">
                                                            1
                                                         </c:when>
-                                                        <c:when test="${user.status == 'fan'}">
+                                                        <c:when test="${users.get(i).status == 'fan'}">
                                                             2
                                                         </c:when>
                                                         <c:otherwise>
@@ -95,7 +96,7 @@
                                     <input type="hidden" name="page" value="path.page.admin">
                                     <input class="btn btn-default invisible" type="submit" name="button" value="user"/>
                                     <button onclick="$(this).closest('form').submit();" type="button"
-                                            class="${user.banned ?'btn btn-danger': 'btn btn-success'}">Banned
+                                            class="${users.get(i).banned ?'btn btn-danger': 'btn btn-success'}">Banned
                                     </button>
                                 </form>
                             </td>
@@ -108,6 +109,29 @@
 
             </div>
         </div>
+    </div>
+<div class="row center-block">
+    <div class="col-xs-6 col-md-6 col-lg-6">
+        <c:if test="${sessionScope.currentUserPage < sessionScope.usersSize}">
+            <form title="next" action="Controller" method="post">
+                <input type="hidden" name="command" value="pagination">
+                <input type="hidden" name="page" value="path.page.admin">
+                <input type="hidden" name="attribute" value="currentUserPage">
+                <input type="hidden" name="action" value="next">
+                <input class="btn btn-primary" type="submit" name="button" value="Next"/>
+            </form>
+        </c:if>
+    </div>
+    <div class="col-xs-6 col-md-6 col-lg-6">
+        <c:if test="${sessionScope.currentUserPage > 0}">
+            <form title="previous" action="Controller" method="post">
+                <input type="hidden" name="command" value="pagination">
+                <input type="hidden" name="page" value="path.page.admin">
+                <input type="hidden" name="attribute" value="currentUserPage">
+                <input type="hidden" name="action" value="previous">
+                <input class="btn btn-primary" type="submit" name="button2" value="Previous"/>
+            </form>
+        </c:if>
     </div>
 </c:if>
 

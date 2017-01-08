@@ -2,6 +2,8 @@ package com.slabadniak.task5;
 
 import com.slabadniak.task5.command.CommandFactory;
 import com.slabadniak.task5.command.ICommand;
+import com.slabadniak.task5.entity.User;
+import com.slabadniak.task5.entity.UserType;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -45,9 +47,8 @@ public class Controller extends HttpServlet {
             session.setAttribute("userStatus", UserType.GUEST);
         }*/
 
-      /*  session.setAttribute("userStatus", UserType.ADMINISTRATOR);
-        session.setAttribute("userName","slabadniaksergei");*/
-
+        session.setAttribute("userStatus", UserType.ADMINISTRATOR);
+        session.setAttribute("user",new User("slabadniaksergei","ser","ADMINISTRATOR",false,"male","icon",true));
         String command = request.getParameter("command");
 
         ICommand com = CommandFactory.create(command);

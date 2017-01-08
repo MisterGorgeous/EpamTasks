@@ -12,7 +12,7 @@ import java.util.List;
 
 
 public class AdminDAO extends AbstractDAO {
-    public  static final String USERS = "select login,email,status_id,banned,gender,icon from user WHERE admin = FALSE;";
+    public  static final String USERS = "select login,email,status_id,banned,gender,icon,admin from user WHERE admin = FALSE;";
     public  static final String BANING = "UPDATE user set banned = ? WHERE login = ?;";
     public  static final String CHANGESTATUS = "UPDATE user set status_id = ? WHERE login = ?;";
     public  static final String ADDMOVIE = "REPLACE INTO movie (title, rating, icon, year, country, description ) VALUE (?,?,?,?,?,?);";

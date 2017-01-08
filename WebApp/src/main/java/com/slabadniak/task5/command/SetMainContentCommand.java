@@ -1,12 +1,14 @@
 package com.slabadniak.task5.command;
 
 import com.slabadniak.task5.dao.DefaultDAO;
+import com.slabadniak.task5.entity.Movie;
 import com.slabadniak.task5.pool.ConnectionPool;
 import com.slabadniak.task5.pool.Wrapper;
 import com.slabadniak.task5.sessioncontent.MovieContent;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 public class SetMainContentCommand implements ICommand {
     @Override
@@ -30,6 +32,14 @@ public class SetMainContentCommand implements ICommand {
     private void setAtributes(MovieContent content, HttpServletRequest request){
       // request.setAttribute("films",content.get());
         HttpSession session = request.getSession();
-        session.setAttribute("films",content.get());
+        List<Movie> movies = content.get();
+        session.setAttribute("movies",movies);
+        //number of pages
+        int numPages = (int) Math.ceil(movies.size()/6);
+        session.setAttribute("movieSize",numPages);
+        //not const.Will be iterated
+        session.setAttribute("currentMoviePage",0);
+
+
     }
 }
