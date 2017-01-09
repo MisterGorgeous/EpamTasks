@@ -25,7 +25,7 @@
 
 
                 <form class="navbar-form navbar-left" name="signin" action="Controller" method="post">
-                    <input type="hidden" name="command" value="cross">
+                    <input type="hidden" name="command" value="">
                     <input type="hidden" name="page" value="path.page.signin">
                     <input type="submit" name="button" class="btn btn-primary"
                            value="<fmt:message key="main.sigin" bundle="${resourceBundle}"/>"/>
@@ -112,7 +112,7 @@
                             <li>
                                 <form action="Controller" method="post">
                                     <input type="hidden" name="command" value="allgenres">
-                                    <input type="hidden" name="page" value="path.page.admin">
+                                    <input type="hidden" name="page" value="path.page.addmovie">
                                     <input class="btn btn-primary" type="submit" title="button"
                                            value="<fmt:message key="header.addmovie" bundle="${resourceBundle}"/>"/>
                                 </form>
@@ -120,8 +120,8 @@
                             <li role="separator" class="divider"></li>
                             <li>
                                 <form action="Controller" method="post">
-                                    <input type="hidden" name="command" value="cross">
-                                    <input type="hidden" name="page" value="path.page.admin">
+                                    <input type="hidden" name="command" value="">
+                                    <input type="hidden" name="page" value="path.page.addactor">
                                     <input class="btn btn-primary" type="submit" title="button"
                                            value="<fmt:message key="header.addactor" bundle="${resourceBundle}"/>"/>
                                 </form>

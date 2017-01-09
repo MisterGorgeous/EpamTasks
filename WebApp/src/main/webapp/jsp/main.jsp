@@ -35,13 +35,25 @@
                 <img width="400" height="600" class="thumbnail " src="${sessionScope.movies.get(i).icon}" alt="..."
                      onclick="$(this).closest('form').submit();">
             </form>
-            ${i}
         </div>
     </c:forEach>
 </div>
 
 
 <div class="row center-block">
+
+    <div class="col-xs-6 col-md-6 col-lg-6">
+        <c:if test="${sessionScope.currentMoviePage > 0}">
+            <form title="previous" action="Controller" method="post">
+                <input type="hidden" name="command" value="pagination">
+                <input type="hidden" name="page" value="path.page.main">
+                <input type="hidden" name="attribute" value="currentMoviePage">
+                <input type="hidden" name="action" value="previous">
+                <input class="btn btn-primary" type="submit" name="button2" value="Previous"/>
+            </form>
+        </c:if>
+    </div>
+
     <div class="col-xs-6 col-md-6 col-lg-6">
     <c:if test="${sessionScope.currentMoviePage < sessionScope.movieSize}">
         <form title="next" action="Controller" method="post">
@@ -53,17 +65,7 @@
         </form>
     </c:if>
 </div>
-<div class="col-xs-6 col-md-6 col-lg-6">
-    <c:if test="${sessionScope.currentMoviePage > 0}">
-        <form title="previous" action="Controller" method="post">
-            <input type="hidden" name="command" value="pagination">
-            <input type="hidden" name="page" value="path.page.main">
-            <input type="hidden" name="attribute" value="currentMoviePage">
-            <input type="hidden" name="action" value="previous">
-            <input class="btn btn-primary" type="submit" name="button2" value="Previous"/>
-        </form>
-    </c:if>
-</div>
+
     <%-- <form title="back" action="/jsp/main.jsp" method="post">
          <input type="hidden" name="command" value="cross">
          <input type="hidden" name="page" value="path.page.main">

@@ -11,11 +11,12 @@ public class User {
     private boolean admin;
 
 
-    public User(String login, String email, String password,String gender) {
+    public User(String login, String email, String password,String gender,String icon) {
         this.login = login;
         this.email = email;
         this.password = password;
         this.gender = gender;
+        this.icon = icon;
     }
 
     public User(String login, String password) {

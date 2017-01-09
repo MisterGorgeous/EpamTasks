@@ -4,11 +4,6 @@ import com.slabadniak.task5.command.CommandFactory;
 import com.slabadniak.task5.command.ICommand;
 import com.slabadniak.task5.entity.User;
 import com.slabadniak.task5.entity.UserType;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -18,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
-import java.util.List;
 
 @WebServlet("/Controller")
 @MultipartConfig
@@ -49,6 +43,8 @@ public class Controller extends HttpServlet {
 
         session.setAttribute("userStatus", UserType.ADMINISTRATOR);
         session.setAttribute("user",new User("slabadniaksergei","ser","ADMINISTRATOR",false,"male","icon",true));
+
+
         String command = request.getParameter("command");
 
         ICommand com = CommandFactory.create(command);

@@ -33,7 +33,7 @@
 
         <c:if test="${userStatus == 'GUEST'}">
             <form class="navbar-form navbar-left" title="login" action="Controller" method="post">
-                <input type="hidden" name="command" value="cross">
+                <input type="hidden" name="command" value="">
                 <input type="hidden" name="page" value="path.page.login">
                 <input type="submit" name="button" class="btn btn-default" value="Rate"/>
             </form>

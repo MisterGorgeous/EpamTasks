@@ -16,13 +16,12 @@ public class AddMovieCommand implements ICommand {
     @Override
     public void execute(HttpServletRequest request) {
 
-        HttpSession session = request.getSession(true);
+        HttpSession session = request.getSession();
         //validate
         String title = request.getParameter("title");
         String description = request.getParameter("description");
-        String counrty = request.getParameter("counrty");
+        String counrty = request.getParameter("country");
         String year = request.getParameter("movieYear");
-        //SO FAR
         String icon = (String) session.getAttribute("icon");
         float rating = Float.parseFloat(request.getParameter("rating"));
 

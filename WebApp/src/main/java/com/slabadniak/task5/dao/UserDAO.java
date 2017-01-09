@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class UserDAO extends AbstractDAO {
     public static final String ASSESSANDCOMMENT = "REPLACE INTO assessment (movie_id, user_id, mark, comment) VALUE ((SELECT movie.movie_id FROM movie WHERE title = ? LIMIT 1),(SELECT user_id FROM user WHERE login = ? LIMIT 1),?,?);";
     public static final String ONLYASSESS = "REPLACE INTO assessment (movie_id, user_id, mark) VALUE ((SELECT movie.movie_id FROM movie WHERE title = ? LIMIT 1),(SELECT user_id FROM user WHERE login = ? LIMIT 1),?);";
-    public static final String CHANGEUSER = "UPDATE user set login = ? , email = ?, password = ?, gender = ?  WHERE login = ? && email = ?;";
+    public static final String CHANGEUSER = "UPDATE user set login = ? , email = ?, password = ?, gender = ?, icon = ?  WHERE login = ? && email = ?;";
 
 
     public UserDAO(Wrapper wrapper) {
@@ -54,8 +54,9 @@ public class UserDAO extends AbstractDAO {
             ps.setString(2, modified.getEmail());
             ps.setString(3, modified.getPassword());
             ps.setString(4, modified.getGender());
-            ps.setString(5, unmodified.getLogin());
-            ps.setString(6, unmodified.getEmail());
+            ps.setString(5, modified.getIcon());
+            ps.setString(6, unmodified.getLogin());
+            ps.setString(7, unmodified.getEmail());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
