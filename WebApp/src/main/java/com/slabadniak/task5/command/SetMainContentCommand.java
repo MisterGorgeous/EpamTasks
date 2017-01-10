@@ -27,6 +27,8 @@ public class SetMainContentCommand implements ICommand {
             e.printStackTrace();
         }
 
+        //get genre list
+        CommandFactory.create("allgenres").execute(request);
         //HttpSession session = request.getSession(true);
        // session.setAttribute("currentJSP", ConfigurationManager.getProperty("path.page.main"));
         setForwardPage(request);
@@ -39,10 +41,9 @@ public class SetMainContentCommand implements ICommand {
         session.setAttribute("movies",movies);
         //number of pages
         int numPages = (int) Math.ceil(movies.size()/6);
-        session.setAttribute("movieSize",numPages);
+        session.setAttribute("numPages",numPages);
+        session.setAttribute("movieSize",movies.size());
         //not const.Will be iterated
         session.setAttribute("currentMoviePage",0);
-
-
     }
 }

@@ -41,12 +41,6 @@ public class UserDAO extends AbstractDAO {
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-           /* if(ps != null) {
-                ps.close();
-            }*/
-
-            closeConnection();
         }
     }
 
@@ -66,12 +60,6 @@ public class UserDAO extends AbstractDAO {
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-           /* if(ps != null) {
-                ps.close();
-            }*/
-
-            closeConnection();
         }
 
     }
@@ -91,12 +79,6 @@ public class UserDAO extends AbstractDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-           /* if(ps != null) {
-                ps.close();
-            }*/
-
-            closeConnection();
         }
 
         return usersRate;
@@ -113,12 +95,6 @@ public class UserDAO extends AbstractDAO {
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-           /* if(ps != null) {
-                ps.close();
-            }*/
-
-            closeConnection();
         }
     }
 
@@ -136,12 +112,6 @@ public class UserDAO extends AbstractDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-           /* if(ps != null) {
-                ps.close();
-            }*/
-
-            closeConnection();
         }
 
         return numAssess;

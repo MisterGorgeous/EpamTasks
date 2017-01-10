@@ -101,6 +101,11 @@ public enum EnumCommand {
             this.command = new SpecificGenreCommand();
         }
     },
+    SEARCHMOVIES{
+        {
+            this.command = new SearchMoviesCommand();
+        }
+    },
     SETMAINCONTENT{
         {
             this.command = new SetMainContentCommand();

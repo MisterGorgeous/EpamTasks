@@ -83,13 +83,6 @@ public class AdminDAO extends AbstractDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        finally {
-           /* if(ps != null) {
-                ps.close();
-            }*/
-
-            closeConnection();
-        }
     }
 
     public void addMovie(Movie movie, List<String> movieGenres) {
@@ -115,13 +108,6 @@ public class AdminDAO extends AbstractDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        finally {
-           /* if(ps != null) {
-                ps.close();
-            }*/
-
-            closeConnection();
-        }
     }
 
     public void changeStatus(User user){
@@ -133,13 +119,6 @@ public class AdminDAO extends AbstractDAO {
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
-           /* if(ps != null) {
-                ps.close();
-            }*/
-
-            closeConnection();
         }
 
     }
@@ -155,13 +134,6 @@ public class AdminDAO extends AbstractDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        finally {
-           /* if(ps != null) {
-                ps.close();
-            }*/
-
-            closeConnection();
-        }
 
     }
 
@@ -174,13 +146,6 @@ public class AdminDAO extends AbstractDAO {
             res = ps.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
-           /* if(ps != null) {
-                ps.close();
-            }*/
-
-            closeConnection();
         }
         return res;
     }

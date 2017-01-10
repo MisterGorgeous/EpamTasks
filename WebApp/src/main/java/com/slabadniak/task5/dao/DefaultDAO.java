@@ -17,7 +17,7 @@ public class DefaultDAO extends AbstractDAO {
     private static final String CHECKUSEREXIST = "SELECT user_id FROM user WHERE login = ? && email = ?;";
     private static final String ACTORS = "SELECT f_name,s_name,birthday,birth_place,person,profession FROM movie JOIN role USING(movie_id) JOIN actor USING(actor_id) WHERE movie.title = ?;";
     private static final String COMMENTS = "SELECT comment,mark,user.login,update_time FROM assessment JOIN user on assessment.user_id = user.user_id where movie_id = (SELECT movie_id from movie WHERE title = ?) && comment IS NOT NULL && comment != ''  ORDER BY update_time DESC;";
-
+    private static final String SEARCHMOVIE = "SELECT title,rating,icon,year,country,description FROM movie WHERE title REGEXP CONCAT('^', ? ,'.*') ;";
 
     public DefaultDAO(Wrapper wrapper) {
         super(wrapper);
@@ -34,12 +34,6 @@ public class DefaultDAO extends AbstractDAO {
             res = ps.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-           /* if(ps != null) {
-                ps.close();
-            }*/
-
-            closeConnection();
         }
         return res;
     }
@@ -54,12 +48,6 @@ public class DefaultDAO extends AbstractDAO {
             res = ps.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-           /* if(ps != null) {
-                ps.close();
-            }*/
-
-            closeConnection();
         }
         return res;
     }
@@ -73,12 +61,6 @@ public class DefaultDAO extends AbstractDAO {
             res = ps.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-           /* if(ps != null) {
-                ps.close();
-            }*/
-
-            closeConnection();
         }
 
         return res;
@@ -118,12 +100,6 @@ public class DefaultDAO extends AbstractDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-           /* if(ps != null) {
-                ps.close();
-            }*/
-
-            closeConnection();
         }
 
     }
@@ -139,12 +115,6 @@ public class DefaultDAO extends AbstractDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-           /* if(ps != null) {
-                ps.close();
-            }*/
-            //  closeStatement();
-            closeConnection();
         }
         return res;
 
@@ -159,14 +129,7 @@ public class DefaultDAO extends AbstractDAO {
             res = ps.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-           /* if(ps != null) {
-                ps.close();
-            }*/
-
-            closeConnection();
         }
-
         return res;
     }
 
@@ -181,6 +144,21 @@ public class DefaultDAO extends AbstractDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return res;
+
+    }
+
+    public ResultSet searchMovies(String movie) {
+        PreparedStatement ps = null;
+        ResultSet res = null;
+        try {
+            ps = getConnection().prepareStatement(SEARCHMOVIE);
+            ps.setString(1, movie);
+            res = ps.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return res;
 
     }

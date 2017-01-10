@@ -24,31 +24,18 @@
     <form action="Controller" method="post">
         <input type="hidden" name="command" value="specificgenre">
         <input type="hidden" name="page" value="path.page.main">
-
-      <%--  <button name="Action" type="submit" class="btn btn-primary">Action</button>
-        <button name="Children" type="submit" class="btn btn-primary">Children</button>
-        <button name="Comedy" type="submit" class="btn btn-primary">Comedy</button>
-        <button name="Documentary" type="submit" class="btn btn-primary">Documentary</button>
-        <button name="Drama" type="submit" class="btn btn-primary">Drama</button>
-        <button name="Horror" type="submit" class="btn btn-primary">Horror</button>
-        <button name="Sport" type="submit" class="btn btn-primary">Sport</button> --%>
-
-        <button name="button" value="Action" type="submit" class="btn btn-primary">Action</button>
-        <button name="button" value="Children" type="submit" class="btn btn-primary">Children</button>
-        <button name="button" value="Comedy" type="submit" class="btn btn-primary">Comedy</button>
-        <button name="button" value="Documentary" type="submit" class="btn btn-primary">Documentary</button>
-        <button name="button" value="Drama" type="submit" class="btn btn-primary">Drama</button>
-        <button name="button" value="Horror" type="submit" class="btn btn-primary">Horror</button>
-        <button name="button" value="Sport" type="submit" class="btn btn-primary">Sport</button>
+        <c:forEach var="genre" items="${sessionScope.genrelist}">
+            <button name="button" value="${genre}" type="submit" class="btn btn-primary">${genre}</button>
+        </c:forEach>
     </form>
 </div>
 
 
-<c:if test="${sessionScope.movieSize > 0}">
+
 <div class="row">
 
-    <%-- <c:forEach var="movie" items="${sessionScope.movies}">--%>
     <c:forEach var="i" begin="${sessionScope.currentMoviePage * 6}" end="${sessionScope.currentMoviePage * 6 + 5}">
+        <c:if test="${i < sessionScope.movieSize}">
         <div class="col-xs-8 col-md-4 col-lg-4 ">
             <form action="Controller" method="post">
                 <input type="hidden" name="command" value="movie">
@@ -60,6 +47,7 @@
                      onclick="$(this).closest('form').submit();">
             </form>
         </div>
+        </c:if>
     </c:forEach>
 </div>
 
@@ -79,7 +67,7 @@
     </div>
 
     <div class="col-xs-6 col-md-6 col-lg-6">
-        <c:if test="${sessionScope.currentMoviePage < sessionScope.movieSize}">
+        <c:if test="${sessionScope.currentMoviePage < sessionScope.numPages}">
             <form title="next" action="Controller" method="post">
                 <input type="hidden" name="command" value="pagination">
                 <input type="hidden" name="page" value="path.page.main">
@@ -99,7 +87,7 @@
 
 
 </div>
-</c:if>
+
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/js/jquery-3.1.1.min.js"></script>

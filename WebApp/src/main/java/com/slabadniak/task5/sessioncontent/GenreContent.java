@@ -25,8 +25,6 @@ public class GenreContent implements DataContext {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
     }
 
     public List<String> get() {
