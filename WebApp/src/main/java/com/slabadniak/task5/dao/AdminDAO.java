@@ -87,7 +87,7 @@ public class AdminDAO extends AbstractDAO {
            /* if(ps != null) {
                 ps.close();
             }*/
-            closeStatement();
+
             closeConnection();
         }
     }
@@ -119,7 +119,7 @@ public class AdminDAO extends AbstractDAO {
            /* if(ps != null) {
                 ps.close();
             }*/
-            closeStatement();
+
             closeConnection();
         }
     }
@@ -138,7 +138,7 @@ public class AdminDAO extends AbstractDAO {
            /* if(ps != null) {
                 ps.close();
             }*/
-            closeStatement();
+
             closeConnection();
         }
 
@@ -159,7 +159,7 @@ public class AdminDAO extends AbstractDAO {
            /* if(ps != null) {
                 ps.close();
             }*/
-            closeStatement();
+
             closeConnection();
         }
 
@@ -179,7 +179,7 @@ public class AdminDAO extends AbstractDAO {
            /* if(ps != null) {
                 ps.close();
             }*/
-            closeStatement();
+
             closeConnection();
         }
         return res;

@@ -34,6 +34,14 @@ public class User {
         this.admin = admin;
     }
 
+    public User(String login, String email, String password, String gender) {
+        this.login = login;
+        this.email = email;
+        this.password = password;
+        this.gender = gender;
+
+    }
+
     public String getLogin() {
         return login;
     }

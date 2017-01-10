@@ -96,6 +96,11 @@ public enum EnumCommand {
             this.command = new ChangeProfileCommand();
         }
     },
+    SPECIFICGENRE{
+        {
+            this.command = new SpecificGenreCommand();
+        }
+    },
     SETMAINCONTENT{
         {
             this.command = new SetMainContentCommand();

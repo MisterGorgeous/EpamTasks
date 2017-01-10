@@ -28,7 +28,7 @@
                 <input type="hidden" name="page" value="path.page.main">
 
                 <!-- left column -->
-                <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="col-md-3 col-sm-5 col-xs-8">
                     <div class="text-center">
                         <form id="loadmovieicon" action="/UploadServlet" method="post" enctype="multipart/form-data">
                             <img src="${sessionScope.user.icon}" class="avatar img-circle img-thumbnail" alt="avatar">

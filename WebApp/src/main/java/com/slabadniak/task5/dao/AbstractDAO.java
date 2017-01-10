@@ -16,15 +16,8 @@ public abstract class AbstractDAO {
 
     protected Connection getConnection(){ return wrapper.getConnection();};
 
-    protected Statement getStatement() {
-      return wrapper.getStatement();
-    }
-
     protected void closeConnection(){
         wrapper.closeConnection();
     }
 
-    protected void closeStatement(){
-        wrapper.closeStatement();
-    }
 }

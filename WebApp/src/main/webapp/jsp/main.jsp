@@ -20,7 +20,31 @@
 
 <%@ include file="/jsp/header.jsp" %>
 
+<div class="btn-group">
+    <form action="Controller" method="post">
+        <input type="hidden" name="command" value="specificgenre">
+        <input type="hidden" name="page" value="path.page.main">
 
+      <%--  <button name="Action" type="submit" class="btn btn-primary">Action</button>
+        <button name="Children" type="submit" class="btn btn-primary">Children</button>
+        <button name="Comedy" type="submit" class="btn btn-primary">Comedy</button>
+        <button name="Documentary" type="submit" class="btn btn-primary">Documentary</button>
+        <button name="Drama" type="submit" class="btn btn-primary">Drama</button>
+        <button name="Horror" type="submit" class="btn btn-primary">Horror</button>
+        <button name="Sport" type="submit" class="btn btn-primary">Sport</button> --%>
+
+        <button name="button" value="Action" type="submit" class="btn btn-primary">Action</button>
+        <button name="button" value="Children" type="submit" class="btn btn-primary">Children</button>
+        <button name="button" value="Comedy" type="submit" class="btn btn-primary">Comedy</button>
+        <button name="button" value="Documentary" type="submit" class="btn btn-primary">Documentary</button>
+        <button name="button" value="Drama" type="submit" class="btn btn-primary">Drama</button>
+        <button name="button" value="Horror" type="submit" class="btn btn-primary">Horror</button>
+        <button name="button" value="Sport" type="submit" class="btn btn-primary">Sport</button>
+    </form>
+</div>
+
+
+<c:if test="${sessionScope.movieSize > 0}">
 <div class="row">
 
     <%-- <c:forEach var="movie" items="${sessionScope.movies}">--%>
@@ -55,16 +79,16 @@
     </div>
 
     <div class="col-xs-6 col-md-6 col-lg-6">
-    <c:if test="${sessionScope.currentMoviePage < sessionScope.movieSize}">
-        <form title="next" action="Controller" method="post">
-            <input type="hidden" name="command" value="pagination">
-            <input type="hidden" name="page" value="path.page.main">
-            <input type="hidden" name="attribute" value="currentMoviePage">
-            <input type="hidden" name="action" value="next">
-            <input class="btn btn-primary" type="submit" name="button" value="Next"/>
-        </form>
-    </c:if>
-</div>
+        <c:if test="${sessionScope.currentMoviePage < sessionScope.movieSize}">
+            <form title="next" action="Controller" method="post">
+                <input type="hidden" name="command" value="pagination">
+                <input type="hidden" name="page" value="path.page.main">
+                <input type="hidden" name="attribute" value="currentMoviePage">
+                <input type="hidden" name="action" value="next">
+                <input class="btn btn-primary" type="submit" name="button" value="Next"/>
+            </form>
+        </c:if>
+    </div>
 
     <%-- <form title="back" action="/jsp/main.jsp" method="post">
          <input type="hidden" name="command" value="cross">
@@ -74,9 +98,8 @@
      ${sessionScope.currentMoviePage = sessionScope.currentMoviePage - 1}   --%>
 
 
-
 </div>
-
+</c:if>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/js/jquery-3.1.1.min.js"></script>

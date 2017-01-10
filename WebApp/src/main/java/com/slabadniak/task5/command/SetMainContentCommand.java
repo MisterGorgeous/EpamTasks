@@ -15,10 +15,13 @@ public class SetMainContentCommand implements ICommand {
     public void execute(HttpServletRequest request) {
         ConnectionPool pool = ConnectionPool.getInstance();
         DefaultDAO defaultDAO = null;
+        MovieContent content = new MovieContent();
+
         try {
             Wrapper connection = pool.getConnection();
             defaultDAO = new DefaultDAO(connection);
-            setAtributes(defaultDAO.movies(),request);
+            content.insert(defaultDAO.movies());
+            setAtributes(content,request);
             pool.closeConnection(connection);
         } catch (InterruptedException e) {
             e.printStackTrace();

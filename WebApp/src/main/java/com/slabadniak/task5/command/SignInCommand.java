@@ -9,6 +9,8 @@ import org.apache.logging.log4j.Level;
 import javax.servlet.http.HttpServletRequest;
 
 public class SignInCommand implements ICommand {
+    private static final String DEFAULT_ICON = "/img/photo.png";
+
     @Override
     public void execute(HttpServletRequest request) {
         ConnectionPool pool = ConnectionPool.getInstance();

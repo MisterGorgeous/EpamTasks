@@ -91,7 +91,7 @@ public class ConnectionPool {
         for (int i = 0; i < maxPool; i++) {
             try {
                 Wrapper wrapper = connections.take();
-                wrapper.closeStatement();
+
                 wrapper.closeConnection();
             } catch (InterruptedException e) {
                 LOGGER.log(Level.DEBUG, "Interrupted exc");

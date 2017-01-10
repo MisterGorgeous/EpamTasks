@@ -8,4 +8,4 @@ WebApp.iml
 *.jpg
 
 #=== Bootstrap files
-.map
+*.map
