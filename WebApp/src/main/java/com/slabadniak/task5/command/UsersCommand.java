@@ -1,14 +1,11 @@
 package com.slabadniak.task5.command;
 
-import com.slabadniak.task5.dao.AdminDAO;
-import com.slabadniak.task5.dao.DefaultDAO;
-import com.slabadniak.task5.entity.Actor;
 import com.slabadniak.task5.entity.User;
-import com.slabadniak.task5.pool.ConnectionPool;
-import com.slabadniak.task5.pool.Wrapper;
-import com.slabadniak.task5.sessioncontent.DataContext;
-import com.slabadniak.task5.sessioncontent.UserContent;
-import org.apache.logging.log4j.Level;
+import com.slabadniak.task5.exeption.CommandExeption;
+import com.slabadniak.task5.exeption.ServiceExeption;
+import com.slabadniak.task5.service.UsersService;
+import com.slabadniak.task5.content.DataContext;
+import com.slabadniak.task5.content.UserContent;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -17,24 +14,17 @@ import java.util.List;
 public class UsersCommand implements ICommand {
     public  static final String USERS = "select login,email,status_id,banned,gender,icon from user WHERE admin = FALSE;";
     @Override
-    public void execute(HttpServletRequest request) {
-        ConnectionPool pool = ConnectionPool.getInstance();
-        AdminDAO adminDAO = null;
-        UserContent content = new UserContent();
+    public void execute(HttpServletRequest request) throws CommandExeption {
+        UsersService service = new UsersService();
+        UserContent content;
 
         try {
-            Wrapper connection = pool.getConnection();
-            adminDAO = new AdminDAO(connection);
-            content.insert(adminDAO.users());
-            //add genres to request atr
-            setAtributes(content,request);
-            pool.closeConnection(connection);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            content = service.users();
+        } catch (ServiceExeption e) {
+            throw new CommandExeption("Service:", e);
         }
 
-        // HttpSession session = request.getSession(true);
-
+        setAtributes(content,request);
         setForwardPage(request);
     }
 

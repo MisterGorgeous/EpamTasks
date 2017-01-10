@@ -5,6 +5,8 @@ import com.slabadniak.task5.dao.UserDAO;
 import com.slabadniak.task5.entity.Movie;
 import com.slabadniak.task5.entity.User;
 import com.slabadniak.task5.entity.UsersAssessment;
+import com.slabadniak.task5.exeption.CommandExeption;
+import com.slabadniak.task5.exeption.ServiceExeption;
 import com.slabadniak.task5.pool.ConnectionPool;
 import com.slabadniak.task5.pool.Wrapper;
 import com.slabadniak.task5.service.CalculateRatingService;
@@ -18,7 +20,7 @@ import java.util.Date;
 
 public class CommentCommand implements ICommand {
     @Override
-    public void execute(HttpServletRequest request) {
+    public void execute(HttpServletRequest request) throws CommandExeption {
 
         HttpSession session = request.getSession();
         //exeption
@@ -29,7 +31,14 @@ public class CommentCommand implements ICommand {
 
 
         CalculateRatingService service = new CalculateRatingService();
-        service.calculate(comment,rating,user,movie);
+
+
+
+        try {
+            service.calculate(comment,rating,user,movie);
+        } catch (ServiceExeption e) {
+            throw new CommandExeption("Service:", e);
+        }
 
         // HttpSession session = request.getSession(true);
 

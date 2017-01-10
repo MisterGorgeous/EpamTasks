@@ -4,6 +4,7 @@ import com.slabadniak.task5.command.CommandFactory;
 import com.slabadniak.task5.command.ICommand;
 import com.slabadniak.task5.entity.User;
 import com.slabadniak.task5.entity.UserType;
+import com.slabadniak.task5.exeption.CommandExeption;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -48,7 +49,13 @@ public class Controller extends HttpServlet {
         String command = request.getParameter("command");
 
         ICommand com = CommandFactory.create(command);
-        com.execute(request);
+
+
+        try {
+            com.execute(request);
+        } catch (CommandExeption e) {
+            throw new ServletException("Command exception ", e);
+        }
 
 
         /*RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);

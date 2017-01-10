@@ -1,5 +1,6 @@
 package com.slabadniak.task5.dao;
 
+import com.slabadniak.task5.exeption.WrapperException;
 import com.slabadniak.task5.pool.Wrapper;
 
 import java.sql.Connection;
@@ -12,11 +13,9 @@ public abstract class AbstractDAO {
         this.wrapper = wrapper;
     }
 
-   // public abstract GenreContent findAll();
-
     protected Connection getConnection(){ return wrapper.getConnection();};
 
-    protected void closeConnection(){
+    protected void closeConnection() throws WrapperException {
         wrapper.closeConnection();
     }
 

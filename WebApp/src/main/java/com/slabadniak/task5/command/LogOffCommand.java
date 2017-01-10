@@ -14,8 +14,7 @@ public class LogOffCommand implements ICommand {
         session.setAttribute("userStatus", UserType.GUEST);
         session.removeAttribute("user");
 
-        LOGGER.log(Level.INFO, "Logged off");
-        System.out.println("Logged off");
+       // LOGGER.log(Level.DEBUG, "Logged off");
 
         setForwardPage(request);
     }

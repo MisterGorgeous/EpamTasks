@@ -2,10 +2,14 @@ package com.slabadniak.task5.command;
 
 import com.slabadniak.task5.dao.AdminDAO;
 import com.slabadniak.task5.entity.Actor;
+import com.slabadniak.task5.entity.Feedback;
 import com.slabadniak.task5.entity.Movie;
 import com.slabadniak.task5.entity.UsersAssessment;
+import com.slabadniak.task5.exeption.CommandExeption;
+import com.slabadniak.task5.exeption.ServiceExeption;
 import com.slabadniak.task5.pool.ConnectionPool;
 import com.slabadniak.task5.pool.Wrapper;
+import com.slabadniak.task5.service.AddActorService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -16,44 +20,39 @@ import java.util.List;
 public class AddActorCommand implements ICommand {
 
     @Override
-    public void execute(HttpServletRequest request) {
+    public void execute(HttpServletRequest request) throws CommandExeption {
+        Feedback feedback = new Feedback();
+        boolean done;
 
-        //exeption
+        //validation
         String movie = request.getParameter("movie");
         String year = request.getParameter("movieyear");
 
 
-        //validate
-       /* if(movie == null || movie.equals("")){
-            request.setAttribute(FEEDBACK,"Movie doesn't specified.");
-        }*/
-
         List<Actor> actors = retrieveActors(request);
 
-        if(actors == null || actors.isEmpty()){
-            request.setAttribute(FEEDBACK,"Actors doesn't specified.");
+        if (actors == null || actors.isEmpty()) {
+            feedback.write("Actors doesn't specified.");
+            request.setAttribute(FEEDBACK, feedback);
+            return;
         }
 
-
-        ConnectionPool pool = ConnectionPool.getInstance();
-        AdminDAO adminDAO = null;
-
+        AddActorService service = new AddActorService();
         try {
-            Wrapper connection = pool.getConnection();
-            adminDAO = new AdminDAO(connection);
-
-            adminDAO.addActors(movie,year,actors);
-            pool.closeConnection(connection);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            done = service.add(actors, movie, year);
+        } catch (ServiceExeption e) {
+            throw new CommandExeption("Service:", e);
         }
 
-        // HttpSession session = request.getSession(true);
-
-        setForwardPage(request);
+        if (done) {
+            setForwardPage(request);
+        } else {
+            feedback.write("Such movie haven't found.");
+            request.setAttribute(FEEDBACK, feedback);
+        }
     }
 
-    private List<Actor> retrieveActors(HttpServletRequest request){
+    private List<Actor> retrieveActors(HttpServletRequest request) {
         String[] fnames = request.getParameterValues("fname");
         String[] sname = request.getParameterValues("sname");
         String[] role = request.getParameterValues("role");
@@ -61,8 +60,8 @@ public class AddActorCommand implements ICommand {
         String[] birthplace = request.getParameterValues("birthplace");
         List<Actor> actors = new ArrayList<>();
 
-        for(int i=0; i< fnames.length; ++i){
-           actors.add(new Actor(fnames[i],sname[i],role[i],birthday[i],birthplace[i]));
+        for (int i = 0; i < fnames.length; ++i) {
+            actors.add(new Actor(fnames[i], sname[i], role[i], birthday[i], birthplace[i]));
         }
 
         return actors;

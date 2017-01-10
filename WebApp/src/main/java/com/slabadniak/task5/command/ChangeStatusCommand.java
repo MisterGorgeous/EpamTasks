@@ -2,8 +2,12 @@ package com.slabadniak.task5.command;
 
 import com.slabadniak.task5.dao.AdminDAO;
 import com.slabadniak.task5.entity.User;
+import com.slabadniak.task5.exeption.CommandExeption;
+import com.slabadniak.task5.exeption.ServiceExeption;
 import com.slabadniak.task5.pool.ConnectionPool;
 import com.slabadniak.task5.pool.Wrapper;
+import com.slabadniak.task5.service.ChangeProfileService;
+import com.slabadniak.task5.service.ChangeStatusService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -11,7 +15,7 @@ import java.util.List;
 
 public class ChangeStatusCommand implements ICommand {
     @Override
-    public void execute(HttpServletRequest request) {
+    public void execute(HttpServletRequest request) throws CommandExeption {
 
         HttpSession session = request.getSession();
         List<User> users = (List<User>) session.getAttribute("users");
@@ -20,20 +24,13 @@ public class ChangeStatusCommand implements ICommand {
         float statusId = Float.parseFloat(request.getParameter("status"));
         User user = users.get(index);
 
-        //serStatus value
-        setStatus(user,(int)statusId);
-
-        ConnectionPool pool = ConnectionPool.getInstance();
-        AdminDAO adminDAO = null;
+        ChangeStatusService service = new ChangeStatusService();
 
 
         try {
-            Wrapper connection = pool.getConnection();
-            adminDAO = new AdminDAO(connection);
-            adminDAO.changeStatus(user);
-            pool.closeConnection(connection);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            service.change(user,(int)statusId);
+        } catch (ServiceExeption e) {
+            throw new CommandExeption("Service:", e);
         }
 
 

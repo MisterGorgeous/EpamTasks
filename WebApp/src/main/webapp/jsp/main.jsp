@@ -25,11 +25,17 @@
         <input type="hidden" name="command" value="specificgenre">
         <input type="hidden" name="page" value="path.page.main">
         <c:forEach var="genre" items="${sessionScope.genrelist}">
-            <button name="button" value="${genre}" type="submit" class="btn btn-primary">${genre}</button>
+            <button name="button" value="${genre}" type="submit" class="btn btn-info">${genre}</button>
         </c:forEach>
     </form>
 </div>
 
+
+<div class="center-block">
+<c:if test="${sessionScope.movieSize == 0}">
+    <h3><span class="label label-default ">No Result</span></h3>
+</c:if>
+</div>
 
 
 <div class="row">
@@ -52,30 +58,31 @@
 </div>
 
 
+
 <div class="row center-block">
 
     <div class="col-xs-6 col-md-6 col-lg-6">
-        <c:if test="${sessionScope.currentMoviePage > 0}">
+
             <form title="previous" action="Controller" method="post">
                 <input type="hidden" name="command" value="pagination">
                 <input type="hidden" name="page" value="path.page.main">
                 <input type="hidden" name="attribute" value="currentMoviePage">
                 <input type="hidden" name="action" value="previous">
-                <input class="btn btn-primary" type="submit" name="button2" value="Previous"/>
+                <input class="btn btn-primary" type="submit" name="button2" value="Previous" <c:if test="${sessionScope.currentMoviePage == 0}"> disabled    </c:if>/>
             </form>
-        </c:if>
+
     </div>
 
     <div class="col-xs-6 col-md-6 col-lg-6">
-        <c:if test="${sessionScope.currentMoviePage < sessionScope.numPages}">
+
             <form title="next" action="Controller" method="post">
                 <input type="hidden" name="command" value="pagination">
                 <input type="hidden" name="page" value="path.page.main">
                 <input type="hidden" name="attribute" value="currentMoviePage">
                 <input type="hidden" name="action" value="next">
-                <input class="btn btn-primary" type="submit" name="button" value="Next"/>
+                <input class="btn btn-primary" type="submit" name="button" value="Next"
+                <c:if test="${sessionScope.currentMoviePage == sessionScope.numPages}"> disabled  </c:if>/>
             </form>
-        </c:if>
     </div>
 
     <%-- <form title="back" action="/jsp/main.jsp" method="post">

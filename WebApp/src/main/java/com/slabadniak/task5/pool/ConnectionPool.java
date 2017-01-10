@@ -1,5 +1,7 @@
 package com.slabadniak.task5.pool;
 
+import com.slabadniak.task5.exeption.PoolException;
+import com.slabadniak.task5.exeption.WrapperException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,10 +13,13 @@ import java.util.MissingResourceException;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
 
 import com.mysql.jdbc.Driver;
+
+import javax.annotation.PreDestroy;
 
 
 public class ConnectionPool {
@@ -24,8 +29,11 @@ public class ConnectionPool {
     private static AtomicBoolean created = new AtomicBoolean(false);
     private static Properties property;
     private static ReentrantLock lock = new ReentrantLock();
+    private static AtomicBoolean freeConnections = new AtomicBoolean(true);
     private static int maxPool;
     private static int poolSize;
+    private static final int TIMEQUANTUM = 1;
+
 
 
     private ConnectionPool() {
@@ -76,27 +84,64 @@ public class ConnectionPool {
     }
 
 
-    public Wrapper getConnection() throws InterruptedException {
-        LOGGER.log(Level.DEBUG, "Connection taken");
-        return connections.take();
+
+
+    public Wrapper getConnection() throws PoolException {
+        if (freeConnections.get()) {
+            try {
+                LOGGER.log(Level.DEBUG,"Connection taken");
+                return connections.poll(TIMEQUANTUM, TimeUnit.SECONDS);
+            } catch (InterruptedException e) {
+                throw new PoolException("Interrupted:", e);
+            }
+        }
+        return null;
     }
 
 
-    public void closeConnection(Wrapper connection) throws InterruptedException {
-        connections.put(connection);
-        LOGGER.log(Level.DEBUG, "Connection returned");
+
+    public void closeConnection(Wrapper connection) throws PoolException {
+        try {
+            connections.put(connection);
+            LOGGER.log(Level.DEBUG, "Connection returned");
+        } catch (InterruptedException e) {
+            throw new PoolException("Interrupted:", e);
+        }
     }
 
-    public void closePool() {
+
+
+    public void closePool() throws PoolException, WrapperException {
+        //Release all connections
+        freeConnections.set(false);
         for (int i = 0; i < maxPool; i++) {
             try {
                 Wrapper wrapper = connections.take();
-
                 wrapper.closeConnection();
             } catch (InterruptedException e) {
-                LOGGER.log(Level.DEBUG, "Interrupted exc");
+                throw new PoolException("Interrupted:", e);
+            } catch (WrapperException e) {
+                throw new WrapperException("Wrapper:", e);
             }
         }
     }
 
+    @PreDestroy
+    private void releasePool() throws PoolException, WrapperException {
+        freeConnections.set(false);
+        try {
+            TimeUnit.SECONDS.sleep(TIMEQUANTUM);
+            for (Wrapper connection : connections) {
+                    connection.closeConnection();
+            }
+        } catch (InterruptedException e) {
+            throw new PoolException("Release connection exception", e);
+        } catch (WrapperException e) {
+            throw new WrapperException("Wrapper:", e);
+        }
+    }
 }
+
+
+
+

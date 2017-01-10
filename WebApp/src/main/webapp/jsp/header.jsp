@@ -4,7 +4,12 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Logo <span class="sr-only">(current)</span></a></li>
+                <form class="navbar-form navbar-left" action="Controller" method="post">
+                    <input type="hidden" name="command" value="setmaincontent">
+                    <input type="hidden" name="page" value="path.page.main">
+                    <button type="submit" class="btn btn-default"><img src="/img/logo.jpg" alt="" width="40" height="20"></button>
+
+                </form>
 
 
                 <form class="navbar-form navbar-left" name="search" action="Controller" method="post">

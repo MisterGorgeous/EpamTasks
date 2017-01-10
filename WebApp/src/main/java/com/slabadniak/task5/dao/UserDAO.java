@@ -3,6 +3,7 @@ package com.slabadniak.task5.dao;
 import com.slabadniak.task5.entity.Feedback;
 import com.slabadniak.task5.entity.User;
 import com.slabadniak.task5.entity.UsersAssessment;
+import com.slabadniak.task5.exeption.DAOException;
 import com.slabadniak.task5.pool.Wrapper;
 
 import java.sql.PreparedStatement;
@@ -10,7 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDAO extends AbstractDAO {
-    private Feedback feedback;
     private static final int MARK = 1;
     private static final int VALUE = 1;
     public static final String ASSESSANDCOMMENT = "REPLACE INTO assessment (movie_id, user_id, mark, comment) VALUE ((SELECT movie.movie_id FROM movie WHERE title = ? LIMIT 1),(SELECT user_id FROM user WHERE login = ? LIMIT 1),?,?);";
@@ -23,11 +23,11 @@ public class UserDAO extends AbstractDAO {
 
     public UserDAO(Wrapper wrapper) {
         super(wrapper);
-        feedback = new Feedback();
     }
 
-    public void assess(UsersAssessment assessment) {
-        PreparedStatement ps = null;
+    public void assess(UsersAssessment assessment) throws DAOException {
+        PreparedStatement ps;
+        ResultSet res;
         try {
             if (assessment.isMarkandText()) {
                 ps = getConnection().prepareStatement(ASSESSANDCOMMENT);
@@ -40,14 +40,14 @@ public class UserDAO extends AbstractDAO {
             ps.setFloat(3, assessment.getRating());
             ps.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DAOException("SQL exception", e);
         }
     }
 
 
-    public void changeProfile(User unmodified, User modified) {
-        PreparedStatement ps = null;
-
+    public void changeProfile(User unmodified, User modified) throws DAOException {
+        PreparedStatement ps;
+        ResultSet res;
         try {
             ps = getConnection().prepareStatement(CHANGEUSER);
             ps.setString(1, modified.getLogin());
@@ -58,60 +58,62 @@ public class UserDAO extends AbstractDAO {
             ps.setString(6, unmodified.getLogin());
             ps.setString(7, unmodified.getEmail());
             ps.executeUpdate();
+
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DAOException("SQL exception", e);
         }
 
     }
 
-    public float usersRate(String movie) {
-        PreparedStatement ps = null;
-        ResultSet res = null;
+    public float usersRate(String movie) throws DAOException {
+        PreparedStatement ps;
+        ResultSet res;
         float usersRate = 0;
-
         try {
             ps = getConnection().prepareStatement(USERSRATE);
             ps.setString(1, movie);
             res = ps.executeQuery();
-            if(res.next()) {
+            if (res.next()) {
                 usersRate = res.getFloat(MARK);
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DAOException("SQL exception", e);
         }
 
         return usersRate;
     }
 
-    public void changeStatus(User user, String status) {
-        PreparedStatement ps = null;
-
+    public void changeStatus(User user, String status) throws DAOException {
+        PreparedStatement ps;
+        ResultSet res;
         try {
             ps = getConnection().prepareStatement(CHANGESTATUS);
             ps.setString(1, status);
             ps.setString(2, user.getLogin());
             ps.setString(3, user.getEmail());
             ps.executeUpdate();
+
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DAOException("SQL exception", e);
         }
     }
 
-    public int numAssess(String title) {
-        PreparedStatement ps = null;
-        ResultSet res = null;
+    public int numAssess(String title) throws DAOException {
+        PreparedStatement ps;
+        ResultSet res;
         int numAssess = 0;
 
         try {
             ps = getConnection().prepareStatement(ASSESSVALUE);
             ps.setString(1, title);
             res = ps.executeQuery();
-            if(res.next()) {
+            if (res.next()) {
                 numAssess = res.getInt(VALUE);
             }
+
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DAOException("SQL exception", e);
         }
 
         return numAssess;

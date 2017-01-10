@@ -1,6 +1,9 @@
 package com.slabadniak.task5.dao;
 
+import com.slabadniak.task5.entity.Feedback;
 import com.slabadniak.task5.entity.User;
+import com.slabadniak.task5.exeption.DAOException;
+import com.slabadniak.task5.exeption.WrapperException;
 import com.slabadniak.task5.pool.Wrapper;
 
 import java.sql.PreparedStatement;
@@ -19,144 +22,156 @@ public class DefaultDAO extends AbstractDAO {
     private static final String COMMENTS = "SELECT comment,mark,user.login,update_time FROM assessment JOIN user on assessment.user_id = user.user_id where movie_id = (SELECT movie_id from movie WHERE title = ?) && comment IS NOT NULL && comment != ''  ORDER BY update_time DESC;";
     private static final String SEARCHMOVIE = "SELECT title,rating,icon,year,country,description FROM movie WHERE title REGEXP CONCAT('^', ? ,'.*') ;";
 
+
     public DefaultDAO(Wrapper wrapper) {
         super(wrapper);
     }
 
-    public ResultSet comments(String movie) {
-        PreparedStatement ps = null;
-        ResultSet res = null;
-
+    public ResultSet comments(String movie) throws DAOException {
+        PreparedStatement ps;
+        ResultSet res ;
         try {
-            System.out.println(movie);
             ps = getConnection().prepareStatement(COMMENTS);
             ps.setString(1, movie);
             res = ps.executeQuery();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DAOException("SQL exception", e);
         }
         return res;
     }
 
-    public ResultSet actors(String movie) {
-        PreparedStatement ps = null;
-        ResultSet res = null;
-
+    public ResultSet actors(String movie) throws DAOException {
+        PreparedStatement ps;
+        ResultSet res ;
         try {
             ps = getConnection().prepareStatement(ACTORS);
             ps.setString(1, movie);
             res = ps.executeQuery();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DAOException("SQL exception", e);
         }
         return res;
     }
 
-    public ResultSet genres(String movie) {
-        PreparedStatement ps = null;
-        ResultSet res = null;
+    public ResultSet genres(String movie) throws DAOException {
+        PreparedStatement ps;
+        ResultSet res ;
         try {
             ps = getConnection().prepareStatement(GENRES);
             ps.setString(1, movie);
             res = ps.executeQuery();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DAOException("SQL exception", e);
         }
 
         return res;
     }
 
 
-    public ResultSet movies() {
-        PreparedStatement ps = null;
-        ResultSet res = null;
+    public ResultSet movies() throws DAOException {
+        PreparedStatement ps;
+        ResultSet res ;
         try {
             ps = getConnection().prepareStatement(MOVIES);
             res = ps.executeQuery();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DAOException("SQL exception", e);
         }
-
         return res;
     }
 
-    public void signIn(User user) {
-        PreparedStatement ps = null;
+    public boolean checkUsersExistence(User user) throws DAOException {
+        PreparedStatement ps;
+        ResultSet res ;
+        boolean done;
         try {
             ps = getConnection().prepareStatement(CHECKUSEREXIST);
             ps.setString(1, user.getLogin());
             ps.setString(2, user.getEmail());
-            ResultSet res = ps.executeQuery();
+            res = ps.executeQuery();
             if (!res.next()) {
-                ps = getConnection().prepareStatement(SIGNIN);
-                ps.setString(1, user.getLogin());
-                ps.setString(2, user.getEmail());
-                ps.setString(3, user.getPassword());
-                ps.setString(4, user.getGender());
-
-                ps.executeUpdate();
+                done = true;
             } else {
-                //User exist
+                done = false;
+                // feedback.write("User with such login or email already exist.");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DAOException("SQL exception", e);
         }
-
+        return done;
     }
 
-    public ResultSet LogIn(User user) {
-        PreparedStatement ps = null;
-        ResultSet res = null;
+    public ResultSet LogIn(User user) throws DAOException {
+        PreparedStatement ps ;
+        ResultSet res;
         try {
             ps = getConnection().prepareStatement(LOGIN);
             ps.setString(1, user.getLogin());
             ps.setString(2, user.getPassword());
             res = ps.executeQuery();
-
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DAOException("SQL exception", e);
         }
         return res;
 
     }
 
 
-    public ResultSet allGenres() {
-        PreparedStatement ps = null;
-        ResultSet res = null;
+    public void signIn(User user) throws DAOException {
+        PreparedStatement ps;
+        ResultSet res ;
+        try {
+            ps = getConnection().prepareStatement(SIGNIN);
+            ps.setString(1, user.getLogin());
+            ps.setString(2, user.getEmail());
+            ps.setString(3, user.getPassword());
+            ps.setString(4, user.getGender());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new DAOException("SQL exception", e);
+        }
+
+    }
+
+
+
+
+    public ResultSet allGenres() throws DAOException {
+        PreparedStatement ps;
+        ResultSet res ;
         try {
             ps = getConnection().prepareStatement(ALLGENRES);
             res = ps.executeQuery();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DAOException("SQL exception", e);
         }
         return res;
     }
 
 
-    public ResultSet specificGenre(String genre) {
-        PreparedStatement ps = null;
-        ResultSet res = null;
+    public ResultSet specificGenre(String genre) throws DAOException {
+        PreparedStatement ps;
+        ResultSet res ;
         try {
             ps = getConnection().prepareStatement(SPECIFICGENRE);
             ps.setString(1, genre);
             res = ps.executeQuery();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DAOException("SQL exception", e);
         }
         return res;
 
     }
 
-    public ResultSet searchMovies(String movie) {
-        PreparedStatement ps = null;
-        ResultSet res = null;
+    public ResultSet searchMovies(String movie) throws DAOException {
+        PreparedStatement ps;
+        ResultSet res ;
         try {
             ps = getConnection().prepareStatement(SEARCHMOVIE);
             ps.setString(1, movie);
             res = ps.executeQuery();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DAOException("SQL exception", e);
         }
 
         return res;

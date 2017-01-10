@@ -1,10 +1,10 @@
 package com.slabadniak.task5.command;
 
-import com.slabadniak.task5.dao.DefaultDAO;
 import com.slabadniak.task5.entity.Movie;
-import com.slabadniak.task5.pool.ConnectionPool;
-import com.slabadniak.task5.pool.Wrapper;
-import com.slabadniak.task5.sessioncontent.MovieContent;
+import com.slabadniak.task5.exeption.CommandExeption;
+import com.slabadniak.task5.exeption.ServiceExeption;
+import com.slabadniak.task5.service.MainContentService;
+import com.slabadniak.task5.content.MovieContent;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -12,25 +12,21 @@ import java.util.List;
 
 public class SetMainContentCommand implements ICommand {
     @Override
-    public void execute(HttpServletRequest request) {
-        ConnectionPool pool = ConnectionPool.getInstance();
-        DefaultDAO defaultDAO = null;
+    public void execute(HttpServletRequest request) throws CommandExeption {
         MovieContent content = new MovieContent();
 
+        MainContentService service = new MainContentService();
+
         try {
-            Wrapper connection = pool.getConnection();
-            defaultDAO = new DefaultDAO(connection);
-            content.insert(defaultDAO.movies());
-            setAtributes(content,request);
-            pool.closeConnection(connection);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            content = service.movies();
+        } catch (ServiceExeption e) {
+            throw new CommandExeption("Service:", e);
         }
 
-        //get genre list
+        setAtributes(content,request);
+
         CommandFactory.create("allgenres").execute(request);
-        //HttpSession session = request.getSession(true);
-       // session.setAttribute("currentJSP", ConfigurationManager.getProperty("path.page.main"));
+
         setForwardPage(request);
     }
 

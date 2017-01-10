@@ -81,11 +81,6 @@ public enum EnumCommand {
             this.command = new AddActorCommand();
         }
     },
-    EDITPROFILE{
-        {
-            this.command = new EditProfileCommand();
-        }
-    },
     PAGINATION{
         {
             this.command = new PaginationCommand();

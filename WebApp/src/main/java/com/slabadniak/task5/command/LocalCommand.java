@@ -10,7 +10,7 @@ public class LocalCommand implements ICommand {
     private static final String LOCAL = "local";
     private final static String RUSSIAN = "ru_RU";
     private final static String ENGLISH = "en_US";
-    private final static String RUNBUTTON = "RU";
+    private final static String RU = "RU";
 
 
     @Override
@@ -19,7 +19,7 @@ public class LocalCommand implements ICommand {
         HttpSession session = request.getSession(true);
         String pressedButton = request.getParameter("button");
 
-        if(pressedButton.equals(RUNBUTTON)) {
+        if(pressedButton.equals(RU)) {
             session.setAttribute(LOCAL, RUSSIAN);
         } else {
             session.setAttribute(LOCAL, ENGLISH);
