@@ -7,8 +7,8 @@
                 <form class="navbar-form navbar-left" action="Controller" method="post">
                     <input type="hidden" name="command" value="setmaincontent">
                     <input type="hidden" name="page" value="path.page.main">
-                    <button type="submit" class="btn btn-default"><img src="/img/logo.jpg" alt="" width="40" height="20"></button>
-
+                    <button type="submit" class="btn btn-default"><img src="/img/logo.jpg" alt="" width="40"
+                                                                       height="20"></button>
                 </form>
 
 
@@ -16,7 +16,7 @@
                     <input type="hidden" name="command" value="searchmovies">
                     <input type="hidden" name="page" value="path.page.main">
                     <div class="form-group">
-                        <input name="searchMovie" type="text" placeholder="Search">
+                        <input name="searchMovie" type="text" placeholder="Search" pattern="[A-Za-z]\w{4,56}">
                     </div>
                     <button type="submit" class="btn btn-primary">Search</button>
                 </form>
@@ -40,14 +40,18 @@
                 </form>
 
 
-                <form class="navbar-form navbar-left">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                <form class="navbar-form navbar-left" action="Controller" method="post">
+                    <input class="form-control" type="hidden" name="command"
+                           value="login">
+                    <input class="form-control" type="hidden" name="page"
+                           value="path.page.main">
+                    <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                         <fmt:message key="main.login" bundle="${resourceBundle}"/>
                     </button>
                 </form>
 
                 <!-- Modal -->
-                <div class="modal fade  pagination-centered text-center" id="myModal" tabindex="-1" role="dialog"
+                <div  class="modal fade  pagination-centered text-center" id="myModal" tabindex="-1" role="dialog"
                      aria-labelledby="myModalLabel"
                      aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -73,16 +77,27 @@
                                                     <input class="form-control" type="hidden" name="page"
                                                            value="path.page.main">
                                                     <input name="login" type="text" class="form-control col-md-8"
-                                                           placeholder="Login" pattern="[A-Za-z]\w{4,}" required
+                                                           placeholder="Login" pattern="^[A-Za-z]\w{4,32}$" required
                                                            autofocus>
                                                     <input type="password" class="form-control" placeholder="Password"
                                                            name="pass"
-                                                           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$"
+                                                           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,32}$"
                                                            required>
+                                                    <c:if test="${feedback.written}">
+                                                        <div class="center-block">
+                                                            <h3><span id="logged"
+                                                                    class="label label-warning ">${feedback.message}</span>
+                                                            </h3>
+                                                        </div>
+                                                    </c:if>
+                                                    <button class="btn btn-lg btn-primary btn-block"
+                                                           >Lo
+                                                    </button>
                                                     <button id="submit" class="btn btn-lg btn-primary btn-block"
                                                             type="submit">Log on
                                                     </button>
                                                 </form>
+
 
                                             </div>
 
@@ -162,5 +177,14 @@
     </div><!-- /.container-fluid -->
 </nav>
 
+
+<script type="text/javascript">
+    $('#myModal').on('show', function () {
+        var logged = document.getElementById('logged');
+        if(logged === null) {
+            $('#myModal').modal('hide');
+        }
+})
+</script>
 </header>
 

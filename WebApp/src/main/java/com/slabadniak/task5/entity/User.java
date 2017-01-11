@@ -1,5 +1,7 @@
 package com.slabadniak.task5.entity;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 public class User {
     private String login;
     private String email;
@@ -84,6 +86,10 @@ public class User {
 
     public boolean isAdmin() {
         return admin;
+    }
+
+    public void hashPassword(){
+        password = DigestUtils.md5Hex(password);
     }
 
     @Override

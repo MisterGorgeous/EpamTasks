@@ -13,7 +13,7 @@ import java.util.List;
 public class SetMainContentCommand implements ICommand {
     @Override
     public void execute(HttpServletRequest request) throws CommandExeption {
-        MovieContent content = new MovieContent();
+        MovieContent content ;
 
         MainContentService service = new MainContentService();
 

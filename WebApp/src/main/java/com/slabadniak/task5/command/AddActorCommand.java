@@ -1,20 +1,13 @@
 package com.slabadniak.task5.command;
 
-import com.slabadniak.task5.dao.AdminDAO;
 import com.slabadniak.task5.entity.Actor;
 import com.slabadniak.task5.entity.Feedback;
-import com.slabadniak.task5.entity.Movie;
-import com.slabadniak.task5.entity.UsersAssessment;
 import com.slabadniak.task5.exeption.CommandExeption;
 import com.slabadniak.task5.exeption.ServiceExeption;
-import com.slabadniak.task5.pool.ConnectionPool;
-import com.slabadniak.task5.pool.Wrapper;
 import com.slabadniak.task5.service.AddActorService;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class AddActorCommand implements ICommand {
@@ -32,7 +25,7 @@ public class AddActorCommand implements ICommand {
         List<Actor> actors = retrieveActors(request);
 
         if (actors == null || actors.isEmpty()) {
-            feedback.write("Actors doesn't specified.");
+            feedback.setMessage("Actors doesn't specified.");
             request.setAttribute(FEEDBACK, feedback);
             return;
         }
@@ -47,7 +40,7 @@ public class AddActorCommand implements ICommand {
         if (done) {
             setForwardPage(request);
         } else {
-            feedback.write("Such movie haven't found.");
+            feedback.setMessage("Such movie haven't found.");
             request.setAttribute(FEEDBACK, feedback);
         }
     }

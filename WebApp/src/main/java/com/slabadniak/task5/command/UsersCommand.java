@@ -12,8 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class UsersCommand implements ICommand {
-    public  static final String USERS = "select login,email,status_id,banned,gender,icon from user WHERE admin = FALSE;";
-    @Override
+     @Override
     public void execute(HttpServletRequest request) throws CommandExeption {
         UsersService service = new UsersService();
         UserContent content;

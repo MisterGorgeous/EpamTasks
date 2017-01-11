@@ -5,6 +5,8 @@ import com.slabadniak.task5.entity.UserType;
 import com.slabadniak.task5.entity.User;
 import com.slabadniak.task5.exeption.CommandExeption;
 import com.slabadniak.task5.exeption.ServiceExeption;
+import com.slabadniak.task5.logic.Validation;
+import com.slabadniak.task5.service.CheckUserService;
 import com.slabadniak.task5.service.LogInService;
 import com.slabadniak.task5.content.DataContext;
 import com.slabadniak.task5.content.UserContent;
@@ -16,31 +18,67 @@ import java.util.List;
 
 public class LogInCommand implements ICommand {
     private static final int UNIQUE = 0;
+    private Feedback feedback;
+    private static final String LOGIN = "Such login don't exist.";
+    private static final String EMAIL = "Incorrect password.";
+
+    public LogInCommand() {
+        this.feedback = new Feedback();
+    }
 
     @Override
     public void execute(HttpServletRequest request) throws CommandExeption {
-        Feedback feedback = new Feedback();
+
         String login = request.getParameter("login");
         String password = request.getParameter("pass");
 
+        //if nothing is specified, don't close modal
+        if(login == null || password == null){
+            feedback = new Feedback();
+            feedback.setMessage("");
+            request.setAttribute(FEEDBACK, feedback);
+            return;
+        }
+
+        //remove, if stay after previous query
+        request.removeAttribute(FEEDBACK);
+
+        feedback = Validation.checkPassword(password);
+        if (feedback.isWritten()) {
+            request.setAttribute(FEEDBACK, feedback);
+            return;
+        }
+        feedback = Validation.checkLogin(login);
+        if (feedback.isWritten()) {
+            request.setAttribute(FEEDBACK, feedback);
+            return;
+        }
+
         User user = new User(login, password);
+        user.hashPassword(); //MD5
         UserContent content;
 
-
+        CheckUserService service1 = new CheckUserService();
         LogInService service = new LogInService();
 
         try {
+
+            if (!service1.isLoginExist(user)) {
+                feedback.setMessage(LOGIN);
+                request.setAttribute(FEEDBACK, feedback);
+                return;
+            }
+
+
             content = service.login(user);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }
 
-        if (content != null) {
-            setAtributes(content, request);
+
+        setAtributes(content, request);
+        if(!feedback.isWritten()){
             setForwardPage(request);
-        } else {
-            feedback.write("Incorrect login or password");
-            request.setAttribute(FEEDBACK, feedback);
         }
 
     }
@@ -49,14 +87,24 @@ public class LogInCommand implements ICommand {
         HttpSession session = request.getSession();
         List<User> users = (List<User>) content.get();
 
-        User user = users.get(UNIQUE);
-        session.setAttribute("user", user);
-        if (user.isAdmin()) {
-            session.setAttribute("userStatus", UserType.ADMINISTRATOR);
-        } else {
-            session.setAttribute("userStatus", UserType.USER);
+        if(users.isEmpty()){
+            feedback.setMessage("You are banned.");
+            request.setAttribute(FEEDBACK, feedback);
         }
-        //LOGGER.log(Level.DEBUG, "Loged in");
-        System.out.println("Logged in");
+
+        User user = users.get(UNIQUE);
+
+        if (!user.isBanned()) {  //if doesn't banned
+            session.setAttribute("user", user);
+            if (user.isAdmin()) {
+                session.setAttribute("userStatus", UserType.ADMINISTRATOR);
+            } else {
+                session.setAttribute("userStatus", UserType.USER);
+            }
+            //LOGGER.log(Level.DEBUG, "Loged in");
+        } else {
+            feedback.setMessage("You are banned.");
+            request.setAttribute(FEEDBACK, feedback);
+        }
     }
 }

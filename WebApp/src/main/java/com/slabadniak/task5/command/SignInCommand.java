@@ -2,45 +2,80 @@ package com.slabadniak.task5.command;
 
 import com.slabadniak.task5.entity.Feedback;
 import com.slabadniak.task5.entity.User;
-import com.slabadniak.task5.dao.DefaultDAO;
 import com.slabadniak.task5.exeption.CommandExeption;
 import com.slabadniak.task5.exeption.ServiceExeption;
-import com.slabadniak.task5.pool.ConnectionPool;
-import com.slabadniak.task5.pool.Wrapper;
+import com.slabadniak.task5.logic.Validation;
+import com.slabadniak.task5.service.CheckUserService;
 import com.slabadniak.task5.service.SignInService;
-import org.apache.logging.log4j.Level;
 
 import javax.servlet.http.HttpServletRequest;
 
 public class SignInCommand implements ICommand {
    // private static final String DEFAULT_ICON = "/img/photo.png";
+    Feedback feedback;
+    private static final String LOGIN = "Such login already exist.";
+    private static final String EMAIL = "Such email already exist.";
 
     @Override
     public void execute(HttpServletRequest request) throws CommandExeption {
-        Feedback feedback = new Feedback();
 
         String login = request.getParameter("login");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String confpassword = request.getParameter("confpassword");
         String gender = request.getParameter("gender");
 
+        setForwardPage(request);
+
+        //remove, if stay after previous query
+        request.removeAttribute(FEEDBACK);
+
+        //validation
+        feedback = Validation.checkPassword(password);
+        if(feedback.isWritten()){
+            request.setAttribute(FEEDBACK, feedback);
+            return;
+        }
+        feedback = Validation.passwordsEqual(password,confpassword);
+        if(feedback.isWritten()){
+            request.setAttribute(FEEDBACK, feedback);
+            return;
+        }
+        feedback = Validation.checkLogin(login);
+        if(feedback.isWritten()){
+            request.setAttribute(FEEDBACK, feedback);
+            return;
+        }
+        feedback = Validation.checkEmail(email);
+        if(feedback.isWritten()){
+            request.setAttribute(FEEDBACK, feedback);
+            return;
+        }
+
+
         User user = new User(login,email,password,gender);
+        user.hashPassword(); //MD5
         SignInService service = new SignInService();
+        CheckUserService service1 = new CheckUserService();
         boolean exist;
 
         try {
-             exist =  service.signin(user);
+
+            if(service1.isLoginExist(user)) {
+                feedback.setMessage(LOGIN);
+                request.setAttribute(FEEDBACK, feedback);
+                return;
+            }
+
+            if(service1.isEmailExist(user)) {
+                feedback.setMessage(EMAIL);
+                request.setAttribute(FEEDBACK, feedback);
+                return;
+            }
+
+             service.signin(user);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }
-
-
-        if (exist == false ) {
-            setForwardPage(request);
-        } else {
-            feedback.write("Incorrect login or password");
-            request.setAttribute(FEEDBACK, feedback);
-        }
-
     }
 }

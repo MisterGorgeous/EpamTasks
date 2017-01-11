@@ -97,3 +97,24 @@
     left: 20px;
 }
 
+
+/*input:valid {
+    background-color: lightgreen;
+}
+
+input:optional {
+    border-style: outset;
+}
+
+input:disabled {
+    border: 1px dotted gray;
+}
+
+input:required {
+    border: 2px solid;
+}
+
+input:invalid {
+    background-color: pink;
+}
+*/
