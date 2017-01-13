@@ -27,15 +27,16 @@ public class UsersCommand implements ICommand {
         setForwardPage(request);
     }
 
-    private void setAtributes(DataContext content, HttpServletRequest request){
+    private void setAtributes(UserContent content, HttpServletRequest request){
         //request.setAttribute("users", (List<User>) content.get());
         HttpSession session = request.getSession();
 
-        List<User> users = (List<User>) content.get();
+        List<User> users = content.get();
         session.setAttribute("users",users);
         //number of pages
         int numPages = (int) Math.ceil(users.size()/20);
-        session.setAttribute("usersSize",numPages);
+        session.setAttribute("usersSize",users.size());
+        session.setAttribute("numPages",numPages);
         //not const.Will be iterated
         session.setAttribute("currentUserPage",0);
     }

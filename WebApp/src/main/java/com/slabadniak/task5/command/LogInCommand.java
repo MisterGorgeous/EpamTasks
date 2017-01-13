@@ -20,7 +20,7 @@ public class LogInCommand implements ICommand {
     private static final int UNIQUE = 0;
     private Feedback feedback;
     private static final String LOGIN = "Such login don't exist.";
-    private static final String EMAIL = "Incorrect password.";
+    private static final String PASSWORD = "Incorrect password.";
 
     public LogInCommand() {
         this.feedback = new Feedback();
@@ -65,6 +65,12 @@ public class LogInCommand implements ICommand {
 
             if (!service1.isLoginExist(user)) {
                 feedback.setMessage(LOGIN);
+                request.setAttribute(FEEDBACK, feedback);
+                return;
+            }
+
+            if (!service1.checkPassword(user)) {
+                feedback.setMessage(PASSWORD);
                 request.setAttribute(FEEDBACK, feedback);
                 return;
             }

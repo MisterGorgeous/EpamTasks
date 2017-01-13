@@ -33,6 +33,6 @@ public class ActorCommand implements ICommand {
 
 
     private void setAtributes(DataContext content, HttpServletRequest request) {
-        request.setAttribute("actors", (List<Actor>) content.get());
+        request.setAttribute("actors", content.get());
     }
 }

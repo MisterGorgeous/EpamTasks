@@ -50,4 +50,24 @@ public class CheckUserService {
         return emailExist;
 
     }
+
+    public boolean checkPassword(User user) throws ServiceExeption {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        DefaultDAO defaultDAO = null;
+        boolean passwordCorrect;
+
+        try {
+            Wrapper connection = pool.getConnection();
+            defaultDAO = new DefaultDAO(connection);
+
+            passwordCorrect = defaultDAO.checkUserPassword(user);
+
+        } catch (PoolException e) {
+            throw new ServiceExeption("Pool exception", e);
+        } catch (DAOException e) {
+            throw new ServiceExeption("UserDAO exception ", e);
+        }
+        return passwordCorrect;
+
+    }
 }

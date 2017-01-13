@@ -95,6 +95,9 @@
     </div>
 </div>
 
+${sessionScope.numPages }
+${sessionScope.usersSize }
+
 <div class="row center-block">
     <div class="col-xs-6 col-md-6 col-lg-6">
         <c:if test="${sessionScope.currentUserPage > 0}">
@@ -103,7 +106,8 @@
                 <input type="hidden" name="page" value="path.page.admin">
                 <input type="hidden" name="attribute" value="currentUserPage">
                 <input type="hidden" name="action" value="previous">
-                <input class="btn btn-primary" type="submit" name="button2" value="Previous"/>
+                <input class="btn btn-primary" type="submit" name="button2" value="Previous"
+                <c:if test="${sessionScope.currentUserPage == 0}"> disabled </c:if>/>
             </form>
         </c:if>
     </div>
@@ -114,7 +118,8 @@
                 <input type="hidden" name="page" value="path.page.admin">
                 <input type="hidden" name="attribute" value="currentUserPage">
                 <input type="hidden" name="action" value="next">
-                <input class="btn btn-primary" type="submit" name="button" value="Next"/>
+                <input class="btn btn-primary" type="submit" name="button" value="Next"
+                <c:if test="${sessionScope.currentUserPage == sessionScope.numPages}"> disabled </c:if>/>
             </form>
         </c:if>
     </div>

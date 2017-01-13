@@ -24,7 +24,7 @@ public class ActorContent implements DataContext {
     }
 
     @Override
-    public Collection get() {
+    public List<Actor> get() {
         return actors;
     }
 

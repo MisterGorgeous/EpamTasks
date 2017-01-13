@@ -17,20 +17,11 @@ public class LogInService {
         DefaultDAO defaultDAO = null;
         //boolean logIn = false;
         UserContent content = new UserContent();
-        boolean exist;
 
         try {
             Wrapper connection = pool.getConnection();
             defaultDAO = new DefaultDAO(connection);
-
-            exist = defaultDAO.checkUsersLogin(user);
-
-            if(exist) {
-                content.insert(defaultDAO.LogIn(user));
-            } else {
-                content = null;
-            }
-
+            content.insert(defaultDAO.LogIn(user));
             pool.closeConnection(connection);
         } catch (PoolException e) {
             throw new ServiceExeption("Pool exception", e);

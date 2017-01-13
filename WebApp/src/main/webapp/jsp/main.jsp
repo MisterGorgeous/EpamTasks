@@ -66,8 +66,8 @@
             <input type="hidden" name="page" value="path.page.main">
             <input type="hidden" name="attribute" value="currentMoviePage">
             <input type="hidden" name="action" value="previous">
-            <input class="btn btn-primary" type="submit" name="button2" value="Previous" <c:if
-                    test="${sessionScope.currentMoviePage == 0}"> disabled </c:if>/>
+            <input class="btn btn-primary" type="submit" name="button2" value="Previous"
+                    <c:if test="${sessionScope.currentMoviePage == 0}"> disabled </c:if>/>
         </form>
 
     </div>

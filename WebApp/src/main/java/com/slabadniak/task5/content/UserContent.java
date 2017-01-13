@@ -26,7 +26,7 @@ public class UserContent implements DataContext {
 
 
     @Override
-    public Collection get() {
+    public List<User> get() {
         return users;
     }
 

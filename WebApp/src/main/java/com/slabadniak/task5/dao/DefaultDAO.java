@@ -17,6 +17,7 @@ public class DefaultDAO extends AbstractDAO {
     private static final String ALLGENRES = "SELECT name FROM genre_kind;";
     private static final String CHECKLOGIN = "SELECT user_id FROM user WHERE login = ?;";
     private static final String CHECKEMAIL = "SELECT user_id FROM user WHERE email = ?;";
+    private static final String CHECKPASSWORD = "SELECT user_id FROM user WHERE login = ? && password = ?;";
     private static final String ACTORS = "SELECT f_name,s_name,birthday,birth_place,person,profession FROM movie JOIN role USING(movie_id) JOIN actor USING(actor_id) WHERE movie.title = ?;";
     private static final String COMMENTS = "SELECT comment,mark,user.login,update_time FROM assessment JOIN user on assessment.user_id = user.user_id where movie_id = (SELECT movie_id from movie WHERE title = ?) && comment IS NOT NULL && comment != ''  ORDER BY update_time DESC;";
     private static final String SEARCHMOVIE = "SELECT title,rating,icon,year,country,description FROM movie WHERE title REGEXP CONCAT('^', ? ,'.*') ;";
@@ -86,6 +87,22 @@ public class DefaultDAO extends AbstractDAO {
         try {
             ps = getConnection().prepareStatement(CHECKLOGIN);
             ps.setString(1, user.getLogin());
+            res = ps.executeQuery();
+            done = res.next();
+        } catch (SQLException e) {
+            throw new DAOException("SQL exception", e);
+        }
+        return done;
+    }
+
+    public boolean checkUserPassword(User user) throws DAOException {
+        PreparedStatement ps;
+        ResultSet res ;
+        boolean done;
+        try {
+            ps = getConnection().prepareStatement(CHECKPASSWORD);
+            ps.setString(1, user.getLogin());
+            ps.setString(2, user.getPassword());
             res = ps.executeQuery();
             done = res.next();
         } catch (SQLException e) {

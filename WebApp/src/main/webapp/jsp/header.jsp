@@ -16,7 +16,7 @@
                     <input type="hidden" name="command" value="searchmovies">
                     <input type="hidden" name="page" value="path.page.main">
                     <div class="form-group">
-                        <input name="searchMovie" type="text" placeholder="Search" pattern="[A-Za-z]\w{4,56}">
+                        <input name="searchMovie" type="text" placeholder="Search" pattern="[A-Z a-z]\w{1,56}">
                     </div>
                     <button type="submit" class="btn btn-primary">Search</button>
                 </form>
@@ -83,17 +83,7 @@
                                                            name="pass"
                                                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,32}$"
                                                            required>
-                                                    <c:if test="${feedback.written}">
-                                                        <div class="center-block">
-                                                            <h3><span id="logged"
-                                                                    class="label label-warning ">${feedback.message}</span>
-                                                            </h3>
-                                                        </div>
-                                                    </c:if>
-                                                    <button class="btn btn-lg btn-primary btn-block"
-                                                           >Lo
-                                                    </button>
-                                                    <button id="submit" class="btn btn-lg btn-primary btn-block"
+                                                    <button id="logon" class="btn btn-lg btn-primary btn-block"
                                                             type="submit">Log on
                                                     </button>
                                                 </form>
@@ -109,6 +99,15 @@
                         </div>
                     </div>
                 </div>
+
+
+                    <div id="modalInfo" class="navbar-form navbar-left">
+                        <h3><span id="logged"
+                                  class="label label-warning ">${feedback.message}</span>
+                        </h3>
+                    </div>
+                <c:if test="${feedback.written}">
+                </c:if>
 
 
             </ul>
@@ -177,19 +176,8 @@
     </div><!-- /.container-fluid -->
 </nav>
 
-
 <script type="text/javascript">
-
-    $('#myModal').on('show', function () {
-        var logged = document.getElementById('logged');
-        if(logged === null) {
-            $('#myModal').modal('hide');
-        } else{
-
-        }
-    });
-
-    document.getElementById("modalButton").click();
+        setTimeout("$('#modalInfo').hide();", 3000);
 </script>
 </header>
 
