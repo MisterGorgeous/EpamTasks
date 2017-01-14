@@ -36,7 +36,7 @@ public class UsersCommand implements ICommand {
         //number of pages
         int numPages = (int) Math.ceil(users.size()/20);
         session.setAttribute("usersSize",users.size());
-        session.setAttribute("numPages",numPages);
+        session.setAttribute("userPages",numPages);
         //not const.Will be iterated
         session.setAttribute("currentUserPage",0);
     }

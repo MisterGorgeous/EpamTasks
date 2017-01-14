@@ -10,6 +10,7 @@ import com.slabadniak.task5.exeption.ServiceExeption;
 import com.slabadniak.task5.pool.ConnectionPool;
 import com.slabadniak.task5.pool.Wrapper;
 import com.slabadniak.task5.service.CalculateRatingService;
+import com.slabadniak.task5.service.ShowCommentService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -33,7 +34,6 @@ public class CommentCommand implements ICommand {
         CalculateRatingService service = new CalculateRatingService();
 
 
-
         try {
             service.calculate(comment,rating,user,movie);
         } catch (ServiceExeption e) {
@@ -43,6 +43,10 @@ public class CommentCommand implements ICommand {
         // HttpSession session = request.getSession(true);
 
         //CommandFactory.create("cross").execute(request);
+
+        CommandFactory.create("genre").execute(request);
+        CommandFactory.create("actor").execute(request);
+        CommandFactory.create("showcomments").execute(request);
         setForwardPage(request);
     }
 }

@@ -38,24 +38,6 @@
                 <input type="submit" name="button" class="btn btn-default" value="Rate"/>
             </form>
         </c:if>
-
-
-           <%-- <div class="btn-group" role="group" aria-label="...">
-                <button type="button" class="btn btn-default">1</button>
-                <button type="button" class="btn btn-default">2</button>
-                <button type="button" class="btn btn-default">3</button>
-                <button type="button" class="btn btn-default">4</button>
-                <button type="button" class="btn btn-default">5</button>
-                <button type="button" class="btn btn-default">6</button>
-                <button type="button" class="btn btn-default">7</button>
-                <button type="button" class="btn btn-default">8</button>
-                <button type="button" class="btn btn-default">9</button>
-            </div>--%>
-
-
-
-
-
         <c:if test="${userStatus != 'GUEST' }">
 
             <form id="comment" class="navbar-form navbar-left" title="login" action="Controller" method="post">

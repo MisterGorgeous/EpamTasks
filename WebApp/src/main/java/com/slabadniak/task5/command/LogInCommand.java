@@ -19,7 +19,7 @@ import java.util.List;
 public class LogInCommand implements ICommand {
     private static final int UNIQUE = 0;
     private Feedback feedback;
-    private static final String LOGIN = "Such login don't exist.";
+    private static final String LOGIN = "Such login doesn't exist.";
     private static final String PASSWORD = "Incorrect password.";
 
     public LogInCommand() {
@@ -89,9 +89,9 @@ public class LogInCommand implements ICommand {
 
     }
 
-    private void setAtributes(DataContext content, HttpServletRequest request) {
+    private void setAtributes(UserContent content, HttpServletRequest request) {
         HttpSession session = request.getSession();
-        List<User> users = (List<User>) content.get();
+        List<User> users = content.get();
 
         if(users.isEmpty()){
             feedback.setMessage("You are banned.");

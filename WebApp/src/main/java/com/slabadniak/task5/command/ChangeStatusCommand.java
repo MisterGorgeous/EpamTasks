@@ -41,7 +41,7 @@ public class ChangeStatusCommand implements ICommand {
 
     }
 
-    void setStatus(User user,int status){
+   private void setStatus(User user,int status){
         switch (status){
             case 1: user.setStatus("beginer");
                 break;

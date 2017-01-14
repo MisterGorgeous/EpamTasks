@@ -115,9 +115,7 @@
 
     <script src="/js/jquery-3.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
-          type="text/css"/>
-    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
 
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap-slider.js"></script>
