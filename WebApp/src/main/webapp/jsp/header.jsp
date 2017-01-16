@@ -100,12 +100,13 @@
                     </div>
                 </div>
 
-
+            <c:if test="${feedback.written}">
                     <div id="modalInfo" class="navbar-form navbar-left">
                         <h3><span id="logged"
-                                  class="label label-warning "><c:out value="${feedback.message}" default=""/> </span>
+                                  class="label label-warning ">${feedback.message} </span>
                         </h3>
                     </div>
+            </c:if>
 
 
             </ul>
@@ -177,5 +178,6 @@
 <script type="text/javascript">
         setTimeout("$('#modalInfo').hide();", 3000);
 </script>
+<script src="/js/validation.js"></script>
 </header>
 

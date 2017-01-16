@@ -73,7 +73,7 @@
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">
                             <label class="col-md-3 control-label">Confirm password:</label>
                             <div class="col-md-8">
-                                <input name="password" class="form-control" value="${sessionScope.user.password}"
+                                <input name="confpassword" class="form-control" value="${sessionScope.user.password}"
                                        type="password">
                             </div>
                         </div>

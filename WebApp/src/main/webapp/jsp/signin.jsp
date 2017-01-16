@@ -64,15 +64,18 @@
         </div>
 
 
-<c:if test="${feedback.written}">
+<%-- <c:if test="${feedback.written}">
     <div class="center-block">
         <h3><span class="label label-warning ">${feedback.message}</span></h3>
     </div>
 </c:if>
 
-        <div class="form-group">
+   <div class="form-group">
             <h3><span  id="infoLabel" class="label label-warning "></span></h3>
         </div>
+        --%>
+
+
 
         <div class="form-group">
             <label class="col-md-3 control-label"></label>

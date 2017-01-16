@@ -12,7 +12,7 @@ public class Movie {
     public Movie(String title, float rating, String icon, String year, String country, String description) {
         this.title = title;
         this.rating = rating;
-        this.icon = icon;
+        this.icon = icon ;
         this.year = year;
         this.country = country;
         this.description = description;
