@@ -8,9 +8,6 @@ import com.slabadniak.task5.exeption.ServiceExeption;
 import com.slabadniak.task5.pool.ConnectionPool;
 import com.slabadniak.task5.pool.Wrapper;
 
-/**
- * Created by Siarhei on 10.01.2017.
- */
 public class ChangeProfileService {
 
     public void change(User unmodified, User modified) throws ServiceExeption {
@@ -50,7 +47,5 @@ public class ChangeProfileService {
         }
         return false;
     }
-
-
 }
 
