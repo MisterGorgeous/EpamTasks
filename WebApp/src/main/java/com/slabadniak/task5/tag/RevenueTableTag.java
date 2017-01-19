@@ -1,65 +1,48 @@
 package com.slabadniak.task5.tag;
 
+import com.slabadniak.task5.entity.User;
 import com.sun.org.apache.regexp.internal.RE;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Locale;
+import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 
 @SuppressWarnings("serial")
 public class RevenueTableTag extends TagSupport {
-    private static final Logger LOGGER = LogManager.getLogger(RevenueTableTag.class);
-    private String head;
-    private int rows;
+    private int index;
 
-    public void setHead(String head) {
-        this.head = head;
-    }
-
-    public void setRows(Integer rows) {
-        this.rows = rows;
+    public void setIndex(Integer index) {
+        this.index = index;
     }
 
     @Override
     public int doStartTag() throws JspTagException {
+        List<User> users = (List<User>)  pageContext.getSession().getAttribute("users");
+        User user = users.get(index);
+        String userStatus = user.getStatus();
+        int sliderValue = userStatus.equals("beginer") ? 1 : userStatus.equals("fan") ? 2 : 3;
+
         try {
             JspWriter out = pageContext.getOut();
-            out.write("<table border='1'><colgroup span='2' title='title' />");
-            out.write("<caption>" + Locale.getDefault().getDisplayCountry() + "</caption>");
-            out.write("<thead><tr><th scope='col'>" + head + "</th></tr></thead>");
-            out.write("<tbody><tr><td>");
+            out.write("<input class='subForm' type='text' name='status'");
+            out.write("data-provide='slider' data-slider-ticks='[1, 2, 3]'");
+            out.write("data-slider-ticks-labels='[\"beginer\", \"fan\", \"expert\"]' data-slider-min='1'");
+            out.write("data-slider-max='3' data-slider-step='1'");
+            out.write("data-slider-value='" + sliderValue + "'");
+            out.write("data-slider-tooltip='hide' />");
+
         } catch (IOException e) {
             throw new JspTagException(e.getMessage());
         }
-        return EVAL_BODY_INCLUDE;
+        return SKIP_BODY;
     }
 
-    @Override
-    public int doAfterBody() throws JspTagException {
-        if (rows-- > 1) {
-            try {
-                pageContext.getOut().write("</td></tr><tr><td>");
-            } catch (IOException e) {
-                throw new JspTagException(e.getMessage());
-            }
-            return EVAL_BODY_AGAIN;
-        } else {
-            return SKIP_BODY;
-        }
-    }
 
-    @Override
-    public int doEndTag() {
-        try {
-            pageContext.getOut().write("</td></tr></tbody></table>");
-        } catch (IOException e) {
-            LOGGER.log(Level.ERROR, e);
-        }
-        return EVAL_PAGE;
-    }
 }

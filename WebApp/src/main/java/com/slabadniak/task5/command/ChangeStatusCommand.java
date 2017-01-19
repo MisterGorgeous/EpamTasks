@@ -8,31 +8,36 @@ import com.slabadniak.task5.pool.ConnectionPool;
 import com.slabadniak.task5.pool.Wrapper;
 import com.slabadniak.task5.service.ChangeProfileService;
 import com.slabadniak.task5.service.ChangeStatusService;
+import com.slabadniak.task5.tag.RevenueTableTag;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class ChangeStatusCommand implements ICommand {
+    private static final Logger LOGGER = LogManager.getLogger(ChangeStatusCommand.class);
+
     @Override
     public void execute(HttpServletRequest request) throws CommandExeption {
-
         HttpSession session = request.getSession();
         List<User> users = (List<User>) session.getAttribute("users");
         int index =  Integer.parseInt(request.getParameter("userId"));
         //int statusId = Integer.parseInt(request.getParameter("status"));
-        float statusId = Float.parseFloat(request.getParameter("status"));
+        int statusId = Integer.parseInt(request.getParameter("status"));
+        LOGGER.log(Level.INFO,statusId);
         User user = users.get(index);
 
         ChangeStatusService service = new ChangeStatusService();
 
 
         try {
-            service.change(user,(int)statusId);
+            service.change(user,statusId);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }
-
 
 
         //Sellect all users from DB
@@ -41,13 +46,5 @@ public class ChangeStatusCommand implements ICommand {
 
     }
 
-   private void setStatus(User user,int status){
-        switch (status){
-            case 1: user.setStatus("beginer");
-                break;
-            case 2: user.setStatus("fan");
-                break;
-            default: user.setStatus("expert");
-        }
-    }
+
 }

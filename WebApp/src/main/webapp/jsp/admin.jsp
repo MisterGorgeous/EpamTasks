@@ -5,6 +5,8 @@
 <fmt:setLocale value="${local}"/>
 <fmt:setBundle basename="def" var="resourceBundle"/>
 
+<%@ taglib prefix="myshortname" uri="mycompany" %>
+
 <html>
 <head>
     <!--InternetExplorer link  -->
@@ -12,7 +14,7 @@
     <meta title="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap-slider.css">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+
 
 </head>
 
@@ -42,7 +44,6 @@
 
                 <%-- <c:forEach var="user" items="${users}"> --%>
                 <c:forEach var="i" begin="${sessionScope.currentUserPage * 20}" end="${sessionScope.currnetUserPage * 20 + 19}">
-                    ${i}
                     <c:if test="${i < sessionScope.usersSize}">
                         <tr>
                             <td><img src="${sessionScope.users.get(i).icon}" class="img-circle" alt="avatar"></td>
@@ -57,22 +58,9 @@
                                     <input type="hidden" name="command" value="changestatus">
                                     <input type="hidden" name="userId" value="${i}">
                                     <input type="hidden" name="page" value="path.page.admin">
-                                    <input onchange="$(this).closest('form').submit();" id="ex19" type="text"
-                                           name="status"
-                                           data-provide="slider" data-slider-ticks="[1, 2, 3]"
-                                           data-slider-ticks-labels='["beginer", "fan", "expert"]' data-slider-min="1"
-                                           data-slider-max="3" data-slider-step="1"
-                                           data-slider-value="<<c:choose>
-                                                        <c:when test="${sessionScope.users.get(i).status == 'beginer'}">
-                                                           1
-                                                        </c:when>
-                                                        <c:when test="${sessionScope.users.get(i).status == 'fan'}">
-                                                            2
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            3
-                                                        </c:otherwise>
-                                                    </c:choose>" data-slider-tooltip="hide"/>
+
+                                    <myshortname:custom-slider index="${i}"  />
+
                                     <input class="btn btn-default invisible" type="submit" name="button" value="user"/>
                                 </form>
                             </td>
@@ -99,8 +87,6 @@
     </div>
 </div>
 
-${sessionScope.userPages }
-${sessionScope.usersSize }
 
 <div class="row center-block">
     <div class="col-xs-6 col-md-6 col-lg-6">
@@ -136,7 +122,13 @@ ${sessionScope.usersSize }
 <script src="/js/bootstrap-slider.js"></script>
 
 
+<script type="text/javascript">
 
+    $(".subForm").change(function(){
+        $(this).closest('form').submit();
+    });
+
+</script>
 
 </body>
 </html>

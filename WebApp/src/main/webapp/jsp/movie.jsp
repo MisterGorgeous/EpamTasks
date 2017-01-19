@@ -147,12 +147,18 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/bootstrap-slider.js"></script>
+
+
+
 <script type="text/javascript">
     $("#ex6").slider();
     $("#ex6").on("slide", function(slideEvt) {
         $("#ex6SliderVal").text(slideEvt.value);
     });
 </script>
+
+
+
 </body>
 
 </html>
