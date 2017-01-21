@@ -35,6 +35,7 @@ public class ShowCommentsCommand implements ICommand {
     }
 
     private void setAtributes(DataContext content, HttpServletRequest request) {
-        request.setAttribute("assessments", (List<UsersAssessment>) content.get());
+        HttpSession session = request.getSession();
+        session.setAttribute("assessments", (List<UsersAssessment>) content.get());
     }
 }

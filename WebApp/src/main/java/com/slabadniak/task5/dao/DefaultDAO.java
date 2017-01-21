@@ -12,7 +12,7 @@ public class DefaultDAO extends AbstractDAO {
     private static final String MOVIES = "SELECT title,rating,icon,year,country,description FROM movie;";
     private static final String SPECIFICGENRE = "SELECT title,rating,icon,year,country,description FROM movie JOIN genre on movie.movie_id = genre.movie_id JOIN genre_kind on genre.genre_id = genre_kind.genre_id WHERE genre_kind.name = ?;";
     private static final String SIGNIN = "INSERT INTO user (login,email,password,gender,icon,banned,admin,status_id) VALUE (?,?,?,?,'/img/photo.png',FALSE,FALSE,'beginer');";
-    private static final String LOGIN = "SELECT login,email,status_id,banned,gender,icon,admin FROM user where login = ? && password = ?;";
+    private static final String LOGIN = "SELECT login,email,password,status_id,banned,gender,icon,admin FROM user where login = ? && password = ?;";
     private static final String GENRES = "SELECT genre_kind.name FROM movie JOIN genre USING(movie_id) JOIN genre_kind USING(genre_id) WHERE movie.title = ?;";
     private static final String ALLGENRES = "SELECT name FROM genre_kind;";
     private static final String CHECKLOGIN = "SELECT user_id FROM user WHERE login = ?;";

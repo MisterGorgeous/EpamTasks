@@ -1,3 +1,4 @@
+<header>
 <nav class="navbar navbar-default">
     <div class="container-fluid ">
 
@@ -32,6 +33,8 @@
                 </form>
 
 
+
+<c:if test="${userStatus == 'GUEST'}">
                 <form class="navbar-form navbar-left" name="signin" action="Controller" method="post">
                     <input type="hidden" name="command" value="">
                     <input type="hidden" name="page" value="path.page.signin">
@@ -99,11 +102,11 @@
                         </div>
                     </div>
                 </div>
+</c:if>
 
             <c:if test="${feedback.written}">
                     <div id="modalInfo" class="navbar-form navbar-left">
-                        <h3><span id="logged"
-                                  class="label label-warning ">${feedback.message} </span>
+                        <h3><span id="logged" class="label label-warning ">${feedback.message} </span>
                         </h3>
                     </div>
             </c:if>

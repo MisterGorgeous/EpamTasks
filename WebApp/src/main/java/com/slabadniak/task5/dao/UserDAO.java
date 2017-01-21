@@ -15,7 +15,11 @@ public class UserDAO extends AbstractDAO {
     private static final int VALUE = 1;
     public static final String ASSESSANDCOMMENT = "REPLACE INTO assessment (movie_id, user_id, mark, comment) VALUE ((SELECT movie.movie_id FROM movie WHERE title = ? LIMIT 1),(SELECT user_id FROM user WHERE login = ? LIMIT 1),?,?);";
     public static final String ONLYASSESS = "REPLACE INTO assessment (movie_id, user_id, mark) VALUE ((SELECT movie.movie_id FROM movie WHERE title = ? LIMIT 1),(SELECT user_id FROM user WHERE login = ? LIMIT 1),?);";
-    public static final String CHANGEUSER = "UPDATE user set login = ? , email = ?, password = ?, gender = ?, icon = ?  WHERE login = ? && email = ?;";
+    public static final String CHANGE_LOGIN = "UPDATE user set login = ? WHERE login = ? && email = ?;";
+    public static final String CHANGE_EMAIL = "UPDATE user set email = ? WHERE login = ? && email = ?;";
+    public static final String CHANGE_PASSWORD = "UPDATE user set password = ? WHERE login = ? && email = ?;";
+    public static final String CHANGE_GENDER = "UPDATE user set  gender = ? WHERE login = ? && email = ?;";
+    public static final String CHANGE_ICON = "UPDATE user set icon = ?  WHERE login = ? && email = ?;";
     public static final String CHANGESTATUS = "UPDATE user set status_id = ?  WHERE login = ? && email = ?;";
     public static final String USERSRATE = "SELECT AVG(mark) FROM assessment WHERE movie_id = (SELECT movie_id FROM movie WHERE title = ? LIMIT 1);";
     public static final String ASSESSVALUE = "SELECT COUNT(mark) FROM assessment WHERE movie_id = (SELECT movie_id FROM movie WHERE title = ? LIMIT 1);";
@@ -44,26 +48,6 @@ public class UserDAO extends AbstractDAO {
         }
     }
 
-
-    public void changeProfile(User unmodified, User modified) throws DAOException {
-        PreparedStatement ps;
-        ResultSet res;
-        try {
-            ps = getConnection().prepareStatement(CHANGEUSER);
-            ps.setString(1, modified.getLogin());
-            ps.setString(2, modified.getEmail());
-            ps.setString(3, modified.getPassword());
-            ps.setString(4, modified.getGender());
-            ps.setString(5, modified.getIcon());
-            ps.setString(6, unmodified.getLogin());
-            ps.setString(7, unmodified.getEmail());
-            ps.executeUpdate();
-
-        } catch (SQLException e) {
-            throw new DAOException("SQL exception", e);
-        }
-
-    }
 
     public float usersRate(String movie) throws DAOException {
         PreparedStatement ps;
@@ -117,5 +101,77 @@ public class UserDAO extends AbstractDAO {
         }
 
         return numAssess;
+    }
+
+    public void changeIcon(User unmodified, User modified) throws DAOException {
+        PreparedStatement ps;
+        ResultSet res;
+        try {
+            ps = getConnection().prepareStatement(CHANGE_ICON);
+            ps.setString(1, modified.getIcon());
+            ps.setString(2, unmodified.getLogin());
+            ps.setString(3, unmodified.getEmail());
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new DAOException("SQL exception", e);
+        }
+    }
+    public void changeLogin(User unmodified, User modified) throws DAOException {
+        PreparedStatement ps;
+        ResultSet res;
+        try {
+            ps = getConnection().prepareStatement(CHANGE_LOGIN);
+            ps.setString(1, modified.getLogin());
+            ps.setString(2, unmodified.getLogin());
+            ps.setString(3, unmodified.getEmail());
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new DAOException("SQL exception", e);
+        }
+    }
+    public void changeEmail(User unmodified, User modified) throws DAOException {
+        PreparedStatement ps;
+        ResultSet res;
+        try {
+            ps = getConnection().prepareStatement(CHANGE_EMAIL);
+            ps.setString(1, modified.getEmail());
+            ps.setString(2, unmodified.getLogin());
+            ps.setString(3, unmodified.getEmail());
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new DAOException("SQL exception", e);
+        }
+    }
+    public void changePassword(User unmodified, User modified) throws DAOException {
+        PreparedStatement ps;
+        ResultSet res;
+        try {
+            ps = getConnection().prepareStatement(CHANGE_PASSWORD);
+            ps.setString(1, modified.getPassword());
+            ps.setString(2, unmodified.getLogin());
+            ps.setString(3, unmodified.getEmail());
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new DAOException("SQL exception", e);
+        }
+    }
+
+    public void changeGender(User unmodified, User modified) throws DAOException {
+        PreparedStatement ps;
+        ResultSet res;
+        try {
+            ps = getConnection().prepareStatement(CHANGE_GENDER);
+            ps.setString(1, modified.getGender());
+            ps.setString(2, unmodified.getLogin());
+            ps.setString(3, unmodified.getEmail());
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new DAOException("SQL exception", e);
+        }
     }
 }

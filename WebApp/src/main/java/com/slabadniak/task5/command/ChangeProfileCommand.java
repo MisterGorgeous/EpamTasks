@@ -10,6 +10,7 @@ import com.slabadniak.task5.exeption.ServiceExeption;
 import com.slabadniak.task5.logic.Validation;
 import com.slabadniak.task5.pool.ConnectionPool;
 import com.slabadniak.task5.pool.Wrapper;
+import com.slabadniak.task5.service.AuthorizationService;
 import com.slabadniak.task5.service.ChangeProfileService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,10 +33,12 @@ public class ChangeProfileCommand implements ICommand {
         request.removeAttribute(FEEDBACK);
 
         //validation
-        feedback = Validation.checkPassword(password);
-        if(feedback.isWritten()){
-            request.setAttribute(FEEDBACK, feedback);
-            return;
+        if(!password.isEmpty()) {
+            feedback = Validation.checkPassword(password);
+            if (feedback.isWritten()) {
+                request.setAttribute(FEEDBACK, feedback);
+                return;
+            }
         }
         feedback = Validation.passwordsEqual(password,confpassword);
         if(feedback.isWritten()){
@@ -57,14 +60,13 @@ public class ChangeProfileCommand implements ICommand {
         modified.hashPassword();
         User unmodified = (User) session.getAttribute("user");
 
-        ChangeProfileService service = new ChangeProfileService();
         try {
-            service.change(unmodified, modified);
+            ChangeProfileService.change(unmodified, modified);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }
-        setForwardPage(request);
 
+        setForwardPage(request);
     }
 
 }

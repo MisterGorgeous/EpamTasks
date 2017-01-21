@@ -7,8 +7,7 @@ import com.slabadniak.task5.exeption.CommandExeption;
 import com.slabadniak.task5.exeption.ServiceExeption;
 import com.slabadniak.task5.logic.Validation;
 import com.slabadniak.task5.service.CheckUserService;
-import com.slabadniak.task5.service.LogInService;
-import com.slabadniak.task5.content.DataContext;
+import com.slabadniak.task5.service.AuthorizationService;
 import com.slabadniak.task5.content.UserContent;
 
 import javax.servlet.http.HttpServletRequest;
@@ -59,7 +58,7 @@ public class LogInCommand implements ICommand {
         UserContent content;
 
         CheckUserService service1 = new CheckUserService();
-        LogInService service = new LogInService();
+        AuthorizationService service = new AuthorizationService();
 
         try {
 
@@ -76,7 +75,7 @@ public class LogInCommand implements ICommand {
             }
 
 
-            content = service.login(user);
+            content = service.authorization(user);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }

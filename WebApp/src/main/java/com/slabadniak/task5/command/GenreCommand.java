@@ -34,6 +34,7 @@ public class GenreCommand implements ICommand {
     }
 
     private void setAtributes(DataContext content, HttpServletRequest request){
-         request.setAttribute("genres", (List<String>) content.get());
+        HttpSession session = request.getSession();
+         session.setAttribute("genres", (List<String>) content.get());
     }
 }

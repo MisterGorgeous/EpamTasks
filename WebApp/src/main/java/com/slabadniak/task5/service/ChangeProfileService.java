@@ -10,22 +10,37 @@ import com.slabadniak.task5.pool.Wrapper;
 
 public class ChangeProfileService {
 
-    public void change(User unmodified, User modified) throws ServiceExeption {
-
-        if (!iconEqual(unmodified, modified)) {
-            changeIcon(unmodified, modified);
-        }
-
-
+    public static void change(User unmodified, User modified) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
-        UserDAO userDAO = null;
+        UserDAO userDAO;
 
         try {
             Wrapper connection = pool.getConnection();
             userDAO = new UserDAO(connection);
 
-            if (!unmodified.equals(modified)) {
-                userDAO.changeProfile(unmodified, modified);
+            if (!unmodified.getIcon().equals(modified.getIcon()) && !modified.getIcon().isEmpty()) {
+                userDAO.changeIcon(unmodified, modified);
+                unmodified.setIcon(modified.getIcon());
+            }
+
+            if (!unmodified.getLogin().equals(modified.getLogin())) {
+                userDAO.changeLogin(unmodified, modified);
+                unmodified.setLogin(modified.getLogin());
+            }
+
+            if (!unmodified.getEmail().equals(modified.getEmail())) {
+                userDAO.changeEmail(unmodified, modified);
+                unmodified.setEmail(modified.getEmail());
+            }
+
+            if (!modified.getPassword().isEmpty() && !unmodified.getPassword().equals(modified.getPassword()) ) {
+                userDAO.changePassword(unmodified, modified);
+                unmodified.setPassword(modified.getPassword());
+            }
+
+            if (!unmodified.getGender().equals(modified.getGender())) {
+                userDAO.changeGender(unmodified, modified);
+                unmodified.setGender(modified.getGender());
             }
 
             pool.closeConnection(connection);
@@ -37,15 +52,5 @@ public class ChangeProfileService {
 
     }
 
-    private void changeIcon(User unmodified, User modified) {
-        //TO DO
-    }
-
-    private boolean iconEqual(User unmodified, User modified) {
-        if (unmodified.getIcon().equals(modified.getIcon())) {
-            return true;
-        }
-        return false;
-    }
 }
 

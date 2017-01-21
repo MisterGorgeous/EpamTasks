@@ -9,7 +9,7 @@ public class Validation {
     private static final String LOGIN = "[A-Za-z]\\w{4,32}";
     private static final String PASSWORD = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{6,32}$";
     private static final String EMAIL = "^[\\w.!#$%&’*+/=?^_`{|}~-]+@[\\w-]+(?:\\.[\\w-]+)*$";
-    private static final String INCORRECTLOGIN = "Incorrect login.It must contain only alphabetic and numeric symbols.";
+    private static final String INCORRECTLOGIN = "Incorrect authorization.It must contain only alphabetic and numeric symbols.";
     private static final String INCORRECTPASSWORD = "Incorrect password.It must contain at least one upercase and one numeric letter.";
     private static final String INCORRECTEMAIL = "Incorrect email.";
     private static final String EQUALPASSWORDS = "Passwords must be different.";

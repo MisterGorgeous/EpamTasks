@@ -23,21 +23,9 @@
     <div class="container">
         <h1 class="page-header">Edit Profile</h1>
         <div class="row">
-            <form class="navbar-form navbar-right" title="changeuser" action="Controller" method="post">
-                <input type="hidden" name="command" value="changeprofile">
-                <input type="hidden" name="page" value="path.page.main">
 
-                <!-- left column -->
-                <div class="col-md-3 col-sm-5 col-xs-8">
-                    <div class="text-center">
-                        <form id="loadmovieicon" action="/UploadServlet" method="post" enctype="multipart/form-data">
-                            <img src="${sessionScope.user.icon}" class="avatar img-circle img-thumbnail" alt="avatar">
-                            <h6>Upload photo</h6>
-                            <input type="file" name="file" class="text-center center-block well well-sm">
-                            <input type="submit"/>
-                        </form>
-                    </div>
-                </div>
+            <!-- left column -->
+
 
 
                 <!-- edit form column -->
@@ -47,25 +35,40 @@
                         <strong>${sessionScope.user.status}</strong>
                     </div>
                     <h3>Personal info</h3>
-                    <form class="form-horizontal" role="form">
+
+                    <div class="col-md-3 col-sm-5 col-xs-8">
+                        <div class="text-center">
+                            <h6>Upload photo</h6>
+                            <form id="loadusericon" action="/UploadServlet" method="post" enctype="multipart/form-data">
+                                <img src="${sessionScope.user.icon}" class="avatar img-circle img-thumbnail" alt="avatar">
+                                <input type="file" name="file" class="text-center center-block well well-sm">
+                                <input type="submit"/>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <form class="navbar-form navbar-right" title="changeuser" action="Controller" method="post">
+                        <input type="hidden" name="command" value="changeprofile">
+                        <input type="hidden" name="page" value="path.page.user">
 
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">
                             <label class="col-md-3 control-label">Login:</label>
                             <div class="col-md-8">
-                                <input name="login" class="form-control" value="${sessionScope.user.login}" type="text">
+                                <input name="login" class="form-control" pattern="^[A-Za-z]\w{4,32}$" value="${sessionScope.user.login}" type="text">
                             </div>
                         </div>
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">
                             <label class="col-lg-3 control-label">email:</label>
                             <div class="col-lg-8">
-                                <input name="email" class="form-control" value="${sessionScope.user.email}" type="text">
+                                <input name="email" class="form-control" pattern="^[\w.!#$%&’*+/=?^_`{|}~-]+@[\w-]+(?:\.[\w-]+)*$" value="${sessionScope.user.email}" type="text">
                             </div>
                         </div>
 
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">
                             <label class="col-md-3 control-label">Password:</label>
                             <div class="col-md-8">
-                                <input name="password" class="form-control" value="${sessionScope.user.password}"
+                                <input name="password" class="form-control" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,32}$" value=""
                                        type="password">
                             </div>
                         </div>
@@ -73,7 +76,7 @@
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">
                             <label class="col-md-3 control-label">Confirm password:</label>
                             <div class="col-md-8">
-                                <input name="confpassword" class="form-control" value="${sessionScope.user.password}"
+                                <input name="confpassword" class="form-control" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,32}$" value=""
                                        type="password">
                             </div>
                         </div>
@@ -98,9 +101,13 @@
                         </div>
                     </form>
                 </div>
-            </form>
         </div>
 
+        <form title="back" action="Controller" method="post">
+            <input type="hidden" name="command" value="">
+            <input type="hidden" name="page" value="path.page.main">
+            <input class="btn btn-primary" type="submit"  name="button" value="<fmt:message key="back" bundle="${resourceBundle}"/>" />
+        </form>
 
     </div>
 </div>

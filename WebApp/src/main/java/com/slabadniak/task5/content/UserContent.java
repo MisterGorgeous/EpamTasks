@@ -14,11 +14,12 @@ public class UserContent implements DataContext {
     private List<User> users = null;
     private static final int LOGIN = 1;
     private static final int EMAIL = 2;
-    private static final int STATUS = 3;
-    private static final int BANNED = 4;
-    private static final int GENDER = 5;
-    private static final int ICON = 6;
-    private static final int ADMIN = 7;
+    private static final int PASSWORD = 3;
+    private static final int STATUS = 4;
+    private static final int BANNED = 5;
+    private static final int GENDER = 6;
+    private static final int ICON = 7;
+    private static final int ADMIN = 8;
 
     public UserContent(){
         users = new ArrayList<>();
@@ -37,6 +38,7 @@ public class UserContent implements DataContext {
             while (resultSet.next()) {
                 user = new User(resultSet.getString(LOGIN),
                         resultSet.getString(EMAIL),
+                        resultSet.getString(PASSWORD),
                         resultSet.getString(STATUS),
                         resultSet.getBoolean(BANNED),
                         resultSet.getString(GENDER),

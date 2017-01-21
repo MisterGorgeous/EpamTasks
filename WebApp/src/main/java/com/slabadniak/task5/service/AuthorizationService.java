@@ -10,11 +10,11 @@ import com.slabadniak.task5.pool.Wrapper;
 import com.slabadniak.task5.content.UserContent;
 
 
-public class LogInService {
+public class AuthorizationService {
 
-    public UserContent login(User user) throws ServiceExeption {
+    public static UserContent authorization(User user) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
-        DefaultDAO defaultDAO = null;
+        DefaultDAO defaultDAO;
         //boolean logIn = false;
         UserContent content = new UserContent();
 

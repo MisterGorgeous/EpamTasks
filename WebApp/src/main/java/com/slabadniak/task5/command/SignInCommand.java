@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 public class SignInCommand implements ICommand {
    // private static final String DEFAULT_ICON = "/img/photo.png";
     Feedback feedback;
-    private static final String LOGIN = "Such login already exist.";
+    private static final String LOGIN = "Such authorization already exist.";
     private static final String EMAIL = "Such email already exist.";
 
     @Override

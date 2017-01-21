@@ -112,6 +112,12 @@
 
 </div>
 
+<form title="back" action="Controller" method="post">
+    <input type="hidden" name="command" value="">
+    <input type="hidden" name="page" value="path.page.main">
+    <input class="btn btn-primary" type="submit"  name="button" value="<fmt:message key="back" bundle="${resourceBundle}"/>" />
+</form>
+
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

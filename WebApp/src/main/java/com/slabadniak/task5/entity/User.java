@@ -27,9 +27,10 @@ public class User {
         this.password = password;
     }
 
-    public User(String login, String email,String status, boolean banned,String gender,String icon,boolean admin) {
+    public User(String login, String email,String password,String status, boolean banned,String gender,String icon,boolean admin) {
         this.login = login;
         this.email = email;
+        this.password = password;
         this.status = status;
         this.banned = banned;
         this.gender = gender;
@@ -85,6 +86,27 @@ public class User {
         this.banned = banned;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+    public void setLogin(String login) {
+
+        this.login = login;
+    }
+
     public boolean isAdmin() {
         return admin;
     }
@@ -106,11 +128,8 @@ public class User {
         if(this.getClass() != obj.getClass()){return false;}
 
         User user = (User) obj;
-        if(this.login.equals(user.getLogin()) && this.email.equals(user.getEmail()) && this.password.equals(user.getPassword())
-                && this.status.equals(user.getStatus()) && this.gender.equals(user.getGender())){
-            return true;
-        }
-        return false;
+        return this.login.equals(user.getLogin()) && this.email.equals(user.getEmail()) && this.password.equals(user.getPassword())
+                && this.status.equals(user.getStatus()) && this.gender.equals(user.getGender());
     }
 
 }

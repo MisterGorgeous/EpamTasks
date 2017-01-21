@@ -18,11 +18,10 @@ import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.util.List;
 
-
 @WebServlet("/UploadServlet")
 @MultipartConfig
 public class UploadServlet extends HttpServlet {
-
+    private static final String PATH = "S:/git_rep/Epam/WebApp/src/main/webapp/img/";
 
     public void init() throws ServletException {
     }
@@ -49,7 +48,7 @@ public class UploadServlet extends HttpServlet {
             for(FileItem file :files) {
                 if(file.getName() != null) { // retrieve icon's owner
                     fileName = file.getName();
-                    file.write(new File("S:/git_rep/Epam/WebApp/src/main/webapp/img/" + file.getName()));
+                    file.write(new File(PATH + file.getName()));
                 }
             }
         } catch (FileUploadException e) {

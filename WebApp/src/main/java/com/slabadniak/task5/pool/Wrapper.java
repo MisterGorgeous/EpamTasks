@@ -18,6 +18,7 @@ public class Wrapper {
     }
 
     public Connection getConnection(){
+        LOGGER.log(Level.INFO, "Connection taken.");
         return connection;
     }
 
@@ -25,7 +26,7 @@ public class Wrapper {
         if (connection != null) {
             try {
                 connection.close();
-                LOGGER.log(Level.DEBUG, "Connection closed.");
+                LOGGER.log(Level.INFO, "Connection closed.");
 
             } catch (SQLException e) {
                 throw new WrapperException("SQL exception ", e);

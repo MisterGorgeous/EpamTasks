@@ -101,6 +101,11 @@ public enum EnumCommand {
             this.command = new SearchMoviesCommand();
         }
     },
+    WRITEFEEDBACK{
+        {
+            this.command = new WriteFeedbackCommand();
+        }
+    },
     SETMAINCONTENT{
         {
             this.command = new SetMainContentCommand();

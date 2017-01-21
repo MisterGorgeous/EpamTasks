@@ -44,8 +44,7 @@ public class CommentCommand implements ICommand {
 
         //CommandFactory.create("cross").execute(request);
 
-        CommandFactory.create("genre").execute(request);
-        CommandFactory.create("actor").execute(request);
+
         CommandFactory.create("showcomments").execute(request);
         setForwardPage(request);
     }

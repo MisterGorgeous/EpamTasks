@@ -33,9 +33,10 @@
 
         <c:if test="${userStatus == 'GUEST'}">
             <form class="navbar-form navbar-left" title="login" action="Controller" method="post">
-                <input type="hidden" name="command" value="">
-                <input type="hidden" name="page" value="path.page.login">
-                <input type="submit" name="button" class="btn btn-default" value="Rate"/>
+                <input type="hidden" name="command" value="writefeedback">
+                <input type="hidden" name="page" value="path.page.movie">
+                <input type="hidden" name="text" value="To rate this movie your must be logged in.">
+                <input type="submit" name="button" class="btn btn-info" value="Rate"/>
             </form>
         </c:if>
         <c:if test="${userStatus != 'GUEST' }">
@@ -45,14 +46,17 @@
                 <input type="hidden" name="command" value="comment">
                 <input type="hidden" name="page" value="path.page.movie">
 
-                <input id="ex6" type="text" data-slider-min="0" data-slider-max="9.9" data-slider-step="0.1" data-slider-value="5" form="comment" name="rating"/>
+                <input id="ex6" type="text" data-slider-min="0" data-slider-max="9.9" data-slider-step="0.1"
+                       data-slider-value="5" form="comment" name="rating"/>
                 <span id="ex6CurrentSliderValLabel">Rating: <span id="ex6SliderVal">5</span></span>
 
                 <label for="comment">Your comment:</label>
                 <textarea rows="4" cols="35" name="commentText" form="comment"></textarea>
-                <input type="submit" name="button" class="btn btn-default" value="Submit"/>
+                <input type="submit" name="button" class="btn btn-info" value="Rate"/>
             </form>
         </c:if>
+
+
 
     </div>
 
@@ -96,11 +100,11 @@
             <div class="panel-heading">Genre:</div>
             <div class="panel-body">
 
-        <c:forEach var="genre" items="${genres}">
-            <ul>
-                <li>${genre}</li>
-            </ul>
-        </c:forEach>
+                <c:forEach var="genre" items="${genres}">
+                    <ul>
+                        <li>${genre}</li>
+                    </ul>
+                </c:forEach>
 
             </div>
         </div>
@@ -114,32 +118,35 @@
             <div class="panel-heading">Comemnts:</div>
             <div class="panel-body">
 
-            <div class="actionBox">
-                <ul class="commentList">
+                <div class="actionBox">
+                    <ul class="commentList">
 
 
-<c:forEach var="assess" items="${assessments}">
-                    <li>
-                        <div class="commentText">
-                            <p class="text-success">${assess.user}</p>
-                            <p class="text-info">${assess.comment}</p>
-                            <span class="date sub-text" >${assess.date}</span> <%--class="date sub-text"--%>
-                            <span class="text-danger">${assess.rating}</span>
-                        </div>
-                    </li>
-</c:forEach>
+                        <c:forEach var="assess" items="${assessments}">
+                            <li>
+                                <div class="commentText">
+                                    <p class="text-success">${assess.user}</p>
+                                    <p class="text-info">${assess.comment}</p>
+                                    <span class="date sub-text">${assess.date}</span> <%--class="date sub-text"--%>
+                                    <span class="text-danger">${assess.rating}</span>
+                                </div>
+                            </li>
+                        </c:forEach>
 
-                </ul>
+                    </ul>
+                </div>
             </div>
-        </div>
         </div>
 
     </div>
 
+    <form title="back" action="Controller" method="post">
+        <input type="hidden" name="command" value="">
+        <input type="hidden" name="page" value="path.page.main">
+        <input class="btn btn-primary" type="submit"  name="button" value="<fmt:message key="back" bundle="${resourceBundle}"/>" />
+    </form>
+
 </div>
-
-
-
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -149,14 +156,13 @@
 <script src="/js/bootstrap-slider.js"></script>
 
 
-
 <script type="text/javascript">
     $("#ex6").slider();
-    $("#ex6").on("slide", function(slideEvt) {
+    $("#ex6").on("slide", function (slideEvt) {
         $("#ex6SliderVal").text(slideEvt.value);
     });
-</script>
 
+</script>
 
 
 </body>
