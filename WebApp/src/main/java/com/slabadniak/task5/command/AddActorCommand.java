@@ -30,9 +30,9 @@ public class AddActorCommand implements ICommand {
             return;
         }
 
-        AddActorService service = new AddActorService();
+
         try {
-            done = service.add(actors, movie, year);
+            done =  AddActorService.add(actors, movie, year);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }

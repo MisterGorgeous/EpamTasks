@@ -14,11 +14,10 @@ import java.util.List;
 public class UsersCommand implements ICommand {
      @Override
     public void execute(HttpServletRequest request) throws CommandExeption {
-        UsersService service = new UsersService();
         UserContent content;
 
         try {
-            content = service.users();
+            content = UsersService.users();
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }

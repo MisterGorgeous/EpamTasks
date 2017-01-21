@@ -12,7 +12,7 @@ import com.slabadniak.task5.content.ActorContent;
 
 public class ActorService {
 
-    public ActorContent actors(Movie movie) throws ServiceExeption {
+    public static ActorContent actors(Movie movie) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         DefaultDAO defaultDAO = null;
         ActorContent content = new ActorContent();

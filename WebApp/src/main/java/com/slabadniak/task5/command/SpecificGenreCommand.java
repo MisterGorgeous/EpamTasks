@@ -16,13 +16,11 @@ public class SpecificGenreCommand implements ICommand {
 
         String genre = request.getParameter("button");
 
-        SpecificGenreService service = new SpecificGenreService();
-
         MovieContent content;
 
 
         try {
-            content = service.movies(genre);
+            content =  SpecificGenreService.movies(genre);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }

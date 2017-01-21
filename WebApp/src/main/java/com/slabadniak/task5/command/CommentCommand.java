@@ -30,12 +30,8 @@ public class CommentCommand implements ICommand {
         User user = (User) session.getAttribute("user");
         Movie movie = (Movie) session.getAttribute("chosenMovie");
 
-
-        CalculateRatingService service = new CalculateRatingService();
-
-
         try {
-            service.calculate(comment,rating,user,movie);
+            CalculateRatingService.calculate(comment,rating,user,movie);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }

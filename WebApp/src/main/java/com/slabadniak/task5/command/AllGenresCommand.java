@@ -16,9 +16,9 @@ public class AllGenresCommand implements ICommand {
 
         GenreContent content;
 
-        AllGenresService service = new AllGenresService();
+
         try {
-            content = service.genres();
+            content =  AllGenresService.genres();
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }

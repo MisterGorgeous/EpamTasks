@@ -55,25 +55,22 @@ public class SignInCommand implements ICommand {
 
         User user = new User(login,email,password,gender);
         user.hashPassword(); //MD5
-        SignInService service = new SignInService();
-        CheckUserService service1 = new CheckUserService();
-        boolean exist;
 
         try {
 
-            if(service1.isLoginExist(user)) {
+            if(CheckUserService.isLoginExist(user)) {
                 feedback.setMessage(LOGIN);
                 request.setAttribute(FEEDBACK, feedback);
                 return;
             }
 
-            if(service1.isEmailExist(user)) {
+            if(CheckUserService.isEmailExist(user)) {
                 feedback.setMessage(EMAIL);
                 request.setAttribute(FEEDBACK, feedback);
                 return;
             }
 
-             service.signin(user);
+            SignInService.signin(user);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }

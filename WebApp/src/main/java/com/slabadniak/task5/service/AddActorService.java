@@ -15,7 +15,7 @@ import java.util.List;
 public class AddActorService {
 
 
-    public boolean add(List<Actor> actors, String movie, String year) throws ServiceExeption {
+    public static  boolean add(List<Actor> actors, String movie, String year) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         AdminDAO adminDAO = null;
         int movieId;

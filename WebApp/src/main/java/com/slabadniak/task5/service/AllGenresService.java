@@ -11,7 +11,7 @@ import com.slabadniak.task5.content.GenreContent;
 
 public class AllGenresService {
 
-    public GenreContent genres() throws ServiceExeption {
+    public static  GenreContent genres() throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         DefaultDAO defaultDAO = null;
         GenreContent content = new GenreContent();

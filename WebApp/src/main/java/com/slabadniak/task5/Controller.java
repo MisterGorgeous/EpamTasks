@@ -16,7 +16,6 @@ import javax.servlet.http.HttpSession;
 import java.io.*;
 
 @WebServlet("/Controller")
-@MultipartConfig
 public class Controller extends HttpServlet {
 
     public void init() throws ServletException {

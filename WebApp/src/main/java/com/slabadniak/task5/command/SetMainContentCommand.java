@@ -15,10 +15,8 @@ public class SetMainContentCommand implements ICommand {
     public void execute(HttpServletRequest request) throws CommandExeption {
         MovieContent content ;
 
-        MainContentService service = new MainContentService();
-
         try {
-            content = service.movies();
+            content = MainContentService.movies();
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }

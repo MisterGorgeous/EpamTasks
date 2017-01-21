@@ -24,10 +24,8 @@ public class UserBannnedCommand implements ICommand {
         int index =  Integer.parseInt(request.getParameter("userId"));
         User user = users.get(index);
 
-        UserBannedService service = new UserBannedService();
-
         try {
-            service.ban(user);
+            UserBannedService.ban(user);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }

@@ -11,7 +11,7 @@ import com.slabadniak.task5.pool.Wrapper;
 
 public class SignInService {
 
-    public void signin(User user) throws ServiceExeption {
+    public static  void signin(User user) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         DefaultDAO defaultDAO = null;
 

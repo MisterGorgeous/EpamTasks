@@ -11,7 +11,7 @@ import com.slabadniak.task5.content.MovieContent;
 
 public class SearchMoviesService {
 
-    public MovieContent search(String movie) throws ServiceExeption {
+    public static  MovieContent search(String movie) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         DefaultDAO defaultDAO = null;
         MovieContent content = new MovieContent();

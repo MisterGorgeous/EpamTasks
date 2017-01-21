@@ -30,11 +30,8 @@ public class ChangeStatusCommand implements ICommand {
         LOGGER.log(Level.INFO,statusId);
         User user = users.get(index);
 
-        ChangeStatusService service = new ChangeStatusService();
-
-
         try {
-            service.change(user,statusId);
+            ChangeStatusService.change(user,statusId);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }

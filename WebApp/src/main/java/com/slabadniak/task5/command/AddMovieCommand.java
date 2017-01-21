@@ -31,9 +31,8 @@ public class AddMovieCommand implements ICommand {
         Movie movie = new Movie(title, rating, icon, year, counrty, description);
         List<String> movieGenres = genreIds(request);
 
-        AddMovieSevice sevice = new AddMovieSevice();
         try {
-            sevice.add(movie, movieGenres);
+            AddMovieSevice.add(movie, movieGenres);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }

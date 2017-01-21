@@ -20,6 +20,8 @@ public class LogInCommand implements ICommand {
     private Feedback feedback;
     private static final String LOGIN = "Such login doesn't exist.";
     private static final String PASSWORD = "Incorrect password.";
+    private static final String BANNED = "You've been banned.";
+    private static final String EMPTY = "No such user.";
 
     public LogInCommand() {
         this.feedback = new Feedback();
@@ -57,25 +59,22 @@ public class LogInCommand implements ICommand {
         user.hashPassword(); //MD5
         UserContent content;
 
-        CheckUserService service1 = new CheckUserService();
-        AuthorizationService service = new AuthorizationService();
-
         try {
 
-            if (!service1.isLoginExist(user)) {
+            if (!CheckUserService.isLoginExist(user)) {
                 feedback.setMessage(LOGIN);
                 request.setAttribute(FEEDBACK, feedback);
                 return;
             }
 
-            if (!service1.checkPassword(user)) {
+            if (!CheckUserService.checkPassword(user)) {
                 feedback.setMessage(PASSWORD);
                 request.setAttribute(FEEDBACK, feedback);
                 return;
             }
 
 
-            content = service.authorization(user);
+            content = AuthorizationService.authorization(user);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }
@@ -93,7 +92,7 @@ public class LogInCommand implements ICommand {
         List<User> users = content.get();
 
         if(users.isEmpty()){
-            feedback.setMessage("You are banned.");
+            feedback.setMessage(EMPTY);
             request.setAttribute(FEEDBACK, feedback);
         }
 
@@ -108,7 +107,7 @@ public class LogInCommand implements ICommand {
             }
             //LOGGER.log(Level.DEBUG, "Loged in");
         } else {
-            feedback.setMessage("You are banned.");
+            feedback.setMessage(BANNED);
             request.setAttribute(FEEDBACK, feedback);
         }
     }

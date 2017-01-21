@@ -11,7 +11,7 @@ import com.slabadniak.task5.pool.Wrapper;
 
 public class UserBannedService {
 
-    public void ban(User user ) throws ServiceExeption {
+    public static  void ban(User user ) throws ServiceExeption {
 
         //reverse value
         user.setBanned(!user.isBanned());

@@ -10,7 +10,7 @@ import com.slabadniak.task5.content.UserContent;
 
 public class UsersService {
 
-    public UserContent users() throws ServiceExeption {
+    public static  UserContent users() throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         AdminDAO adminDAO = null;
         UserContent content = new UserContent();

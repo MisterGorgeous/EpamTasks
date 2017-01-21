@@ -10,7 +10,7 @@ import com.slabadniak.task5.pool.Wrapper;
 
 public class ChangeStatusService {
 
-    public void change(User user, int statusId) throws ServiceExeption {
+    public static  void change(User user, int statusId) throws ServiceExeption {
 
         //serStatus value
         setStatus(user, statusId);
@@ -32,7 +32,7 @@ public class ChangeStatusService {
 
     }
 
-    void setStatus(User user, int status) {
+   private static void setStatus(User user, int status) {
         switch (status) {
             case 1:
                 user.setStatus("beginer");

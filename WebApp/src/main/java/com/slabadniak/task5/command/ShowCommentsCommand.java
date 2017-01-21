@@ -23,10 +23,8 @@ public class ShowCommentsCommand implements ICommand {
 
         AssessmentContent content;
 
-        ShowCommentService service = new ShowCommentService();
-
         try {
-            content =  service.show(movie);
+            content =   ShowCommentService.show(movie);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }

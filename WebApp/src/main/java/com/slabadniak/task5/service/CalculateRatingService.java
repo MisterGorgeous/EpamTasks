@@ -20,7 +20,7 @@ public class CalculateRatingService {
     private static final int FIRST_APPROXIMATION  = 1;
     private static final int SECOND_APPROXIMATION  = 2;
 
-    public void calculate(String comment, float mark, User user, Movie movie ) throws ServiceExeption {
+    public static  void calculate(String comment, float mark, User user, Movie movie ) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         UserDAO userDAO = null;
         UsersAssessment assessment = null;
@@ -61,7 +61,7 @@ public class CalculateRatingService {
     }
 
 
-    private String calculateStatus(float mark, float usersRate){
+    private static  String calculateStatus(float mark, float usersRate){
         float step = Math.abs(mark - usersRate);
        return  (step < FIRST_APPROXIMATION) ? "expert" : (step < SECOND_APPROXIMATION) ? "fan" : "beginer";
     }

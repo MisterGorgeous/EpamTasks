@@ -40,7 +40,7 @@ public class ConnectionPool {
         property = new Properties();
         try {
             DriverManager.registerDriver(new Driver());
-            LOGGER.debug("Driver set");
+            LOGGER.log(Level.DEBUG, "Driver set");
             ResourceBundle resource = ResourceBundle.getBundle("config");
             String url = resource.getString("url");
             maxPool = Integer.parseInt(resource.getString("pool"));

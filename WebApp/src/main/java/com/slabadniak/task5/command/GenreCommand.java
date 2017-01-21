@@ -21,10 +21,8 @@ public class GenreCommand implements ICommand {
         Movie movie = (Movie) session.getAttribute("chosenMovie");
         GenreContent content;
 
-        GenreService service = new GenreService();
-
         try {
-            content = service.change(movie);
+            content =   GenreService.change(movie);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }

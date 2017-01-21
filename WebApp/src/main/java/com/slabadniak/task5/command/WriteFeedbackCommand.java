@@ -5,7 +5,7 @@ import com.slabadniak.task5.exeption.CommandExeption;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class WriteFeedbackCommand implements ICommand {
+public class  WriteFeedbackCommand implements ICommand {
     @Override
     public void execute(HttpServletRequest request) throws CommandExeption {
         Feedback feedback = new Feedback();
@@ -17,5 +17,4 @@ public class WriteFeedbackCommand implements ICommand {
 
         setForwardPage(request);
     }
-
 }

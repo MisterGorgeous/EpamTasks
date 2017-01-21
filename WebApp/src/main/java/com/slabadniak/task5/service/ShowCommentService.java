@@ -11,7 +11,7 @@ import com.slabadniak.task5.content.AssessmentContent;
 
 public class ShowCommentService {
 
-    public AssessmentContent show(Movie movie) throws ServiceExeption {
+    public static  AssessmentContent show(Movie movie) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         DefaultDAO defaultDAO = null;
         AssessmentContent content = new AssessmentContent();

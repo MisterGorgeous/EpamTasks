@@ -11,7 +11,7 @@ import com.slabadniak.task5.content.MovieContent;
 
 public class SpecificGenreService {
 
-    public MovieContent movies(String genre) throws ServiceExeption {
+    public static  MovieContent movies(String genre) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         DefaultDAO defaultDAO = null;
         MovieContent content = new MovieContent();

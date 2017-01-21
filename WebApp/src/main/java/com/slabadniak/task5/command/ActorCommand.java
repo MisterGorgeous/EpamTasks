@@ -19,11 +19,10 @@ public class ActorCommand implements ICommand {
 
         HttpSession session = request.getSession();
         Movie movie = (Movie) session.getAttribute("chosenMovie");
-        ActorService service = new ActorService();
         ActorContent content;
 
         try {
-            content = service.actors(movie);
+            content =  ActorService.actors(movie);
         } catch (ServiceExeption e) {
           throw new CommandExeption("Service:",e);
         }

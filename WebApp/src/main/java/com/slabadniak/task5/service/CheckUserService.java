@@ -12,7 +12,7 @@ import com.slabadniak.task5.pool.Wrapper;
 
 public class CheckUserService {
 
-    public boolean isLoginExist(User user) throws ServiceExeption {
+    public static  boolean isLoginExist(User user) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         DefaultDAO defaultDAO = null;
         boolean loginExist;
@@ -31,7 +31,7 @@ public class CheckUserService {
         return loginExist;
     }
 
-    public boolean isEmailExist(User user) throws ServiceExeption {
+    public static  boolean isEmailExist(User user) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         DefaultDAO defaultDAO = null;
         boolean emailExist;
@@ -51,7 +51,7 @@ public class CheckUserService {
 
     }
 
-    public boolean checkPassword(User user) throws ServiceExeption {
+    public static  boolean checkPassword(User user) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         DefaultDAO defaultDAO = null;
         boolean passwordCorrect;

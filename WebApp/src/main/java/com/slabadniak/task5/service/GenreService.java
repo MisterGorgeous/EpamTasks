@@ -12,7 +12,7 @@ import com.slabadniak.task5.content.GenreContent;
 
 public class GenreService {
 
-    public GenreContent change(Movie movie) throws ServiceExeption {
+    public static  GenreContent change(Movie movie) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         DefaultDAO defaultDAO = null;
         GenreContent content = new GenreContent();

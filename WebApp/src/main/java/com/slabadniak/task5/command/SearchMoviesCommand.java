@@ -19,10 +19,9 @@ public class SearchMoviesCommand implements ICommand {
         String movie = request.getParameter("searchMovie");
 
         MovieContent content;
-        SearchMoviesService service = new SearchMoviesService();
 
         try {
-            content = service.search(movie);
+            content = SearchMoviesService.search(movie);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }

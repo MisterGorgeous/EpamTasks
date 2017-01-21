@@ -12,7 +12,7 @@ import java.util.List;
 
 public class AddMovieSevice {
 
-    public void add(Movie movie, List<String> movieGenres) throws ServiceExeption {
+    public static  void add(Movie movie, List<String> movieGenres) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         AdminDAO adminDAO = null;
 
