@@ -48,7 +48,7 @@
                     <input type="hidden" name="page" value="path.page.movie">
                     <input class="btn btn-default invisible" type="submit" name="button" value="user"/>
                         <%--<img src="${movies.get(0).getIcon()}" alt="..." >--%>
-                    <img width="400" height="600" class="thumbnail " src="${sessionScope.movies.get(i).icon}" alt="..."
+                    <img width="400" height="600" class="thumbnail " src="${sessionScope.movies.get(i).icon}" alt="${sessionScope.movies.get(i).title}"
                          onclick="$(this).closest('form').submit();">
                 </form>
             </div>
