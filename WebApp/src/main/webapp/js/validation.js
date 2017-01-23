@@ -14,8 +14,11 @@ function checkPasswords() {
 
 
 
+    setTimeout("$('#modalInfo').hide();", 3000);
 
 
 
-
+$(".subForm").click(function(){
+    $(this).closest('form').submit();
+});
 

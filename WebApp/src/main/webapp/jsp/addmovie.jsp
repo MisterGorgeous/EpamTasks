@@ -30,7 +30,7 @@
                             <div class="panel-heading">Icon:</div>
                             <div class="panel-body">
                                 <input id="movieIcon" type="file" name="file" />
-                                <input  type="submit" />
+                                <input  type="submit" hidden />
                             </div>
                         </div>
                     </div>
@@ -49,6 +49,7 @@
                                 <input type="text" id="title" name="title" placeholder="" class="input-xlarge">
                             </div>
                         </div>
+                        <div class="col-xs-12" style="height:20px;"></div>
                         <div class="control-group">
                             <label class="control-label" for="description">Description:</label>
                             <div class="controls">
@@ -84,7 +85,7 @@
                         </div>
 
 
-                        <input id="subMovie" class="btn btn-danger btn-lg" type="submit" name="button" value="Add"/>
+                        <input id="subMovie" class="btn btn-danger btn-lg" type="submit" name="button" value="Add Movie"/>
 
                     </div>
 
@@ -123,6 +124,7 @@
     <input class="btn btn-primary" type="submit"  name="button" value="<fmt:message key="back" bundle="${resourceBundle}"/>" />
 </form>
 
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
     <script src="/js/jquery-3.1.1.min.js"></script>
@@ -132,6 +134,8 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap-slider.js"></script>
     <script type="text/javascript">
+
+
         $("#ex6").slider();
         $("#ex6").on("slide", function (slideEvt) {
             $("#ex6SliderVal").text(slideEvt.value);

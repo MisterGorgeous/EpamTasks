@@ -21,7 +21,8 @@
 
 <%@ include file="/jsp/header.jsp" %>
 
-<div class="btn-group">
+
+<div class="btn-group col-lg-offset-1" role="group">
     <form action="Controller" method="post">
         <input type="hidden" name="command" value="specificgenre">
         <input type="hidden" name="page" value="path.page.main">
@@ -41,15 +42,14 @@
 
     <c:forEach var="i" begin="${sessionScope.currentMoviePage * 6}" end="${sessionScope.currentMoviePage * 6 + 5}">
         <c:if test="${i < sessionScope.movieSize}">
-            <div class="col-xs-8 col-md-4 col-lg-4 ">
+            <div class="thumbnail col-xs-8 col-md-4 col-lg-4 ">
                 <form action="Controller" method="post">
                     <input type="hidden" name="command" value="movie">
                     <input type="hidden" name="index" value="${i}">
                     <input type="hidden" name="page" value="path.page.movie">
                     <input class="btn btn-default invisible" type="submit" name="button" value="user"/>
-                        <%--<img src="${movies.get(0).getIcon()}" alt="..." >--%>
-                    <img width="400" height="600" class="thumbnail " src="${sessionScope.movies.get(i).icon}" alt="${sessionScope.movies.get(i).title}"
-                         onclick="$(this).closest('form').submit();">
+                    <img width="400" height="600" src="${sessionScope.movies.get(i).icon}" alt=""
+                         class="subForm">
                 </form>
             </div>
         </c:if>
@@ -57,9 +57,9 @@
 </div>
 
 
-<div class="row center-block">
+<div class="row">
 
-    <div class="col-xs-6 col-md-6 col-lg-6">
+    <div class="col-xs-6 col-md-1 col-lg-1 col-md-offset-5 col-lg-offset-5">
 
         <form title="previous" action="Controller" method="post">
             <input type="hidden" name="command" value="pagination">
@@ -72,7 +72,7 @@
 
     </div>
 
-    <div class="col-xs-6 col-md-6 col-lg-6">
+    <div class="col-xs-6 col-md-1 col-lg-1">
 
         <form title="next" action="Controller" method="post">
             <input type="hidden" name="command" value="pagination">
@@ -84,24 +84,23 @@
         </form>
     </div>
 
-    <%-- <form title="back" action="/jsp/main.jsp" method="post">
-         <input type="hidden" name="command" value="cross">
-         <input type="hidden" name="page" value="path.page.main">
-         <input type="button"   name="button" value="<fmt:message key="back" bundle="${resourceBundle}"/>"  />
-     </form>
-     ${sessionScope.currentMoviePage = sessionScope.currentMoviePage - 1}   --%>
-
-
 </div>
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/js/jquery-3.1.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
+<script src="/js/validation.js"></script>
 
+<script type="text/javascript">
 
+    $(".subForm").click(function(){
+        $(this).closest('form').submit();
+    });
+
+</script>
 </body>
 
 </html>

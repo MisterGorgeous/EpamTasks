@@ -41,9 +41,9 @@ public class Controller extends HttpServlet {
             session.setAttribute("userStatus", UserType.GUEST);
         }*/
 
-       /* session.setAttribute("userStatus", UserType.ADMINISTRATOR);
-        session.setAttribute("user",new User("slabadniaksergei","ser","expert",false,"male","icon",true));
-*/
+       session.setAttribute("userStatus", UserType.ADMINISTRATOR);
+        session.setAttribute("user",new User("slabadniaksergei","dsdsdsd","ser","expert",false,"male","icon",true));
+
 
         String command = request.getParameter("command");
 

@@ -72,7 +72,7 @@
                                     <input type="hidden" name="page" value="path.page.admin">
                                     <input class="btn btn-default invisible" type="submit" name="button" value="user"/>
                                     <button onclick="$(this).closest('form').submit();" type="button"
-                                            class="${sessionScope.users.get(i).banned ?'btn btn-danger': 'btn btn-success'}">Banned
+                                            class="subForm ${sessionScope.users.get(i).banned ?'btn btn-danger': 'btn btn-success'}">Banned
                                     </button>
                                 </form>
                             </td>

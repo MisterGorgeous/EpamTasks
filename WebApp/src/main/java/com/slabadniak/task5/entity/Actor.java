@@ -46,4 +46,8 @@ public class Actor {
     public String getBirthplace() {
         return birthplace;
     }
+
+    public String getProfession() {
+        return profession;
+    }
 }

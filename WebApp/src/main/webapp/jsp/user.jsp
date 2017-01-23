@@ -24,11 +24,6 @@
         <h1 class="page-header">Edit Profile</h1>
         <div class="row">
 
-            <!-- left column -->
-
-
-
-                <!-- edit form column -->
                 <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
                     <div class="alert alert-info text-center">
                         <i class="fa fa-coffee"></i>

@@ -21,12 +21,12 @@
 
 <%@ include file="/jsp/header.jsp" %>
 
+<h1 class="page-header col-md-offset-3 col-lg-offset-3">
+   ${chosenMovie.getTitle()} <span class="label label-danger col-lg-offset-3">   ${chosenMovie.getRating()}</span>
+</h1>
 
 <div class="row">
     <div class="col-xs-6 col-md-3">
-        <div>
-            <h3><span class="label label-info">${chosenMovie.getTitle()}</span></h3>
-        </div>
         <div>
             <img src="${chosenMovie.getIcon()}" alt="..." width="300" height="600">
         </div>
@@ -46,6 +46,7 @@
                 <input type="hidden" name="command" value="comment">
                 <input type="hidden" name="page" value="path.page.movie">
 
+                <label for="comment">Your mark:</label>
                 <input id="ex6" type="text" data-slider-min="0" data-slider-max="9.9" data-slider-step="0.1"
                        data-slider-value="5" form="comment" name="rating"/>
                 <span id="ex6CurrentSliderValLabel">Rating: <span id="ex6SliderVal">5</span></span>
@@ -89,7 +90,7 @@
 
                 <c:forEach var="actor" items="${actors}">
                     <ul>
-                        <li>${actor.firstName} ${actor.seccondName}</li>
+                        <li>${actor.firstName} ${actor.seccondName} as  <span class="text-success sub-text">${actor.role}</span> </li>
                     </ul>
                 </c:forEach>
 
@@ -109,9 +110,6 @@
             </div>
         </div>
 
-        <div>
-            <h3><span class="label label-danger">${chosenMovie.getRating()}</span></h3>
-        </div>
 
 
         <div class="panel panel-primary">
@@ -140,14 +138,14 @@
 
     </div>
 
-    <form title="back" action="Controller" method="post">
-        <input type="hidden" name="command" value="">
-        <input type="hidden" name="page" value="path.page.main">
-        <input class="btn btn-primary" type="submit"  name="button" value="<fmt:message key="back" bundle="${resourceBundle}"/>" />
-    </form>
 
 </div>
 
+<form title="back" action="Controller" method="post">
+    <input type="hidden" name="command" value="">
+    <input type="hidden" name="page" value="path.page.main">
+    <input class="btn btn-primary" type="submit"  name="button" value="<fmt:message key="back" bundle="${resourceBundle}"/>" />
+</form>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/js/jquery-3.1.1.min.js"></script>
@@ -166,5 +164,4 @@
 
 
 </body>
-
 </html>
