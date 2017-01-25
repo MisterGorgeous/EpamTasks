@@ -175,7 +175,7 @@
             </c:if>
 
 
-            <script src="/js/validation.js"></script>
+            <script src="/js/custom.js"></script>
 
         </div>
     </nav>

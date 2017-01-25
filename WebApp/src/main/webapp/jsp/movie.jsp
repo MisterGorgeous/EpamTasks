@@ -124,7 +124,7 @@
                             <li>
                                 <div class="commentText">
                                     <p class="text-success">${assess.user}</p>
-                                    <p class="text-info">${assess.comment}</p>
+                                    <h4><p class="text-info">${assess.comment}</p></h4>
                                     <span class="date sub-text">${assess.date}</span> <%--class="date sub-text"--%>
                                     <span class="text-danger">${assess.rating}</span>
                                 </div>
@@ -152,14 +152,13 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/bootstrap-slider.js"></script>
-
+<script src="/js/custom.js"></script>
 
 <script type="text/javascript">
     $("#ex6").slider();
     $("#ex6").on("slide", function (slideEvt) {
         $("#ex6SliderVal").text(slideEvt.value);
     });
-
 </script>
 
 

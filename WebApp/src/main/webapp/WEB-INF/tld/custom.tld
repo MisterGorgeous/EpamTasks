@@ -6,8 +6,8 @@
         version="2.0">
 
     <tlib-version>1.0</tlib-version>
-    <short-name>myshortname</short-name>
-    <uri>mycompany</uri>
+    <short-name>slider</short-name>
+    <uri>custTag</uri>
 
     <tag>
         <name>custom-slider</name>
@@ -19,5 +19,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+
+
 
 </taglib>

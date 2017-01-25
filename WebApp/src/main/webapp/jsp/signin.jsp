@@ -28,33 +28,33 @@
 
         <div class="form-group">
             <label class="col-md-3 control-label">Login:</label>
-            <div class="col-md-8">
+            <div class="col-md-5">
                 <input class="form-control" name="login" type="text"  pattern="^[A-Za-z]\w{4,32}$" required>
             </div>
         </div>
         <div class="form-group">
             <label class="col-lg-3 control-label">email:</label>
-            <div class="col-lg-8">
+            <div class="col-lg-5">
                 <input class="form-control"  type="text" name="email" pattern="^[\w.!#$%&’*+/=?^_`{|}~-]+@[\w-]+(?:\.[\w-]+)*$" required>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-3 control-label">Password:</label>
-            <div class="col-md-8">
+            <div class="col-md-5">
                 <input id="password" class="form-control" name="password" type="password"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,32}$" required>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-3 control-label">Confirm password:</label>
-            <div class="col-md-8">
+            <div class="col-md-5">
                 <input id="confPassword" class="form-control" name="confpassword" type="password"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,32}$" required>
             </div>
         </div>
         <div class="form-group">
             <label class=" col-md-3 control-label">Gender</label>
-            <div class="col-md-8">
+            <div class="col-md-5">
                 <select name="gender" class="form-control input-xlarge" required>
                     <option>Male</option>
                     <option>Female</option>
@@ -75,12 +75,12 @@
         </div>
         --%>
 
-
+        <div class="space"></div>
 
         <div class="form-group">
-            <label class="col-md-3 control-label"></label>
-            <div class="col-md-8">
-                <input class="btn btn-primary" value="Save" type="submit">
+            <label class="col-md-5 control-label"></label>
+            <div class="col-md-5">
+                <input class="btn btn-info" value="Sign in" type="submit">
             </div>
         </div>
     </form>
@@ -98,6 +98,6 @@
 <script src="/js/jquery-3.1.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
-<script src="/js/validation.js"></script>
+<script src="/js/custom.js"></script>
 </body>
 </html>

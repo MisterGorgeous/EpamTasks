@@ -5,6 +5,8 @@
 <fmt:setLocale value="${local}"/>
 <fmt:setBundle basename="def" var="resourceBundle"/>
 
+
+
 <html>
 <head>
     <!--InternetExplorer link  -->
@@ -20,85 +22,85 @@
 <%@ include file="/jsp/header.jsp" %>
 
 
-    <div class="container">
-        <h1 class="page-header">Add Actor:</h1>
+<div class="container">
+    <h1 class="page-header">Add Actors:</h1>
 
-        <form title="addactor" action="Controller" method="post">
-            <input type="hidden" name="command" value="addactor">
-            <input type="hidden" name="page" value="path.page.admin">
+    <form title="addactor" action="Controller" method="post">
+        <input type="hidden" name="command" value="addactor">
+        <input type="hidden" name="page" value="path.page.main">
 
-            <label class="control-label">Movie:</label>
-            <input type="text" name="movie" placeholder="" class="input col-lg-6 col-xs-6 col-sm-6 col-md-6">
+        <div class="form-group col-md-8 col-sm-6 col-xs-12">
+            <label class="col-md-3 control-label">Movie:</label>
+            <div class="col-md-8">
+                <input type="text" name="movie" placeholder="" class="col-lg-6 col-xs-6 col-sm-6 col-md-6">
+            </div>
+        </div>
+        <div class="space"></div>
+        <div class="form-group col-md-8 col-sm-6 col-xs-12">
+            <label class="col-md-3 control-label">Year:</label>
+            <div class="col-md-8">
+                <select class="span2 col-lg-6 col-xs-6 col-sm-6 col-md-6" name="year">
+                    <c:forEach var="i" begin="1970" end="2017">
+                        <option>${i}</option>
+                    </c:forEach>
+                </select>
+            </div>
+        </div>
+        <div class="space"></div>
 
-            <label class="control-label" for="addactor">Year:</label>
-            <select class="span2 col-lg-6 col-xs-6 col-sm-6 col-md-6" name="year">
-                <c:forEach var="i" begin="1970" end="2017">
-                    <option>${i}</option>
-                </c:forEach>
-            </select>
+        <input class="btn btn-info btn-lg" type="submit" name="button2" value="Save"/>
 
-            <input  class="btn btn-danger btn-lg col-lg-6 col-xs-6 col-sm-6 col-md-6" type="submit" name="button2" value="Save"/>
+        <div class="space"></div>
 
+        <div class="col-lg-10 col-xs-12 col-sm-12 col-md-10 pagination-centered">
+            <div class="panel panel-primary">
+                <div class="panel-heading text-center">
+                    <button id="addactor" type="button" class="btn btn-primary">Add</button>
+                    <button id="deleteactor" type="button" class="btn btn-primary">Delete</button>
+                </div>
+                <div id="actorlist" class="col-lg-12 col-xs-12 col-sm-12 col-md-12 panel-body row">
+                    <div class="row">
 
-            <div class="col-lg-10 col-xs-12 col-sm-12 col-md-10 pagination-centered">
-                <div class="panel panel-primary">
-                    <div class="panel-heading text-center">
-                        <button id="addactor" type="button" class="btn btn-primary">Add</button>
-                        <button id="deleteactor" type="button" class="btn btn-primary">Delete</button>
-                    </div>
-                    <div id="actorlist" class="col-lg-12 col-xs-12 col-sm-12 col-md-12 panel-body row">
-                        <div class="row">
-
-                            <div class="actor col-md-4 col-lg-4 well" name="actor">
+                        <%--   <div class="actor col-md-4 col-lg-4 well" name="actor">
                                 <label class="control-label">First name:</label>
                                 <input type="text" name="fname" placeholder="" class="input">
                                 <label class="control-label">Seccond name:</label>
                                 <input type="text" name="sname" placeholder="" class="input">
                                 <label class="control-label">Role:</label>
                                 <input type="text" name="role" placeholder="" class="input">
+                                <label class="control-label">Profession:</label>
+                               <input type="text" name="profession" placeholder="" class="input">
                                 <label class="control-label">Birthday:</label>
                                 <input type="date" name="birthday" value="2017-01-01" max="2017-01-01" min="1945-01-01">
                                 <label class="control-label">Birth Place:</label>
-                                <input type="text" name="birthplace" placeholder="" class="input"></div>';
+                                <input type="text" name="birthplace" placeholder="" class="input">
+                            </div>';  --%>
 
 
-                        </div>
                     </div>
                 </div>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
 
 <form title="back" action="Controller" method="post">
     <input type="hidden" name="command" value="">
     <input type="hidden" name="page" value="path.page.main">
-    <input class="btn btn-primary" type="submit"  name="button" value="<fmt:message key="back" bundle="${resourceBundle}"/>" />
+    <input class="btn btn-primary" type="submit" name="button"
+           value="<fmt:message key="back" bundle="${resourceBundle}"/>"/>
 </form>
 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
-    <script src="/js/jquery-3.1.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/js/jquery-3.1.1.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
 
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/bootstrap-slider.js"></script>
-    <script type="text/javascript">
-        var addB = document.getElementById('addactor');
-        addB.addEventListener("click", addtag);
-        var delB = document.getElementById('deleteactor');
-        delB.addEventListener("click", deltag);
-        var list = document.getElementById('actorlist');
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap-slider.js"></script>
+<script src="/js/custom.js"></script>
 
-        function addtag() {
-            //  var tag = '<div class="actor col-md-4 col-lg-4 well" name="actor"> <label class="control-label">First name:</label> <input type="text" name="fname" placeholder="" class="input"> <label class="control-label">Seccond name:</label> <input type="text" name="sname" placeholder="" class="input"> <label class="control-label">Role:</label> <input type="text" name="role" placeholder="" class="input"> </div>';
-            var tag = '<div class="actor col-md-4 col-lg-4 well" name="actor"> <label class="control-label">First name:</label> <input type="text" name="fname" placeholder="" class="input"> <label class="control-label">Seccond name:</label> <input type="text" name="sname" placeholder="" class="input"> <label class="control-label">Role:</label> <input type="text" name="role" placeholder="" class="input"> <label class="control-label">Birthday:</label><input type="date" name="birthday" value="2017-01-01" max="2017-01-01" min="1945-01-01"> <label class="control-label">Birth Place:</label> <input type="text" name="birthplace" placeholder="" class="input"></div>';
-            $(list).append(tag);
-        }
-        function deltag() {
-            $(list).empty();
-        }
-    </script>
 
 </body>
 </html>

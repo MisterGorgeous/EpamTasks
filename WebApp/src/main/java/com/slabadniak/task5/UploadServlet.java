@@ -51,10 +51,8 @@ public class UploadServlet extends HttpServlet {
                     file.write(new File(PATH + file.getName()));
                 }
             }
-        } catch (FileUploadException e) {
-            e.printStackTrace();
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new ServletException("Command exception ", e);
         }
 
         request.setAttribute("filename",fileName);

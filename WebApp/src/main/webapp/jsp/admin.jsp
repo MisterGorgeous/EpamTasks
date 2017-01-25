@@ -5,7 +5,7 @@
 <fmt:setLocale value="${local}"/>
 <fmt:setBundle basename="def" var="resourceBundle"/>
 
-<%@ taglib prefix="myshortname" uri="mycompany" %>
+<%@ taglib prefix="slider" uri="custTag" %>
 
 <html>
 <head>
@@ -59,7 +59,7 @@
                                     <input type="hidden" name="userId" value="${i}">
                                     <input type="hidden" name="page" value="path.page.admin">
 
-                                    <myshortname:custom-slider index="${i}"  />
+                                    <slider:custom-slider index="${i}"  />
 
                                     <input class="btn btn-default invisible" type="submit" name="button" value="user"/>
                                 </form>
@@ -71,7 +71,7 @@
                                     <input type="hidden" name="userId" value="${i}">
                                     <input type="hidden" name="page" value="path.page.admin">
                                     <input class="btn btn-default invisible" type="submit" name="button" value="user"/>
-                                    <button onclick="$(this).closest('form').submit();" type="button"
+                                    <button type="button"
                                             class="subForm ${sessionScope.users.get(i).banned ?'btn btn-danger': 'btn btn-success'}">Banned
                                     </button>
                                 </form>
@@ -126,15 +126,8 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/bootstrap-slider.js"></script>
+<script src="/js/custom.js"></script>
 
-
-<script type="text/javascript">
-
-    $(".subForm").change(function(){
-        $(this).closest('form').submit();
-    });
-
-</script>
 
 </body>
 </html>

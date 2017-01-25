@@ -92,13 +92,10 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/js/bootstrap.min.js"></script>
 
-<script src="/js/validation.js"></script>
+<script src="/js/custom.js"></script>
 
 <script type="text/javascript">
 
-    $(".subForm").click(function(){
-        $(this).closest('form').submit();
-    });
 
 </script>
 </body>

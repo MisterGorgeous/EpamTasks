@@ -24,12 +24,12 @@
             <h1 class="page-header">Edit Movie</h1>
             <div class="row">
 
-                <form id="loadmovieicon" action="/UploadServlet" method="post" enctype="multipart/form-data">
+                <form action="/UploadServlet" method="post" enctype="multipart/form-data">
                     <div class="control-group">
                         <div class="panel panel-primary control-label">
                             <div class="panel-heading">Icon:</div>
                             <div class="panel-body">
-                                <input id="movieIcon" type="file" name="file" />
+                                <input class="subForm" type="file" name="file"  />
                                 <input  type="submit" hidden />
                             </div>
                         </div>
@@ -39,7 +39,7 @@
 
                 <form id="addmovie" title="addmovie" action="Controller" method="post">
                     <input type="hidden" name="command" value="addmovie">
-                    <input type="hidden" name="page" value="path.page.admin">
+                    <input type="hidden" name="page" value="path.page.main">
 
                     <div class="col-lg-6 col-xs-12 col-md-4">
 
@@ -49,7 +49,7 @@
                                 <input type="text" id="title" name="title" placeholder="" class="input-xlarge">
                             </div>
                         </div>
-                        <div class="col-xs-12" style="height:20px;"></div>
+                        <div class="space"></div>
                         <div class="control-group">
                             <label class="control-label" for="description">Description:</label>
                             <div class="controls">
@@ -57,13 +57,14 @@
                                           class="input-xlarge" rows="5"></textarea>
                             </div>
                         </div>
+                        <div class="space"></div>
                         <div class="control-group">
-                            <label class="control-label" for="country">country:</label>
+                            <label class="control-label" for="country">Country:</label>
                             <div class="controls">
                                 <input type="text" id="country" name="country" placeholder="" class="input-xlarge">
                             </div>
                         </div>
-
+                        <div class="space"></div>
                         <div class="control-group">
                             <label class="control-label" for="movieYear">Year:</label>
                             <div class="controls">
@@ -74,16 +75,16 @@
                                 </select>
                             </div>
                         </div>
-
+                        <div class="space"></div>
                         <div class="control-group">
-                            <label class="control-label">rating:</label>
+                            <label class="control-label">Rating:</label>
                             <div class="controls">
                                 <input id="ex6" type="text" data-slider-min="0" data-slider-max="9.9"
                                        data-slider-step="0.1" data-slider-value="5" form="addmovie" name="rating"/>
-                                <span id="ex6CurrentSliderValLabel">Rating: <span id="ex6SliderVal">5</span></span>
+                                <span id="ex6CurrentSliderValLabel">Rating:<span id="ex6SliderVal" class="label-danger">3</span></span>
                             </div>
                         </div>
-
+                        <div class="space"></div>
 
                         <input id="subMovie" class="btn btn-danger btn-lg" type="submit" name="button" value="Add Movie"/>
 
@@ -106,13 +107,6 @@
                         </div>
                     </div>
                 </form>
-
-                <form title="back" action="Controller" method="post">
-                    <input type="hidden" name="command" value="">
-                    <input type="hidden" name="page" value="path.page.main">
-                    <input class="btn btn-primary" type="submit"  name="button" value="<fmt:message key="back" bundle="${resourceBundle}"/>" />
-                </form>
-
             </div>
 
         </div>
@@ -133,16 +127,15 @@
 
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap-slider.js"></script>
+<script src="/js/custom.js"></script>
+
     <script type="text/javascript">
 
-
         $("#ex6").slider();
-        $("#ex6").on("slide", function (slideEvt) {
+        $("#ex6").on("slide", function(slideEvt) {
             $("#ex6SliderVal").text(slideEvt.value);
         });
-        $('#movieIcon').change(function() {
-            $('#loadmovieicon').submit();
-        });
+
 
     </script>
 

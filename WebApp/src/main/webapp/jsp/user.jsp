@@ -20,30 +20,20 @@
 <%@ include file="/jsp/header.jsp" %>
 
 <div class="container">
-    <div class="container">
+
         <h1 class="page-header">Edit Profile</h1>
+
         <div class="row">
 
-                <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+                <div class=" col-lg-12 col-md-12 col-sm-6 col-xs-12 ">
                     <div class="alert alert-info text-center">
                         <i class="fa fa-coffee"></i>
                         <strong>${sessionScope.user.status}</strong>
                     </div>
-                    <h3>Personal info</h3>
-
-                    <div class="col-md-3 col-sm-5 col-xs-8">
-                        <div class="text-center">
-                            <h6>Upload photo</h6>
-                            <form id="loadusericon" action="/UploadServlet" method="post" enctype="multipart/form-data">
-                                <img src="${sessionScope.user.icon}" class="avatar img-circle img-thumbnail" alt="avatar">
-                                <input type="file" name="file" class="text-center center-block well well-sm">
-                                <input type="submit"/>
-                            </form>
-                        </div>
-                    </div>
+                </div>
 
 
-                    <form class="navbar-form navbar-right" title="changeuser" action="Controller" method="post">
+                    <form class="col-lg-6 col-md-6 col-sm-12 col-xs-12" title="changeuser" action="Controller" method="post">
                         <input type="hidden" name="command" value="changeprofile">
                         <input type="hidden" name="page" value="path.page.user">
 
@@ -53,13 +43,14 @@
                                 <input name="login" class="form-control" pattern="^[A-Za-z]\w{4,32}$" value="${sessionScope.user.login}" type="text">
                             </div>
                         </div>
+                        <div class="space"></div>
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">
                             <label class="col-lg-3 control-label">email:</label>
                             <div class="col-lg-8">
                                 <input name="email" class="form-control" pattern="^[\w.!#$%&’*+/=?^_`{|}~-]+@[\w-]+(?:\.[\w-]+)*$" value="${sessionScope.user.email}" type="text">
                             </div>
                         </div>
-
+                        <div class="space"></div>
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">
                             <label class="col-md-3 control-label">Password:</label>
                             <div class="col-md-8">
@@ -67,7 +58,7 @@
                                        type="password">
                             </div>
                         </div>
-
+                        <div class="space"></div>
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">
                             <label class="col-md-3 control-label">Confirm password:</label>
                             <div class="col-md-8">
@@ -75,6 +66,7 @@
                                        type="password">
                             </div>
                         </div>
+                        <div class="space"></div>
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">
                             <label class=" col-md-3 control-label">Gender</label>
                             <div class="col-md-8">
@@ -86,31 +78,41 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="space"></div>
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">
                             <label class="col-md-3 control-label"></label>
                             <div class="col-md-8">
                                 <input class="btn btn-primary" type="submit" title="button"
                                 <%-- value="<fmt:message key="header.logoff" bundle="${resourceBundle}"/>"/>--%>
-                                       value="Save">
+                                       value="Save Changes">
                             </div>
                         </div>
                     </form>
-                </div>
+
+                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                        <div class="text-center">
+                            <h6>Upload photo</h6>
+                            <img src="${sessionScope.user.icon}" class="avatar img-circle img-thumbnail" alt="avatar">
+                            <form  action="/UploadServlet" method="post" enctype="multipart/form-data">
+                                <input class="addIcon" type="file" name="file"  >
+                                <input  type="submit" hidden />
+                            </form>
+                        </div>
+                    </div>
         </div>
 
         <form title="back" action="Controller" method="post">
             <input type="hidden" name="command" value="">
             <input type="hidden" name="page" value="path.page.main">
-            <input class="btn btn-primary" type="submit"  name="button" value="<fmt:message key="back" bundle="${resourceBundle}"/>" />
+            <input class="btn btn-info" type="submit"  name="button" value="<fmt:message key="back" bundle="${resourceBundle}"/>" />
         </form>
 
-    </div>
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/js/jquery-3.1.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
-
+<script src="/js/custom.js"></script>
 </body>
 </html>
