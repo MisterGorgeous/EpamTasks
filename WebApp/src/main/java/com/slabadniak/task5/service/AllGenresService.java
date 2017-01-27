@@ -24,7 +24,7 @@ public class AllGenresService {
             //add genres to request atr
 
 
-            pool.closeConnection(connection);
+            pool.releaseConnection(connection);
         } catch (PoolException e) {
             throw new ServiceExeption("Pool exception", e);
         } catch (DAOException e) {

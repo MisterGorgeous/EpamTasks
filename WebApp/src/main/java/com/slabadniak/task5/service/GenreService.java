@@ -23,7 +23,7 @@ public class GenreService {
             defaultDAO = new DefaultDAO(connection);
             content.insert(defaultDAO.genres(movie.getTitle()));
 
-            pool.closeConnection(connection);
+            pool.releaseConnection(connection);
         } catch (PoolException e) {
             throw new ServiceExeption("Pool exception", e);
         } catch (DAOException e) {

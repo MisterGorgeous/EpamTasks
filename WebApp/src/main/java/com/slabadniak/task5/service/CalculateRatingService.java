@@ -1,7 +1,6 @@
 package com.slabadniak.task5.service;
 
 import com.slabadniak.task5.dao.UserDAO;
-import com.slabadniak.task5.entity.Feedback;
 import com.slabadniak.task5.entity.Movie;
 import com.slabadniak.task5.entity.User;
 import com.slabadniak.task5.entity.UsersAssessment;
@@ -10,10 +9,6 @@ import com.slabadniak.task5.exeption.PoolException;
 import com.slabadniak.task5.exeption.ServiceExeption;
 import com.slabadniak.task5.pool.ConnectionPool;
 import com.slabadniak.task5.pool.Wrapper;
-import com.sun.org.apache.regexp.internal.RE;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class CalculateRatingService {
     private static final int MIN_USERS_ASSESSMENTS = 5;
@@ -36,22 +31,26 @@ public class CalculateRatingService {
             }else  {
                 assessment = new UsersAssessment(comment, mark,movie.getTitle(),user.getLogin());
             }
+            //asses movie
             userDAO.assess(assessment);
 
             //get value of user's assessments
             int numAssess = userDAO.numAssess(movie.getTitle());
 
 
-            if(numAssess > MIN_USERS_ASSESSMENTS) {
+            if(numAssess >= MIN_USERS_ASSESSMENTS) {
                 //get user's rate
                 float usersRate = userDAO.usersRate(movie.getTitle());
 
                 //change user's status
                 String status = calculateStatus(mark, usersRate);
                 userDAO.changeStatus(user, status);
+                //user's synchronization
+                user.setStatus(status);
+
             }
 
-            pool.closeConnection(connection);
+            pool.releaseConnection(connection);
         } catch (PoolException e) {
             throw new ServiceExeption("Pool exception", e);
         } catch (DAOException e) {

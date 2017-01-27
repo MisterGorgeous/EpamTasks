@@ -17,7 +17,6 @@ public class Validation {
     public static Feedback passwordsEqual(String pass1, String pass2){
         if(pass1.equals(pass2)){
             return new Feedback();
-
         }
         Feedback feedback = new Feedback();
         feedback.setMessage(EQUALPASSWORDS);
@@ -51,7 +50,6 @@ public class Validation {
     public static Feedback checkPassword(String password){
         Pattern p = Pattern.compile(PASSWORD);
         Matcher m = p.matcher(password);
-
         if (m.find()) {
             return new Feedback();
         }

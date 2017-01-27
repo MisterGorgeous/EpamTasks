@@ -21,8 +21,8 @@
 
 <%@ include file="/jsp/header.jsp" %>
 
-<h1 class="page-header col-md-offset-3 col-lg-offset-3">
-   ${chosenMovie.getTitle()} <span class="label label-danger col-lg-offset-3">   ${chosenMovie.getRating()}</span>
+<h1 class="page-header">
+   ${chosenMovie.getTitle()} <span class="label label-danger col-lg-offset-6">   ${chosenMovie.getRating()}</span>
 </h1>
 
 <div class="row">

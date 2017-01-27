@@ -19,7 +19,7 @@ public class UsersService {
             Wrapper connection = pool.getConnection();
             adminDAO = new AdminDAO(connection);
             content.insert(adminDAO.users());
-            pool.closeConnection(connection);
+            pool.releaseConnection(connection);
         } catch (PoolException e) {
             throw new ServiceExeption("Pool exception", e);
         } catch (DAOException e) {

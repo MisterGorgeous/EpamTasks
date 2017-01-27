@@ -37,7 +37,7 @@ public class Market implements Runnable {
             try {
                 if (instance == null) {
                     instance = new Market();
-                    isCreated.getAndSet(true);
+                    isCreated.set(true);
                 }
             } finally {
                 lock.unlock();

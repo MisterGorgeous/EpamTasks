@@ -29,7 +29,7 @@
         <div class="form-group">
             <label class="col-md-3 control-label">Login:</label>
             <div class="col-md-5">
-                <input class="form-control" name="login" type="text"  pattern="^[A-Za-z]\w{4,32}$" required>
+                <input class="form-control" name="login" type="text" placeholder="Only latin and numeric, 4 to 32 symbols."  pattern="^[A-Za-z]\w{4,32}$" required>
             </div>
         </div>
         <div class="form-group">
@@ -42,14 +42,14 @@
         <div class="form-group">
             <label class="col-md-3 control-label">Password:</label>
             <div class="col-md-5">
-                <input id="password" class="form-control" name="password" type="password"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,32}$" required>
+                <input id="password" placeholder="Must consist numeric, leters in low and up register,6 to 32 symbols." class="form-control" name="password" type="password"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,32}$" required>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-3 control-label">Confirm password:</label>
             <div class="col-md-5">
-                <input id="confPassword" class="form-control" name="confpassword" type="password"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,32}$" required>
+                <input id="confPassword" placeholder="Must consist numeric, leters in low and up register,6 to 32 symbols." class="form-control" name="confpassword" type="password"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,32}$" required>
             </div>
         </div>
         <div class="form-group">

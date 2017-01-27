@@ -1,7 +1,6 @@
 package com.slabadniak.task5.service;
 
 import com.slabadniak.task5.dao.DefaultDAO;
-import com.slabadniak.task5.entity.Feedback;
 import com.slabadniak.task5.entity.User;
 import com.slabadniak.task5.exeption.DAOException;
 import com.slabadniak.task5.exeption.PoolException;
@@ -22,7 +21,7 @@ public class SignInService {
 
             defaultDAO.signIn(user);
 
-            pool.closeConnection(connection);
+            pool.releaseConnection(connection);
         } catch (PoolException e) {
             throw new ServiceExeption("Pool exception", e);
         } catch (DAOException e) {

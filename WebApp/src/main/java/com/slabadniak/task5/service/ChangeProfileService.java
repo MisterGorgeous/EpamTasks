@@ -43,7 +43,7 @@ public class ChangeProfileService {
                 unmodified.setGender(modified.getGender());
             }
 
-            pool.closeConnection(connection);
+            pool.releaseConnection(connection);
         } catch (PoolException e) {
             throw new ServiceExeption("Pool exception", e);
         } catch (DAOException e) {

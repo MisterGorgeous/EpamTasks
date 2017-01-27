@@ -35,7 +35,7 @@
 
                     <form class="col-lg-6 col-md-6 col-sm-12 col-xs-12" title="changeuser" action="Controller" method="post">
                         <input type="hidden" name="command" value="changeprofile">
-                        <input type="hidden" name="page" value="path.page.user">
+                        <input type="hidden" name="page" value="path.page.main">
 
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">
                             <label class="col-md-3 control-label">Login:</label>
@@ -82,7 +82,7 @@
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">
                             <label class="col-md-3 control-label"></label>
                             <div class="col-md-8">
-                                <input class="btn btn-primary" type="submit" title="button"
+                                <input class="btn btn-info" type="submit" title="button"
                                 <%-- value="<fmt:message key="header.logoff" bundle="${resourceBundle}"/>"/>--%>
                                        value="Save Changes">
                             </div>
@@ -104,7 +104,7 @@
         <form title="back" action="Controller" method="post">
             <input type="hidden" name="command" value="">
             <input type="hidden" name="page" value="path.page.main">
-            <input class="btn btn-info" type="submit"  name="button" value="<fmt:message key="back" bundle="${resourceBundle}"/>" />
+            <input class="btn btn-primary" type="submit"  name="button" value="<fmt:message key="back" bundle="${resourceBundle}"/>" />
         </form>
 
 </div>

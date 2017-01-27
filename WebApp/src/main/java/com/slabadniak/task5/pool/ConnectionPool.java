@@ -25,14 +25,14 @@ import javax.annotation.PreDestroy;
 public class ConnectionPool {
     private static final Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
     private static ConnectionPool instance;
-    private ArrayBlockingQueue<Wrapper> connections;
+    private ArrayBlockingQueue<Wrapper> connections;  //once created, it can't be resized
     private static AtomicBoolean created = new AtomicBoolean(false);
     private static Properties property;
     private static ReentrantLock lock = new ReentrantLock();
     private static AtomicBoolean freeConnections = new AtomicBoolean(true);
-    private static int maxPool;
-    private static int poolSize;
-    private static final int TIMEQUANTUM = 1;
+    private static int capacity;
+    private static int size;
+    private static final int TIMEQUANTUM = 3;
 
 
 
@@ -40,27 +40,27 @@ public class ConnectionPool {
         property = new Properties();
         try {
             DriverManager.registerDriver(new Driver());
-            LOGGER.log(Level.DEBUG, "Driver set");
+            LOGGER.log(Level.INFO, "Driver set");
             ResourceBundle resource = ResourceBundle.getBundle("config");
             String url = resource.getString("url");
-            maxPool = Integer.parseInt(resource.getString("pool"));
+            capacity = Integer.parseInt(resource.getString("pool"));
             property.put("user", resource.getString("login"));
             property.put("password", resource.getString("password"));
             property.put("autoReconnect", resource.getString("autoreconnect"));
             property.put("characterEncoding", resource.getString("encoding"));
             property.put("useUnicode", resource.getString("unicode"));
-            connections = new ArrayBlockingQueue<>(maxPool);
-            poolSize = 0;
-            for (int i = 0; i < maxPool; i++) {
+            connections = new ArrayBlockingQueue<>(capacity);
+            size = 0;
+            for (int i = 0; i < capacity; i++) {
                 Connection conn = DriverManager.getConnection(url, property);
                 Wrapper connection = new Wrapper(conn);
                 connections.offer(connection);
-                poolSize++;
+                size++;
             }
-            if (connections.size() != maxPool) {
+            if (connections.size() != capacity) {
                 throw new RuntimeException("Connections was not created");
             }
-            LOGGER.log(Level.DEBUG, "Pool initialized");
+            LOGGER.log(Level.INFO, "Pool initialized");
         } catch (MissingResourceException e) {
             throw new RuntimeException("Missing resource ", e);
         } catch (SQLException e) {
@@ -84,12 +84,10 @@ public class ConnectionPool {
     }
 
 
-
-
     public Wrapper getConnection() throws PoolException {
         if (freeConnections.get()) {
             try {
-                LOGGER.log(Level.DEBUG,"Connection taken");
+                LOGGER.log(Level.INFO,"Connection taken");
                 return connections.poll(TIMEQUANTUM, TimeUnit.SECONDS);
             } catch (InterruptedException e) {
                 throw new PoolException("Interrupted:", e);
@@ -98,23 +96,33 @@ public class ConnectionPool {
         return null;
     }
 
-
-
-    public void closeConnection(Wrapper connection) throws PoolException {
+    public void releaseConnection(Wrapper connection) throws PoolException {
         try {
             connections.put(connection);
-            LOGGER.log(Level.DEBUG, "Connection returned");
+            LOGGER.log(Level.INFO, "Connection returned");
         } catch (InterruptedException e) {
             throw new PoolException("Interrupted:", e);
         }
     }
 
-
-
-    public void closePool() throws PoolException, WrapperException {
-        //Release all connections
+    private void releasePool() throws PoolException, WrapperException {
         freeConnections.set(false);
-        for (int i = 0; i < maxPool; i++) {
+        try {
+            TimeUnit.SECONDS.sleep(TIMEQUANTUM);
+            for (Wrapper connection : connections) {
+                    connections.put(connection);
+            }
+            LOGGER.log(Level.INFO, "Pool released");
+        } catch (InterruptedException e) {
+            throw new PoolException("Release connection exception", e);
+        }
+    }
+
+    @PreDestroy
+    public void closePool() throws PoolException, WrapperException {
+        freeConnections.set(false);
+        releasePool(); //Release all connections
+        for (int i = 0; i < capacity; i++) {
             try {
                 Wrapper wrapper = connections.take();
                 wrapper.closeConnection();
@@ -124,21 +132,7 @@ public class ConnectionPool {
                 throw new WrapperException("Wrapper:", e);
             }
         }
-    }
-
-    @PreDestroy
-    private void releasePool() throws PoolException, WrapperException {
-        freeConnections.set(false);
-        try {
-            TimeUnit.SECONDS.sleep(TIMEQUANTUM);
-            for (Wrapper connection : connections) {
-                    connection.closeConnection();
-            }
-        } catch (InterruptedException e) {
-            throw new PoolException("Release connection exception", e);
-        } catch (WrapperException e) {
-            throw new WrapperException("Wrapper:", e);
-        }
+        LOGGER.log(Level.INFO, "Pool closed");
     }
 }
 

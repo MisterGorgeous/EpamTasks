@@ -2,99 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8878404c-5679-4b80-8c7b-fc1a15984726" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/.idea/artifacts/ParserWeb_Web_exploded.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/.idea/copyright/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/.idea/libraries/Maven__com_sun_mail_javax_mail_1_5_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/.idea/libraries/Maven__javax_activation_activation_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/.idea/libraries/Maven__javax_javaee_api_7_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/.idea/libraries/Maven__javax_servlet_jstl_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/.idea/libraries/Maven__junit_junit_4_12.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_6_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_6_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/.idea/libraries/Maven__org_apache_logging_log4j_log4j_web_2_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/.idea/libraries/Maven__org_jetbrains_annotations_java5_15_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/ParserWeb.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/file/journey.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/file/journey.xslt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/file/loggers.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/journey.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/classes/com/slabadniak/task5/Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/classes/com/slabadniak/task5/MakeHTMLfromXml.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/classes/com/slabadniak/task5/ParseServlet$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/classes/com/slabadniak/task5/ParseServlet.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/classes/com/slabadniak/task5/entity/Excurtion.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/classes/com/slabadniak/task5/entity/Hotel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/classes/com/slabadniak/task5/entity/Journey.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/classes/com/slabadniak/task5/entity/JourneyEnum.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/classes/com/slabadniak/task5/entity/Rest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/classes/com/slabadniak/task5/entity/Star.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/classes/com/slabadniak/task5/entity/Transport.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/classes/com/slabadniak/task5/parser/AbstractParser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/classes/com/slabadniak/task5/parser/DOMParser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/classes/com/slabadniak/task5/parser/SAXHandler$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/classes/com/slabadniak/task5/parser/SAXHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/classes/com/slabadniak/task5/parser/SAXParser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/classes/com/slabadniak/task5/parser/StAXParser$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/classes/com/slabadniak/task5/parser/StAXParser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/journey.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/WEB-INF/web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/index.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/journey.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/jsp/finish.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/jsp/start.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/out/artifacts/ParserWeb_Web_exploded/xml/journey-shema.xsd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/src/main/java/com/slabadniak/task5/Builder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/src/main/java/com/slabadniak/task5/MakeHTMLfromXml.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/src/main/java/com/slabadniak/task5/ParseServlet.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/src/main/java/com/slabadniak/task5/entity/Excurtion.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/src/main/java/com/slabadniak/task5/entity/Hotel.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/src/main/java/com/slabadniak/task5/entity/Journey.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/src/main/java/com/slabadniak/task5/entity/JourneyEnum.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/src/main/java/com/slabadniak/task5/entity/Rest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/src/main/java/com/slabadniak/task5/entity/Star.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/src/main/java/com/slabadniak/task5/entity/Transport.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/src/main/java/com/slabadniak/task5/parser/AbstractParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/src/main/java/com/slabadniak/task5/parser/DOMParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/src/main/java/com/slabadniak/task5/parser/SAXHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/src/main/java/com/slabadniak/task5/parser/SAXParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/src/main/java/com/slabadniak/task5/parser/StAXParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/src/test/java/CheckParsers.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/target/classes/com/slabadniak/task5/Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/target/classes/com/slabadniak/task5/MakeHTMLfromXml.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/target/classes/com/slabadniak/task5/ParseServlet$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/target/classes/com/slabadniak/task5/ParseServlet.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/target/classes/com/slabadniak/task5/entity/Excurtion.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/target/classes/com/slabadniak/task5/entity/Hotel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/target/classes/com/slabadniak/task5/entity/Journey.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/target/classes/com/slabadniak/task5/entity/JourneyEnum.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/target/classes/com/slabadniak/task5/entity/Rest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/target/classes/com/slabadniak/task5/entity/Star.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/target/classes/com/slabadniak/task5/entity/Transport.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/target/classes/com/slabadniak/task5/parser/AbstractParser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/target/classes/com/slabadniak/task5/parser/DOMParser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/target/classes/com/slabadniak/task5/parser/SAXHandler$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/target/classes/com/slabadniak/task5/parser/SAXHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/target/classes/com/slabadniak/task5/parser/SAXParser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/target/classes/com/slabadniak/task5/parser/StAXParser$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/target/classes/com/slabadniak/task5/parser/StAXParser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/target/test-classes/CheckParsers.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/web/WEB-INF/journey.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/web/WEB-INF/web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/web/index.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/web/journey.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/web/jsp/finish.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/web/jsp/start.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ParserWeb/web/xml/journey-shema.xsd" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../InformationHandling/.idea/misc.xml" afterPath="$PROJECT_DIR$/../InformationHandling/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../InformationHandling/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../InformationHandling/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/slabadniak/task3/market/Market.java" afterPath="$PROJECT_DIR$/src/main/java/com/slabadniak/task3/market/Market.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/pom.xml" afterPath="$PROJECT_DIR$/../WebApp/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/Controller.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/filter/PageRedirectSecurityFilter.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/filter/PageRedirectSecurityFilter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/listner/SessionChangeListner.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/listner/SessionChangeListner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/logic/Validation.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/logic/Validation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/pool/ConnectionPool.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/pool/ConnectionPool.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/ActorService.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/ActorService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/AddActorService.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/AddActorService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/AddMovieSevice.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/AddMovieSevice.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/AllGenresService.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/AllGenresService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/AuthorizationService.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/AuthorizationService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/CalculateRatingService.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/CalculateRatingService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/ChangeProfileService.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/ChangeProfileService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/ChangeStatusService.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/ChangeStatusService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/GenreService.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/GenreService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/MainContentService.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/MainContentService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/SearchMoviesService.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/SearchMoviesService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/ShowCommentService.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/ShowCommentService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/SignInService.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/SignInService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/SpecificGenreService.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/SpecificGenreService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/UserBannedService.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/UserBannedService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/UsersService.java" afterPath="$PROJECT_DIR$/../WebApp/src/main/java/com/slabadniak/task5/service/UsersService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/resources/config.properties" afterPath="$PROJECT_DIR$/../WebApp/src/main/resources/config.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/webapp/jsp/movie.jsp" afterPath="$PROJECT_DIR$/../WebApp/src/main/webapp/jsp/movie.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/webapp/jsp/signin.jsp" afterPath="$PROJECT_DIR$/../WebApp/src/main/webapp/jsp/signin.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/src/main/webapp/jsp/user.jsp" afterPath="$PROJECT_DIR$/../WebApp/src/main/webapp/jsp/user.jsp" />
     </list>
     <ignored path="StockMarket.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -120,7 +57,7 @@
       <file leaf-file-name="Action.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/slabadniak/task3/action/Action.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="221">
               <caret line="23" column="28" lean-forward="false" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -132,7 +69,7 @@
       <file leaf-file-name="Stock.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/slabadniak/task3/stock/Stock.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
+            <state relative-caret-position="816">
               <caret line="58" column="36" lean-forward="false" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
               <folding />
             </state>
@@ -149,21 +86,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Trader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/slabadniak/task3/brocker/Trader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="73" column="69" lean-forward="false" selection-start-line="73" selection-start-column="69" selection-end-line="73" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Invester.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/slabadniak/task3/brocker/Invester.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="714">
               <caret line="47" column="4" lean-forward="false" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StockIdGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/slabadniak/task3/stock/StockIdGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -179,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Market.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Market.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/slabadniak/task3/market/Market.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
-              <caret line="71" column="23" lean-forward="false" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
+            <state relative-caret-position="459">
+              <caret line="48" column="77" lean-forward="false" selection-start-line="48" selection-start-column="77" selection-end-line="48" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -199,16 +136,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="def.properties" pinned="false" current-in-tab="true">
+      <file leaf-file-name="def.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/def.properties">
-          <provider editor-type-id="ResourceBundle">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="ResourceBundle">
+            <state />
           </provider>
         </entry>
       </file>
@@ -354,7 +291,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -381,26 +317,8 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="StockMarket" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="StockMarket" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -420,14 +338,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resource Bundle 'def'" />
-              <option name="myItemType" value="com.intellij.lang.properties.projectView.ResourceBundleNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -483,6 +393,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="task3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="randomevent" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -572,6 +486,66 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="exeption" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StockMarket" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StockMarket" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="task3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brocker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StockMarket" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StockMarket" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="task3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="action" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -579,6 +553,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -979,11 +954,13 @@
       <workItem from="1480772752947" duration="752000" />
       <workItem from="1480785994866" duration="1947000" />
       <workItem from="1480791069093" duration="18000" />
+      <workItem from="1485527687475" duration="414000" />
+      <workItem from="1485530570974" duration="15000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36250000" />
+    <option name="totallyTimeSpent" value="36679000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -996,7 +973,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1012,7 +989,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25183016" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25945538" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1305,13 +1282,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slabadniak/task3/stock/StockIdGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/slabadniak/task3/stock/IStock.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1327,28 +1297,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/def_ru_RU.properties">
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/slabadniak/task3/brocker/Trader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
           <caret line="73" column="69" lean-forward="false" selection-start-line="73" selection-start-column="69" selection-end-line="73" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slabadniak/task3/brocker/Invester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="47" column="4" lean-forward="false" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -1376,14 +1338,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slabadniak/task3/market/Market.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="71" column="23" lean-forward="false" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/slabadniak/task3/stock/ProxyStock.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1402,7 +1356,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/slabadniak/task3/action/Action.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
+        <state relative-caret-position="221">
           <caret line="23" column="28" lean-forward="false" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1412,19 +1366,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/slabadniak/task3/stock/Stock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
+        <state relative-caret-position="816">
           <caret line="58" column="36" lean-forward="false" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/def.properties">
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/slabadniak/task3/brocker/Invester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="47" column="4" lean-forward="false" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/slabadniak/task3/stock/StockIdGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/slabadniak/task3/market/Market.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="48" column="77" lean-forward="false" selection-start-line="48" selection-start-column="77" selection-end-line="48" selection-end-column="77" />
           <folding />
         </state>
       </provider>

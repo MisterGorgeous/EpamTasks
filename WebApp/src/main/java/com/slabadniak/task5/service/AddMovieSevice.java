@@ -21,7 +21,7 @@ public class AddMovieSevice {
             adminDAO = new AdminDAO(connection);
 
             adminDAO.addMovie(movie, movieGenres);
-            pool.closeConnection(connection);
+            pool.releaseConnection(connection);
         } catch (PoolException e) {
             throw new ServiceExeption("Pool exception", e);
         } catch (DAOException e) {

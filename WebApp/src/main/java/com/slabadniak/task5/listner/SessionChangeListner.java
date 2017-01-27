@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSessionListener;
 
 @WebListener
 public class SessionChangeListner implements HttpSessionListener {
-    private static final Logger LOGGER = LogManager.getLogger(SessionChangeListner.class);
     private static final String CURRENTJSP = "currentJSP";
     private static final String LOCAL = "local";
     private final static String ENGLISH = "en_US";
@@ -23,10 +22,8 @@ public class SessionChangeListner implements HttpSessionListener {
         session.setAttribute(USERSATUS, UserType.GUEST);
         session.setAttribute(LOCAL, ENGLISH);
         session.setAttribute(CURRENTJSP, "path.page.main");
-        LOGGER.log(Level.INFO, "Session created "+sessionEvent.getSession().getId());
     }
 
     public void sessionDestroyed(HttpSessionEvent sessionEvent) {
-        LOGGER.log(Level.INFO,"Session Destroyed "+sessionEvent.getSession().getId());
     }
 }
