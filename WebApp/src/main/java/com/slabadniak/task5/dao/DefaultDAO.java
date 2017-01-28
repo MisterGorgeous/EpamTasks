@@ -2,6 +2,7 @@ package com.slabadniak.task5.dao;
 
 import com.slabadniak.task5.entity.User;
 import com.slabadniak.task5.exeption.DAOException;
+import com.slabadniak.task5.exeption.WrapperException;
 import com.slabadniak.task5.pool.Wrapper;
 
 import java.sql.PreparedStatement;
@@ -31,10 +32,10 @@ public class DefaultDAO extends AbstractDAO {
         PreparedStatement ps;
         ResultSet res ;
         try {
-            ps = getConnection().prepareStatement(COMMENTS);
+            ps = wrapper.prepareStatement(COMMENTS);
             ps.setString(1, movie);
             res = ps.executeQuery();
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
         return res;
@@ -44,10 +45,10 @@ public class DefaultDAO extends AbstractDAO {
         PreparedStatement ps;
         ResultSet res ;
         try {
-            ps = getConnection().prepareStatement(ACTORS);
+            ps = wrapper.prepareStatement(ACTORS);
             ps.setString(1, movie);
             res = ps.executeQuery();
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
         return res;
@@ -57,10 +58,10 @@ public class DefaultDAO extends AbstractDAO {
         PreparedStatement ps;
         ResultSet res ;
         try {
-            ps = getConnection().prepareStatement(GENRES);
+            ps = wrapper.prepareStatement(GENRES);
             ps.setString(1, movie);
             res = ps.executeQuery();
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
 
@@ -72,9 +73,9 @@ public class DefaultDAO extends AbstractDAO {
         PreparedStatement ps;
         ResultSet res ;
         try {
-            ps = getConnection().prepareStatement(MOVIES);
+            ps = wrapper.prepareStatement(MOVIES);
             res = ps.executeQuery();
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
         return res;
@@ -85,11 +86,11 @@ public class DefaultDAO extends AbstractDAO {
         ResultSet res ;
         boolean done;
         try {
-            ps = getConnection().prepareStatement(CHECKLOGIN);
+            ps = wrapper.prepareStatement(CHECKLOGIN);
             ps.setString(1, user.getLogin());
             res = ps.executeQuery();
             done = res.next();
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
         return done;
@@ -100,12 +101,12 @@ public class DefaultDAO extends AbstractDAO {
         ResultSet res ;
         boolean done;
         try {
-            ps = getConnection().prepareStatement(CHECKPASSWORD);
+            ps = wrapper.prepareStatement(CHECKPASSWORD);
             ps.setString(1, user.getLogin());
             ps.setString(2, user.getPassword());
             res = ps.executeQuery();
             done = res.next();
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
         return done;
@@ -116,11 +117,11 @@ public class DefaultDAO extends AbstractDAO {
         ResultSet res ;
         boolean done;
         try {
-            ps = getConnection().prepareStatement(CHECKEMAIL);
+            ps = wrapper.prepareStatement(CHECKEMAIL);
             ps.setString(1, user.getEmail());
             res = ps.executeQuery();
             done = res.next();
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
         return done;
@@ -131,11 +132,11 @@ public class DefaultDAO extends AbstractDAO {
         PreparedStatement ps ;
         ResultSet res;
         try {
-            ps = getConnection().prepareStatement(LOGIN);
+            ps = wrapper.prepareStatement(LOGIN);
             ps.setString(1, user.getLogin());
             ps.setString(2, user.getPassword());
             res = ps.executeQuery();
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
         return res;
@@ -147,13 +148,13 @@ public class DefaultDAO extends AbstractDAO {
         PreparedStatement ps;
         ResultSet res ;
         try {
-            ps = getConnection().prepareStatement(SIGNIN);
+            ps = wrapper.prepareStatement(SIGNIN);
             ps.setString(1, user.getLogin());
             ps.setString(2, user.getEmail());
             ps.setString(3, user.getPassword());
             ps.setString(4, user.getGender());
             ps.executeUpdate();
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
 
@@ -166,9 +167,9 @@ public class DefaultDAO extends AbstractDAO {
         PreparedStatement ps;
         ResultSet res ;
         try {
-            ps = getConnection().prepareStatement(ALLGENRES);
+            ps = wrapper.prepareStatement(ALLGENRES);
             res = ps.executeQuery();
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
         return res;
@@ -179,10 +180,10 @@ public class DefaultDAO extends AbstractDAO {
         PreparedStatement ps;
         ResultSet res ;
         try {
-            ps = getConnection().prepareStatement(SPECIFICGENRE);
+            ps = wrapper.prepareStatement(SPECIFICGENRE);
             ps.setString(1, genre);
             res = ps.executeQuery();
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
         return res;
@@ -193,10 +194,10 @@ public class DefaultDAO extends AbstractDAO {
         PreparedStatement ps;
         ResultSet res ;
         try {
-            ps = getConnection().prepareStatement(SEARCHMOVIE);
+            ps = wrapper.prepareStatement(SEARCHMOVIE);
             ps.setString(1, movie);
             res = ps.executeQuery();
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
 

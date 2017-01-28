@@ -1,9 +1,11 @@
 package com.slabadniak.task5.command;
 
 import com.slabadniak.task5.entity.Actor;
-import com.slabadniak.task5.entity.Feedback;
+import com.slabadniak.task5.feedback.FeedBackText;
+import com.slabadniak.task5.feedback.Feedback;
 import com.slabadniak.task5.exeption.CommandExeption;
 import com.slabadniak.task5.exeption.ServiceExeption;
+import com.slabadniak.task5.logic.ActorValidation;
 import com.slabadniak.task5.service.AddActorService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +14,7 @@ import java.util.List;
 
 public class AddActorCommand implements ICommand {
 
+
     @Override
     public void execute(HttpServletRequest request) throws CommandExeption {
         Feedback feedback = new Feedback();
@@ -19,13 +22,13 @@ public class AddActorCommand implements ICommand {
 
         //validation
         String movie = request.getParameter("movie");
-        String year = request.getParameter("movieyear");
+        String year = request.getParameter("year");
 
 
         List<Actor> actors = retrieveActors(request);
 
         if (actors == null || actors.isEmpty()) {
-            feedback.setMessage("Actors doesn't specified.");
+            feedback.setMessage(FeedBackText.MDE);
             request.setAttribute(FEEDBACK, feedback);
             return;
         }
@@ -40,7 +43,7 @@ public class AddActorCommand implements ICommand {
         if (done) {
             setForwardPage(request);
         } else {
-            feedback.setMessage("Such movie haven't found.");
+            feedback.setMessage(FeedBackText.MHF);
             request.setAttribute(FEEDBACK, feedback);
         }
     }
@@ -52,6 +55,15 @@ public class AddActorCommand implements ICommand {
         String[] birthday = request.getParameterValues("birthday");
         String[] birthplace = request.getParameterValues("birthplace");
         List<Actor> actors = new ArrayList<>();
+
+
+        if(ActorValidation.checkForNull(fnames,sname,role,birthday,birthplace)){
+            return  actors;
+        }
+
+        if(! ActorValidation.checkSizes(fnames.length,sname.length,role.length,birthday.length,birthplace.length)){
+            return actors;
+        }
 
         for (int i = 0; i < fnames.length; ++i) {
             actors.add(new Actor(fnames[i], sname[i], role[i], birthday[i], birthplace[i]));

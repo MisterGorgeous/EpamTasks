@@ -1,6 +1,6 @@
 package com.slabadniak.task5.command;
 
-import com.slabadniak.task5.entity.Feedback;
+import com.slabadniak.task5.feedback.Feedback;
 import com.slabadniak.task5.exeption.CommandExeption;
 
 import javax.servlet.http.HttpServletRequest;

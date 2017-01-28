@@ -1,10 +1,10 @@
 package com.slabadniak.task5.command;
 
-import com.slabadniak.task5.entity.Feedback;
+import com.slabadniak.task5.feedback.Feedback;
 import com.slabadniak.task5.entity.User;
 import com.slabadniak.task5.exeption.CommandExeption;
 import com.slabadniak.task5.exeption.ServiceExeption;
-import com.slabadniak.task5.logic.Validation;
+import com.slabadniak.task5.logic.UserValidation;
 import com.slabadniak.task5.service.CheckUserService;
 import com.slabadniak.task5.service.SignInService;
 
@@ -31,22 +31,22 @@ public class SignInCommand implements ICommand {
         request.removeAttribute(FEEDBACK);
 
         //validation
-        feedback = Validation.checkPassword(password);
+        feedback = UserValidation.checkPassword(password);
         if(feedback.isWritten()){
             request.setAttribute(FEEDBACK, feedback);
             return;
         }
-        feedback = Validation.passwordsEqual(password,confpassword);
+        feedback = UserValidation.passwordsEqual(password,confpassword);
         if(feedback.isWritten()){
             request.setAttribute(FEEDBACK, feedback);
             return;
         }
-        feedback = Validation.checkLogin(login);
+        feedback = UserValidation.checkLogin(login);
         if(feedback.isWritten()){
             request.setAttribute(FEEDBACK, feedback);
             return;
         }
-        feedback = Validation.checkEmail(email);
+        feedback = UserValidation.checkEmail(email);
         if(feedback.isWritten()){
             request.setAttribute(FEEDBACK, feedback);
             return;

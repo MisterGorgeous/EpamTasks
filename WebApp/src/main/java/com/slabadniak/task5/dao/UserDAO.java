@@ -1,9 +1,9 @@
 package com.slabadniak.task5.dao;
 
-import com.slabadniak.task5.entity.Feedback;
 import com.slabadniak.task5.entity.User;
 import com.slabadniak.task5.entity.UsersAssessment;
 import com.slabadniak.task5.exeption.DAOException;
+import com.slabadniak.task5.exeption.WrapperException;
 import com.slabadniak.task5.pool.Wrapper;
 
 import java.sql.PreparedStatement;
@@ -34,16 +34,16 @@ public class UserDAO extends AbstractDAO {
         ResultSet res;
         try {
             if (assessment.isMarkandText()) {
-                ps = getConnection().prepareStatement(ASSESSANDCOMMENT);
+                ps = wrapper.prepareStatement(ASSESSANDCOMMENT);
                 ps.setString(4, assessment.getComment());
             } else {
-                ps = getConnection().prepareStatement(ONLYASSESS);
+                ps = wrapper.prepareStatement(ONLYASSESS);
             }
             ps.setString(1, assessment.getMovie());
             ps.setString(2, assessment.getUser());
             ps.setFloat(3, assessment.getRating());
             ps.executeUpdate();
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
     }
@@ -54,14 +54,14 @@ public class UserDAO extends AbstractDAO {
         ResultSet res;
         float usersRate = 0;
         try {
-            ps = getConnection().prepareStatement(USERSRATE);
+            ps = wrapper.prepareStatement(USERSRATE);
             ps.setString(1, movie);
             res = ps.executeQuery();
             if (res.next()) {
                 usersRate = res.getFloat(MARK);
             }
 
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
 
@@ -72,13 +72,13 @@ public class UserDAO extends AbstractDAO {
         PreparedStatement ps;
         ResultSet res;
         try {
-            ps = getConnection().prepareStatement(CHANGESTATUS);
+            ps = wrapper.prepareStatement(CHANGESTATUS);
             ps.setString(1, status);
             ps.setString(2, user.getLogin());
             ps.setString(3, user.getEmail());
             ps.executeUpdate();
 
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
     }
@@ -89,14 +89,14 @@ public class UserDAO extends AbstractDAO {
         int numAssess = 0;
 
         try {
-            ps = getConnection().prepareStatement(ASSESSVALUE);
+            ps = wrapper.prepareStatement(ASSESSVALUE);
             ps.setString(1, title);
             res = ps.executeQuery();
             if (res.next()) {
                 numAssess = res.getInt(VALUE);
             }
 
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
 
@@ -107,13 +107,13 @@ public class UserDAO extends AbstractDAO {
         PreparedStatement ps;
         ResultSet res;
         try {
-            ps = getConnection().prepareStatement(CHANGE_ICON);
+            ps = wrapper.prepareStatement(CHANGE_ICON);
             ps.setString(1, modified.getIcon());
             ps.setString(2, unmodified.getLogin());
             ps.setString(3, unmodified.getEmail());
             ps.executeUpdate();
 
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
     }
@@ -121,13 +121,13 @@ public class UserDAO extends AbstractDAO {
         PreparedStatement ps;
         ResultSet res;
         try {
-            ps = getConnection().prepareStatement(CHANGE_LOGIN);
+            ps = wrapper.prepareStatement(CHANGE_LOGIN);
             ps.setString(1, modified.getLogin());
             ps.setString(2, unmodified.getLogin());
             ps.setString(3, unmodified.getEmail());
             ps.executeUpdate();
 
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
     }
@@ -135,13 +135,13 @@ public class UserDAO extends AbstractDAO {
         PreparedStatement ps;
         ResultSet res;
         try {
-            ps = getConnection().prepareStatement(CHANGE_EMAIL);
+            ps = wrapper.prepareStatement(CHANGE_EMAIL);
             ps.setString(1, modified.getEmail());
             ps.setString(2, unmodified.getLogin());
             ps.setString(3, unmodified.getEmail());
             ps.executeUpdate();
 
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
     }
@@ -149,13 +149,13 @@ public class UserDAO extends AbstractDAO {
         PreparedStatement ps;
         ResultSet res;
         try {
-            ps = getConnection().prepareStatement(CHANGE_PASSWORD);
+            ps = wrapper.prepareStatement(CHANGE_PASSWORD);
             ps.setString(1, modified.getPassword());
             ps.setString(2, unmodified.getLogin());
             ps.setString(3, unmodified.getEmail());
             ps.executeUpdate();
 
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
     }
@@ -164,13 +164,13 @@ public class UserDAO extends AbstractDAO {
         PreparedStatement ps;
         ResultSet res;
         try {
-            ps = getConnection().prepareStatement(CHANGE_GENDER);
+            ps = wrapper.prepareStatement(CHANGE_GENDER);
             ps.setString(1, modified.getGender());
             ps.setString(2, unmodified.getLogin());
             ps.setString(3, unmodified.getEmail());
             ps.executeUpdate();
 
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
     }

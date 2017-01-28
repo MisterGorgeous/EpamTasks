@@ -1,16 +1,10 @@
 package com.slabadniak.task5.command;
 
-import com.slabadniak.task5.dao.UserDAO;
-import com.slabadniak.task5.entity.Feedback;
-import com.slabadniak.task5.entity.Movie;
+import com.slabadniak.task5.feedback.Feedback;
 import com.slabadniak.task5.entity.User;
-import com.slabadniak.task5.entity.UsersAssessment;
 import com.slabadniak.task5.exeption.CommandExeption;
 import com.slabadniak.task5.exeption.ServiceExeption;
-import com.slabadniak.task5.logic.Validation;
-import com.slabadniak.task5.pool.ConnectionPool;
-import com.slabadniak.task5.pool.Wrapper;
-import com.slabadniak.task5.service.AuthorizationService;
+import com.slabadniak.task5.logic.UserValidation;
 import com.slabadniak.task5.service.ChangeProfileService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +16,7 @@ public class ChangeProfileCommand implements ICommand {
     @Override
     public void execute(HttpServletRequest request) throws CommandExeption {
         HttpSession session = request.getSession();
-        //Validation
+        //UserValidation
         String login = request.getParameter("login");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -34,23 +28,23 @@ public class ChangeProfileCommand implements ICommand {
 
         //validation
         if(!password.isEmpty()) {
-            feedback = Validation.checkPassword(password);
+            feedback = UserValidation.checkPassword(password);
             if (feedback.isWritten()) {
                 request.setAttribute(FEEDBACK, feedback);
                 return;
             }
         }
-        feedback = Validation.passwordsEqual(password,confpassword);
+        feedback = UserValidation.passwordsEqual(password,confpassword);
         if(feedback.isWritten()){
             request.setAttribute(FEEDBACK, feedback);
             return;
         }
-        feedback = Validation.checkLogin(login);
+        feedback = UserValidation.checkLogin(login);
         if(feedback.isWritten()){
             request.setAttribute(FEEDBACK, feedback);
             return;
         }
-        feedback = Validation.checkEmail(email);
+        feedback = UserValidation.checkEmail(email);
         if(feedback.isWritten()){
             request.setAttribute(FEEDBACK, feedback);
             return;

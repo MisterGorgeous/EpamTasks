@@ -4,6 +4,7 @@ import com.slabadniak.task5.entity.Actor;
 import com.slabadniak.task5.entity.Movie;
 import com.slabadniak.task5.entity.User;
 import com.slabadniak.task5.exeption.DAOException;
+import com.slabadniak.task5.exeption.WrapperException;
 import com.slabadniak.task5.pool.Wrapper;
 
 import java.sql.PreparedStatement;
@@ -32,7 +33,7 @@ public class AdminDAO extends AbstractDAO {
        PreparedStatement ps;
        ResultSet res ;
         try {
-            ps = getConnection().prepareStatement(ACTORID);
+            ps = wrapper.prepareStatement(ACTORID);
             ps.setString(1, actor.getFirstName());
             ps.setString(2, actor.getSeccondName());
             ps.setString(3, actor.getBirthday());
@@ -41,7 +42,7 @@ public class AdminDAO extends AbstractDAO {
             if (res.next()) {
                 return res.getInt(1);
             }
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
         return 0;
@@ -52,7 +53,7 @@ public class AdminDAO extends AbstractDAO {
         ResultSet res ;
         int movieId;
         try {
-            ps = getConnection().prepareStatement(MOVIEID);
+            ps = wrapper.prepareStatement(MOVIEID);
             ps.setString(1, movie);
             ps.setString(2, year);
             res = ps.executeQuery();
@@ -61,7 +62,7 @@ public class AdminDAO extends AbstractDAO {
             } else {
                 movieId = 0;
             }
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
         return movieId;
@@ -73,12 +74,12 @@ public class AdminDAO extends AbstractDAO {
         ResultSet res ;
         int actorId;
         try {
-            getConnection().setAutoCommit(false);
+            wrapper.setAutoCommit(false);
 
             for (Actor actor : actors) {
                 actorId = getActorId(actor);
                 if (actorId == 0) {
-                    ps = getConnection().prepareStatement(ADDACTOR);
+                    ps = wrapper.prepareStatement(ADDACTOR);
                     ps.setString(1, actor.getFirstName());
                     ps.setString(2, actor.getSeccondName());
                     ps.setString(3, actor.getBirthday());
@@ -87,20 +88,20 @@ public class AdminDAO extends AbstractDAO {
                     actorId = getActorId(actor);
                 }
 
-                ps = getConnection().prepareStatement(ADDROLE);
+                ps = wrapper.prepareStatement(ADDROLE);
                 ps.setInt(1, movieId);
                 ps.setInt(2, actorId);
                 ps.setString(3, actor.getRole());
                 ps.executeUpdate();
             }
 
-            getConnection().commit();
-            getConnection().setAutoCommit(true);
-        } catch (SQLException e) {
+            wrapper.commit();
+            wrapper.setAutoCommit(true);
+        } catch (SQLException | WrapperException e) {
             try {
-                getConnection().rollback();
-                getConnection().setAutoCommit(true);
-            } catch (SQLException e1) {
+                wrapper.rollback();
+                wrapper.setAutoCommit(true);
+            } catch (WrapperException e1) {
                 throw new DAOException("SQL exception", e);
             }
             throw new DAOException("SQL exception", e);
@@ -112,9 +113,9 @@ public class AdminDAO extends AbstractDAO {
         PreparedStatement ps;
         ResultSet res ;
         try {
-            getConnection().setAutoCommit(false);
+            wrapper.setAutoCommit(false);
 
-            ps = getConnection().prepareStatement(ADDMOVIE);
+            ps = wrapper.prepareStatement(ADDMOVIE);
             ps.setString(1, movie.getTitle());
             ps.setFloat(2, movie.getRating());
             ps.setString(3, movie.getIcon());
@@ -122,23 +123,23 @@ public class AdminDAO extends AbstractDAO {
             ps.setString(5, movie.getCountry());
             ps.setString(6, movie.getDescription());
             ps.executeUpdate();
-            ps = getConnection().prepareStatement(CLEANGENRES);
+            ps = wrapper.prepareStatement(CLEANGENRES);
             ps.setString(1, movie.getTitle());
             ps.executeUpdate();
-            ps = getConnection().prepareStatement(ADDGENRES);
+            ps = wrapper.prepareStatement(ADDGENRES);
             for (String genre : movieGenres) {
                 ps.setString(1, movie.getTitle());
                 ps.setString(2, genre);
                 ps.executeUpdate();
             }
 
-            getConnection().commit();
-            getConnection().setAutoCommit(true);
-        } catch (SQLException e) {
+            wrapper.commit();
+            wrapper.setAutoCommit(true);
+        } catch (SQLException | WrapperException e) {
             try {
-                getConnection().rollback();
-                getConnection().setAutoCommit(true);
-            } catch (SQLException e1) {
+                wrapper.rollback();
+                wrapper.setAutoCommit(true);
+            } catch ( WrapperException e1) {
                 throw new DAOException("SQL exception", e);
             }
             throw new DAOException("SQL exception", e);
@@ -150,11 +151,11 @@ public class AdminDAO extends AbstractDAO {
         PreparedStatement ps;
         ResultSet res ;
         try {
-            ps = getConnection().prepareStatement(CHANGESTATUS);
+            ps = wrapper.prepareStatement(CHANGESTATUS);
             ps.setString(1, user.getStatus());
             ps.setString(2, user.getLogin());
             ps.executeUpdate();
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
 
@@ -165,11 +166,11 @@ public class AdminDAO extends AbstractDAO {
         PreparedStatement ps;
         ResultSet res ;
         try {
-            ps = getConnection().prepareStatement(BANING);
+            ps = wrapper.prepareStatement(BANING);
             ps.setBoolean(1, user.isBanned());
             ps.setString(2, user.getLogin());
             ps.executeUpdate();
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
     }
@@ -178,9 +179,9 @@ public class AdminDAO extends AbstractDAO {
         PreparedStatement ps;
         ResultSet res ;
         try {
-            ps = getConnection().prepareStatement(USERS);
+            ps = wrapper.prepareStatement(USERS);
             res = ps.executeQuery();
-        } catch (SQLException e) {
+        } catch (SQLException | WrapperException e) {
             throw new DAOException("SQL exception", e);
         }
         return res;

@@ -1,13 +1,8 @@
 package com.slabadniak.task5.command;
 
-import com.slabadniak.task5.dao.AdminDAO;
-import com.slabadniak.task5.dao.UserDAO;
 import com.slabadniak.task5.entity.Movie;
-import com.slabadniak.task5.entity.UsersAssessment;
 import com.slabadniak.task5.exeption.CommandExeption;
 import com.slabadniak.task5.exeption.ServiceExeption;
-import com.slabadniak.task5.pool.ConnectionPool;
-import com.slabadniak.task5.pool.Wrapper;
 import com.slabadniak.task5.service.AddMovieSevice;
 
 import javax.servlet.http.HttpServletRequest;

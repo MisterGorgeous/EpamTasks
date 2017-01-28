@@ -1,11 +1,11 @@
 package com.slabadniak.task5.command;
 
-import com.slabadniak.task5.entity.Feedback;
+import com.slabadniak.task5.feedback.Feedback;
 import com.slabadniak.task5.entity.UserType;
 import com.slabadniak.task5.entity.User;
 import com.slabadniak.task5.exeption.CommandExeption;
 import com.slabadniak.task5.exeption.ServiceExeption;
-import com.slabadniak.task5.logic.Validation;
+import com.slabadniak.task5.logic.UserValidation;
 import com.slabadniak.task5.service.CheckUserService;
 import com.slabadniak.task5.service.AuthorizationService;
 import com.slabadniak.task5.content.UserContent;
@@ -44,12 +44,12 @@ public class LogInCommand implements ICommand {
         //remove, if stay after previous query
         request.removeAttribute(FEEDBACK);
 
-        feedback = Validation.checkPassword(password);
+        feedback = UserValidation.checkPassword(password);
         if (feedback.isWritten()) {
             request.setAttribute(FEEDBACK, feedback);
             return;
         }
-        feedback = Validation.checkLogin(login);
+        feedback = UserValidation.checkLogin(login);
         if (feedback.isWritten()) {
             request.setAttribute(FEEDBACK, feedback);
             return;

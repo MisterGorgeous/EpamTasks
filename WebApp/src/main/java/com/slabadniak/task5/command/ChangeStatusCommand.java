@@ -1,14 +1,9 @@
 package com.slabadniak.task5.command;
 
-import com.slabadniak.task5.dao.AdminDAO;
 import com.slabadniak.task5.entity.User;
 import com.slabadniak.task5.exeption.CommandExeption;
 import com.slabadniak.task5.exeption.ServiceExeption;
-import com.slabadniak.task5.pool.ConnectionPool;
-import com.slabadniak.task5.pool.Wrapper;
-import com.slabadniak.task5.service.ChangeProfileService;
 import com.slabadniak.task5.service.ChangeStatusService;
-import com.slabadniak.task5.tag.RevenueTableTag;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
