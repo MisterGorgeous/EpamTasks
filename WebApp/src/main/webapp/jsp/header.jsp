@@ -17,7 +17,7 @@
                 <div class="form-group">
                     <input name="searchMovie" type="text" placeholder="Search" pattern="[A-Z a-z\w]{1,56}">
                 </div>
-                <button type="submit" class="btn btn-primary">Search Movie</button>
+                <button type="submit" class="btn btn-primary"><fmt:message key="header.search" bundle="${resourceBundle}"/></button>
             </form>
 
 
@@ -41,7 +41,6 @@
                            value="<fmt:message key="main.sigin" bundle="${resourceBundle}"/>"/>
                 </form>
 
-                <!--Sign in -->
 
                 <form class="navbar-form navbar-left" action="Controller" method="post">
                     <input class="form-control" type="hidden" name="command"
@@ -64,7 +63,7 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+                                <h4 class="modal-title" id="myModalLabel"><fmt:message key="main.login" bundle="${resourceBundle}"/></h4>
                             </div>
                             <div class="modal-body">
                                 <div class="container">
@@ -81,15 +80,15 @@
                                                     <input class="form-control" type="hidden" name="page"
                                                            value="path.page.main">
                                                     <input name="login" type="text" class="form-control col-md-8 "
-                                                           placeholder="Login" pattern="^[A-Za-z]\w{4,32}$" required
+                                                           placeholder="<fmt:message key="main.login" bundle="${resourceBundle}"/>" pattern="^[A-Za-z]\w{4,32}$" required
                                                            autofocus>
                                                     <input type="password" class="form-control col-md-8"
-                                                           placeholder="Password"
+                                                           placeholder="<fmt:message key="header.password" bundle="${resourceBundle}"/>"
                                                            name="pass"
                                                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,32}$"
                                                            required>
                                                     <button id="logon" class="btn btn-lg btn-primary btn-block"
-                                                            type="submit">Log on
+                                                            type="submit"><fmt:message key="main.login" bundle="${resourceBundle}"/>
                                                     </button>
                                                 </form>
 

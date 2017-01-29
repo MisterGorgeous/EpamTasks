@@ -28,7 +28,6 @@ public class ActorCommand implements ICommand {
         setAtributes(content, request);
     }
 
-
     private void setAtributes(DataContext content, HttpServletRequest request) {
         HttpSession session = request.getSession();
         session.setAttribute("actors", content.get());
