@@ -115,6 +115,7 @@
                         <span class="caret"></span></button>
 
                     <ul class="dropdown-menu">
+                        <li class="dropdown-header">Change Users Status</li>
                         <li>
                             <form action="Controller" method="post">
                                 <input type="hidden" name="command" value="users">
@@ -123,7 +124,7 @@
                                        value="<fmt:message key="header.users" bundle="${resourceBundle}"/>"/>
                             </form>
                         </li>
-
+                        <li class="dropdown-header">Add new Movie to DB</li>
                         <li>
                             <form action="Controller" method="post">
                                 <input type="hidden" name="command" value="allgenres">
@@ -132,7 +133,7 @@
                                        value="<fmt:message key="header.addmovie" bundle="${resourceBundle}"/>"/>
                             </form>
                         </li>
-
+                        <li class="dropdown-header">Add Actors to Movie</li>
                         <li>
                             <form action="Controller" method="post">
                                 <input type="hidden" name="command" value="">

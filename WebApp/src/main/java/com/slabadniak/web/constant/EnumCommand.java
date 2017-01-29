@@ -103,6 +103,11 @@ public enum EnumCommand {
             this.command = new SearchMoviesCommand();
         }
     },
+    SORTMOVIES{
+        {
+            this.command = new SortMoviesCommand();
+        }
+    },
     WRITEFEEDBACK{
         {
             this.command = new WriteFeedbackCommand();

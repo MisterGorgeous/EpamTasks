@@ -26,6 +26,22 @@
 <%@ include file="/jsp/header.jsp" %>
 
 
+<div class="">
+
+    <form action="Controller" method="post">
+        <input type="hidden" name="command" value="sortMovies">
+        <input type="hidden" name="page" value="path.page.main">
+        <select id="sort" class="selectpicker" name="order" onchange="$(this).closest('form').submit();">
+            <option>${sessionScope.movieOrder}</option>
+            <option>Alphabetic</option>
+            <option>Start with highest rate</option>
+            <option>Start with lowest rate</option>
+        </select>
+        <input type="submit"  name="button" value="" hidden/>
+    </form>
+</div>
+
+
 <div class="btn-group col-lg-offset-1" role="group">
     <form action="Controller" method="post">
         <input type="hidden" name="command" value="specificgenre">
@@ -106,6 +122,10 @@
 <script src="/js/custom.js"></script>
 
 <script type="text/javascript">
+
+    $("#sort").onchange(function(){
+        $(this).closest('form').submit();
+    });
 
 
 </script>
