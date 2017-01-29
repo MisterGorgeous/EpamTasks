@@ -11,7 +11,7 @@
 
     <tag>
         <name>custom-slider</name>
-        <tag-class>com.slabadniak.task5.tag.RevenueTableTag</tag-class>
+        <tag-class>com.slabadniak.web.tag.RevenueTableTag</tag-class>
         <body-content>scriptless</body-content>
         <attribute>
             <name>index</name>

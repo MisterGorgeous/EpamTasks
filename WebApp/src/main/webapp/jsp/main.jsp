@@ -13,7 +13,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta title="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+    <style>
+
+    </style>
 </head>
 
 
@@ -42,14 +46,21 @@
 
     <c:forEach var="i" begin="${sessionScope.currentMoviePage * 6}" end="${sessionScope.currentMoviePage * 6 + 5}">
         <c:if test="${i < sessionScope.movieSize}">
-            <div class="thumbnail col-xs-8 col-md-4 col-lg-4 ">
-                <form action="Controller" method="post">
+            <div class="col-xs-8 col-md-4 col-lg-4 ">
+                <form action="Controller" method="post" class="movieForm">
                     <input type="hidden" name="command" value="movie">
                     <input type="hidden" name="index" value="${i}">
                     <input type="hidden" name="page" value="path.page.movie">
+                    <h2 class="movTitle">
+                        <span class="subForm label label-info col-lg-offset-6">${sessionScope.movies.get(i).title}</span>
+                    </h2>
+                    <h2 class="movRating">
+                        <span class="subForm label label-danger col-lg-offset-6">${sessionScope.movies.get(i).rating} </span>
+                    </h2>
                     <input class="btn btn-default invisible" type="submit" name="button" value="user"/>
-                    <img width="400" height="600" src="${sessionScope.movies.get(i).icon}" alt=""
-                         class="subForm">
+
+                    <img class="subForm movImg" src="${sessionScope.movies.get(i).icon}" alt="">
+
                 </form>
             </div>
         </c:if>

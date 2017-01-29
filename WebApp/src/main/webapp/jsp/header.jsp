@@ -15,9 +15,9 @@
                 <input type="hidden" name="command" value="searchmovies">
                 <input type="hidden" name="page" value="path.page.main">
                 <div class="form-group">
-                    <input name="searchMovie" type="text" placeholder="Search" pattern="[A-Z a-z]\w{1,56}">
+                    <input name="searchMovie" type="text" placeholder="Search" pattern="[A-Z a-z\w]{1,56}">
                 </div>
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="btn btn-primary">Search Movie</button>
             </form>
 
 
