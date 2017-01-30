@@ -27,7 +27,7 @@
 <div class="">
 
     <form action="Controller" method="post">
-        <input type="hidden" name="command" value="sortMovies">
+        <input type="hidden" name="command" value="sortmovies">
         <input type="hidden" name="page" value="path.page.main">
         <order:custom-order/>
         <input type="submit"  name="button" value="" hidden/>

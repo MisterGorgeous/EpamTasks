@@ -12,9 +12,9 @@ public class SortMovies {
     private static final String INCREASE = "Start with lowest rate";
 
     public static String sort(List<Movie> movies, String order, String attribute) throws ServiceExeption {
-        if(checkNecessity(order,attribute)) {
+        String sortOrder = choseOrder(order,attribute);
             String newAttribute;
-            switch (order) {
+            switch (sortOrder) {
                 case ALPABETIC:
                     Collections.sort(movies, Comparator.comparing(Movie::getTitle));
                     newAttribute = ALPABETIC;
@@ -30,18 +30,12 @@ public class SortMovies {
                     break;
             }
             return newAttribute;
-        }else {
-            return "";
-        }
     }
 
-    static public boolean checkNecessity(String order,String attribute){
+    static private String choseOrder(String order,String attribute){
         if(order == null || order.isEmpty()){
-            return false;
+            return attribute;
         }
-        if(order.equals(attribute)){
-            return false;
-        }
-        return true;
+        return order;
     }
 }

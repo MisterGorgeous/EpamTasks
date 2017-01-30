@@ -5,6 +5,7 @@ import com.slabadniak.web.entity.User;
 import com.slabadniak.web.exeption.DAOException;
 import com.slabadniak.web.exeption.PoolException;
 import com.slabadniak.web.exeption.ServiceExeption;
+import com.slabadniak.web.exeption.WrapperException;
 import com.slabadniak.web.pool.ConnectionPool;
 import com.slabadniak.web.pool.Wrapper;
 
@@ -44,10 +45,9 @@ public class ChangeProfileService {
             }
 
             pool.releaseConnection(connection);
-        } catch (PoolException e) {
-            throw new ServiceExeption("Pool exception", e);
-        } catch (DAOException e) {
-            throw new ServiceExeption("UserDAO exception ", e);
+            connection.closePreparedStatement();
+        } catch (PoolException |WrapperException |DAOException  e) {
+            throw new ServiceExeption("Service exception", e);
         }
 
     }
