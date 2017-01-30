@@ -2,6 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<%@ taglib prefix="order" uri="ordTag" %>
+
 <fmt:setLocale value="${local}"/>
 <fmt:setBundle basename="def" var="resourceBundle"/>
 
@@ -14,10 +16,6 @@
     <meta title="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
-
-    <style>
-
-    </style>
 </head>
 
 
@@ -31,12 +29,7 @@
     <form action="Controller" method="post">
         <input type="hidden" name="command" value="sortMovies">
         <input type="hidden" name="page" value="path.page.main">
-        <select id="sort" class="selectpicker" name="order" onchange="$(this).closest('form').submit();">
-            <option>${sessionScope.movieOrder}</option>
-            <option>Alphabetic</option>
-            <option>Start with highest rate</option>
-            <option>Start with lowest rate</option>
-        </select>
+        <order:custom-order/>
         <input type="submit"  name="button" value="" hidden/>
     </form>
 </div>
@@ -123,12 +116,12 @@
 
 <script type="text/javascript">
 
-    $("#sort").onchange(function(){
+    $("#sort").change(function(){
         $(this).closest('form').submit();
     });
 
-
 </script>
+
 </body>
 
 </html>

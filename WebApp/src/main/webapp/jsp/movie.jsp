@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap-slider.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
 </head>
 
 
@@ -28,7 +29,7 @@
 <div class="row">
     <div class="col-xs-6 col-md-4  col-lg-4">
         <div>
-            <img src="${chosenMovie.getIcon()}" alt="..." width="300" height="600">
+            <img src="${chosenMovie.getIcon()}" alt="..." class="movImg">
         </div>
 
         <c:if test="${userStatus == 'GUEST'}">

@@ -14,13 +14,14 @@ public class SessionChangeListner implements HttpSessionListener {
     private final static String ENGLISH = "en_US";
     private static final String USERSATUS = "userStatus";
     private static final String MOVIEORDER = "movieOrder";
+    private static final String DEFAULT = "Alphabetic";
 
     public void sessionCreated(HttpSessionEvent sessionEvent) {
         HttpSession session = sessionEvent.getSession();
         session.setAttribute(USERSATUS, UserType.GUEST);
         session.setAttribute(LOCAL, ENGLISH);
         session.setAttribute(CURRENTJSP, "path.page.main");
-        session.setAttribute(MOVIEORDER, "Alphabetic");
+        session.setAttribute(MOVIEORDER, DEFAULT);
     }
 
     public void sessionDestroyed(HttpSessionEvent sessionEvent) {
