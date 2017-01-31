@@ -10,7 +10,7 @@ import com.slabadniak.web.pool.ConnectionPool;
 import com.slabadniak.web.pool.Wrapper;
 
 public class SignInService {
-
+    private static final String DEFAULT_ICON = "/img/photo.png";
     private SignInService() {
     }
 
@@ -19,6 +19,7 @@ public class SignInService {
         DefaultDAO defaultDAO = null;
 
 
+        user.setIcon(DEFAULT_ICON);
         try {
             Wrapper connection = pool.getConnection();
             defaultDAO = new DefaultDAO(connection);

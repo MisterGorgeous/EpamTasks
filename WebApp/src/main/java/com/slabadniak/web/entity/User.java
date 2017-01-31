@@ -3,7 +3,6 @@ package com.slabadniak.web.entity;
 import org.apache.commons.codec.digest.DigestUtils;
 
 public class User {
-    private static final String DEFAULT_ICON = "/img/photo.png";
     private String login;
     private String email;
     private String password;
@@ -19,7 +18,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.gender = gender;
-        this.icon = (icon == null) ? DEFAULT_ICON : icon;
+        this.icon = icon;
     }
 
     public User(String login, String password) {

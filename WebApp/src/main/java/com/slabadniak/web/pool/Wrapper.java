@@ -52,7 +52,9 @@ public class Wrapper {
 
     public void closePreparedStatement() throws WrapperException {
         try {
-            ps.close();
+            if (this.ps != null ) {
+                ps.close();
+            }
         } catch (SQLException e) {
             throw new WrapperException("SQL exception ", e);
         }

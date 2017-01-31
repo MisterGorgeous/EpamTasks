@@ -21,27 +21,27 @@ public class ChangeProfileService {
             Wrapper connection = pool.getConnection();
             userDAO = new UserDAO(connection);
 
-            if (!unmodified.getIcon().equals(modified.getIcon()) && !modified.getIcon().isEmpty()) {
+            if (modified.getIcon() != null && !unmodified.getIcon().equals(modified.getIcon()) && !modified.getIcon().isEmpty() && !modified.getIcon().equals("")) {
                 userDAO.changeIcon(unmodified, modified);
                 unmodified.setIcon(modified.getIcon());
             }
 
-            if (!unmodified.getLogin().equals(modified.getLogin())) {
+            if (modified.getLogin() != null && !unmodified.getLogin().equals(modified.getLogin())) {
                 userDAO.changeLogin(unmodified, modified);
                 unmodified.setLogin(modified.getLogin());
             }
 
-            if (!unmodified.getEmail().equals(modified.getEmail())) {
+            if (modified.getEmail() != null &&!unmodified.getEmail().equals(modified.getEmail())) {
                 userDAO.changeEmail(unmodified, modified);
                 unmodified.setEmail(modified.getEmail());
             }
 
-            if (!modified.getPassword().isEmpty() && !unmodified.getPassword().equals(modified.getPassword()) ) {
+            if (modified.getPassword() != null && !modified.getPassword().isEmpty() && !unmodified.getPassword().equals(modified.getPassword()) && !modified.getPassword().equals("")) {
                 userDAO.changePassword(unmodified, modified);
                 unmodified.setPassword(modified.getPassword());
             }
 
-            if (!unmodified.getGender().equals(modified.getGender())) {
+            if (modified.getGender() != null &&!unmodified.getGender().equals(modified.getGender())) {
                 userDAO.changeGender(unmodified, modified);
                 unmodified.setGender(modified.getGender());
             }

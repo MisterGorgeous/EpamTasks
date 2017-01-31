@@ -3,6 +3,11 @@ package com.slabadniak.web.constant;
 import com.slabadniak.web.command.*;
 
 public enum EnumCommand {
+    EMPTY{
+        {
+            this.command = new EmptyCommand();
+        }
+    },
     LOCALE{
         {
             this.command = new LocalCommand();

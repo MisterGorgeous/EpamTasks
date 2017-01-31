@@ -58,7 +58,9 @@ public class ChangeProfileCommand implements ICommand {
 
 
         User modified = new User(login, email, password, gender, icon);
-        modified.setPassword(Util.hashPassword(password));
+        if(modified.getPassword() != null && !modified.getPassword().isEmpty()) {
+            modified.setPassword(Util.hashPassword(password));
+        }
         User unmodified = (User) session.getAttribute("user");
 
         try {

@@ -37,7 +37,7 @@
 
             <c:if test="${userStatus == 'GUEST'}">
                 <form class="navbar-form navbar-left" name="signin" action="Controller" method="post">
-                    <input type="hidden" name="command" value="">
+                    <input type="hidden" name="command" value="empty">
                     <input type="hidden" name="page" value="path.page.signin">
                     <input type="submit" name="button" class="btn btn-primary"
                            value="<fmt:message key="main.sigin" bundle="${resourceBundle}"/>"/>
@@ -137,7 +137,7 @@
                         <li class="dropdown-header">Add Actors to Movie</li>
                         <li>
                             <form action="Controller" method="post">
-                                <input type="hidden" name="command" value="">
+                                <input type="hidden" name="command" value="empty">
                                 <input type="hidden" name="page" value="path.page.addactor">
                                 <input class="btn btn-info" type="submit" title="button"
                                        value="<fmt:message key="header.addactor" bundle="${resourceBundle}"/>"/>
@@ -166,7 +166,7 @@
                 </form>
 
                 <form class="navbar-form navbar-right" title="user" action="Controller" method="post">
-                    <input type="hidden" name="command" value="">
+                    <input type="hidden" name="command" value="empty">
                     <input type="hidden" name="page" value="path.page.user">
                     <!--<input class="btn btn-default" type="submit"  title="button" value="user" /> />-->
                     <button type="submit" class="btn btn-default">
