@@ -5,7 +5,6 @@
 <html>
 <head>
     <title>ERROR</title>
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 </head>
 <body>
 <div class="container">
@@ -28,6 +27,6 @@
     </div>
 </div>
 
-<script src="/js/bootstrap.min.js"></script>
+
 </body>
 </html>

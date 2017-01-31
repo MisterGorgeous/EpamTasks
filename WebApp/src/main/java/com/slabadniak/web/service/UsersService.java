@@ -10,6 +10,8 @@ import com.slabadniak.web.pool.Wrapper;
 import com.slabadniak.web.content.UserContent;
 
 public class UsersService {
+    private UsersService() {
+    }
 
     public static  UserContent users() throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
@@ -20,6 +22,7 @@ public class UsersService {
             Wrapper connection = pool.getConnection();
             adminDAO = new AdminDAO(connection);
             content.insert(adminDAO.users());
+
             pool.releaseConnection(connection);
             connection.closePreparedStatement();
         } catch (PoolException |WrapperException |DAOException  e) {

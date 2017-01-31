@@ -16,7 +16,6 @@ public class CommentCommand implements ICommand {
     public void execute(HttpServletRequest request) throws CommandExeption {
 
         HttpSession session = request.getSession();
-        //exeption
         String comment = request.getParameter("commentText");
         float rating = Float.parseFloat(request.getParameter("rating"));
         User user = (User) session.getAttribute("user");
@@ -28,12 +27,6 @@ public class CommentCommand implements ICommand {
             throw new CommandExeption("Service:", e);
         }
 
-        // HttpSession session = request.getSession(true);
-
-        //CommandFactory.create("cross").execute(request);
-
-
-        CommandFactory.create("showcomments").execute(request);
         setForwardPage(request);
     }
 }

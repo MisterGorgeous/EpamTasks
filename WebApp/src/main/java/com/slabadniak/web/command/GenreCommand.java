@@ -15,8 +15,6 @@ public class GenreCommand implements ICommand {
 
     @Override
     public void execute(HttpServletRequest request) throws CommandExeption {
-        //exeption
-
         HttpSession session = request.getSession();
         Movie movie = (Movie) session.getAttribute("chosenMovie");
         GenreContent content;

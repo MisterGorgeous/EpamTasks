@@ -94,7 +94,7 @@
                             <h6>Upload photo</h6>
                             <img src="${sessionScope.user.icon}" class="avatar img-circle img-thumbnail" alt="avatar">
                             <form  action="/UploadServlet" method="post" enctype="multipart/form-data">
-                                <input class="addIcon" type="file" name="file"  >
+                                <input class="addIcon" type="file" name="file"  onchange="this.form.submit()" >
                                 <input  type="submit" hidden />
                             </form>
                         </div>

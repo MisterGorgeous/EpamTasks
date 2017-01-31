@@ -9,6 +9,7 @@ import com.slabadniak.web.logic.UserValidation;
 import com.slabadniak.web.service.CheckUserService;
 import com.slabadniak.web.service.AuthorizationService;
 import com.slabadniak.web.content.UserContent;
+import com.slabadniak.web.util.Util;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -56,7 +57,7 @@ public class LogInCommand implements ICommand {
         }
 
         User user = new User(login, password);
-        user.hashPassword(); //MD5
+        user.setPassword(Util.hashPassword(password)); //MD5
         UserContent content;
 
         try {
@@ -105,7 +106,6 @@ public class LogInCommand implements ICommand {
             } else {
                 session.setAttribute("userStatus", UserType.USER);
             }
-            //LOGGER.log(Level.DEBUG, "Loged in");
         } else {
             feedback.setMessage(BANNED);
             request.setAttribute(FEEDBACK, feedback);

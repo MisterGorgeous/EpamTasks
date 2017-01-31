@@ -17,10 +17,14 @@ import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.util.List;
 
+
+
 @WebServlet("/UploadServlet")
 @MultipartConfig
 public class UploadServlet extends HttpServlet {
     private static final String PATH = "S:/git_rep/Epam/WebApp/src/main/webapp/img/";
+    private static final String JSP = "currentJSP";
+
 
     public void init() throws ServletException {
     }
@@ -56,17 +60,17 @@ public class UploadServlet extends HttpServlet {
 
         request.setAttribute("filename",fileName);
 
-        ICommand com = CommandFactory.create("upload");
-
 
         try {
-            com.execute(request);
+            CommandFactory factory = new CommandFactory();
+            factory.create(new String[]{"upload"});
+            factory.execute(request);
         } catch (CommandExeption e) {
             throw new ServletException("Command exception ", e);
         }
 
 
         HttpSession session = request.getSession();
-        request.getRequestDispatcher((String)session.getAttribute("currentJSP")).forward(request, response);
+        request.getRequestDispatcher((String)session.getAttribute(JSP)).forward(request, response);
     }
 }

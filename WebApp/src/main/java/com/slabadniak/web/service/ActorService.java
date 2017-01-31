@@ -13,6 +13,8 @@ import com.slabadniak.web.content.ActorContent;
 
 public class ActorService {
 
+    private ActorService(){}
+
     public static ActorContent actors(Movie movie) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         DefaultDAO defaultDAO = null;

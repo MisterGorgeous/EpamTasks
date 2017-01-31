@@ -12,6 +12,9 @@ import com.slabadniak.web.content.AssessmentContent;
 
 public class ShowCommentService {
 
+    private ShowCommentService() {
+    }
+
     public static  AssessmentContent show(Movie movie) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         DefaultDAO defaultDAO = null;
@@ -22,6 +25,7 @@ public class ShowCommentService {
             Wrapper connection = pool.getConnection();
             defaultDAO = new DefaultDAO(connection);
             content.insert(defaultDAO.comments(movie.getTitle()));
+
             pool.releaseConnection(connection);
             connection.closePreparedStatement();
         } catch (PoolException |WrapperException |DAOException  e) {

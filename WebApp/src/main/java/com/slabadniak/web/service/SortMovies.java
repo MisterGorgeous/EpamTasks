@@ -11,6 +11,9 @@ public class SortMovies {
     private static final String DECREASE= "Start with highest rate";
     private static final String INCREASE = "Start with lowest rate";
 
+    private SortMovies() {
+    }
+
     public static String sort(List<Movie> movies, String order, String attribute) throws ServiceExeption {
         String sortOrder = choseOrder(order,attribute);
             String newAttribute;

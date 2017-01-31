@@ -13,6 +13,8 @@ import com.slabadniak.web.content.UserContent;
 
 public class AuthorizationService {
 
+    private AuthorizationService(){}
+
     public static UserContent authorization(User user) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         DefaultDAO defaultDAO;

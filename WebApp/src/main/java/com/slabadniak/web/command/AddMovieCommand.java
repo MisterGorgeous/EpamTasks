@@ -33,8 +33,6 @@ public class AddMovieCommand implements ICommand {
         }
 
 
-        // HttpSession session = request.getSession(true);
-
         setForwardPage(request);
     }
 

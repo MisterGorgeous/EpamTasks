@@ -21,11 +21,11 @@ public class UsersCommand implements ICommand {
             throw new CommandExeption("Service:", e);
         }
 
-        setAtributes(content,request);
+        setAttributes(content,request);
         setForwardPage(request);
     }
 
-    private void setAtributes(UserContent content, HttpServletRequest request){
+    private void setAttributes(UserContent content, HttpServletRequest request){
         //request.setAttribute("users", (List<User>) content.get());
         HttpSession session = request.getSession();
 

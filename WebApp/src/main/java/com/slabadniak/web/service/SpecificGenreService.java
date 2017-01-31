@@ -11,6 +11,8 @@ import com.slabadniak.web.pool.Wrapper;
 import com.slabadniak.web.content.MovieContent;
 
 public class SpecificGenreService {
+    private SpecificGenreService() {
+    }
 
     public static  MovieContent movies(String genre) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
@@ -21,6 +23,7 @@ public class SpecificGenreService {
             Wrapper connection = pool.getConnection();
             defaultDAO = new DefaultDAO(connection);
             content.insert(defaultDAO.specificGenre(genre));
+
             pool.releaseConnection(connection);
             connection.closePreparedStatement();
         } catch (PoolException |WrapperException |DAOException  e) {

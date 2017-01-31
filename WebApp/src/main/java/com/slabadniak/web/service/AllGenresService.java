@@ -12,6 +12,8 @@ import com.slabadniak.web.content.GenreContent;
 
 public class AllGenresService {
 
+    private AllGenresService(){}
+
     public static  GenreContent genres() throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         DefaultDAO defaultDAO = null;

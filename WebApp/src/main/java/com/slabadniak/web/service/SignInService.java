@@ -11,6 +11,9 @@ import com.slabadniak.web.pool.Wrapper;
 
 public class SignInService {
 
+    private SignInService() {
+    }
+
     public static  void signin(User user) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         DefaultDAO defaultDAO = null;

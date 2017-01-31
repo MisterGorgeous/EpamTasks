@@ -9,10 +9,4 @@ public abstract class AbstractDAO {
         this.wrapper = wrapper;
     }
 
-    /*protected Connection getConnection(){ return wrapper.getConnection();};
-
-    protected void closeConnection() throws WrapperException {
-        wrapper.closeConnection();
-    }*/
-
 }

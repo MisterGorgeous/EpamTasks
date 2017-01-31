@@ -10,6 +10,8 @@ import com.slabadniak.web.pool.Wrapper;
 import com.slabadniak.web.content.MovieContent;
 
 public class MainContentService {
+    private MainContentService() {
+    }
 
     public static  MovieContent movies() throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
@@ -20,6 +22,7 @@ public class MainContentService {
             Wrapper connection = pool.getConnection();
             defaultDAO = new DefaultDAO(connection);
             content.insert(defaultDAO.movies());
+
             pool.releaseConnection(connection);
             connection.closePreparedStatement();
         } catch (PoolException |WrapperException |DAOException  e) {

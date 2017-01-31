@@ -111,9 +111,6 @@ public class User {
         return admin;
     }
 
-    public void hashPassword(){
-        password = DigestUtils.md5Hex(password);
-    }
 
     @Override
     public boolean equals(Object obj) {
@@ -132,4 +129,10 @@ public class User {
                 && this.status.equals(user.getStatus()) && this.gender.equals(user.getGender());
     }
 
+    @Override
+    public int hashCode() {
+        int result = login.hashCode();
+        result = 31 * result + email.hashCode();
+        return result;
+    }
 }

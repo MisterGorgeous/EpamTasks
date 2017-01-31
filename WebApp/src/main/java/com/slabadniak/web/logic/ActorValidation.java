@@ -11,7 +11,7 @@ public class ActorValidation {
     }
 
     public static boolean checkForNull(String[] ...arrays){
-        for(String[] array:arrays){
+        for(String[] array:arrays){                                  //check if there is any nulls
             if(array == null){
                 return true;
             }

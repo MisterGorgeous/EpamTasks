@@ -9,6 +9,9 @@ import java.util.List;
 
 public class SearchMoviesService {
 
+    private SearchMoviesService() {
+    }
+
     public static MovieContent search(String movie) throws ServiceExeption {
         MovieContent content = MainContentService.movies();
         List<Movie> allMovies = content.get();

@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="/css/main.css">
 <header>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -6,8 +5,10 @@
             <div class="navbar-header">
                 <form class="navbar-form navbar-left" action="Controller" method="post">
                     <input type="hidden" name="command" value="setmaincontent">
+                    <input type="hidden" name="command" value="allgenres">
+                    <input type="hidden" name="command" value="sortmovies">
                     <input type="hidden" name="page" value="path.page.main">
-                    <button id="logo" type="submit" class="btn btn-default"><img src="/img/logo.jpg" alt="" width="40"
+                    <button type="submit" class="btn btn-default"><img src="/img/logo.jpg" alt="" width="40"
                                                                        height="20"></button>
                 </form>
             </div>

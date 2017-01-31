@@ -12,6 +12,8 @@ import com.slabadniak.web.content.GenreContent;
 
 
 public class GenreService {
+    private GenreService() {
+    }
 
     public static  GenreContent change(Movie movie) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();

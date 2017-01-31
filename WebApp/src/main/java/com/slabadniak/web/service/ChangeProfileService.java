@@ -10,6 +10,8 @@ import com.slabadniak.web.pool.ConnectionPool;
 import com.slabadniak.web.pool.Wrapper;
 
 public class ChangeProfileService {
+    private ChangeProfileService() {
+    }
 
     public static void change(User unmodified, User modified) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();

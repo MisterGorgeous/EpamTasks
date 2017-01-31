@@ -11,6 +11,8 @@ import com.slabadniak.web.pool.Wrapper;
 
 
 public class UserBannedService {
+    private UserBannedService() {
+    }
 
     public static  void ban(User user ) throws ServiceExeption {
 
@@ -24,6 +26,7 @@ public class UserBannedService {
             Wrapper connection = pool.getConnection();
             adminDAO = new AdminDAO(connection);
             adminDAO.userBaning(user);
+
             pool.releaseConnection(connection);
             connection.closePreparedStatement();
         } catch (PoolException |WrapperException |DAOException  e) {

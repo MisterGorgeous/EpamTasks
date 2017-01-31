@@ -31,7 +31,6 @@ public class ConnectionPool {
     private static ReentrantLock lock = new ReentrantLock();
     private static AtomicBoolean freeConnections = new AtomicBoolean(true);
     private static int capacity;
-    private static int size;
     private static final int TIMEQUANTUM = 3;
 
 
@@ -50,7 +49,7 @@ public class ConnectionPool {
             property.put("characterEncoding", resource.getString("encoding"));
             property.put("useUnicode", resource.getString("unicode"));
             connections = new ArrayBlockingQueue<>(capacity);
-            size = 0;
+            int size = 0;
             for (int i = 0; i < capacity; i++) {
                 Connection conn = DriverManager.getConnection(url, property);
                 Wrapper connection = new Wrapper(conn);

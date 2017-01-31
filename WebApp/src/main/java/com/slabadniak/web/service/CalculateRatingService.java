@@ -16,6 +16,9 @@ public class CalculateRatingService {
     private static final int FIRST_APPROXIMATION  = 1;
     private static final int SECOND_APPROXIMATION  = 2;
 
+    private CalculateRatingService() {
+    }
+
     public static  void calculate(String comment, float mark, User user, Movie movie ) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
         UserDAO userDAO = null;

@@ -11,6 +11,8 @@ import com.slabadniak.web.pool.Wrapper;
 
 
 public class CheckUserService {
+    private CheckUserService() {
+    }
 
     public static  boolean isLoginExist(User user) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();
@@ -23,6 +25,7 @@ public class CheckUserService {
 
             loginExist = defaultDAO.checkUsersLogin(user);
 
+            pool.releaseConnection(connection);
             connection.closePreparedStatement();
         } catch (PoolException |WrapperException |DAOException  e) {
             throw new ServiceExeption("Service exception", e);
@@ -41,10 +44,10 @@ public class CheckUserService {
 
             emailExist = defaultDAO.checkUsersEmail(user);
 
-        } catch (PoolException e) {
-            throw new ServiceExeption("Pool exception", e);
-        } catch (DAOException e) {
-            throw new ServiceExeption("UserDAO exception ", e);
+            pool.releaseConnection(connection);
+            connection.closePreparedStatement();
+        } catch (PoolException |WrapperException |DAOException  e) {
+            throw new ServiceExeption("Service exception", e);
         }
         return emailExist;
 
@@ -61,10 +64,10 @@ public class CheckUserService {
 
             passwordCorrect = defaultDAO.checkUserPassword(user);
 
-        } catch (PoolException e) {
-            throw new ServiceExeption("Pool exception", e);
-        } catch (DAOException e) {
-            throw new ServiceExeption("UserDAO exception ", e);
+            pool.releaseConnection(connection);
+            connection.closePreparedStatement();
+        } catch (PoolException |WrapperException |DAOException  e) {
+            throw new ServiceExeption("Service exception", e);
         }
         return passwordCorrect;
 

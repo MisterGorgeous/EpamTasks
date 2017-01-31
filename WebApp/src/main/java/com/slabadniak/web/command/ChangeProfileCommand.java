@@ -6,13 +6,18 @@ import com.slabadniak.web.exeption.CommandExeption;
 import com.slabadniak.web.exeption.ServiceExeption;
 import com.slabadniak.web.logic.UserValidation;
 import com.slabadniak.web.service.ChangeProfileService;
+import com.slabadniak.web.service.CheckUserService;
+import com.slabadniak.web.util.Util;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 
 public class ChangeProfileCommand implements ICommand {
+    private static final String LOGIN = "Such login already exist.";
+    private static final String EMAIL = "Such email already exist.";
     private Feedback feedback;
+
     @Override
     public void execute(HttpServletRequest request) throws CommandExeption {
         HttpSession session = request.getSession();
@@ -50,11 +55,25 @@ public class ChangeProfileCommand implements ICommand {
             return;
         }
 
+
+
         User modified = new User(login, email, password, gender, icon);
-        modified.hashPassword();
+        modified.setPassword(Util.hashPassword(password));
         User unmodified = (User) session.getAttribute("user");
 
         try {
+        if(CheckUserService.isLoginExist(modified) && !modified.getLogin().equals(unmodified.getLogin())) {
+            feedback.setMessage(LOGIN);
+            request.setAttribute(FEEDBACK, feedback);
+            return;
+        }
+
+        if(CheckUserService.isEmailExist(modified) && !modified.getEmail().equals(unmodified.getEmail())) {
+            feedback.setMessage(EMAIL);
+            request.setAttribute(FEEDBACK, feedback);
+            return;
+        }
+
             ChangeProfileService.change(unmodified, modified);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);

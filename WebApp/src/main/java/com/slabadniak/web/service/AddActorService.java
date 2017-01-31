@@ -13,6 +13,7 @@ import java.util.List;
 
 public class AddActorService {
 
+    private AddActorService(){}
 
     public static  boolean add(List<Actor> actors, String movie, String year) throws ServiceExeption {
         ConnectionPool pool = ConnectionPool.getInstance();

@@ -42,15 +42,16 @@
                 </thead>
                 <tbody>
 
-                <%-- <c:forEach var="user" items="${users}"> --%>
-                <c:forEach var="i" begin="${sessionScope.currentUserPage * 20}" end="${sessionScope.currnetUserPage * 20 + 19}">
-                    <c:if test="${i < sessionScope.usersSize}">
+                <c:set var="i" value="0" scope="page" />
+
+                <c:forEach var="user" items="${sessionScope.users}">
+
                         <tr>
-                            <td><img src="${sessionScope.users.get(i).icon}" class="img-circle" alt="avatar"></td>
-                            <td>${sessionScope.users.get(i).login}</td>
-                            <td>${sessionScope.users.get(i).email}</td>
+                            <td><img src="${user.icon}" class="img-circle" alt="avatar" width="200" height="200"></td>
+                            <td>${user.login}</td>
+                            <td>${user.email}</td>
                             <td>
-                                <label class="label label-info">${sessionScope.users.get(i).gender}</label>
+                                <label class="label label-info">${user.gender}</label>
                             </td>
                             <td>
                                 <form name="changestatus" action="Controller" method="post">
@@ -59,7 +60,7 @@
                                     <input type="hidden" name="userId" value="${i}">
                                     <input type="hidden" name="page" value="path.page.admin">
 
-                                    <slider:custom-slider index="${i}"  />
+                                    <slider:custom-slider index="${i}"/>
 
                                     <input class="btn btn-default invisible" type="submit" name="button" value="user"/>
                                 </form>
@@ -72,12 +73,12 @@
                                     <input type="hidden" name="page" value="path.page.admin">
                                     <input class="btn btn-default invisible" type="submit" name="button" value="user"/>
                                     <button type="button"
-                                            class="subForm ${sessionScope.users.get(i).banned ?'btn btn-danger': 'btn btn-success'}">Banned
+                                            class="subForm ${user.banned ?'btn btn-danger': 'btn btn-success'}">Banned
                                     </button>
                                 </form>
                             </td>
                         </tr>
-                    </c:if>
+                    <c:set var="i" value="${i + 1}" scope="page"/>
                 </c:forEach>
                 </tbody>
             </table>
@@ -88,29 +89,7 @@
 </div>
 
 
-<div class="row center-block">
-    <div class="col-xs-6 col-md-6 col-lg-6">
-        <form title="previous" action="Controller" method="post">
-            <input type="hidden" name="command" value="pagination">
-            <input type="hidden" name="page" value="path.page.admin">
-            <input type="hidden" name="attribute" value="currentUserPage">
-            <input type="hidden" name="action" value="previous">
-            <input class="btn btn-primary" type="submit" name="button2" value="Previous"
-                    <c:if test="${sessionScope.currentUserPage == 0}"> disabled </c:if>/>
-        </form>
-    </div>
-    <div class="col-xs-6 col-md-6 col-lg-6">
-        <form title="next" action="Controller" method="post">
-            <input type="hidden" name="command" value="pagination">
-            <input type="hidden" name="page" value="path.page.admin">
-            <input type="hidden" name="attribute" value="currentUserPage">
-            <input type="hidden" name="action" value="next">
-            <input class="btn btn-primary" type="submit" name="button" value="Next"
-                    <c:if test="${sessionScope.currentUserPage == sessionScope.userPages}"> disabled </c:if>/>
-        </form>
-    </div>
 
-</div>
 
 <form title="back" action="Controller" method="post">
     <input type="hidden" name="command" value="">

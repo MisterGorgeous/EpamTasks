@@ -29,7 +29,7 @@
                         <div class="panel panel-primary control-label">
                             <div class="panel-heading">Icon:</div>
                             <div class="panel-body">
-                                <input class="subForm" type="file" name="file"  />
+                                <input class="addIcon" type="file" name="file"  onchange="this.form.submit()"/>
                                 <input  type="submit" hidden />
                             </div>
                         </div>

@@ -5,8 +5,8 @@ import javax.servlet.http.HttpSession;
 
 
 public class UploadCommand implements ICommand {
-    public  static final String PREFIX = "/img/";
-    public  static final String ICON = "icon";
+    private static final String PREFIX = "/img/";
+    private static final String ICON = "icon";
 
     @Override
     public void execute(HttpServletRequest request) {

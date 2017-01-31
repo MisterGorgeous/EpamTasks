@@ -24,19 +24,19 @@ public class SetMainContentCommand implements ICommand {
 
         setAtributes(content,request);
 
-        CommandFactory.create("allgenres").execute(request);
-        CommandFactory.create("sortmovies").execute(request);
+        /*CommandFactory.create("allgenres").execute(request);
+        CommandFactory.create("sortmovies").execute(request);*/
 
         setForwardPage(request);
     }
 
     private void setAtributes(MovieContent content, HttpServletRequest request){
-      // request.setAttribute("films",content.get());
         HttpSession session = request.getSession();
         List<Movie> movies = content.get();
         session.setAttribute("movies",movies);
         //number of pages
         int numPages = (int) Math.ceil(movies.size()/6);
+        session.setAttribute("moviesOnPage",6);
         session.setAttribute("numPages",numPages);
         session.setAttribute("movieSize",movies.size());
         //not const.Will be iterated

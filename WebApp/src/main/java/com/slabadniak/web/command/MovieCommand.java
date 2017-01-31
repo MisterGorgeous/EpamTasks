@@ -19,10 +19,6 @@ public class MovieCommand implements ICommand {
 
         session.setAttribute("chosenMovie",movies.get(chosenIndex));
 
-        CommandFactory.create("genre").execute(request);
-        CommandFactory.create("actor").execute(request);
-        CommandFactory.create("showcomments").execute(request);
-
         setForwardPage(request);
     }
 }

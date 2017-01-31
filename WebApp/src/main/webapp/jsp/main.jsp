@@ -53,11 +53,14 @@
 
 <div class="row">
 
-    <c:forEach var="i" begin="${sessionScope.currentMoviePage * 6}" end="${sessionScope.currentMoviePage * 6 + 5}">
+    <c:forEach var="i" begin="${sessionScope.currentMoviePage * sessionScope.moviesOnPage}" end="${sessionScope.currentMoviePage * sessionScope.moviesOnPage + sessionScope.moviesOnPage - 1}">
         <c:if test="${i < sessionScope.movieSize}">
             <div class="col-xs-8 col-md-4 col-lg-4 ">
                 <form action="Controller" method="post" class="movieForm">
                     <input type="hidden" name="command" value="movie">
+                    <input type="hidden" name="command" value="genre">
+                    <input type="hidden" name="command" value="actor">
+                    <input type="hidden" name="command" value="showcomments">
                     <input type="hidden" name="index" value="${i}">
                     <input type="hidden" name="page" value="path.page.movie">
                     <h2 class="movTitle">

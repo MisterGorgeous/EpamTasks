@@ -10,6 +10,8 @@ import com.slabadniak.web.pool.ConnectionPool;
 import com.slabadniak.web.pool.Wrapper;
 
 public class ChangeStatusService {
+    private ChangeStatusService() {
+    }
 
     public static  void change(User user, int statusId) throws ServiceExeption {
 

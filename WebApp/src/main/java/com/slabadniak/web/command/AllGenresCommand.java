@@ -13,9 +13,7 @@ import java.util.List;
 public class AllGenresCommand implements ICommand {
     @Override
     public void execute(HttpServletRequest request) throws CommandExeption {
-
         GenreContent content;
-
 
         try {
             content =  AllGenresService.genres();
@@ -30,7 +28,6 @@ public class AllGenresCommand implements ICommand {
     }
 
     private void setAtributes(DataContext content, HttpServletRequest request) {
-        //request.setAttribute("allgenres", (Set<String>) content.get());
         HttpSession session = request.getSession();
         session.setAttribute("genrelist", (List<String>) content.get());
     }

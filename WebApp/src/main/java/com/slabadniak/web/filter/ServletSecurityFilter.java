@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(urlPatterns = { "/Controller" }, servletNames = { "Controller" })
+@WebFilter(urlPatterns = { "/Controller", "/UploadServlet" }, servletNames = { "Controller", "UploadServlet" })
 public class ServletSecurityFilter implements Filter {
     public void destroy() {
     }

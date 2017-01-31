@@ -12,6 +12,15 @@ function checkPasswords() {
     return true;
 }
 
+/*$('.addIcon').change(function() {
+    $(this).closest('form').submit();
+});*/
+var forms = document.getElementsByClassName('addIcon');
+for (var i=0; i < forms.length; i++) {
+    forms[i].change = function () {
+        this.closest('form').submit();
+    }
+}
 
 
 //hide feedback after some period of time
@@ -21,14 +30,14 @@ setTimeout("$('#modalInfo').hide();", 3000);
 //Autosubmit form after change state of some element
 var forms = document.getElementsByClassName('subForm');
 for (var i=0; i < forms.length; i++) {
-    forms[i].onchange = function () {
+    forms[i].onclick = function () {
         this.closest('form').submit();
     }
 }
 
-$(".subForm").click(function(){
+/*$(".subForm").click(function(){
     $(this).closest('form').submit();
-});
+});*/
 
 
 

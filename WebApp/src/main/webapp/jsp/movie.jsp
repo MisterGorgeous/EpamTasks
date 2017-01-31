@@ -45,6 +45,7 @@
             <form id="comment" class="navbar-form navbar-left" title="login" action="Controller" method="post">
 
                 <input type="hidden" name="command" value="comment">
+                <input type="hidden" name="command" value="showcomments">
                 <input type="hidden" name="page" value="path.page.movie">
 
                 <label for="comment">Your mark:</label>

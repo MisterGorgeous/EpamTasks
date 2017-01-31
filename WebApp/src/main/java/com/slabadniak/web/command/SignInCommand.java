@@ -7,13 +7,13 @@ import com.slabadniak.web.exeption.ServiceExeption;
 import com.slabadniak.web.logic.UserValidation;
 import com.slabadniak.web.service.CheckUserService;
 import com.slabadniak.web.service.SignInService;
+import com.slabadniak.web.util.Util;
 
 import javax.servlet.http.HttpServletRequest;
 
 public class SignInCommand implements ICommand {
-   // private static final String DEFAULT_ICON = "/img/photo.png";
     Feedback feedback;
-    private static final String LOGIN = "Such authorization already exist.";
+    private static final String LOGIN = "Such login already exist.";
     private static final String EMAIL = "Such email already exist.";
 
     @Override
@@ -54,7 +54,7 @@ public class SignInCommand implements ICommand {
 
 
         User user = new User(login,email,password,gender);
-        user.hashPassword(); //MD5
+        user.setPassword(Util.hashPassword(password)); //MD5
 
         try {
 
