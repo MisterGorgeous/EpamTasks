@@ -39,7 +39,7 @@ public class ConnectionPool {
         property = new Properties();
         try {
             DriverManager.registerDriver(new Driver());
-            LOGGER.log(Level.INFO, "Driver set");
+            LOGGER.log(Level.DEBUG, "Driver set");
             ResourceBundle resource = ResourceBundle.getBundle("config");
             String url = resource.getString("url");
             capacity = Integer.parseInt(resource.getString("pool"));
@@ -49,17 +49,15 @@ public class ConnectionPool {
             property.put("characterEncoding", resource.getString("encoding"));
             property.put("useUnicode", resource.getString("unicode"));
             connections = new ArrayBlockingQueue<>(capacity);
-            int size = 0;
             for (int i = 0; i < capacity; i++) {
                 Connection conn = DriverManager.getConnection(url, property);
                 Wrapper connection = new Wrapper(conn);
                 connections.offer(connection);
-                size++;
             }
             if (connections.size() != capacity) {
                 throw new RuntimeException("Connections was not created");
             }
-            LOGGER.log(Level.INFO, "Pool initialized");
+            LOGGER.log(Level.DEBUG, "Pool initialized");
         } catch (MissingResourceException e) {
             throw new RuntimeException("Missing resource ", e);
         } catch (SQLException e) {
@@ -86,7 +84,7 @@ public class ConnectionPool {
     public Wrapper getConnection() throws PoolException {
         if (freeConnections.get()) {
             try {
-                LOGGER.log(Level.INFO,"Connection taken");
+                LOGGER.log(Level.DEBUG,"Connection taken");
                 return connections.poll(TIMEQUANTUM, TimeUnit.SECONDS);
             } catch (InterruptedException e) {
                 throw new PoolException("Interrupted:", e);
@@ -98,20 +96,20 @@ public class ConnectionPool {
     public void releaseConnection(Wrapper connection) throws PoolException {
         try {
             connections.put(connection);
-            LOGGER.log(Level.INFO, "Connection returned");
+            LOGGER.log(Level.DEBUG, "Connection returned");
         } catch (InterruptedException e) {
             throw new PoolException("Interrupted:", e);
         }
     }
 
-    private void releasePool() throws PoolException, WrapperException {
+    private void releaseAllPoolConections() throws PoolException, WrapperException {
         freeConnections.set(false);
         try {
             TimeUnit.SECONDS.sleep(TIMEQUANTUM);
             for (Wrapper connection : connections) {
                     connections.put(connection);
             }
-            LOGGER.log(Level.INFO, "Pool released");
+            LOGGER.log(Level.DEBUG, "Pool released");
         } catch (InterruptedException e) {
             throw new PoolException("Release connection exception", e);
         }
@@ -120,7 +118,7 @@ public class ConnectionPool {
     @PreDestroy
     public void closePool() throws PoolException, WrapperException {
         freeConnections.set(false);
-        releasePool(); //Release all connections
+        releaseAllPoolConections(); //Release all connections
         for (int i = 0; i < capacity; i++) {
             try {
                 Wrapper wrapper = connections.take();
@@ -131,7 +129,7 @@ public class ConnectionPool {
                 throw new WrapperException("Wrapper:", e);
             }
         }
-        LOGGER.log(Level.INFO, "Pool closed");
+        LOGGER.log(Level.DEBUG, "Pool closed");
     }
 }
 

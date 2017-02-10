@@ -3,6 +3,7 @@ package com.slabadniak.web.content;
 import com.slabadniak.web.entity.UsersAssessment;
 import com.slabadniak.web.exeption.DAOException;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 
 
-public class AssessmentContent implements DataContext {
+public class AssessmentContent implements DataContext,Serializable {
     private List<UsersAssessment> assessments = null;
     private static final int COMMENT = 1;
     private static final int RATING = 2;

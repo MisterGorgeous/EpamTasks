@@ -89,7 +89,7 @@
             <input type="hidden" name="page" value="path.page.main">
             <input type="hidden" name="attribute" value="currentMoviePage">
             <input type="hidden" name="action" value="previous">
-            <input class="btn btn-primary" type="submit" name="button2" value="Previous"
+            <input class="btn btn-primary" type="submit" name="button2" value="<fmt:message key="main.previous" bundle="${resourceBundle}"/>"
                     <c:if test="${sessionScope.currentMoviePage == 0}"> disabled </c:if>/>
         </form>
 
@@ -102,7 +102,7 @@
             <input type="hidden" name="page" value="path.page.main">
             <input type="hidden" name="attribute" value="currentMoviePage">
             <input type="hidden" name="action" value="next">
-            <input class="btn btn-primary" type="submit" name="button" value="Next"
+            <input class="btn btn-primary" type="submit" name="button" value="<fmt:message key="main.next" bundle="${resourceBundle}"/>"
                     <c:if test="${sessionScope.currentMoviePage == sessionScope.numPages}"> disabled </c:if>/>
         </form>
     </div>

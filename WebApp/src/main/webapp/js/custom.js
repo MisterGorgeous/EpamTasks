@@ -12,9 +12,6 @@ function checkPasswords() {
     return true;
 }
 
-/*$('.addIcon').change(function() {
-    $(this).closest('form').submit();
-});*/
 var forms = document.getElementsByClassName('addIcon');
 for (var i=0; i < forms.length; i++) {
     forms[i].change = function () {
@@ -35,12 +32,6 @@ for (var i=0; i < forms.length; i++) {
     }
 }
 
-/*$(".subForm").click(function(){
-    $(this).closest('form').submit();
-});*/
-
-
-
 
 //Add and delete actors tags
 var addB = document.getElementById('addactor');
@@ -50,9 +41,7 @@ delB.addEventListener("click", deltag);
 var list = document.getElementById('actorlist');
 
 function addtag() {
-    //  var tag = '<div class="actor col-md-4 col-lg-4 well" name="actor"> <label class="control-label">First name:</label> <input type="text" name="fname" placeholder="" class="input"> <label class="control-label">Seccond name:</label> <input type="text" name="sname" placeholder="" class="input"> <label class="control-label">Role:</label> <input type="text" name="role" placeholder="" class="input"> </div>';
-    var tag = '<div class="actor col-md-4 col-lg-4 well" name="actor"> <label class="control-label">First name:</label> <input type="text" name="fname" placeholder="" class="input"> <label class="control-label">Seccond name:</label> <input type="text" name="sname" placeholder="" class="input"> <label class="control-label">Role:</label> <input type="text" name="role" placeholder="" class="input">    <label class="control-label">Profession:</label> <input type="text" name="profession" placeholder="" class="input"> <label class="control-label">Birthday:</label><input type="date" name="birthday" value="2017-01-01" max="2017-01-01" min="1945-01-01"> <label class="control-label">Birth Place:</label> <input type="text" name="birthplace" placeholder="" class="input"></div>';
-    // var tag = ' <actor:custom-actor></actor:custom-actor>';
+      var tag = '<div class="actor col-sm-4 col-xs-4 col-md-4 col-lg-4 well" name="actor"> <label class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label">First name:</label> <input type="text" name="fname" placeholder="" class="input"> <label class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label">Seccond name:</label> <input type="text" name="sname" placeholder="" class="input"> <label class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label">Role:</label> <input type="text" name="role" placeholder="" class="input">    <label class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label">Profession:</label> <input type="text" name="profession" placeholder="" class="input"> <label class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label">Birthday:</label><input class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label" type="date" name="birthday" value="2017-01-01" max="2017-01-01" min="1945-01-01"> <label class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label">Birth Place:</label> <input class="col-sm-5 col-xs-5 col-md-5 col-lg-5"  type="text" name="birthplace" placeholder="" class="input"></div>';
     $(list).append(tag);
 }
 

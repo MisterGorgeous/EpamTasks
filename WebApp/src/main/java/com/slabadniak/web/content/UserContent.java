@@ -3,12 +3,13 @@ package com.slabadniak.web.content;
 import com.slabadniak.web.entity.User;
 import com.slabadniak.web.exeption.DAOException;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserContent implements DataContext {
+public class UserContent implements DataContext,Serializable {
 
     private List<User> users = null;
     private static final int LOGIN = 1;

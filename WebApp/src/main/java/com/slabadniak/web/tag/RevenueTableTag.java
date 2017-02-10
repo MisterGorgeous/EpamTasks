@@ -25,7 +25,7 @@ public class RevenueTableTag extends TagSupport {
 
         try {
             JspWriter out = pageContext.getOut();
-            out.write("<input class='subForm' type='text' name='status'");
+            out.write("<input onchange=\"$(this).closest('form').submit();\" type='text' name='status'");
             out.write("data-provide='slider' data-slider-ticks='[1, 2, 3]'");
             out.write("data-slider-ticks-labels='[\"beginer\", \"fan\", \"expert\"]' data-slider-min='1'");
             out.write("data-slider-max='3' data-slider-step='1'");

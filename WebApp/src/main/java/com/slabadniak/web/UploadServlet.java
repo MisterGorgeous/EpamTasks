@@ -22,7 +22,6 @@ import java.util.List;
 @WebServlet("/UploadServlet")
 @MultipartConfig
 public class UploadServlet extends HttpServlet {
-    private static final String PATH = "S:/git_rep/Epam/WebApp/src/main/webapp/img/";
     private static final String JSP = "currentJSP";
 
 
@@ -51,7 +50,7 @@ public class UploadServlet extends HttpServlet {
             for(FileItem file :files) {
                 if(file.getName() != null) { // retrieve icon's owner
                     fileName = file.getName();
-                    file.write(new File(PATH + file.getName()));
+                    file.write(new File(getServletContext().getRealPath("/img")+ '/' + file.getName()));
                 }
             }
         } catch (Exception e) {

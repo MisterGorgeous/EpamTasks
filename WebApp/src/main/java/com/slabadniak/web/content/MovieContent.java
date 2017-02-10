@@ -3,12 +3,13 @@ package com.slabadniak.web.content;
 import com.slabadniak.web.entity.Movie;
 import com.slabadniak.web.exeption.DAOException;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MovieContent implements DataContext {
+public class MovieContent implements DataContext,Serializable {
     private List<Movie> films = null;
     private static final int TITLE = 1;
     private static final int RATING = 2;

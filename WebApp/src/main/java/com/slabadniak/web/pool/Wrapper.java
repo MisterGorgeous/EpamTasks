@@ -19,7 +19,6 @@ public class Wrapper {
     }
 
     public Connection getConnection() {
-        LOGGER.log(Level.DEBUG, "Connection taken.");
         return connection;
     }
 
@@ -27,8 +26,6 @@ public class Wrapper {
         if (connection != null) {
             try {
                 connection.close();
-                LOGGER.log(Level.DEBUG, "Connection closed.");
-
             } catch (SQLException e) {
                 throw new WrapperException("SQL exception ", e);
             }
@@ -43,7 +40,6 @@ public class Wrapper {
                 }
             }
             ps = connection.prepareStatement(comments);
-            LOGGER.log(Level.DEBUG, "Connection closed.");
         } catch (SQLException e) {
             throw new WrapperException("SQL exception ", e);
         }
@@ -64,7 +60,6 @@ public class Wrapper {
 
         try {
             connection.commit();
-            LOGGER.log(Level.DEBUG, "Connection closed.");
         } catch (SQLException e) {
             throw new WrapperException("SQL exception ", e);
         }
@@ -73,7 +68,6 @@ public class Wrapper {
     public void setAutoCommit(boolean autoCommit) throws WrapperException {
         try {
             connection.setAutoCommit(autoCommit);
-            LOGGER.log(Level.DEBUG, "Connection closed.");
         } catch (SQLException e) {
             throw new WrapperException("SQL exception ", e);
         }
@@ -82,7 +76,6 @@ public class Wrapper {
     public void rollback() throws WrapperException {
         try {
             connection.rollback();
-            LOGGER.log(Level.DEBUG, "Connection closed.");
         } catch (SQLException e) {
             throw new WrapperException("SQL exception ", e);
         }

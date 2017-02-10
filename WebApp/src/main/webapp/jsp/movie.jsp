@@ -48,14 +48,18 @@
                 <input type="hidden" name="command" value="showcomments">
                 <input type="hidden" name="page" value="path.page.movie">
 
-                <label for="comment">Your mark:</label>
-                <input id="ex6" type="text" data-slider-min="0" data-slider-max="9.9" data-slider-step="0.1"
+                <label class="col-sm-5 col-xs-5 col-md-7 col-lg-7 control-label" for="comment">Your mark:</label>
+                <div class="space"></div>
+                <input class="col-sm-5 col-xs-5 col-md-7 col-lg-7 control-label" id="ex6" type="text" data-slider-min="0" data-slider-max="9.9" data-slider-step="0.1"
                        data-slider-value="5" form="comment" name="rating"/>
-                <span id="ex6CurrentSliderValLabel">Rating: <span id="ex6SliderVal">5</span></span>
-
-                <label for="comment">Your comment:</label>
-                <textarea rows="4" cols="35" name="commentText" form="comment"></textarea>
-                <input type="submit" name="button" class="btn btn-info" value="Rate"/>
+                <span  id="ex6CurrentSliderValLabel">Rating: <span id="ex6SliderVal">5</span></span>
+                <div class="space"></div>
+                <label class="col-sm-5 col-xs-5 col-md-7 col-lg-7 control-label" for="comment">Your comment:</label>
+                <div class="space"></div>
+                <textarea class="col-sm-5 col-xs-5 col-md-7 col-lg-7 control-label" rows="4" cols="35" name="commentText" form="comment"></textarea>
+                <div class="space"></div>
+                <div class="space"></div>
+                <input  type="submit" name="button" class="btn btn-info col-xs-6 col-md-7  col-lg-7 " value="Rate"/>
             </form>
         </c:if>
 

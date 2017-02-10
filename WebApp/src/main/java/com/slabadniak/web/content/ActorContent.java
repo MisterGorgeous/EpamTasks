@@ -3,13 +3,14 @@ package com.slabadniak.web.content;
 import com.slabadniak.web.entity.Actor;
 import com.slabadniak.web.exeption.DAOException;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ActorContent implements DataContext {
+public class ActorContent implements DataContext,Serializable {
     private List<Actor> actors = null;
     private static final int FIRNAME = 1;
     private static final int SECNAME = 2;

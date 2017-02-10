@@ -112,11 +112,11 @@
                 <div class="dropdown navbar-form navbar-left">
 
 
-                    <button class="btn btn-info dropdown-toggle " type="button" data-toggle="dropdown">Actions
+                    <button class="btn btn-info dropdown-toggle " type="button" data-toggle="dropdown"><fmt:message key="header.actions" bundle="${resourceBundle}"/>
                         <span class="caret"></span></button>
 
                     <ul class="dropdown-menu">
-                        <li class="dropdown-header">Change Users Status</li>
+                        <li class="dropdown-header"><fmt:message key="header.userstext" bundle="${resourceBundle}"/></li>
                         <li>
                             <form action="Controller" method="post">
                                 <input type="hidden" name="command" value="users">
@@ -125,7 +125,7 @@
                                        value="<fmt:message key="header.users" bundle="${resourceBundle}"/>"/>
                             </form>
                         </li>
-                        <li class="dropdown-header">Add new Movie to DB</li>
+                        <li class="dropdown-header"><fmt:message key="header.movietext" bundle="${resourceBundle}"/></li>
                         <li>
                             <form action="Controller" method="post">
                                 <input type="hidden" name="command" value="allgenres">
@@ -134,7 +134,7 @@
                                        value="<fmt:message key="header.addmovie" bundle="${resourceBundle}"/>"/>
                             </form>
                         </li>
-                        <li class="dropdown-header">Add Actors to Movie</li>
+                        <li class="dropdown-header"><fmt:message key="header.actortext" bundle="${resourceBundle}"/></li>
                         <li>
                             <form action="Controller" method="post">
                                 <input type="hidden" name="command" value="empty">

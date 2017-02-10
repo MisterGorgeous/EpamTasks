@@ -52,31 +52,16 @@
 
         <div class="space"></div>
 
-        <div class="col-lg-10 col-xs-12 col-sm-12 col-md-10 pagination-centered">
+        <div class="col-lg-10 col-xs-10 col-sm-10 col-md-10 pagination-centered">
             <div class="panel panel-primary">
                 <div class="panel-heading text-center">
                     <button id="addactor" type="button" class="btn btn-primary">Add</button>
                     <button id="deleteactor" type="button" class="btn btn-primary">Delete</button>
                 </div>
-                <div id="actorlist" class="col-lg-12 col-xs-12 col-sm-12 col-md-12 panel-body row">
+                <div id="actorlist" class="col-lg-10 col-xs-10 col-sm-10 col-md-10 panel-body row">
                     <div class="row">
 
-                        <%--   <div class="actor col-md-4 col-lg-4 well" name="actor">
-                                <label class="control-label">First name:</label>
-                                <input type="text" name="fname" placeholder="" class="input">
-                                <label class="control-label">Seccond name:</label>
-                                <input type="text" name="sname" placeholder="" class="input">
-                                <label class="control-label">Role:</label>
-                                <input type="text" name="role" placeholder="" class="input">
-                                <label class="control-label">Profession:</label>
-                               <input type="text" name="profession" placeholder="" class="input">
-                                <label class="control-label">Birthday:</label>
-                                <input type="date" name="birthday" value="2017-01-01" max="2017-01-01" min="1945-01-01">
-                                <label class="control-label">Birth Place:</label>
-                                <input type="text" name="birthplace" placeholder="" class="input">
-                            </div>';  --%>
-
-
+                        <!-- actors tags -->
                     </div>
                 </div>
             </div>

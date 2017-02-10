@@ -47,7 +47,7 @@
                 <c:forEach var="user" items="${sessionScope.users}">
 
                         <tr>
-                            <td><img src="${user.icon}" class="img-circle" alt="avatar" width="200" height="200"></td>
+                            <td><img src="${user.icon}" class="img-circle" alt="avatar" width="100" height="100"></td>
                             <td>${user.login}</td>
                             <td>${user.email}</td>
                             <td>

@@ -2,12 +2,13 @@ package com.slabadniak.web.content;
 
 import com.slabadniak.web.exeption.DAOException;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenreContent implements DataContext {
+public class GenreContent implements DataContext,Serializable {
     private List<String> genre = null;
     private static final int COLUMN = 1;
 

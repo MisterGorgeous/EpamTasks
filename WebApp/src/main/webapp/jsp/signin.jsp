@@ -21,39 +21,39 @@
 <div class="container pagination-centered">
 
 
-     <h1 class="page-header">Edit Profile</h1>
+     <h1 class="page-header"><fmt:message key="sigin.edit" bundle="${resourceBundle}"/></h1>
     <form action="Controller" method="post" class="form-horizontal" onsubmit="return checkPasswords()">
         <input type="hidden" name="command" value="signin">
         <input type="hidden" name="page" value="path.page.signin">
 
         <div class="form-group">
-            <label class="col-md-3 control-label">Login:</label>
+            <label class="col-md-3 control-label"><fmt:message key="sigin.login" bundle="${resourceBundle}"/></label>
             <div class="col-md-5">
                 <input class="form-control" name="login" type="text" placeholder="Only latin and numeric, 4 to 32 symbols."  pattern="^[A-Za-z]\w{4,32}$" required>
             </div>
         </div>
         <div class="form-group">
-            <label class="col-lg-3 control-label">email:</label>
+            <label class="col-lg-3 control-label"><fmt:message key="sigin.email" bundle="${resourceBundle}"/></label>
             <div class="col-lg-5">
                 <input class="form-control"  type="text" name="email" pattern="^[\w.!#$%&’*+/=?^_`{|}~-]+@[\w-]+(?:\.[\w-]+)*$" required>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-md-3 control-label">Password:</label>
+            <label class="col-md-3 control-label"><fmt:message key="sigin.password" bundle="${resourceBundle}"/></label>
             <div class="col-md-5">
                 <input id="password" placeholder="Must consist numeric, leters in low and up register,6 to 32 symbols." class="form-control" name="password" type="password"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,32}$" required>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-md-3 control-label">Confirm password:</label>
+            <label class="col-md-3 control-label"><fmt:message key="sigin.confirm" bundle="${resourceBundle}"/></label>
             <div class="col-md-5">
                 <input id="confPassword" placeholder="Must consist numeric, leters in low and up register,6 to 32 symbols." class="form-control" name="confpassword" type="password"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,32}$" required>
             </div>
         </div>
         <div class="form-group">
-            <label class=" col-md-3 control-label">Gender</label>
+            <label class=" col-md-3 control-label"><fmt:message key="sigin.gender" bundle="${resourceBundle}"/></label>
             <div class="col-md-5">
                 <select name="gender" class="form-control input-xlarge" required>
                     <option>Male</option>
@@ -80,7 +80,7 @@
         <div class="form-group">
             <label class="col-md-5 control-label"></label>
             <div class="col-md-5">
-                <input class="btn btn-info" value="Sign in" type="submit">
+                <input class="btn btn-info" value="<fmt:message key="main.sigin" bundle="${resourceBundle}"/>" type="submit">
             </div>
         </div>
     </form>

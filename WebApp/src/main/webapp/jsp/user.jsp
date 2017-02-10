@@ -21,7 +21,7 @@
 
 <div class="container">
 
-        <h1 class="page-header">Edit Profile</h1>
+        <h1 class="page-header"><fmt:message key="user.edit" bundle="${resourceBundle}"/></h1>
 
         <div class="row">
 
@@ -38,21 +38,21 @@
                         <input type="hidden" name="page" value="path.page.main">
 
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">
-                            <label class="col-md-3 control-label">Login:</label>
+                            <label class="col-md-3 control-label"><fmt:message key="sigin.login" bundle="${resourceBundle}"/></label>
                             <div class="col-md-8">
                                 <input name="login" class="form-control" pattern="^[A-Za-z]\w{4,32}$" value="${sessionScope.user.login}" type="text">
                             </div>
                         </div>
                         <div class="space"></div>
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">
-                            <label class="col-lg-3 control-label">email:</label>
+                            <label class="col-lg-3 control-label"><fmt:message key="sigin.email" bundle="${resourceBundle}"/></label>
                             <div class="col-lg-8">
                                 <input name="email" class="form-control" pattern="^[\w.!#$%&’*+/=?^_`{|}~-]+@[\w-]+(?:\.[\w-]+)*$" value="${sessionScope.user.email}" type="text">
                             </div>
                         </div>
                         <div class="space"></div>
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">
-                            <label class="col-md-3 control-label">Password:</label>
+                            <label class="col-md-3 control-label"><fmt:message key="header.password" bundle="${resourceBundle}"/></label>
                             <div class="col-md-8">
                                 <input name="password" class="form-control" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,32}$" value=""
                                        type="password">
@@ -60,7 +60,7 @@
                         </div>
                         <div class="space"></div>
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">
-                            <label class="col-md-3 control-label">Confirm password:</label>
+                            <label class="col-md-3 control-label"><fmt:message key="sigin.confirm" bundle="${resourceBundle}"/></label>
                             <div class="col-md-8">
                                 <input name="confpassword" class="form-control" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,32}$" value=""
                                        type="password">
@@ -68,7 +68,7 @@
                         </div>
                         <div class="space"></div>
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">
-                            <label class=" col-md-3 control-label">Gender</label>
+                            <label class=" col-md-3 control-label"><fmt:message key="main.genre" bundle="${resourceBundle}"/></label>
                             <div class="col-md-8">
                                 <select name="gender" name="selectbasic" class="form-control input-xlarge">
                                     <option>${sessionScope.user.gender}</option>
@@ -84,7 +84,7 @@
                             <div class="col-md-8">
                                 <input class="btn btn-info" type="submit" title="button"
                                 <%-- value="<fmt:message key="header.logoff" bundle="${resourceBundle}"/>"/>--%>
-                                       value="Save Changes">
+                                       value="<fmt:message key="user.save" bundle="${resourceBundle}"/>">
                             </div>
                         </div>
                     </form>
