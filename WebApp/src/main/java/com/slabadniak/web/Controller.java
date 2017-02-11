@@ -3,6 +3,10 @@ package com.slabadniak.web;
 import com.slabadniak.web.factory.CommandFactory;
 import com.slabadniak.web.exeption.CommandExeption;
 
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
+import java.util.Date;
+import java.util.Properties;
 
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {

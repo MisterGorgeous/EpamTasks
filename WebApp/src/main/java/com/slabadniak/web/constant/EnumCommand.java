@@ -118,6 +118,11 @@ public enum EnumCommand {
             this.command = new WriteFeedbackCommand();
         }
     },
+    MAILCOMMAND{
+        {
+            this.command = new MailCommand();
+        }
+    },
     SETMAINCONTENT{
         {
             this.command = new SetMainContentCommand();

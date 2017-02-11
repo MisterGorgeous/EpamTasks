@@ -13,7 +13,6 @@ import java.util.List;
 public class SortMoviesCommand implements ICommand {
     @Override
     public void execute(HttpServletRequest request) throws CommandExeption {
-
         String order = request.getParameter("order");
 
         HttpSession session = request.getSession();

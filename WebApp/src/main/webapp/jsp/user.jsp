@@ -35,6 +35,7 @@
 
                     <form class="col-lg-6 col-md-6 col-sm-12 col-xs-12" title="changeuser" action="Controller" method="post">
                         <input type="hidden" name="command" value="changeprofile">
+                        <input type="hidden" name="command" value="mailcommand">
                         <input type="hidden" name="page" value="path.page.main">
 
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">

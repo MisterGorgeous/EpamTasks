@@ -102,7 +102,7 @@ public class ConnectionPool {
         }
     }
 
-    private void releaseAllPoolConections() throws PoolException, WrapperException {
+    private void releaseAllPoolConnections() throws PoolException, WrapperException {
         freeConnections.set(false);
         try {
             TimeUnit.SECONDS.sleep(TIMEQUANTUM);
@@ -115,10 +115,10 @@ public class ConnectionPool {
         }
     }
 
-    @PreDestroy
+    @PreDestroy //The method annotated with PreDestroy is typically used to release resources that it has been holding
     public void closePool() throws PoolException, WrapperException {
         freeConnections.set(false);
-        releaseAllPoolConections(); //Release all connections
+        releaseAllPoolConnections(); //Release all connections
         for (int i = 0; i < capacity; i++) {
             try {
                 Wrapper wrapper = connections.take();

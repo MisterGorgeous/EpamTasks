@@ -26,10 +26,8 @@ public class SignInCommand implements ICommand {
         String gender = request.getParameter("gender");
 
         setForwardPage(request);
-
         //remove, if stay after previous query
         request.removeAttribute(FEEDBACK);
-
         //validation
         feedback = UserValidation.checkPassword(password);
         if(feedback.isWritten()){
