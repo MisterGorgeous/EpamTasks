@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <fmt:setLocale value="${local}"/>
 <fmt:setBundle basename="def" var="resourceBundle"/>
@@ -23,13 +24,13 @@
 <%@ include file="/jsp/header.jsp" %>
 
 <h1 class="page-header">
-   ${chosenMovie.getTitle()} <span class="label label-danger col-lg-offset-6">   ${chosenMovie.getRating()}</span>
+   ${fn:escapeXml(chosenMovie.getTitle())} <span class="label label-danger col-lg-offset-6">   ${fn:escapeXml(chosenMovie.getRating())}</span>
 </h1>
 
 <div class="row">
     <div class="col-xs-6 col-md-4  col-lg-4">
         <div>
-            <img src="${chosenMovie.getIcon()}" alt="..." class="movImg">
+            <img src="${fn:escapeXml(chosenMovie.getIcon())}" alt="..." class="movImg">
         </div>
 
         <c:if test="${userStatus == 'GUEST'}">
@@ -71,19 +72,19 @@
         <div class="panel panel-primary">
             <div class="panel-heading">Year:</div>
             <div class="panel-body">
-                ${chosenMovie.getYear()}
+                ${fn:escapeXml(chosenMovie.getYear())}
             </div>
         </div>
         <div class="panel panel-primary">
             <div class="panel-heading">Country:</div>
             <div class="panel-body">
-                ${chosenMovie.getCountry()}
+                ${fn:escapeXml(chosenMovie.getCountry())}
             </div>
         </div>
         <div class="panel panel-primary">
             <div class="panel-heading">Description:</div>
             <div class="panel-body">
-                ${chosenMovie.getDescription()}
+                ${fn:escapeXml(chosenMovie.getDescription())}
             </div>
         </div>
     </div>
@@ -96,7 +97,7 @@
 
                 <c:forEach var="actor" items="${actors}">
                     <ul>
-                        <li>${actor.firstName} ${actor.seccondName} as  <span class="text-success sub-text">${actor.role}</span> </li>
+                        <li>${fn:escapeXml(actor.firstName)} ${fn:escapeXml(actor.seccondName)} as  <span class="text-success sub-text">${fn:escapeXml(actor.role)}</span> </li>
                     </ul>
                 </c:forEach>
 
@@ -129,10 +130,10 @@
                         <c:forEach var="assess" items="${assessments}">
                             <li>
                                 <div class="commentText">
-                                    <p class="text-success">${assess.user}</p>
-                                    <h4><p class="text-info">${assess.comment}</p></h4>
-                                    <span class="date sub-text">${assess.date}</span> <%--class="date sub-text"--%>
-                                    <span class="text-danger">${assess.rating}</span>
+                                    <p class="text-success">${fn:escapeXml(assess.user)}</p>
+                                    <h4><p class="text-info">${fn:escapeXml(assess.comment)}</p></h4>
+                                    <span class="date sub-text">${fn:escapeXml(assess.date)}</span> <%--class="date sub-text"--%>
+                                    <span class="text-danger">${fn:escapeXml(assess.rating)}</span>
                                 </div>
                             </li>
                         </c:forEach>

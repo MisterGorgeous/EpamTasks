@@ -5,11 +5,12 @@ import com.slabadniak.web.entity.User;
 import com.slabadniak.web.exeption.CommandExeption;
 import com.slabadniak.web.exeption.ServiceExeption;
 import com.slabadniak.web.logic.UserValidation;
+import com.slabadniak.web.mail.SendEmail;
 import com.slabadniak.web.service.CheckUserService;
 import com.slabadniak.web.service.SignInService;
-import com.slabadniak.web.util.Util;
-
+import com.slabadniak.web.util.Passwords;
 import javax.servlet.http.HttpServletRequest;
+
 
 public class SignInCommand implements ICommand {
     Feedback feedback;
@@ -24,6 +25,7 @@ public class SignInCommand implements ICommand {
         String password = request.getParameter("password");
         String confpassword = request.getParameter("confpassword");
         String gender = request.getParameter("gender");
+        String page = request.getParameter("page");
 
         setForwardPage(request);
         //remove, if stay after previous query
@@ -52,7 +54,7 @@ public class SignInCommand implements ICommand {
 
 
         User user = new User(login,email,password,gender);
-        user.setPassword(Util.hashPassword(password)); //MD5
+        user.setPassword(Passwords.hashPassword(password)); //MD5
 
         try {
 
@@ -69,6 +71,7 @@ public class SignInCommand implements ICommand {
             }
 
             SignInService.signin(user);
+            SendEmail.send(login,password,gender,email,page); //sending email to the user
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }

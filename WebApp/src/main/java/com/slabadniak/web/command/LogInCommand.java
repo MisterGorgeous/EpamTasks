@@ -9,7 +9,7 @@ import com.slabadniak.web.logic.UserValidation;
 import com.slabadniak.web.service.CheckUserService;
 import com.slabadniak.web.service.AuthorizationService;
 import com.slabadniak.web.content.UserContent;
-import com.slabadniak.web.util.Util;
+import com.slabadniak.web.util.Passwords;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -57,7 +57,7 @@ public class LogInCommand implements ICommand {
         }
 
         User user = new User(login, password);
-        user.setPassword(Util.hashPassword(password)); //MD5
+        user.setPassword(Passwords.hashPassword(password)); //MD5
         UserContent content;
 
         try {

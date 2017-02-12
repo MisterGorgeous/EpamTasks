@@ -1,46 +1,39 @@
-package com.slabadniak.web.command;
+package com.slabadniak.web.mail;
 
-import com.slabadniak.web.entity.Movie;
-import com.slabadniak.web.entity.User;
-import com.slabadniak.web.exeption.CommandExeption;
-import com.slabadniak.web.feedback.Feedback;
+
 import com.slabadniak.web.service.MakeMailMessageService;
-
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.Properties;
 
 
-public class MailCommand implements ICommand {
+public class EmailSending implements Runnable {
+    private static final Logger LOGGER = LogManager.getLogger(EmailSending.class);
     private static final String HOST ="smtp.gmail.com";
     private static final String PORT ="587";
     private static final String FROM ="movierating2017@gmail.com";
     private static final String PASSWORD ="Epam2017";
+    private String login;
+    private String password;
+    private String gender;
+    private String email;
+    private String page;
+
+    public EmailSending(String login, String password, String gender, String email, String page) {
+        this.login = login;
+        this.password = password;
+        this.gender = gender;
+        this.email = email;
+        this.page = page;
+    }
 
     @Override
-    public void execute(HttpServletRequest request) throws CommandExeption {
-        Feedback feedback = (Feedback)request.getAttribute(FEEDBACK);
-        HttpSession session1 = request.getSession();
-
-        if(feedback!=null && feedback.isWritten()){
-            return;
-        }
-
-        // outgoing message information
-        String login = request.getParameter("login");
-        String password = request.getParameter("password");
-        String mailTo = request.getParameter("email");
-        String gender = request.getParameter("gender");
-        String page = request.getParameter("page");
-
-        //if password haven't changed, take password from user
-        User user = (User) session1.getAttribute("user");
-        password = password.isEmpty() ? user.getPassword() : "the same";
+    public void run() {
 
         String subject = MakeMailMessageService.makeSubject(page);
         String message = MakeMailMessageService.makeMessage(login,password,gender,page);
@@ -67,7 +60,7 @@ public class MailCommand implements ICommand {
 
             msg.setFrom(new InternetAddress(FROM));
             // InternetAddress[] toAddresses = { new InternetAddress(mailTo) };
-            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mailTo));
+            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
             msg.setSubject(subject);
             msg.setSentDate(new Date());
             // set plain text message
@@ -77,8 +70,9 @@ public class MailCommand implements ICommand {
             Transport.send(msg);
 
         } catch (Exception e) {
-             throw new CommandExeption("Email doesn't send:", e);
+            LOGGER.log(Level.INFO, "Messege: " + message + " doesn't send  to user.");
         }
+
 
     }
 }

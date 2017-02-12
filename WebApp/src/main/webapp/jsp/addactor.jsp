@@ -32,14 +32,14 @@
         <div class="form-group col-md-8 col-sm-6 col-xs-12">
             <label class="col-md-3 control-label">Movie:</label>
             <div class="col-md-8">
-                <input type="text" name="movie" placeholder="" class="col-lg-6 col-xs-6 col-sm-6 col-md-6">
+                <input type="text" name="movie" placeholder="" class="col-lg-6 col-xs-6 col-sm-6 col-md-6" pattern="[A-Za-z][\w ]{1,56}$" required>
             </div>
         </div>
         <div class="space"></div>
         <div class="form-group col-md-8 col-sm-6 col-xs-12">
             <label class="col-md-3 control-label">Year:</label>
             <div class="col-md-8">
-                <select class="span2 col-lg-6 col-xs-6 col-sm-6 col-md-6" name="year">
+                <select class="span2 col-lg-6 col-xs-6 col-sm-6 col-md-6" name="year" required>
                     <c:forEach var="i" begin="1970" end="2017">
                         <option>${i}</option>
                     </c:forEach>

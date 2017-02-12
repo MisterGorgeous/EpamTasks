@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <fmt:setLocale value="${local}"/>
 <fmt:setBundle basename="def" var="resourceBundle"/>
@@ -35,20 +36,19 @@
 
                     <form class="col-lg-6 col-md-6 col-sm-12 col-xs-12" title="changeuser" action="Controller" method="post">
                         <input type="hidden" name="command" value="changeprofile">
-                        <input type="hidden" name="command" value="mailcommand">
                         <input type="hidden" name="page" value="path.page.main">
 
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">
                             <label class="col-md-3 control-label"><fmt:message key="sigin.login" bundle="${resourceBundle}"/></label>
                             <div class="col-md-8">
-                                <input name="login" class="form-control" pattern="^[A-Za-z]\w{4,32}$" value="${sessionScope.user.login}" type="text">
+                                <input name="login" class="form-control" pattern="^[A-Za-z][\w ]{4,32}$$" value="${fn:escapeXml(sessionScope.user.login)}" type="text">
                             </div>
                         </div>
                         <div class="space"></div>
                         <div class="form-group col-md-8 col-sm-6 col-xs-12">
                             <label class="col-lg-3 control-label"><fmt:message key="sigin.email" bundle="${resourceBundle}"/></label>
                             <div class="col-lg-8">
-                                <input name="email" class="form-control" pattern="^[\w.!#$%&’*+/=?^_`{|}~-]+@[\w-]+(?:\.[\w-]+)*$" value="${sessionScope.user.email}" type="text">
+                                <input name="email" class="form-control" pattern="^[\w.!#$%&’*+/=?^_`{|}~-]+@[\w-]+(?:\.[\w-]+)*$" value="${fn:escapeXml(sessionScope.user.email)}" type="text">
                             </div>
                         </div>
                         <div class="space"></div>
@@ -95,7 +95,7 @@
                             <h6>Upload photo</h6>
                             <img src="${sessionScope.user.icon}" class="avatar img-circle img-thumbnail" alt="avatar">
                             <form  action="/UploadServlet" method="post" enctype="multipart/form-data">
-                                <input class="addIcon" type="file" name="file"  onchange="this.form.submit()" >
+                                <input class="addIcon" type="file" name="file" accept=".png,.jpg,.jpeg"  onchange="this.form.submit()" >
                                 <input  type="submit" hidden />
                             </form>
                         </div>

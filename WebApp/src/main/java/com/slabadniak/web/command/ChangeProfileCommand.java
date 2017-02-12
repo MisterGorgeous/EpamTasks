@@ -5,9 +5,10 @@ import com.slabadniak.web.entity.User;
 import com.slabadniak.web.exeption.CommandExeption;
 import com.slabadniak.web.exeption.ServiceExeption;
 import com.slabadniak.web.logic.UserValidation;
+import com.slabadniak.web.mail.SendEmail;
 import com.slabadniak.web.service.ChangeProfileService;
 import com.slabadniak.web.service.CheckUserService;
-import com.slabadniak.web.util.Util;
+import com.slabadniak.web.util.Passwords;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -27,6 +28,7 @@ public class ChangeProfileCommand implements ICommand {
         String password = request.getParameter("password");
         String confpassword = request.getParameter("confpassword");
         String gender = request.getParameter("gender");
+        String page = request.getParameter("page");
         String icon = (String) session.getAttribute("icon");
 
         request.removeAttribute(FEEDBACK);
@@ -59,7 +61,7 @@ public class ChangeProfileCommand implements ICommand {
 
         User modified = new User(login, email, password, gender, icon);
         if(modified.getPassword() != null && !modified.getPassword().isEmpty()) {
-            modified.setPassword(Util.hashPassword(password));
+            modified.setPassword(Passwords.hashPassword(password));
         }
         User unmodified = (User) session.getAttribute("user");
 
@@ -77,6 +79,8 @@ public class ChangeProfileCommand implements ICommand {
         }
 
             ChangeProfileService.change(unmodified, modified);
+            //sending email to the user
+            SendEmail.send(unmodified.getLogin(),Passwords.showPassword(password),unmodified.getGender(),unmodified.getEmail(),page);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }

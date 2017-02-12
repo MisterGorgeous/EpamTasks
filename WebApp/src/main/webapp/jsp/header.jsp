@@ -19,13 +19,14 @@
                 <div class="form-group">
                     <input name="searchMovie" type="text" placeholder="Search" pattern="[A-Z a-z\w]{1,56}">
                 </div>
-                <button type="submit" class="btn btn-primary"><fmt:message key="header.search" bundle="${resourceBundle}"/></button>
+                <button type="submit" class="btn btn-primary"><fmt:message key="header.search"
+                                                                           bundle="${resourceBundle}"/></button>
             </form>
 
 
             <form class="navbar-form navbar-left" name="locale" action="Controller" method="post">
                 <input type="hidden" name="command" value="locale">
-                <input type="hidden" name="page" value="path.page.main">
+
                 <div class="btn-group">
                     <input type="submit" name="button" class="btn btn-primary"
                            value="EN"/>
@@ -65,7 +66,8 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                <h4 class="modal-title" id="myModalLabel"><fmt:message key="main.login" bundle="${resourceBundle}"/></h4>
+                                <h4 class="modal-title" id="myModalLabel"><fmt:message key="main.login"
+                                                                                       bundle="${resourceBundle}"/></h4>
                             </div>
                             <div class="modal-body">
                                 <div class="container">
@@ -82,7 +84,8 @@
                                                     <input class="form-control" type="hidden" name="page"
                                                            value="path.page.main">
                                                     <input name="login" type="text" class="form-control col-md-8 "
-                                                           placeholder="<fmt:message key="main.login" bundle="${resourceBundle}"/>" pattern="^[A-Za-z]\w{4,32}$" required
+                                                           placeholder="<fmt:message key="main.login" bundle="${resourceBundle}"/>"
+                                                           pattern="^[A-Za-z]\w{4,32}$" required
                                                            autofocus>
                                                     <input type="password" class="form-control col-md-8"
                                                            placeholder="<fmt:message key="header.password" bundle="${resourceBundle}"/>"
@@ -90,7 +93,8 @@
                                                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,32}$"
                                                            required>
                                                     <button id="logon" class="btn btn-lg btn-primary btn-block"
-                                                            type="submit"><fmt:message key="main.login" bundle="${resourceBundle}"/>
+                                                            type="submit"><fmt:message key="main.login"
+                                                                                       bundle="${resourceBundle}"/>
                                                     </button>
                                                 </form>
 
@@ -112,11 +116,13 @@
                 <div class="dropdown navbar-form navbar-left">
 
 
-                    <button class="btn btn-info dropdown-toggle " type="button" data-toggle="dropdown"><fmt:message key="header.actions" bundle="${resourceBundle}"/>
+                    <button class="btn btn-info dropdown-toggle " type="button" data-toggle="dropdown"><fmt:message
+                            key="header.actions" bundle="${resourceBundle}"/>
                         <span class="caret"></span></button>
 
                     <ul class="dropdown-menu">
-                        <li class="dropdown-header"><fmt:message key="header.userstext" bundle="${resourceBundle}"/></li>
+                        <li class="dropdown-header"><fmt:message key="header.userstext"
+                                                                 bundle="${resourceBundle}"/></li>
                         <li>
                             <form action="Controller" method="post">
                                 <input type="hidden" name="command" value="users">
@@ -125,7 +131,8 @@
                                        value="<fmt:message key="header.users" bundle="${resourceBundle}"/>"/>
                             </form>
                         </li>
-                        <li class="dropdown-header"><fmt:message key="header.movietext" bundle="${resourceBundle}"/></li>
+                        <li class="dropdown-header"><fmt:message key="header.movietext"
+                                                                 bundle="${resourceBundle}"/></li>
                         <li>
                             <form action="Controller" method="post">
                                 <input type="hidden" name="command" value="allgenres">
@@ -134,7 +141,8 @@
                                        value="<fmt:message key="header.addmovie" bundle="${resourceBundle}"/>"/>
                             </form>
                         </li>
-                        <li class="dropdown-header"><fmt:message key="header.actortext" bundle="${resourceBundle}"/></li>
+                        <li class="dropdown-header"><fmt:message key="header.actortext"
+                                                                 bundle="${resourceBundle}"/></li>
                         <li>
                             <form action="Controller" method="post">
                                 <input type="hidden" name="command" value="empty">
@@ -147,14 +155,14 @@
                 </div>
             </c:if>
 
-
-            <c:if test="${feedback.written}">
-                <div id="modalInfo" class="navbar navbar-left">
-                    <h3><span id="logged" class="label label-warning ">${feedback.message} </span>
-                    </h3>
-                </div>
+            <c:if test="${not empty feedback}">
+                <c:if test="${feedback.written}">
+                    <div id="modalInfo" class="navbar-form navbar-left">
+                        <h3><span id="logged" class="label label-warning ">${feedback.message} </span>
+                        </h3>
+                    </div>
+                </c:if>
             </c:if>
-
             <c:if test="${userStatus != 'GUEST'}">
 
 

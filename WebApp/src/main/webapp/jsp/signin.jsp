@@ -24,13 +24,12 @@
      <h1 class="page-header"><fmt:message key="sigin.edit" bundle="${resourceBundle}"/></h1>
     <form action="Controller" method="post" class="form-horizontal" onsubmit="return checkPasswords()">
         <input type="hidden" name="command" value="signin">
-        <input type="hidden" name="command" value="mailcommand">
         <input type="hidden" name="page" value="path.page.signin">
 
         <div class="form-group">
             <label class="col-md-3 control-label"><fmt:message key="sigin.login" bundle="${resourceBundle}"/></label>
             <div class="col-md-5">
-                <input class="form-control" name="login" type="text" placeholder="Only latin and numeric, 4 to 32 symbols."  pattern="^[A-Za-z]\w{4,32}$" required>
+                <input class="form-control" name="login" type="text" placeholder="Only latin and numeric, 4 to 32 symbols."  pattern="[A-Za-z][\w ]{4,32}$" required>
             </div>
         </div>
         <div class="form-group">

@@ -29,7 +29,7 @@
                         <div class="panel panel-primary control-label">
                             <div class="panel-heading">Icon:</div>
                             <div class="panel-body">
-                                <input class="addIcon" type="file" name="file"  onchange="this.form.submit()"/>
+                                <input class="addIcon" type="file" name="file" accept=".png,.jpg,.jpeg"  onchange="this.form.submit()"/>
                                 <input  type="submit" hidden />
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                         <div class="control-group">
                             <label class="control-label" for="title">Title:</label>
                             <div class="controls">
-                                <input type="text" id="title" name="title" placeholder="" class="input-xlarge">
+                                <input type="text" id="title" name="title" placeholder="" class="input-xlarge" pattern="[A-Za-z][\w ]{1,56}$" required>
                             </div>
                         </div>
                         <div class="space"></div>
@@ -54,21 +54,21 @@
                             <label class="control-label" for="description">Description:</label>
                             <div class="controls">
                                 <textarea type="text" id="description" name="description" placeholder=""
-                                          class="input-xlarge" rows="5"></textarea>
+                                          class="input-xlarge" rows="5" pattern="^[A-Za-z][\w ]{1,512}$"></textarea>
                             </div>
                         </div>
                         <div class="space"></div>
                         <div class="control-group">
                             <label class="control-label" for="country">Country:</label>
                             <div class="controls">
-                                <input type="text" id="country" name="country" placeholder="" class="input-xlarge">
+                                <input type="text" id="country" name="country" placeholder="" class="input-xlarge" pattern="[A-Za-z][\w ]{1,56}$">
                             </div>
                         </div>
                         <div class="space"></div>
                         <div class="control-group">
                             <label class="control-label" for="movieYear">Year:</label>
                             <div class="controls">
-                                <select id="movieYear"  name="movieYear">
+                                <select id="movieYear"  name="movieYear" required>
                                     <c:forEach var="i" begin="1970" end="2017">
                                         <option>${i}</option>
                                     </c:forEach>

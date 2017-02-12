@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ taglib prefix="order" uri="ordTag" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <fmt:setLocale value="${local}"/>
 <fmt:setBundle basename="def" var="resourceBundle"/>
@@ -38,6 +39,7 @@
 <div class="btn-group col-lg-offset-1" role="group">
     <form action="Controller" method="post">
         <input type="hidden" name="command" value="specificgenre">
+        <input type="hidden" name="command" value="sortmovies">
         <input type="hidden" name="page" value="path.page.main">
         <c:forEach var="genre" items="${sessionScope.genrelist}">
             <button name="button" value="${genre}" type="submit" class="btn btn-info">${genre}</button>
@@ -64,10 +66,10 @@
                     <input type="hidden" name="index" value="${i}">
                     <input type="hidden" name="page" value="path.page.movie">
                     <h2 class="movTitle">
-                        <span class="subForm label label-info col-lg-offset-6">${sessionScope.movies.get(i).title}</span>
+                        <span class="subForm label label-info col-lg-offset-6">${fn:escapeXml(sessionScope.movies.get(i).title)}</span>
                     </h2>
                     <h2 class="movRating">
-                        <span class="subForm label label-danger col-lg-offset-6">${sessionScope.movies.get(i).rating} </span>
+                        <span class="subForm label label-danger col-lg-offset-6">${fn:escapeXml(sessionScope.movies.get(i).rating)} </span>
                     </h2>
                     <input class="btn btn-default invisible" type="submit" name="button" value="user"/>
 

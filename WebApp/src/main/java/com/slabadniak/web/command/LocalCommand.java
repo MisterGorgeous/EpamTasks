@@ -22,6 +22,6 @@ public class LocalCommand implements ICommand {
             session.setAttribute(LOCAL, ENGLISH);
         }
 
-        setForwardPage(request);
+//        setForwardPage(request);
     }
 }

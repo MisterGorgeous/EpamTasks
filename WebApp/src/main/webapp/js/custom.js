@@ -41,7 +41,19 @@ delB.addEventListener("click", deltag);
 var list = document.getElementById('actorlist');
 
 function addtag() {
-      var tag = '<div class="actor col-sm-4 col-xs-4 col-md-4 col-lg-4 well" name="actor"> <label class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label">First name:</label> <input type="text" name="fname" placeholder="" class="input"> <label class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label">Seccond name:</label> <input type="text" name="sname" placeholder="" class="input"> <label class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label">Role:</label> <input type="text" name="role" placeholder="" class="input">    <label class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label">Profession:</label> <input type="text" name="profession" placeholder="" class="input"> <label class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label">Birthday:</label><input class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label" type="date" name="birthday" value="2017-01-01" max="2017-01-01" min="1945-01-01"> <label class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label">Birth Place:</label> <input class="col-sm-5 col-xs-5 col-md-5 col-lg-5"  type="text" name="birthplace" placeholder="" class="input"></div>';
+      var tag = '<div class="actor col-sm-4 col-xs-4 col-md-4 col-lg-4 well" name="actor"> ' +
+          '<label class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label">First name:</label> ' +
+          '<input required pattern="[A-Za-z][\\w ]{1,32}$" type="text" name="fname" placeholder="" class="input">' +
+          ' <label class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label">Seccond name:</label> ' +
+          '<input required pattern="[A-Za-z][\\w ]{1,32}" type="text" name="sname" placeholder="" class="input">' +
+          ' <label class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label">Role:</label>' +
+          ' <input required pattern="[A-Za-z][\\w ]{1,32}" type="text" name="role" placeholder="" class="input"> ' +
+          '   <label class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label">Profession:</label>' +
+          ' <input required pattern="[A-Za-z][\\w ]{1,32}" type="text" name="profession" placeholder="" class="input">' +
+          ' <label class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label">Birthday:</label>' +
+          '<input required class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label" type="date" name="birthday" value="2017-01-01" max="2017-01-01" min="1945-01-01"> ' +
+          '<label class="col-sm-5 col-xs-5 col-md-5 col-lg-5 control-label">Birth Place:</label> ' +
+          '<input required class="col-sm-5 col-xs-5 col-md-5 col-lg-5"  type="text" name="birthplace" placeholder="" class="input"></div>';
     $(list).append(tag);
 }
 
