@@ -37,8 +37,8 @@
             <form class="navbar-form navbar-left" title="login" action="Controller" method="post">
                 <input type="hidden" name="command" value="writefeedback">
                 <input type="hidden" name="page" value="path.page.movie">
-                <input type="hidden" name="text" value="To rate this movie your must be logged in.">
-                <input type="submit" name="button" class="btn btn-info" value="Rate"/>
+                <input type="hidden" name="text" value="feedback.rate">
+                <input type="submit" name="button" class="btn btn-info" value="<fmt:message key="movie.rate" bundle="${resourceBundle}"/>"/>
             </form>
         </c:if>
         <c:if test="${userStatus != 'GUEST' }">
@@ -49,18 +49,18 @@
                 <input type="hidden" name="command" value="showcomments">
                 <input type="hidden" name="page" value="path.page.movie">
 
-                <label class="col-sm-5 col-xs-5 col-md-7 col-lg-7 control-label" for="comment">Your mark:</label>
+                <label class="col-sm-5 col-xs-5 col-md-7 col-lg-7 control-label" for="comment"><fmt:message key="movie.yourmark" bundle="${resourceBundle}"/></label>
                 <div class="space"></div>
                 <input class="col-sm-5 col-xs-5 col-md-7 col-lg-7 control-label" id="ex6" type="text" data-slider-min="0" data-slider-max="9.9" data-slider-step="0.1"
                        data-slider-value="5" form="comment" name="rating"/>
-                <span  id="ex6CurrentSliderValLabel">Rating: <span id="ex6SliderVal">5</span></span>
+                <span  id="ex6CurrentSliderValLabel"><fmt:message key="movie.rating" bundle="${resourceBundle}"/> <span id="ex6SliderVal">5</span></span>
                 <div class="space"></div>
-                <label class="col-sm-5 col-xs-5 col-md-7 col-lg-7 control-label" for="comment">Your comment:</label>
+                <label class="col-sm-5 col-xs-5 col-md-7 col-lg-7 control-label" for="comment"><fmt:message key="movie.yourcomment" bundle="${resourceBundle}"/></label>
                 <div class="space"></div>
                 <textarea class="col-sm-5 col-xs-5 col-md-7 col-lg-7 control-label" rows="4" cols="35" name="commentText" form="comment"></textarea>
                 <div class="space"></div>
                 <div class="space"></div>
-                <input  type="submit" name="button" class="btn btn-info col-xs-6 col-md-7  col-lg-7 " value="Rate"/>
+                <input  type="submit" name="button" class="btn btn-info col-xs-6 col-md-7  col-lg-7 " value="<fmt:message key="movie.rate" bundle="${resourceBundle}"/>"/>
             </form>
         </c:if>
 
@@ -70,19 +70,19 @@
 
     <div class="col-xs-6 col-md-4">
         <div class="panel panel-primary">
-            <div class="panel-heading">Year:</div>
+            <div class="panel-heading"><fmt:message key="movie.year" bundle="${resourceBundle}"/></div>
             <div class="panel-body">
                 ${fn:escapeXml(chosenMovie.getYear())}
             </div>
         </div>
         <div class="panel panel-primary">
-            <div class="panel-heading">Country:</div>
+            <div class="panel-heading"><fmt:message key="movie.country" bundle="${resourceBundle}"/></div>
             <div class="panel-body">
                 ${fn:escapeXml(chosenMovie.getCountry())}
             </div>
         </div>
         <div class="panel panel-primary">
-            <div class="panel-heading">Description:</div>
+            <div class="panel-heading"><fmt:message key="movie.description" bundle="${resourceBundle}"/></div>
             <div class="panel-body">
                 ${fn:escapeXml(chosenMovie.getDescription())}
             </div>
@@ -92,7 +92,7 @@
 
     <div class="col-xs-6 col-md-4 col-lg-4">
         <div class="panel panel-primary">
-            <div class="panel-heading">Actors:</div>
+            <div class="panel-heading"><fmt:message key="main.actor" bundle="${resourceBundle}"/></div>
             <div class="panel-body">
 
                 <c:forEach var="actor" items="${actors}">
@@ -105,7 +105,7 @@
             </div>
         </div>
         <div class="panel panel-primary">
-            <div class="panel-heading">Genre:</div>
+            <div class="panel-heading"><fmt:message key="main.genre" bundle="${resourceBundle}"/></div>
             <div class="panel-body">
 
                 <c:forEach var="genre" items="${genres}">
@@ -119,8 +119,8 @@
 
 
 
-        <div class="panel panel-primary">
-            <div class="panel-heading">Comemnts:</div>
+        <div class="panel panel-info">
+            <div class="panel-heading"><fmt:message key="movie.comments" bundle="${resourceBundle}"/></div>
             <div class="panel-body">
 
                 <div class="actionBox">

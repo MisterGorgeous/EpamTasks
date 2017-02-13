@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ActorContent implements DataContext,Serializable {
+public class ActorContent implements DataContext {
     private List<Actor> actors = null;
     private static final int FIRNAME = 1;
     private static final int SECNAME = 2;

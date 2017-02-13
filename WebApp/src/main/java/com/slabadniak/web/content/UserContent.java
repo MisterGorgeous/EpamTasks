@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserContent implements DataContext,Serializable {
+public class UserContent implements DataContext {
 
     private List<User> users = null;
     private static final int LOGIN = 1;

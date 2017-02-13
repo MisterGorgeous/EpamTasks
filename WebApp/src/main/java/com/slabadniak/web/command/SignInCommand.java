@@ -71,7 +71,7 @@ public class SignInCommand implements ICommand {
             }
 
             SignInService.signin(user);
-            SendEmail.send(login,password,gender,email,page); //sending email to the user
+            SendEmail.send(user,page); //sending email to the user
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }

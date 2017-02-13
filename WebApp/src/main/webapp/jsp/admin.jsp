@@ -24,19 +24,19 @@
 
 <div class="container">
     <div class="container">
-        <h1 class="page-header">User:</h1>
+        <h1 class="page-header"><fmt:message key="users.users" bundle="${resourceBundle}"/></h1>
         <div class="row">
 
 
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Icon:</th>
-                    <th>Login:</th>
-                    <th>Email:</th>
-                    <th>Gender:</th>
-                    <th>Status:</th>
-                    <th>Banned:</th>
+                    <th><fmt:message key="users.icon" bundle="${resourceBundle}"/></th>
+                    <th><fmt:message key="sigin.login" bundle="${resourceBundle}"/>:</th>
+                    <th><fmt:message key="sigin.email" bundle="${resourceBundle}"/>:</th>
+                    <th><fmt:message key="main.genre" bundle="${resourceBundle}"/></th>
+                    <th><fmt:message key="users.status" bundle="${resourceBundle}"/></th>
+                    <th><fmt:message key="users.banned" bundle="${resourceBundle}"/></th>
 
                 </tr>
                 </thead>

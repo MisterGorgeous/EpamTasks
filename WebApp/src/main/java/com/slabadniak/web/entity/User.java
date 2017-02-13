@@ -1,8 +1,7 @@
 package com.slabadniak.web.entity;
 
-import org.apache.commons.codec.digest.DigestUtils;
-
 public class User {
+    private static final String DEFAULT = "beginer";
     private String login;
     private String email;
     private String password;
@@ -42,7 +41,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.gender = gender;
-
+        this.status = DEFAULT;
     }
 
     public String getLogin() {

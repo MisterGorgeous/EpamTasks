@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 
 
-public class AssessmentContent implements DataContext,Serializable {
+public class AssessmentContent implements DataContext{
     private List<UsersAssessment> assessments = null;
     private static final int COMMENT = 1;
     private static final int RATING = 2;

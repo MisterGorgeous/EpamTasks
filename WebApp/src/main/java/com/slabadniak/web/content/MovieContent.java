@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MovieContent implements DataContext,Serializable {
+public class MovieContent implements DataContext {
     private List<Movie> films = null;
     private static final int TITLE = 1;
     private static final int RATING = 2;

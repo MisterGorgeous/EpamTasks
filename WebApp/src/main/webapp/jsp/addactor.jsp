@@ -23,21 +23,21 @@
 
 
 <div class="container">
-    <h1 class="page-header">Add Actors:</h1>
+    <h1 class="page-header"><fmt:message key="header.addactor" bundle="${resourceBundle}"/>:</h1>
 
     <form title="addactor" action="Controller" method="post">
         <input type="hidden" name="command" value="addactor">
         <input type="hidden" name="page" value="path.page.main">
 
         <div class="form-group col-md-8 col-sm-6 col-xs-12">
-            <label class="col-md-3 control-label">Movie:</label>
+            <label class="col-md-3 control-label"><fmt:message key="actor.movie" bundle="${resourceBundle}"/></label>
             <div class="col-md-8">
                 <input type="text" name="movie" placeholder="" class="col-lg-6 col-xs-6 col-sm-6 col-md-6" pattern="[A-Za-z][\w ]{1,56}$" required>
             </div>
         </div>
         <div class="space"></div>
         <div class="form-group col-md-8 col-sm-6 col-xs-12">
-            <label class="col-md-3 control-label">Year:</label>
+            <label class="col-md-3 control-label"><fmt:message key="movie.year" bundle="${resourceBundle}"/></label>
             <div class="col-md-8">
                 <select class="span2 col-lg-6 col-xs-6 col-sm-6 col-md-6" name="year" required>
                     <c:forEach var="i" begin="1970" end="2017">
@@ -48,15 +48,15 @@
         </div>
         <div class="space"></div>
 
-        <input class="btn btn-info btn-lg" type="submit" name="button2" value="Save"/>
+        <input class="btn btn-info btn-lg" type="submit" name="button2" value="<fmt:message key="user.save" bundle="${resourceBundle}"/>"/>
 
         <div class="space"></div>
 
         <div class="col-lg-10 col-xs-10 col-sm-10 col-md-10 pagination-centered">
             <div class="panel panel-primary">
                 <div class="panel-heading text-center">
-                    <button id="addactor" type="button" class="btn btn-primary">Add</button>
-                    <button id="deleteactor" type="button" class="btn btn-primary">Delete</button>
+                    <button id="addactor" type="button" class="btn btn-primary"><fmt:message key="header.addactor" bundle="${resourceBundle}"/></button>
+                    <button id="deleteactor" type="button" class="btn btn-primary"><fmt:message key="actor.delete" bundle="${resourceBundle}"/></button>
                 </div>
                 <div id="actorlist" class="col-lg-10 col-xs-10 col-sm-10 col-md-10 panel-body row">
                     <div class="row">

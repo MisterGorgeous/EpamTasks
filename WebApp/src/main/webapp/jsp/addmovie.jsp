@@ -21,13 +21,13 @@
 
     <div class="container">
         <div class="container">
-            <h1 class="page-header">Edit Movie</h1>
+            <h1 class="page-header"><fmt:message key="movie.edit" bundle="${resourceBundle}"/></h1>
             <div class="row">
 
                 <form action="/UploadServlet" method="post" enctype="multipart/form-data">
                     <div class="control-group">
                         <div class="panel panel-primary control-label">
-                            <div class="panel-heading">Icon:</div>
+                            <div class="panel-heading"><fmt:message key="users.icon" bundle="${resourceBundle}"/></div>
                             <div class="panel-body">
                                 <input class="addIcon" type="file" name="file" accept=".png,.jpg,.jpeg"  onchange="this.form.submit()"/>
                                 <input  type="submit" hidden />
@@ -44,14 +44,14 @@
                     <div class="col-lg-6 col-xs-12 col-md-4">
 
                         <div class="control-group">
-                            <label class="control-label" for="title">Title:</label>
+                            <label class="control-label" for="title"><fmt:message key="movie.title" bundle="${resourceBundle}"/></label>
                             <div class="controls">
                                 <input type="text" id="title" name="title" placeholder="" class="input-xlarge" pattern="[A-Za-z][\w ]{1,56}$" required>
                             </div>
                         </div>
                         <div class="space"></div>
                         <div class="control-group">
-                            <label class="control-label" for="description">Description:</label>
+                            <label class="control-label" for="description"><fmt:message key="movie.description" bundle="${resourceBundle}"/></label>
                             <div class="controls">
                                 <textarea type="text" id="description" name="description" placeholder=""
                                           class="input-xlarge" rows="5" pattern="^[A-Za-z][\w ]{1,512}$"></textarea>
@@ -59,14 +59,14 @@
                         </div>
                         <div class="space"></div>
                         <div class="control-group">
-                            <label class="control-label" for="country">Country:</label>
+                            <label class="control-label" for="country"><fmt:message key="movie.country" bundle="${resourceBundle}"/></label>
                             <div class="controls">
                                 <input type="text" id="country" name="country" placeholder="" class="input-xlarge" pattern="[A-Za-z][\w ]{1,56}$">
                             </div>
                         </div>
                         <div class="space"></div>
                         <div class="control-group">
-                            <label class="control-label" for="movieYear">Year:</label>
+                            <label class="control-label" for="movieYear"><fmt:message key="movie.year" bundle="${resourceBundle}"/></label>
                             <div class="controls">
                                 <select id="movieYear"  name="movieYear" required>
                                     <c:forEach var="i" begin="1970" end="2017">
@@ -77,16 +77,16 @@
                         </div>
                         <div class="space"></div>
                         <div class="control-group">
-                            <label class="control-label">Rating:</label>
+                            <label class="control-label"><fmt:message key="movie.rating" bundle="${resourceBundle}"/></label>
                             <div class="controls">
                                 <input id="ex6" type="text" data-slider-min="0" data-slider-max="9.9"
                                        data-slider-step="0.1" data-slider-value="5" form="addmovie" name="rating"/>
-                                <span id="ex6CurrentSliderValLabel">Rating:<span id="ex6SliderVal" class="label-danger">3</span></span>
+                                <span id="ex6CurrentSliderValLabel"><fmt:message key="movie.rating" bundle="${resourceBundle}"/><span id="ex6SliderVal" class="label-danger">3</span></span>
                             </div>
                         </div>
                         <div class="space"></div>
 
-                        <input id="subMovie" class="btn btn-danger btn-lg" type="submit" name="button" value="Add Movie"/>
+                        <input id="subMovie" class="btn btn-danger btn-lg" type="submit" name="button" value="<fmt:message key="movie.add" bundle="${resourceBundle}"/>"/>
 
                     </div>
 

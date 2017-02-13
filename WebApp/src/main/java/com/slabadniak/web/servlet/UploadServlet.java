@@ -1,8 +1,7 @@
-package com.slabadniak.web;
+package com.slabadniak.web.servlet;
 
 import com.slabadniak.web.factory.CommandFactory;
-import com.slabadniak.web.command.ICommand;
-import com.slabadniak.web.exeption.CommandExeption;
+import com.slabadniak.web.util.CheckContentType;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -18,12 +17,11 @@ import java.io.*;
 import java.util.List;
 
 
-
 @WebServlet("/UploadServlet")
 @MultipartConfig
 public class UploadServlet extends HttpServlet {
     private static final String JSP = "currentJSP";
-
+    private static final String FILENAME = "filename";
 
     public void init() throws ServletException {
     }
@@ -41,35 +39,26 @@ public class UploadServlet extends HttpServlet {
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        String fileName = null;
-
         ServletFileUpload sf = new ServletFileUpload(new DiskFileItemFactory());
         try {
-            List<FileItem> files =  sf.parseRequest(request);
-            for(FileItem file :files) {
-                if(file.getName() != null) { // retrieve icon's owner
-                    fileName = file.getName();
-                    file.write(new File(getServletContext().getRealPath("/img")+ '/' + file.getName()));
+            List<FileItem> files = sf.parseRequest(request);
+            for (FileItem file : files) {
+                if (file.getName() != null) { // retrieve icon's owner
+                    if (CheckContentType.isValid(file.getContentType())) {
+                        file.write(new File(getServletContext().getRealPath("/img") + '/' + file.getName()));
+                        request.setAttribute(FILENAME, file.getName());
+                        //load file on server
+                        CommandFactory factory = new CommandFactory();
+                        factory.create(new String[]{"upload"});
+                        factory.execute(request);
+                    }
                 }
             }
         } catch (Exception e) {
             throw new ServletException("Command exception ", e);
         }
 
-        request.setAttribute("filename",fileName);
-
-
-        try {
-            CommandFactory factory = new CommandFactory();
-            factory.create(new String[]{"upload"});
-            factory.execute(request);
-        } catch (CommandExeption e) {
-            throw new ServletException("Command exception ", e);
-        }
-
-
         HttpSession session = request.getSession();
-        request.getRequestDispatcher((String)session.getAttribute(JSP)).forward(request, response);
+        request.getRequestDispatcher((String) session.getAttribute(JSP)).forward(request, response);
     }
 }

@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenreContent implements DataContext,Serializable {
+public class GenreContent implements DataContext {
     private List<String> genre = null;
     private static final int COLUMN = 1;
 

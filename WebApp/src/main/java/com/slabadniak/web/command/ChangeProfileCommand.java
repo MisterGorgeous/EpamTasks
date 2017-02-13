@@ -80,7 +80,7 @@ public class ChangeProfileCommand implements ICommand {
 
             ChangeProfileService.change(unmodified, modified);
             //sending email to the user
-            SendEmail.send(unmodified.getLogin(),Passwords.showPassword(password),unmodified.getGender(),unmodified.getEmail(),page);
+            SendEmail.send(unmodified, page);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }

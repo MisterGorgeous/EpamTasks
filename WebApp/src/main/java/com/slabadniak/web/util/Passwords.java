@@ -12,5 +12,4 @@ public class Passwords {
     public static String showPassword(String password){
         return password.isEmpty() ? "the same" : password;
     }
-
 }

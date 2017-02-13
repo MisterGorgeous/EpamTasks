@@ -1,4 +1,4 @@
-package com.slabadniak.web;
+package com.slabadniak.web.servlet;
 
 import com.slabadniak.web.factory.CommandFactory;
 import com.slabadniak.web.exeption.CommandExeption;

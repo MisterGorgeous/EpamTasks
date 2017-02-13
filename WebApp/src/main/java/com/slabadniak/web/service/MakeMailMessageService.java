@@ -1,18 +1,19 @@
 package com.slabadniak.web.service;
 
-/**
- * Created by Siarhei on 11.02.2017.
- */
+import com.slabadniak.web.entity.User;
+import com.slabadniak.web.util.Passwords;
+import sun.security.util.Password;
+
 public class MakeMailMessageService {
 
     private MakeMailMessageService() {
     }
 
-    public static String makeMessage(String login, String password, String gender, String page){
+    public static String makeMessage(User user, String page){
         if(page.equals("path.page.signin")) {
-            return "Hello, your login:" + login + "\n      password:" + password + "\n      gender:" + gender + "\nThank you for registarion.";
+            return "Hello, your login:" +  user.getLogin() + "\n      password:" + Passwords.showPassword(user.getPassword()) + "\n      gender:" + user.getGender() +"\n      status:" + user.getStatus() +"\nThank you for registarion.";
         }else{
-            return "Your login:" + login + "\n      password:" + password + "\n      gender:" + gender + "\nThank you for using our site.";
+            return "Your login:" +  user.getLogin() + "\n      password:" + Passwords.showPassword(user.getPassword()) + "\n      gender:" + user.getGender() +"\n      status:" + user.getStatus() + "\nThank you for using our site.";
         }
 
     }

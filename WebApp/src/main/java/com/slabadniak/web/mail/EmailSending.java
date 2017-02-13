@@ -1,6 +1,7 @@
 package com.slabadniak.web.mail;
 
 
+import com.slabadniak.web.entity.User;
 import com.slabadniak.web.service.MakeMailMessageService;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -18,17 +19,11 @@ public class EmailSending implements Runnable {
     private static final String PORT ="587";
     private static final String FROM ="movierating2017@gmail.com";
     private static final String PASSWORD ="Epam2017";
-    private String login;
-    private String password;
-    private String gender;
-    private String email;
     private String page;
+    private User user;
 
-    public EmailSending(String login, String password, String gender, String email, String page) {
-        this.login = login;
-        this.password = password;
-        this.gender = gender;
-        this.email = email;
+    public EmailSending(User user, String page) {
+        this.user = user;
         this.page = page;
     }
 
@@ -36,7 +31,7 @@ public class EmailSending implements Runnable {
     public void run() {
 
         String subject = MakeMailMessageService.makeSubject(page);
-        String message = MakeMailMessageService.makeMessage(login,password,gender,page);
+        String message = MakeMailMessageService.makeMessage(user,page);
 
         try{
             Properties properties = new Properties();
@@ -60,7 +55,7 @@ public class EmailSending implements Runnable {
 
             msg.setFrom(new InternetAddress(FROM));
             // InternetAddress[] toAddresses = { new InternetAddress(mailTo) };
-            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
+            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(user.getEmail()));
             msg.setSubject(subject);
             msg.setSentDate(new Date());
             // set plain text message
@@ -72,7 +67,5 @@ public class EmailSending implements Runnable {
         } catch (Exception e) {
             LOGGER.log(Level.INFO, "Messege: " + message + " doesn't send  to user.");
         }
-
-
     }
 }

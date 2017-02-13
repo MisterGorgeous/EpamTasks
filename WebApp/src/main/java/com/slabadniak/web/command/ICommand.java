@@ -9,9 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 public interface ICommand {
-    Logger LOGGER = LogManager.getLogger(ICommand.class);
     String FEEDBACK = "feedback";
 
+    /**
+     *
+     * @param request
+     * @throws CommandExeption
+     */
     void execute(HttpServletRequest request) throws CommandExeption;
 
     default void setForwardPage(HttpServletRequest request){

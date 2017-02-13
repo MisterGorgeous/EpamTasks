@@ -92,10 +92,10 @@
 
                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                         <div class="text-center">
-                            <h6>Upload photo</h6>
+                            <h3><fmt:message key="user.upload" bundle="${resourceBundle}"/></h3>
                             <img src="${sessionScope.user.icon}" class="avatar img-circle img-thumbnail" alt="avatar">
                             <form  action="/UploadServlet" method="post" enctype="multipart/form-data">
-                                <input class="addIcon" type="file" name="file" accept=".png,.jpg,.jpeg"  onchange="this.form.submit()" >
+                                <input class="addIcon" type="file" name="file" accept=".png,.jpg,.jpeg"   onchange="this.form.submit()" >
                                 <input  type="submit" hidden />
                             </form>
                         </div>
