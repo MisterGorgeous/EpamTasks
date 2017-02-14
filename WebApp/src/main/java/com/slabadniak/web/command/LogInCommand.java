@@ -1,11 +1,12 @@
 package com.slabadniak.web.command;
 
+import com.slabadniak.web.configuration.LanguageManager;
 import com.slabadniak.web.feedback.Feedback;
 import com.slabadniak.web.constant.UserType;
 import com.slabadniak.web.entity.User;
 import com.slabadniak.web.exeption.CommandExeption;
 import com.slabadniak.web.exeption.ServiceExeption;
-import com.slabadniak.web.logic.UserValidation;
+import com.slabadniak.web.util.UserValidation;
 import com.slabadniak.web.service.CheckUserService;
 import com.slabadniak.web.service.AuthorizationService;
 import com.slabadniak.web.content.UserContent;
@@ -19,10 +20,7 @@ import java.util.List;
 public class LogInCommand implements ICommand {
     private static final int UNIQUE = 0;
     private Feedback feedback;
-    private static final String LOGIN = "Such login doesn't exist.";
-    private static final String PASSWORD = "Incorrect password.";
-    private static final String BANNED = "You've been banned.";
-    private static final String EMPTY = "No such user.";
+
 
     public LogInCommand() {
         this.feedback = new Feedback();
@@ -30,6 +28,7 @@ public class LogInCommand implements ICommand {
 
     @Override
     public void execute(HttpServletRequest request) throws CommandExeption {
+        String local = (String)request.getSession().getAttribute(LOCAL);
 
         String login = request.getParameter("login");
         String password = request.getParameter("pass");
@@ -45,12 +44,12 @@ public class LogInCommand implements ICommand {
         //remove, if stay after previous query
         request.removeAttribute(FEEDBACK);
 
-        feedback = UserValidation.checkPassword(password);
+        feedback = UserValidation.checkPassword(password,local);
         if (feedback.isWritten()) {
             request.setAttribute(FEEDBACK, feedback);
             return;
         }
-        feedback = UserValidation.checkLogin(login);
+        feedback = UserValidation.checkLogin(login,local);
         if (feedback.isWritten()) {
             request.setAttribute(FEEDBACK, feedback);
             return;
@@ -63,13 +62,13 @@ public class LogInCommand implements ICommand {
         try {
 
             if (!CheckUserService.isLoginExist(user)) {
-                feedback.setMessage(LOGIN);
+                feedback.setMessage(LanguageManager.getProperty("feedback.ilogin",local));
                 request.setAttribute(FEEDBACK, feedback);
                 return;
             }
 
             if (!CheckUserService.checkPassword(user)) {
-                feedback.setMessage(PASSWORD);
+                feedback.setMessage(LanguageManager.getProperty("feedback.ipassword",local));
                 request.setAttribute(FEEDBACK, feedback);
                 return;
             }
@@ -83,17 +82,19 @@ public class LogInCommand implements ICommand {
 
         setAtributes(content, request);
         if(!feedback.isWritten()){
+            feedback.setMessage(LanguageManager.getProperty("feedback.success",local));
             setForwardPage(request);
         }
 
     }
 
     private void setAtributes(UserContent content, HttpServletRequest request) {
+        String local = (String)request.getSession().getAttribute(LOCAL);
         HttpSession session = request.getSession();
         List<User> users = content.get();
 
         if(users.isEmpty()){
-            feedback.setMessage(EMPTY);
+            feedback.setMessage(LanguageManager.getProperty("feedback.empty",local));
             request.setAttribute(FEEDBACK, feedback);
         }
 
@@ -107,7 +108,7 @@ public class LogInCommand implements ICommand {
                 session.setAttribute("userStatus", UserType.USER);
             }
         } else {
-            feedback.setMessage(BANNED);
+            feedback.setMessage(LanguageManager.getProperty("feedback.banned",local));
             request.setAttribute(FEEDBACK, feedback);
         }
     }

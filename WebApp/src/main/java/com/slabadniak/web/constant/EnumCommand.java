@@ -2,6 +2,9 @@ package com.slabadniak.web.constant;
 
 import com.slabadniak.web.command.*;
 
+/**
+ * All commands of aplication
+ */
 public enum EnumCommand {
     EMPTY{
         {

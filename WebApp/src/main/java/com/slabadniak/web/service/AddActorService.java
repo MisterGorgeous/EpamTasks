@@ -19,25 +19,24 @@ public class AddActorService {
         ConnectionPool pool = ConnectionPool.getInstance();
         AdminDAO adminDAO = null;
         int movieId;
-        boolean done;
+        boolean found;
 
         try {
             Wrapper connection = pool.getConnection();
             adminDAO = new AdminDAO(connection);
-            movieId = adminDAO.movieId(movie, year);
+            found = CheckMovieExistence.check(movie,year);
 
-            if (movieId > 0) {
+            if(found) {
+                movieId = adminDAO.movieId(movie, year);
                 adminDAO.addActors(actors, movieId);
-                done = true;
-            } else {
-                done = false;
             }
+
             pool.releaseConnection(connection);
             connection.closePreparedStatement();
         } catch (PoolException |WrapperException |DAOException  e) {
             throw new ServiceExeption("Pool exception", e);
         }
-        return done;
+        return found;
     }
 
 

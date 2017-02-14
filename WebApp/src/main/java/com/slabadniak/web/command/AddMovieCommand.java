@@ -1,8 +1,10 @@
 package com.slabadniak.web.command;
 
+import com.slabadniak.web.configuration.LanguageManager;
 import com.slabadniak.web.entity.Movie;
 import com.slabadniak.web.exeption.CommandExeption;
 import com.slabadniak.web.exeption.ServiceExeption;
+import com.slabadniak.web.feedback.Feedback;
 import com.slabadniak.web.service.AddMovieSevice;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,18 +24,25 @@ public class AddMovieCommand implements ICommand {
         String year = request.getParameter("movieYear");
         String icon = (String) session.getAttribute("icon");
         float rating = Float.parseFloat(request.getParameter("rating"));
+        String local = (String)request.getSession().getAttribute(LOCAL);
 
         Movie movie = new Movie(title, rating, icon, year, counrty, description);
         List<String> movieGenres = genreIds(request);
+        Feedback feedback = new Feedback();
+        boolean found;
 
         try {
-            AddMovieSevice.add(movie, movieGenres);
+            found = AddMovieSevice.add(movie, movieGenres);
         } catch (ServiceExeption e) {
             throw new CommandExeption("Service:", e);
         }
 
-
-        setForwardPage(request);
+        if (!found) {
+            setForwardPage(request);
+        } else {
+            feedback.setMessage(LanguageManager.getProperty("feedback.movieexist",local));
+            request.setAttribute(FEEDBACK, feedback);
+        }
     }
 
     private List<String> genreIds(HttpServletRequest request) {

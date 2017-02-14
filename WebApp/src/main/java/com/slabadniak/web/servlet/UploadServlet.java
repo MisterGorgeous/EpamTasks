@@ -16,7 +16,10 @@ import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.util.List;
 
-
+/**
+ * This class is a servlet class used to dowloand apllication artifacts.
+ * @see HttpServlet
+ */
 @WebServlet("/UploadServlet")
 @MultipartConfig
 public class UploadServlet extends HttpServlet {

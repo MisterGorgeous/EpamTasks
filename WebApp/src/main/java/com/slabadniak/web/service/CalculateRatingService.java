@@ -11,6 +11,10 @@ import com.slabadniak.web.exeption.WrapperException;
 import com.slabadniak.web.pool.ConnectionPool;
 import com.slabadniak.web.pool.Wrapper;
 
+/**
+ * This Class is used to calculate users rating.After the 6 comments to the film
+ * the average mark is calculated and user's status is changed.
+ */
 public class CalculateRatingService {
     private static final int MIN_USERS_ASSESSMENTS = 5;
     private static final int FIRST_APPROXIMATION  = 1;

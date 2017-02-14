@@ -2,6 +2,10 @@ package com.slabadniak.web.mail;
 
 import com.slabadniak.web.entity.User;
 
+
+/**
+ * Sending of the email performs in the new thread to prevent delay in the command thread.
+ */
 public class SendEmail {
     private SendEmail(){}
 

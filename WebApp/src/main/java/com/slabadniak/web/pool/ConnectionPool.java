@@ -21,7 +21,10 @@ import com.mysql.jdbc.Driver;
 
 import javax.annotation.PreDestroy;
 
-
+/**
+ * ConnectionPool represents an ability to connect with database.
+ *
+ **/
 public class ConnectionPool {
     private static final Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
     private static ConnectionPool instance;
@@ -34,7 +37,9 @@ public class ConnectionPool {
     private static final int TIMEQUANTUM = 3;
 
 
-
+    /**
+     * private constructor is part of Singleton pattern.
+     */
     private ConnectionPool() {
         property = new Properties();
         try {
@@ -65,6 +70,10 @@ public class ConnectionPool {
         }
     }
 
+    /**
+     * This instance method returns the unique ConnectionPool object.
+     * @return
+     */
     public static ConnectionPool getInstance() {
         if (!created.get()) {
             lock.lock();
@@ -81,6 +90,12 @@ public class ConnectionPool {
     }
 
 
+    /**
+     * Check TIMEQUANTUM and return Wrapper object.
+     * Method take isn't used to prevent long blocking.
+     * @return
+     * @throws PoolException
+     */
     public Wrapper getConnection() throws PoolException {
         if (freeConnections.get()) {
             try {
@@ -93,6 +108,11 @@ public class ConnectionPool {
         return null;
     }
 
+    /**
+     * This method returns a spare connection to the pool.
+     * @param connection
+     * @throws PoolException
+     */
     public void releaseConnection(Wrapper connection) throws PoolException {
         try {
             connections.put(connection);
@@ -102,6 +122,11 @@ public class ConnectionPool {
         }
     }
 
+    /**
+     * This method returns all connections to the pool.
+     * @throws PoolException
+     * @throws WrapperException
+     */
     private void releaseAllPoolConnections() throws PoolException, WrapperException {
         freeConnections.set(false);
         try {
@@ -115,7 +140,13 @@ public class ConnectionPool {
         }
     }
 
-    @PreDestroy //The method annotated with PreDestroy is typically used to release resources that it has been holding
+    /**
+     * Close Pool.The method annotated with PreDestroy is typically
+     * used to release resources that it has been holding.
+     * @throws PoolException
+     * @throws WrapperException
+     */
+    @PreDestroy
     public void closePool() throws PoolException, WrapperException {
         freeConnections.set(false);
         releaseAllPoolConnections(); //Release all connections

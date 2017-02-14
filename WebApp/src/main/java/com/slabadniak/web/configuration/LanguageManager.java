@@ -3,6 +3,9 @@ package com.slabadniak.web.configuration;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/**
+ *to get message in user's language
+ */
 public class LanguageManager {
     private final static String RUSSIAN = "ru_RU";
     private final static String ENGLISH = "en_US";

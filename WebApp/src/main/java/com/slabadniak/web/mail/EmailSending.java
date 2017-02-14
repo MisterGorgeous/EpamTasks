@@ -13,6 +13,9 @@ import java.util.Date;
 import java.util.Properties;
 
 
+/**
+ * Task that sends email to the user after registration and changing profile.
+ */
 public class EmailSending implements Runnable {
     private static final Logger LOGGER = LogManager.getLogger(EmailSending.class);
     private static final String HOST ="smtp.gmail.com";

@@ -24,7 +24,7 @@
      <h1 class="page-header"><fmt:message key="sigin.edit" bundle="${resourceBundle}"/></h1>
     <form action="Controller" method="post" class="form-horizontal" onsubmit="return checkPasswords()">
         <input type="hidden" name="command" value="signin">
-        <input type="hidden" name="page" value="path.page.signin">
+        <input type="hidden" name="page" value="path.page.main">
 
         <div class="form-group">
             <label class="col-md-3 control-label"><fmt:message key="sigin.login" bundle="${resourceBundle}"/></label>

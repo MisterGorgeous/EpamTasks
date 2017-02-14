@@ -1,4 +1,4 @@
-import com.slabadniak.web.logic.ActorValidation;
+import com.slabadniak.web.util.ActorValidation;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,7 +1,6 @@
 package com.slabadniak.web.pool;
 
 import com.slabadniak.web.exeption.WrapperException;
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -9,6 +8,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+
+/**
+ * Wrapper is the part of Wrapper Pattern. This object is used to substitute
+ * the real one and provide a new functionality.
+ */
 public class Wrapper {
     private static final Logger LOGGER = LogManager.getLogger(Wrapper.class);
     private Connection connection;

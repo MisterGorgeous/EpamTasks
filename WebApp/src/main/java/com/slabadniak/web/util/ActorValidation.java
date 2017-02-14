@@ -1,7 +1,11 @@
-package com.slabadniak.web.logic;
+package com.slabadniak.web.util;
 
 import java.util.Arrays;
 
+
+/**
+ * This utils class is used to validate actors, whose has been added to db.
+ */
 public class ActorValidation {
 
     public static boolean checkSizes(int ...sizes){

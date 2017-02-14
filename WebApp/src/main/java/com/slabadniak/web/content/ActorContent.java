@@ -2,13 +2,10 @@ package com.slabadniak.web.content;
 
 import com.slabadniak.web.entity.Actor;
 import com.slabadniak.web.exeption.DAOException;
-
-import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class ActorContent implements DataContext {
     private List<Actor> actors = null;

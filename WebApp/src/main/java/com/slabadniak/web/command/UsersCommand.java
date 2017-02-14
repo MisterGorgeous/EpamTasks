@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class UsersCommand implements ICommand {
+    private static final int NUMPAGES = 20;
+
      @Override
     public void execute(HttpServletRequest request) throws CommandExeption {
         UserContent content;
@@ -26,16 +28,13 @@ public class UsersCommand implements ICommand {
     }
 
     private void setAttributes(UserContent content, HttpServletRequest request){
-        //request.setAttribute("users", (List<User>) content.get());
         HttpSession session = request.getSession();
 
         List<User> users = content.get();
         session.setAttribute("users",users);
-        //number of pages
-        int numPages = (int) Math.ceil(users.size()/20);
+        int numPages = (int) Math.ceil(users.size()/NUMPAGES); //number of pages
         session.setAttribute("usersSize",users.size());
         session.setAttribute("userPages",numPages);
-        //not const.Will be iterated
-        session.setAttribute("currentUserPage",0);
+        session.setAttribute("currentUserPage",0); //not const.Will be iterated
     }
 }

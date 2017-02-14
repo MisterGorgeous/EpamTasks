@@ -9,6 +9,11 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;
 
+
+/**
+ * This class is used to filter all jsp.
+ * Changed standart encoding of response and request to UTF-8
+ */
 @WebFilter(urlPatterns = {"/jsp/*"},
         initParams = {
                 @WebInitParam(name = "encoding", value = "UTF-8", description = "Encoding Param")})

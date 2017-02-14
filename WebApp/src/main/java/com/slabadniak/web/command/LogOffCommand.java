@@ -11,7 +11,7 @@ public class LogOffCommand implements ICommand {
         HttpSession session = request.getSession();
 
         session.setAttribute("userStatus", UserType.GUEST);
-        session.removeAttribute("user");
+        session.removeAttribute("user");   //clean
 
         setForwardPage(request);
     }

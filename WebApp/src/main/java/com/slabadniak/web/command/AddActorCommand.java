@@ -1,11 +1,11 @@
 package com.slabadniak.web.command;
 
+import com.slabadniak.web.configuration.LanguageManager;
 import com.slabadniak.web.entity.Actor;
-import com.slabadniak.web.feedback.FeedBackText;
 import com.slabadniak.web.feedback.Feedback;
 import com.slabadniak.web.exeption.CommandExeption;
 import com.slabadniak.web.exeption.ServiceExeption;
-import com.slabadniak.web.logic.ActorValidation;
+import com.slabadniak.web.util.ActorValidation;
 import com.slabadniak.web.service.AddActorService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +19,7 @@ public class AddActorCommand implements ICommand {
     public void execute(HttpServletRequest request) throws CommandExeption {
         Feedback feedback = new Feedback();
         boolean done;
-
+        String local = (String)request.getSession().getAttribute(LOCAL);
         //validation
         String movie = request.getParameter("movie");
         String year = request.getParameter("year");
@@ -27,8 +27,9 @@ public class AddActorCommand implements ICommand {
 
         List<Actor> actors = retrieveActors(request);
 
+
         if (actors == null || actors.isEmpty()) {
-            feedback.setMessage(FeedBackText.MDE);
+            feedback.setMessage(LanguageManager.getProperty("feedback.mde",local));
             request.setAttribute(FEEDBACK, feedback);
             return;
         }
@@ -43,9 +44,10 @@ public class AddActorCommand implements ICommand {
         if (done) {
             setForwardPage(request);
         } else {
-            feedback.setMessage(FeedBackText.MHF);
+            feedback.setMessage(LanguageManager.getProperty("feedback.mhf",local));
             request.setAttribute(FEEDBACK, feedback);
         }
+
     }
 
     private List<Actor> retrieveActors(HttpServletRequest request) {

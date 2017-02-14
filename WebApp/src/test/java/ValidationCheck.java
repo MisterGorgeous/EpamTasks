@@ -1,5 +1,5 @@
 import com.slabadniak.web.feedback.Feedback;
-import com.slabadniak.web.logic.UserValidation;
+import com.slabadniak.web.util.UserValidation;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,19 +32,19 @@ public class ValidationCheck {
 
     @Test
     public void checkLogin() {
-        Feedback feedback = UserValidation.checkLogin(text);
+        Feedback feedback = UserValidation.checkLogin(text,"en_US");
         Assert.assertEquals(feedback.isWritten(),false);
     }
 
     @Test
     public void checkPassword() {
-        Feedback feedback = UserValidation.checkPassword(text);
+        Feedback feedback = UserValidation.checkPassword(text,"en_US");
         Assert.assertEquals(feedback.isWritten(),false);
     }
 
     @Test
     public void checkEmail() {
-        Feedback feedback = UserValidation.checkEmail(text);
+        Feedback feedback = UserValidation.checkEmail(text,"en_US");
         Assert.assertEquals(feedback.isWritten(),false);
     }
 }

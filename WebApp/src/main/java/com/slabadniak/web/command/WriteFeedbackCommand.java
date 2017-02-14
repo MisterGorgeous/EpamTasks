@@ -7,7 +7,6 @@ import com.slabadniak.web.exeption.CommandExeption;
 import javax.servlet.http.HttpServletRequest;
 
 public class  WriteFeedbackCommand implements ICommand {
-    private static final String LOCAL = "local";
 
     @Override
     public void execute(HttpServletRequest request) throws CommandExeption {

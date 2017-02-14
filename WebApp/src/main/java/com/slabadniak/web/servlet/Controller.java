@@ -17,6 +17,10 @@ import java.io.*;
 import java.util.Date;
 import java.util.Properties;
 
+/**
+ * This class is a servlet class used as a controller of the application.
+ * @see HttpServlet
+ */
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {
     private static final String JSP = "currentJSP";
@@ -24,18 +28,38 @@ public class Controller extends HttpServlet {
     public void init() throws ServletException {
     }
 
+    /**
+     * Uses in get requests
+     *
+     * @param request  is servlet's request
+     * @param response is servlet's response
+     * @throws ServletException if there are servlet errors
+     * @throws IOException      if there are input/output errors
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
     }
 
+    /**
+     * Uses in post requests
+     *
+     * @param request  is servlet's request
+     * @param response is servlet's response
+     * @throws ServletException if there are servlet errors
+     * @throws IOException      if there are input/output errors
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    public void destroy() {
-        super.destroy();
-    }
-
+    /**
+     * Actions after taking request
+     *
+     * @param request  is servlet's request
+     * @param response is servlet's response
+     * @throws ServletException if there are servlet errors
+     * @throws IOException      if there are input/output errors
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         String[] commands = request.getParameterValues("command");
@@ -49,5 +73,9 @@ public class Controller extends HttpServlet {
         }
 
         request.getRequestDispatcher((String)session.getAttribute(JSP)).forward(request, response);
+    }
+
+    public void destroy() {
+        super.destroy();
     }
 }

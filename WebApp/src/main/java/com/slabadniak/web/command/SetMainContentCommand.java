@@ -23,10 +23,6 @@ public class SetMainContentCommand implements ICommand {
         }
 
         setAtributes(content,request);
-
-        /*CommandFactory.create("allgenres").execute(request);
-        CommandFactory.create("sortmovies").execute(request);*/
-
         setForwardPage(request);
     }
 

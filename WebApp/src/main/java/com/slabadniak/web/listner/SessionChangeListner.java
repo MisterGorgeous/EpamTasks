@@ -7,6 +7,10 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
+
+/**
+ * Set session atributes after it has been created.
+ */
 @WebListener
 public class SessionChangeListner implements HttpSessionListener {
     private static final String CURRENTJSP = "currentJSP";

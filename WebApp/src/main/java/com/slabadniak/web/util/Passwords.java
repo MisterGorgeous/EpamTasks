@@ -2,6 +2,9 @@ package com.slabadniak.web.util;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
+/**
+ * This utils class is used to hash password.
+ */
 public class Passwords {
     private Passwords(){}
 
@@ -9,7 +12,4 @@ public class Passwords {
         return DigestUtils.md5Hex(password);
     }
 
-    public static String showPassword(String password){
-        return password.isEmpty() ? "the same" : password;
-    }
 }
