@@ -1,6 +1,8 @@
 package com.slabadniak.web.mail;
 
 
+import com.slabadniak.web.annotation.Slobolize;
+import com.slabadniak.web.annotation.UserLetter;
 import com.slabadniak.web.entity.User;
 import com.slabadniak.web.service.MakeMailMessageService;
 import org.apache.logging.log4j.Level;
@@ -9,8 +11,7 @@ import org.apache.logging.log4j.Logger;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import java.util.Date;
-import java.util.Properties;
+import java.util.*;
 
 
 /**
@@ -32,11 +33,11 @@ public class EmailSending implements Runnable {
 
     @Override
     public void run() {
-
+        List<UserLetter> letters = null;
         String subject = MakeMailMessageService.makeSubject(page);
         String message = MakeMailMessageService.makeMessage(user,page);
+        UserLetter newLetter = new UserLetter(user.getEmail(),subject,message);
 
-        try{
             Properties properties = new Properties();
 
             properties.put("mail.smtp.host", HOST);
@@ -53,21 +54,30 @@ public class EmailSending implements Runnable {
 
             Session session = Session.getInstance(properties, auth);
 
-            // creates a new e-mail message
-            Message msg = new MimeMessage(session);
+            letters = Slobolize.readLetters();
+            if(Objects.isNull(letters)) {
+              letters = new ArrayList<>();
+            }
 
-            msg.setFrom(new InternetAddress(FROM));
-            // InternetAddress[] toAddresses = { new InternetAddress(mailTo) };
-            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(user.getEmail()));
-            msg.setSubject(subject);
-            msg.setSentDate(new Date());
-            // set plain text message
-            msg.setText(message);
+            letters.add(newLetter);
 
-            // sends the e-mail
-            Transport.send(msg);
+        try {
+            for(UserLetter letter: letters) {
+                Message msg = new MimeMessage(session);  // creates a new e-mail message
+
+                msg.setFrom(new InternetAddress(FROM));
+                msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(letter.getEmail()));   // InternetAddress[] toAddresses = { new InternetAddress(mailTo) };
+                msg.setSubject(letter.getSubject());
+                msg.setSentDate(new Date());
+                msg.setText(letter.getMessage()); // set plain text message
+
+                Transport.send(msg); // sends the e-mail
+            }
+
+            Slobolize.cleanFile();
 
         } catch (Exception e) {
+            Slobolize.writeLetter(newLetter);
             LOGGER.log(Level.INFO, "Messege: " + message + " doesn't send  to user.");
         }
     }

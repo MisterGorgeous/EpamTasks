@@ -106,3 +106,7 @@
     background: inherit;
     left: 20px;
 }
+
+.error{
+    color:red;
+}

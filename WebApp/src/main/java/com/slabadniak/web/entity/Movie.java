@@ -42,7 +42,7 @@ public class Movie {
     }
 
     public String getYear() {
-        return year;
+        return year.substring(0,4);
     }
 
     public String getDescription() {
