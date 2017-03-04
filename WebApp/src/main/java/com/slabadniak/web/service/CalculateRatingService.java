@@ -35,20 +35,20 @@ public class CalculateRatingService {
 
             // make assessment
             if(comment == null || comment.isEmpty()){
-                assessment = new UsersAssessment(mark, movie.getTitle(),user.getLogin());
+                assessment = new UsersAssessment(mark, movie,user.getLogin());
             }else  {
-                assessment = new UsersAssessment(comment, mark,movie.getTitle(),user.getLogin());
+                assessment = new UsersAssessment(comment, mark,movie,user.getLogin());
             }
             //asses movie
             userDAO.assess(assessment);
 
             //get value of user's assessments
-            int numAssess = userDAO.numAssess(movie.getTitle());
+            int numAssess = userDAO.numAssess(movie);
 
 
             if(numAssess >= MIN_USERS_ASSESSMENTS) {
                 //get user's rate
-                float usersRate = userDAO.usersRate(movie.getTitle());
+                float usersRate = userDAO.usersRate(movie);
 
                 //change user's status
                 String status = calculateStatus(mark, usersRate);

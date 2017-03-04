@@ -1,5 +1,6 @@
 package com.slabadniak.web.content;
 
+import com.slabadniak.web.entity.Movie;
 import com.slabadniak.web.entity.UsersAssessment;
 import com.slabadniak.web.exeption.DAOException;
 
@@ -10,7 +11,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-
+/**
+ * Contain information about user's assessment.
+ * @author Slabadniak Sergei
+ * @version 1.0
+ */
 public class AssessmentContent implements DataContext{
     private List<UsersAssessment> assessments = null;
     private static final int COMMENT = 1;
@@ -34,7 +39,7 @@ public class AssessmentContent implements DataContext{
                 while (resultSet.next()) {
                     assessment = new UsersAssessment(resultSet.getString(COMMENT),
                             resultSet.getFloat(RATING),
-                            "",
+                            new Movie("", 9.9f,"","","",""),
                             resultSet.getString(LOGIN),
                             resultSet.getTimestamp(UPDATETIME));
                     assessments.add(assessment);

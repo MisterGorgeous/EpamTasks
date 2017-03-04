@@ -20,6 +20,8 @@ import java.util.Properties;
 /**
  * This class is a servlet class used as a controller of the application.
  * @see HttpServlet
+ * @author Slabadniak Sergei
+ * @version 1.0
  */
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {

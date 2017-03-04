@@ -17,8 +17,13 @@ import java.io.*;
 import java.util.List;
 
 /**
- * This class is a servlet class used to dowloand apllication artifacts.
+ * This class is a servlet class used to downland application artifacts.
+ * This realization contradict the principle of single servlet application but in
+ * web.xml version 3.0 this the only way.
+ * @see <a href=http://stackoverflow.com/questions/2422468/how-to-upload-files-to-server-using-jsp-servlet>Soliton</a>
  * @see HttpServlet
+ * @author Slabadniak Sergei
+ * @version 1.0
  */
 @WebServlet("/UploadServlet")
 @MultipartConfig

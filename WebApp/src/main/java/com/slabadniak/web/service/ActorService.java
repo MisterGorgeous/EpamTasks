@@ -23,7 +23,7 @@ public class ActorService {
         try {
             Wrapper connection = pool.getConnection();
             defaultDAO = new DefaultDAO(connection);
-            content.insert(defaultDAO.actors(movie.getTitle()));
+            content.insert(defaultDAO.actors(movie));
             pool.releaseConnection(connection);
             connection.closePreparedStatement();
         } catch (PoolException |WrapperException |DAOException  e) {

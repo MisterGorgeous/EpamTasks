@@ -3,7 +3,9 @@ package com.slabadniak.web.constant;
 import com.slabadniak.web.command.*;
 
 /**
- * All commands of aplication
+ * All commands of application.
+ * @author Slabadniak Sergei
+ * @version 1.0
  */
 public enum EnumCommand {
     EMPTY{
@@ -128,6 +130,10 @@ public enum EnumCommand {
     };
 
     ICommand command;
+
+    /**
+     * @return the current fulfilling command.
+     */
     public ICommand getCurrentCommand() {
         return command;
     }

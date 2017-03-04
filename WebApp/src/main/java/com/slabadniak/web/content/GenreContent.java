@@ -8,6 +8,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Contain information about genres.
+ * @author Slabadniak Sergei
+ * @version 1.0
+ */
 public class GenreContent implements DataContext {
     private List<String> genre = null;
     private static final int COLUMN = 1;

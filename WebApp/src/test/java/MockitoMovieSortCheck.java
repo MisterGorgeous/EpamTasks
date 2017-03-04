@@ -15,6 +15,12 @@ import java.util.Collections;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
 
+
+/**
+ * This mockito test is used to test sorting method.
+ * @author Slabadniak Sergei
+ * @version 1.0
+ */
 @RunWith(MockitoJUnitRunner.class)
 public class MockitoMovieSortCheck {
     private static final String INCREASE = "Start with lowest rate";

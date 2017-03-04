@@ -21,10 +21,12 @@ import com.mysql.jdbc.Driver;
 
 import javax.annotation.PreDestroy;
 
+
 /**
  * ConnectionPool represents an ability to connect with database.
- *
- **/
+ * @author Slabadniak Sergei
+ * @version 1.0
+ */
 public class ConnectionPool {
     private static final Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
     private static ConnectionPool instance;

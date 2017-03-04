@@ -3,6 +3,11 @@ package com.slabadniak.web.annotation;
 import java.io.Serializable;
 
 
+/**
+ * This class is represent letter that is going to be sent on the user's email address.
+ * @author Slabadniak Sergei
+ * @version 1.0
+ */
 @Slobolizable
 public class UserLetter implements Serializable {
     private String email;

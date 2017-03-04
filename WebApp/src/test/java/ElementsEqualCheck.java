@@ -2,6 +2,11 @@ import com.slabadniak.web.util.ActorValidation;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * This test is used to check @see checkSizes and @see checkForNull methods.
+ * @author Slabadniak Sergei
+ * @version 1.0
+ */
 public class ElementsEqualCheck {
 
     @Test

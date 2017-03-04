@@ -13,6 +13,8 @@ import javax.servlet.annotation.WebInitParam;
 /**
  * This class is used to filter all jsp.
  * Changed standart encoding of response and request to UTF-8
+ * @author Slabadniak Sergei
+ * @version 1.0
  */
 @WebFilter(urlPatterns = {"/jsp/*"},
         initParams = {

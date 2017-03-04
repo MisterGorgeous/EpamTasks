@@ -1,6 +1,11 @@
 package com.slabadniak.web.exeption;
 
 
+/**
+ * Represent the exeption on DAO level.
+ * @author Slabadniak Sergei
+ * @version 1.0
+ */
 public class DAOException extends Exception {
     public DAOException() {
     }

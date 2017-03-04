@@ -8,6 +8,12 @@ import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
 
+
+/**
+ * This parameterized test are using to test inner validation.
+ * @author Slabadniak Sergei
+ * @version 1.0
+ */
 @RunWith(Parameterized.class)
 public class ValidationCheck {
     private String text;

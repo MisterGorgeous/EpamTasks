@@ -1,5 +1,10 @@
 package com.slabadniak.web.exeption;
 
+/**
+ * Represent the exeption on pool level.
+ * @author Slabadniak Sergei
+ * @version 1.0
+ */
 public class PoolException extends Exception {
     public PoolException() {
         super();

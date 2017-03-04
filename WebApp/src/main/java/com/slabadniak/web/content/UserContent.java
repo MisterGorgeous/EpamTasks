@@ -9,6 +9,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Contain information about user.
+ * @author Slabadniak Sergei
+ * @version 1.0
+ */
 public class UserContent implements DataContext {
 
     private List<User> users = null;

@@ -4,7 +4,9 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
- *to get message in user's language
+ * To get message in user's language.
+ * @author Slabadniak Sergei
+ * @version 1.0
  */
 public class LanguageManager {
     private final static String RUSSIAN = "ru_RU";

@@ -7,9 +7,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
+
 /**
  * This utils class is used to validate user's info.
- **/
+ * @author Slabadniak Sergei
+ * @version 1.0
+ */
 public class UserValidation {
     private static final String LOGIN = "[A-Za-z]\\w{4,32}";
     private static final String PASSWORD = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{6,32}$";

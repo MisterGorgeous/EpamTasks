@@ -7,6 +7,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * This tag is substitute  select tag to order movies on the main page.
+ * @author Slabadniak Sergei
+ * @version 1.0
+ */
 public class MovieOrderTag extends TagSupport {
     @Override
     public int doStartTag() throws JspTagException {

@@ -7,6 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Contain information about actor.
+ * @author Slabadniak Sergei
+ * @version 1.0
+ */
 public class ActorContent implements DataContext {
     private List<Actor> actors = null;
     private static final int FIRNAME = 1;

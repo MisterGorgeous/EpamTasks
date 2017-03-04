@@ -24,7 +24,7 @@ public class ShowCommentService {
         try {
             Wrapper connection = pool.getConnection();
             defaultDAO = new DefaultDAO(connection);
-            content.insert(defaultDAO.comments(movie.getTitle()));
+            content.insert(defaultDAO.comments(movie));
 
             pool.releaseConnection(connection);
             connection.closePreparedStatement();

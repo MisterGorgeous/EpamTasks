@@ -12,6 +12,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+
+/**
+ * Represent all admin's command.
+ * @author Slabadniak Sergei
+ * @version 1.0
+ */
 public class AdminDAO extends AbstractDAO {
     public static final String USERS = "select login,email,password,status_id,banned,gender,icon,admin from user WHERE admin = FALSE;";
     public static final String BANING = "UPDATE user set banned = ? WHERE login = ?;";

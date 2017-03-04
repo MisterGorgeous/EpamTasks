@@ -2,9 +2,10 @@ package com.slabadniak.web.util;
 
 import java.util.Arrays;
 
-
 /**
  * This utils class is used to validate actors, whose has been added to db.
+ * @author Slabadniak Sergei
+ * @version 1.0
  */
 public class ActorValidation {
 

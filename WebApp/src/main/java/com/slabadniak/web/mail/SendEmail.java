@@ -5,6 +5,8 @@ import com.slabadniak.web.entity.User;
 
 /**
  * Sending of the email performs in the new thread to prevent delay in the command thread.
+ * @author Slabadniak Sergei
+ * @version 1.0
  */
 public class SendEmail {
     private SendEmail(){}

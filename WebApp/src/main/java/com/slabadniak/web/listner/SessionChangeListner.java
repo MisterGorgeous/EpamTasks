@@ -9,7 +9,9 @@ import javax.servlet.http.HttpSessionListener;
 
 
 /**
- * Set session atributes after it has been created.
+ * Set session attributes after it has been created.
+ * @author Slabadniak Sergei
+ * @version 1.0
  */
 @WebListener
 public class SessionChangeListner implements HttpSessionListener {

@@ -2,15 +2,16 @@ package com.slabadniak.web.entity;
 
 import java.sql.Timestamp;
 
+
 public class UsersAssessment {
     private String comment;
     private float rating;
-    private String movie;
+    private Movie movie;
     private String user;
     private Timestamp date;
     private boolean isMarkandText;
 
-    public UsersAssessment(String comment, float rating, String movie, String user, Timestamp date) {
+    public UsersAssessment(String comment, float rating, Movie movie, String user, Timestamp date) {
         this.comment = comment;
         this.rating = rating;
         this.movie = movie;
@@ -19,7 +20,7 @@ public class UsersAssessment {
         isMarkandText = false;
     }
 
-    public UsersAssessment(String comment, float rating, String movie, String user) {
+    public UsersAssessment(String comment, float rating, Movie movie, String user) {
         this.comment = comment;
         this.rating = rating;
         this.movie = movie;
@@ -27,7 +28,7 @@ public class UsersAssessment {
         isMarkandText = true;
     }
 
-    public UsersAssessment(float rating, String movie, String user) {
+    public UsersAssessment(float rating, Movie movie, String user) {
         this.rating = rating;
         this.movie = movie;
         this.user = user;
@@ -42,7 +43,7 @@ public class UsersAssessment {
         return rating;
     }
 
-    public String getMovie() {
+    public Movie getMovie() {
         return movie;
     }
 

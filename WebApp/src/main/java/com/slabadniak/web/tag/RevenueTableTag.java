@@ -8,6 +8,12 @@ import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 
+
+/**
+ * This tag extend functionality of input tag. It helps to represent user's status.
+ * @author Slabadniak Sergei
+ * @version 1.0
+ */
 @SuppressWarnings("serial")
 public class RevenueTableTag extends TagSupport {
     private int index;
@@ -37,6 +43,4 @@ public class RevenueTableTag extends TagSupport {
         }
         return SKIP_BODY;
     }
-
-
 }

@@ -8,6 +8,8 @@ import java.util.List;
 
 /**
  * Simply to provide DRY principle
+ * @author Slabadniak Sergei
+ * @version 1.0
  */
 public interface IAttribute {
      int NUMMOVIES = 6;

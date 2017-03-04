@@ -14,8 +14,11 @@ import javax.mail.internet.MimeMessage;
 import java.util.*;
 
 
+
 /**
  * Task that sends email to the user after registration and changing profile.
+ * @author Slabadniak Sergei
+ * @version 1.0
  */
 public class EmailSending implements Runnable {
     private static final Logger LOGGER = LogManager.getLogger(EmailSending.class);

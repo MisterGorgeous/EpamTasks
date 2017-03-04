@@ -1,6 +1,11 @@
 package com.slabadniak.web.exeption;
 
 
+/**
+ * Represent the exeption on command level.
+ * @author Slabadniak Sergei
+ * @version 1.0
+ */
 public class CommandExeption extends Exception{
     public CommandExeption() {
     }

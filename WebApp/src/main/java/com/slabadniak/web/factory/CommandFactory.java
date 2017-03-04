@@ -11,7 +11,9 @@ import java.util.List;
 
 
 /**
- * Create and execute commands
+ * Create and execute commands.
+ * @author Slabadniak Sergei
+ * @version 1.0
  */
 public class CommandFactory {
     private List<ICommand> commands;

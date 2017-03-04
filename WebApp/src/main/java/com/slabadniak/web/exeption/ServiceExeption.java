@@ -1,6 +1,10 @@
 package com.slabadniak.web.exeption;
 
-
+/**
+ * Represent the exeption on service level.
+ * @author Slabadniak Sergei
+ * @version 1.0
+ */
 public class ServiceExeption  extends Exception {
     public ServiceExeption() {
     }

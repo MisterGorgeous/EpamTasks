@@ -1,6 +1,11 @@
 package com.slabadniak.web.exeption;
 
 
+/**
+ * Represent the wrapper's exeption.
+ * @author Slabadniak Sergei
+ * @version 1.0
+ */
 public class WrapperException extends Exception {
     public WrapperException() {
     }

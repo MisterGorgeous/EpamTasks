@@ -9,9 +9,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 
+
 /**
  * Wrapper is the part of Wrapper Pattern. This object is used to substitute
  * the real one and provide a new functionality.
+ * @author Slabadniak Sergei
+ * @version 1.0
  */
 public class Wrapper {
     private static final Logger LOGGER = LogManager.getLogger(Wrapper.class);
@@ -26,6 +29,10 @@ public class Wrapper {
         return connection;
     }
 
+    /**
+     * @see Connection#close()
+     * @throws WrapperException
+     */
     public void closeConnection() throws WrapperException {
         if (connection != null) {
             try {
@@ -36,20 +43,30 @@ public class Wrapper {
         }
     }
 
-    public PreparedStatement prepareStatement(String comments) throws WrapperException {
+    /**
+     *
+     * @param request to DB
+     * @see Connection#prepareStatement(String)
+     * @return
+     * @throws WrapperException
+     */
+    public PreparedStatement prepareStatement(String request) throws WrapperException {
         try { //closed check
             if (this.ps != null ) {
                 if(!ps.isClosed()) {
                     ps.close();
                 }
             }
-            ps = connection.prepareStatement(comments);
+            ps = connection.prepareStatement(request);
         } catch (SQLException e) {
             throw new WrapperException("SQL exception ", e);
         }
         return ps;
     }
 
+    /**
+     * @throws WrapperException
+     */
     public void closePreparedStatement() throws WrapperException {
         try {
             if (this.ps != null ) {
@@ -60,6 +77,10 @@ public class Wrapper {
         }
     }
 
+    /**
+     * @see Connection#commit()
+     * @throws WrapperException
+     */
     public void commit() throws WrapperException {
 
         try {
@@ -69,6 +90,10 @@ public class Wrapper {
         }
     }
 
+    /**
+     * @see Connection#setAutoCommit(boolean)
+     * @throws WrapperException
+     */
     public void setAutoCommit(boolean autoCommit) throws WrapperException {
         try {
             connection.setAutoCommit(autoCommit);
@@ -77,6 +102,10 @@ public class Wrapper {
         }
     }
 
+    /**
+     * @see Connection#rollback()
+     * @throws WrapperException
+     */
     public void rollback() throws WrapperException {
         try {
             connection.rollback();

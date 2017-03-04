@@ -2,8 +2,11 @@ package com.slabadniak.web.configuration;
 
 import java.util.ResourceBundle;
 
+
 /**
- * get path to pages
+ * Content path to pages.
+ * @author Slabadniak Sergei
+ * @version 1.0
  */
 public class ConfigurationManager {
     private final static ResourceBundle resourceBundle = ResourceBundle.getBundle("config");

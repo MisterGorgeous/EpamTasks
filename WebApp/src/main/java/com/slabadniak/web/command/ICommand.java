@@ -6,7 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
- * Convert user's request into the object
+ * Implementation of GOF Command pattern.Convert user's request into the object
+ * @author Slabadniak Sergei
+ * @version 1.0
  */
 public interface ICommand {
     public static final String FEEDBACK = "feedback";

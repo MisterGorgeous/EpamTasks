@@ -19,6 +19,8 @@ import javax.servlet.http.HttpSession;
 /**
  * If user authotization rights doesn't specified,
  * set rights and redirect him on the main page.
+ * @author Slabadniak Sergei
+ * @version 1.0
  */
 @WebFilter(urlPatterns = { "/Controller", "/UploadServlet" }, servletNames = { "Controller", "UploadServlet" })
 public class RoleCheckFilter implements Filter {

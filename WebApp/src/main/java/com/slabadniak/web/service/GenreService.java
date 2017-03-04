@@ -24,7 +24,7 @@ public class GenreService {
         try {
             Wrapper connection = pool.getConnection();
             defaultDAO = new DefaultDAO(connection);
-            content.insert(defaultDAO.genres(movie.getTitle()));
+            content.insert(defaultDAO.genres(movie));
 
             pool.releaseConnection(connection);
             connection.closePreparedStatement();
