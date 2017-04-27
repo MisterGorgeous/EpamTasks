@@ -1,0 +1,91 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<fmt:setLocale value="${local}"/>
+<fmt:setBundle basename="def" var="resourceBundle"/>
+
+<html>
+<head>
+    <title>Login</title>
+    <meta title="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+
+<body>
+
+<%@ include file="/jsp/header.jsp" %>
+
+<div class="container pagination-centered">
+
+
+     <h1 class="page-header"><fmt:message key="sigin.edit" bundle="${resourceBundle}"/></h1>
+    <form action="Controller" method="post" class="form-horizontal" onsubmit="return checkPasswords()">
+        <input type="hidden" name="command" value="signin">
+        <input type="hidden" name="page" value="path.page.main">
+
+        <div class="form-group">
+            <label class="col-md-3 control-label"><fmt:message key="sigin.login" bundle="${resourceBundle}"/></label>
+            <div class="col-md-5">
+                <input class="form-control" name="login" type="text" placeholder="<fmt:message key="sigin.logininfo" bundle="${resourceBundle}"/>"  pattern="[A-Za-z][\w ]{4,32}$" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 control-label"><fmt:message key="sigin.email" bundle="${resourceBundle}"/></label>
+            <div class="col-lg-5">
+                <input class="form-control"  type="text" name="email" pattern="^[\w.!#$%&’*+/=?^_`{|}~-]+@[\w-]+(?:\.[\w-]+)*$" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label"><fmt:message key="sigin.password" bundle="${resourceBundle}"/></label>
+            <div class="col-md-5">
+                <input id="password" placeholder="<fmt:message key="sigin.passwordinfo" bundle="${resourceBundle}"/>" class="form-control" name="password" type="password"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,32}$" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label"><fmt:message key="sigin.confirm" bundle="${resourceBundle}"/></label>
+            <div class="col-md-5">
+                <input id="confPassword" placeholder="<fmt:message key="sigin.passwordinfo" bundle="${resourceBundle}"/>" class="form-control" name="confpassword" type="password"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,32}$" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class=" col-md-3 control-label"><fmt:message key="sigin.gender" bundle="${resourceBundle}"/></label>
+            <div class="col-md-5">
+                <select name="gender" class="form-control input-xlarge" required>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="space"></div>
+
+        <div class="form-group">
+            <label class="col-md-5 control-label"></label>
+            <div class="col-md-5">
+                <input class="btn btn-info" value="<fmt:message key="main.sigin" bundle="${resourceBundle}"/>" type="submit">
+            </div>
+        </div>
+    </form>
+
+    <form title="back" action="Controller" method="post">
+        <input type="hidden" name="command" value="empty">
+        <input type="hidden" name="page" value="path.page.main">
+        <input class="btn btn-primary" type="submit"  name="button" value="<fmt:message key="back" bundle="${resourceBundle}"/>" />
+    </form>
+
+</div>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/js/jquery-3.1.1.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script src="/js/custom.js"></script>
+</body>
+</html>

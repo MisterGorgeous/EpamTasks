@@ -1,0 +1,28 @@
+/* movie title and rating */
+.movTitle, .movRating {
+    position: absolute;
+}
+
+.movTitle {
+    right: 40%;
+    top: 5%;
+}
+
+.movRating {
+    right: 5%;
+    bottom: 5%;
+}
+
+.movieForm{
+    position: relative;
+}
+
+.movImg{
+    width: 100%;
+    height: 100%;
+}
+
+option{
+    color:#00ccff;
+}
+
